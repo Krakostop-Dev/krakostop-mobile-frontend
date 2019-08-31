@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import LoginScreenComponent from "./src/loginScreen/LoginComponent";
+import LoginScreenComponent from './src/loginScreen/LoginComponent';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <LoginScreenComponent/>
+      <LoginScreenComponent />
     </View>
   );
 }
