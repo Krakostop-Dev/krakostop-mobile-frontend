@@ -5,13 +5,14 @@ import {
   StyleSheet,
   TouchableWithoutFeedback,
 } from 'react-native';
+import { googleSignIn } from '../../modules/LoginWithGoogle';
 
-const logo = require('../../assets/krakologo2019.png');
-const loginButton = require('../../assets/btn_google_signin_light_normal_web.png');
+const logo = require('../../../assets/krakologo2019.png');
+const loginButton = require('../../../assets/btn_google_signin_light_normal_web.png');
 
 export default function() {
-  const _loginPressed = () => {
-    alert('Proceed to Login');
+  const _loginPressed = async () => {
+    alert(await googleSignIn());
   };
 
   return (

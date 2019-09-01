@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import LoginScreenComponent from './src/loginScreen/LoginComponent';
+import LoginScreenComponent from './src/views/loginScreen/LoginComponent';
 
 export default function App() {
   return (
