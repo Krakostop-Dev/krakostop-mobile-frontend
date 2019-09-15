@@ -6,11 +6,12 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 import { googleSignIn } from '../../modules/LoginWithGoogle';
+import {Text} from "react-native";
 
 const logo = require('../../../assets/krakologo2019.png');
 const loginButton = require('../../../assets/btn_google_signin_light_normal_web.png');
 
-export default function() {
+export default function({user, props}) {
   const _loginPressed = async () => {
     alert(await googleSignIn());
   };
@@ -20,8 +21,8 @@ export default function() {
       <View style={styles.sideColumn} />
       <View style={styles.middleColumn}>
         <Image style={styles.logo} source={logo} />
-
         <View style={styles.loginBtnContainer}>
+          <Text>{user.name}</Text>
           <TouchableWithoutFeedback onPress={_loginPressed}>
             <Image style={styles.loginButton} source={loginButton} />
           </TouchableWithoutFeedback>
