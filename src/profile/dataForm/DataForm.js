@@ -7,20 +7,22 @@ import {
 } from 'react-native';
 
 
-const DataForm = () => {
-    const [name, setName] = useState("Grzesiu");
-    const [surName, setSurName] = useState("Tluszcz");
-    const [pairId, setPairId] = useState("1337");
+
+
+const DataForm = ({user}) => {
+    const [name, setName] = useState(user.name);
+    const [surName, setSurName] = useState("Surname");
+    const [pairId, setPairId] = useState("PairId");
     return (
         <View style={formStyle.formContainer}>
-            <NameInput label={"Name"} inputValue={name} onInputChange={setName}/>
-            <NameInput label={"Surname"} inputValue={surName} onInputChange={setSurName}/>
-            <NameInput label={"PairId"} inputValue={pairId} onInputChange={setPairId}/>
+            <DetailsInput label={"Imię"} inputValue={user.name} onInputChange={ev => user.name=user.name+ev}/>
+            <DetailsInput label={"Nazwisko"} inputValue={surName} onInputChange={setSurName}/>
+            <DetailsInput label={"Id Pary"} inputValue={pairId} onInputChange={setPairId}/>
         </View>
     )
 };
 
-const NameInput = ({label, inputValue, onInputChange}) => {
+const DetailsInput = ({label, inputValue, onInputChange}) => {
     return (
         <View style={formStyle.inputContainer}>
             <View style={formStyle.inputLabelContainer}>
@@ -30,8 +32,7 @@ const NameInput = ({label, inputValue, onInputChange}) => {
                 style={formStyle.textInput}
                 onChangeText={onInputChange}
                 value={inputValue}
-                // defaultValue={"Name"}
-                // adjustsFontSizeToFit={true}
+                adjustsFontSizeToFit={true}
                 clearTextOnFocus={true}
             />
         </View>
@@ -56,7 +57,7 @@ const formStyle = StyleSheet.create({
 
     },
     inputLabelContainer: {
-        width: "30%",
+        width: "35%",
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "lightgray",
@@ -65,7 +66,7 @@ const formStyle = StyleSheet.create({
         borderRightWidth: 2
     },
     textInput: {
-        width: "70%",
+        width: "65%",
         fontSize: 20,
         textAlign: 'center',
         borderBottomRightRadius: 10,

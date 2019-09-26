@@ -2,9 +2,10 @@ import React from 'react';
 import {
     View,
     StyleSheet,
-    Text, Image
+    Text, Image, TouchableWithoutFeedback
 } from 'react-native';
 import DataForm from './dataForm/DataForm'
+import {User} from "./User";
 
 const thumbUp = require('../../assets/hand.png');
 
@@ -25,11 +26,22 @@ const SideColumn = () => {
 };
 
 const MiddleColumn = () => {
+    let usr = new User("Marian", "Karian", 123);
+    const _popUp = () => {
+        alert(usr.toString());
+    };
+
     return (
+
         <View style={columns.middle}>
-            <View style={elements.textContainer}><Text style={elements.mainText}>Fill Additional Details</Text></View>
-            <View style={elements.inputForm}><DataForm/></View>
-            <View style={elements.imageContainer}><Image style={elements.thumbUpIcon} source={thumbUp}/></View>
+            <View style={elements.textContainer}><Text style={elements.mainText}>Uzupełnij dodatkowe
+                informacje</Text></View>
+            <View style={elements.inputForm}><DataForm user={usr}/></View>
+            <View style={elements.textContainer}>
+                <TouchableWithoutFeedback onPress={_popUp}>
+                    <Text style={elements.mainText}>Dalej</Text>
+                </TouchableWithoutFeedback>
+            </View>
         </View>);
 };
 
@@ -79,10 +91,14 @@ const elements = StyleSheet.create({
         justifyContent: "center"
 
     },
-    thumbUpIcon: {
+    proceedBtn: {
         flex: 0.5,
-        resizeMode: 'contain',
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center"
     }
 
-
 });
+
+
+
