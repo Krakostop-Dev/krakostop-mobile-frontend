@@ -1,22 +1,39 @@
 import React, {createContext}from 'react'
 
-export const AppContext = createContext({
+export const UserContext = createContext({
     user: {
         name: "",
-        test: ""
     },
-
 });
+const initialState = {
+    user : {
+        name: "Krzysiek"
+    }
+};
 const reducer = (state, action) => {
     switch (action.type) {
         case 'loginUser':
+            console.log("ELO2");
             return {
                 ...state,
-                isAuthenticated: action.payload.authenticated,
-                name: action.payload.user.name
+                name: action.payload
             };
         default:
+            console.log("e");
             return state;
     }
 };
 
+export const UserContextProvider = props => {
+    const [state, dispatch] = React.useReducer(reducer, initialState.user);
+    return (
+        <UserContext.Provider
+            value={{
+                ...state,
+                handleLogin: () => dispatch({ type: 'loginUser', payload: "LOL" })
+            }}
+        >
+            {props.children}
+        </UserContext.Provider>
+    );
+};

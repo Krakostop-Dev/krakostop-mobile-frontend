@@ -7,11 +7,12 @@ import {
 } from 'react-native';
 import { googleSignIn } from '../../modules/LoginWithGoogle';
 import {Text} from "react-native";
+import {Button} from "react-native-web";
 
 const logo = require('../../../assets/krakologo2019.png');
 const loginButton = require('../../../assets/btn_google_signin_light_normal_web.png');
 
-export default function({user, props}) {
+export default function(user) {
   const _loginPressed = async () => {
     alert(await googleSignIn());
   };
@@ -22,10 +23,12 @@ export default function({user, props}) {
       <View style={styles.middleColumn}>
         <Image style={styles.logo} source={logo} />
         <View style={styles.loginBtnContainer}>
-          <Text>{user.name}</Text>
-          <TouchableWithoutFeedback onPress={_loginPressed}>
-            <Image style={styles.loginButton} source={loginButton} />
+          <TouchableWithoutFeedback onPress={user.handleLogin}>
+            <Text>{user.name}</Text>
           </TouchableWithoutFeedback>
+            <TouchableWithoutFeedback onPress={_loginPressed}>
+              <Image style={styles.loginButton} source={loginButton} />
+            </TouchableWithoutFeedback>
         </View>
       </View>
       <View style={styles.sideColumn} />
