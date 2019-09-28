@@ -1,18 +1,18 @@
 import React from 'react';
-import {UserContext, UserContextProvider} from "../../components/UserContext";
+import {AppContext, UserContextProvider} from "../../components/context/AppContext";
 import {StyleSheet, View} from "react-native";
 import LoginScreenComponent from "./LoginComponent";
 
 export default function LoginScreenContainer() {
     return(
         <UserContextProvider>
-            <UserContext.Consumer>{
-                user => (
+            <AppContext.Consumer>{
+                context => (
                     <View style = {styles.container}>
-                        <LoginScreenComponent {...user} />
+                        <LoginScreenComponent {...context} />
                     </View>
                 )}
-            </UserContext.Consumer>
+            </AppContext.Consumer>
         </UserContextProvider>
     );
 }

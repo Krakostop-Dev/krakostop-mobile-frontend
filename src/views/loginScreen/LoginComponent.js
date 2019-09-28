@@ -7,14 +7,20 @@ import {
 } from 'react-native';
 import { googleSignIn } from '../../modules/LoginWithGoogle';
 import {Text} from "react-native";
-import {Button} from "react-native-web";
 
 const logo = require('../../../assets/krakologo2019.png');
 const loginButton = require('../../../assets/btn_google_signin_light_normal_web.png');
 
-export default function(user) {
+export default function(context) {
   const _loginPressed = async () => {
-    alert(await googleSignIn());
+    try{
+      const {token,user} = await googleSignIn();
+      if(token){
+        await context.logIn(token,user)
+      }
+    }catch (e) {
+      console.log(e)
+    }
   };
 
   return (
@@ -23,9 +29,7 @@ export default function(user) {
       <View style={styles.middleColumn}>
         <Image style={styles.logo} source={logo} />
         <View style={styles.loginBtnContainer}>
-          <TouchableWithoutFeedback onPress={user.handleLogin}>
-            <Text>{user.name}</Text>
-          </TouchableWithoutFeedback>
+            <Text>{context.user.first_name}</Text>
             <TouchableWithoutFeedback onPress={_loginPressed}>
               <Image style={styles.loginButton} source={loginButton} />
             </TouchableWithoutFeedback>

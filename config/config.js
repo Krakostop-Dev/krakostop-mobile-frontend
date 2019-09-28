@@ -6,6 +6,6 @@ import {
 
 module.exports = {
   androidClientId: ANDROID_CLIENT_ID,
-  iosClientId: IOS_CLIENT_ID,
   baseUrl: BASE_URL,
+  iosClientId: IOS_CLIENT_ID,
 };

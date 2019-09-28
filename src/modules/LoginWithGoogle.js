@@ -3,17 +3,13 @@ import axios from 'axios';
 import config from '../../config/config';
 
 const talkToBackend = async (accessUrl, token) => {
-  try {
-    const response = await axios.post(accessUrl, {
-      token,
+  const response = await axios.post(accessUrl, {
+      token
     });
-    if (response.status === 200) {
-      return 'good';
+  if (response.status === 200) {
+      return response.data
     }
-    return 'null';
-  } catch (e) {
-    return e;
-  }
+    return null;
 };
 
 export const googleSignIn = async () => {
