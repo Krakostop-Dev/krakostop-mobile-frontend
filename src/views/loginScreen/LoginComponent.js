@@ -7,16 +7,22 @@ import {
 } from 'react-native';
 import { googleSignIn } from '../../modules/LoginWithGoogle';
 import {Text} from "react-native";
+import {getToken, removeToken} from "../../modules/JWTTokenManager";
 
 const logo = require('../../../assets/krakologo2019.png');
 const loginButton = require('../../../assets/btn_google_signin_light_normal_web.png');
 
 export default function(context) {
   const _loginPressed = async () => {
+    await removeToken();
     try{
       const {token,user} = await googleSignIn();
       if(token){
-        await context.logIn(token,user)
+        await context.logIn(token,user);
+        const token2 = await getToken();
+        console.log(token2);
+      }else {
+        console.log("TOKEN IS NULL");
       }
     }catch (e) {
       console.log(e)
