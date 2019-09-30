@@ -2,7 +2,7 @@ import * as Google from 'expo-google-app-auth';
 import axios from 'axios';
 import config from '../../config/config';
 
-const talkToBackend = async (accessUrl, token) => {
+const sendLogInRequestToBackend = async (accessUrl, token) => {
     const response = await axios.post(accessUrl, {
         token
     });
@@ -20,7 +20,7 @@ export const googleSignIn = async () => {
         });
         if (result.type === 'success') {
             const accessUrl = [config.baseUrl, 'api/v1/login'].join('');
-            return await talkToBackend(accessUrl, result.idToken);
+            return await sendLogInRequestToBackend(accessUrl, result.idToken);
         }
         return {cancelled: true};
     } catch (e) {
