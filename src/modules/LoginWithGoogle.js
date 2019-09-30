@@ -16,6 +16,7 @@ export const googleSignIn = async () => {
     try {
         const result = await Google.logInAsync({
             androidClientId: config.androidClientId,
+            ioClientId: config.iosClientId,
             scopes: ['profile', 'email'],
         });
         if (result.type === 'success') {
