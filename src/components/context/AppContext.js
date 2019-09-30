@@ -1,6 +1,6 @@
-import React, {createContext}from 'react'
+import React, {createContext} from 'react'
 import {reducer} from "./AppContextReducer"
-import {saveToken} from "../../modules/JWTTokenManager";
+import {removeDataFromStorage, saveDataInStorage} from "../../modules/JWTTokenManager";
 
 export const AppContext = createContext({
     user: {},
@@ -9,7 +9,7 @@ export const AppContext = createContext({
 });
 
 const initialState = {
-    user : {
+    user: {
         id: "",
         first_name: "",
         last_name: "",
@@ -18,18 +18,26 @@ const initialState = {
     }
 };
 
+async function logIn(dispatch, token, user) {
+    dispatch({type: 'logIn', user});
+    await saveDataInStorage('TOKEN', token);
+    await saveDataInStorage('USER', JSON.stringify(user));
+}
+
+async function logOut(dispatch) {
+    dispatch({type: 'logOut'});
+    await removeDataFromStorage('TOKEN');
+    await removeDataFromStorage('USER');
+}
+
 export const UserContextProvider = props => {
     const [state, dispatch] = React.useReducer(reducer, initialState);
     return (
         <AppContext.Provider
             value={{
                 ...state,
-                async logIn(token, user){
-                    dispatch({ type: 'logIn', user });
-                    await saveToken(token);
-                },
-                logOut: () => dispatch({ type: 'logOut', payload: "LOL" }),
-                refreshLogIn: () => dispatch({ type: 'refreshLogIn', payload: "LOL" })
+                logIn: async (token, user) => await logIn(dispatch, token, user),
+                logOut: async () => await logOut(dispatch),
             }}
         >
             {props.children}

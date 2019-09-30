@@ -4,11 +4,11 @@ import {StyleSheet, View} from "react-native";
 import LoginScreenComponent from "./LoginComponent";
 
 export default function LoginScreenContainer() {
-    return(
+    return (
         <UserContextProvider>
             <AppContext.Consumer>{
                 context => (
-                    <View style = {styles.container}>
+                    <View style={styles.container}>
                         <LoginScreenComponent {...context} />
                     </View>
                 )}

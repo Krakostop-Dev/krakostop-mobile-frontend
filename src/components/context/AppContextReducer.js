@@ -1,18 +1,18 @@
-import {saveToken} from "../../modules/JWTTokenManager";
-
-export const reducer  = (state, action) => {
+export const reducer = (state, action) => {
     switch (action.type) {
         case 'logIn':
             return {
                 ...state,
-                user: action.user
+                user: action.user,
+                isLoggedIn: true
             };
         case 'logOut':
             return {
-
+                ...state,
+                user: {},
+                isLoggedIn: false
             };
         default:
-            console.log("e");
             return state;
     }
 };
