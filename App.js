@@ -1,20 +1,9 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import LoginScreenComponent from './src/loginScreen/LoginComponent';
+import {StyleSheet, View} from 'react-native';
+import LoginScreenContainer from "./src/views/loginScreen/LoginScreenContainer";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <LoginScreenComponent />
-    </View>
-  );
+        <LoginScreenContainer />
+      );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
