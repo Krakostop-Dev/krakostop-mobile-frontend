@@ -1,11 +1,11 @@
 import React from 'react';
-import {AppContext, UserContextProvider} from "../../components/context/AppContext";
+import {AppContext, AppContextProvider} from "../../components/context/AppContext";
 import {StyleSheet, View} from "react-native";
 import LoginScreenComponent from "./LoginComponent";
 
 export default function LoginScreenContainer() {
     return (
-        <UserContextProvider>
+        <AppContextProvider>
             <AppContext.Consumer>{
                 context => (
                     <View style={styles.container}>
@@ -13,7 +13,7 @@ export default function LoginScreenContainer() {
                     </View>
                 )}
             </AppContext.Consumer>
-        </UserContextProvider>
+        </AppContextProvider>
     );
 }
 

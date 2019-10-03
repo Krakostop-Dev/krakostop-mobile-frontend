@@ -30,7 +30,7 @@ async function logOut(dispatch) {
     await removeDataFromStorage('USER');
 }
 
-export const UserContextProvider = props => {
+export const AppContextProvider = props => {
     const [state, dispatch] = React.useReducer(reducer, initialState);
     return (
         <AppContext.Provider
