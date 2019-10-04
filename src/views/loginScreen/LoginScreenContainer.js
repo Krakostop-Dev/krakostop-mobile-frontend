@@ -3,13 +3,13 @@ import {AppContext, AppContextProvider} from "../../components/context/AppContex
 import {StyleSheet, View} from "react-native";
 import LoginScreenComponent from "./LoginComponent";
 
-export default function LoginScreenContainer() {
+export default function LoginScreenContainer(props) {
     return (
         <AppContextProvider>
             <AppContext.Consumer>{
                 context => (
                     <View style={styles.container}>
-                        <LoginScreenComponent {...context} />
+                        <LoginScreenComponent context={context} navigation={props.navigation} />
                     </View>
                 )}
             </AppContext.Consumer>

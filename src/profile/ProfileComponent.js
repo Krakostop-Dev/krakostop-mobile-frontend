@@ -8,11 +8,11 @@ import DataForm from './dataForm/DataForm'
 import {User} from "./User";
 
 
-const Profile = ({user, updateUser}) => {
+const Profile = ({user, updateUser, navigation}) => {
     return (
         <View style={columns.container}>
             <SideColumn/>
-            <MiddleColumn user={user} upadteUser={updateUser}/>
+            <MiddleColumn user={user} updateUser={updateUser} navigation={navigation} />
             <SideColumn/>
         </View>
     );
@@ -22,7 +22,7 @@ const SideColumn = () => {
     return (<View style={columns.side}/>);
 };
 
-const MiddleColumn = ({user, upadteUser}) => {
+const MiddleColumn = ({user, updateUser, navigation}) => {
 
     const [name, setName] = useState("Marian");
     const [surName, setSurname] = useState("Barian");
@@ -38,7 +38,7 @@ const MiddleColumn = ({user, upadteUser}) => {
                                                        paiId={pairID} setPairId={setPairId}
             /></View>
             <View style={elements.textContainer}>
-                <TouchableWithoutFeedback onPress={() => upadteUser(new User(name, surName, pairID))}>
+                <TouchableWithoutFeedback onPress={() => navigation.navigate('LoginScreen')}>
                     <Text style={elements.mainText}>Dalej</Text>
                 </TouchableWithoutFeedback>
             </View>

@@ -5,10 +5,11 @@ import {googleSignIn} from '../../modules/LoginWithGoogle';
 const logo = require('../../../assets/krakologo2019.png');
 const loginButton = require('../../../assets/btn_google_signin_light_normal_web.png');
 
-export default function (context) {
+export default function ({context, navigation}) {
     const _loginPressed = async () => {
         try {
             const {token, user} = await googleSignIn();
+            navigation.navigate('ProfileScreen');
             if (token) {
                 await context.logIn(token, user);
             } else {
