@@ -19,15 +19,17 @@ const initialState = {
 };
 
 async function logIn(dispatch, token, user) {
-    dispatch({type: 'logIn', user});
     await saveDataInStorage('TOKEN', token);
     await saveDataInStorage('USER', JSON.stringify(user));
+
+    dispatch({type: 'logIn', payload: user});
 }
 
 async function logOut(dispatch) {
-    dispatch({type: 'logOut'});
     await removeDataFromStorage('TOKEN');
     await removeDataFromStorage('USER');
+
+    await dispatch({type: 'logOut'});
 }
 
 export const AppContextProvider = props => {

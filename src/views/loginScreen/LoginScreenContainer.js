@@ -5,7 +5,6 @@ import LoginScreenComponent from "./LoginComponent";
 
 export default function LoginScreenContainer(props) {
     return (
-        <AppContextProvider>
             <AppContext.Consumer>{
                 context => (
                     <View style={styles.container}>
@@ -13,7 +12,6 @@ export default function LoginScreenContainer(props) {
                     </View>
                 )}
             </AppContext.Consumer>
-        </AppContextProvider>
     );
 }
 

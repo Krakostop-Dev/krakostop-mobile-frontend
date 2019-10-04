@@ -5,14 +5,14 @@ import {
     Text, TouchableWithoutFeedback
 } from 'react-native';
 import DataForm from './dataForm/DataForm'
-import {User} from "./User";
 
+const Profile = ({context, updateUser, navigation}) => {
 
-const Profile = ({user, updateUser, navigation}) => {
+    console.log(context.user);
     return (
         <View style={columns.container}>
             <SideColumn/>
-            <MiddleColumn user={user} updateUser={updateUser} navigation={navigation} />
+            <MiddleColumn user={context.user} updateUser={updateUser} navigation={navigation} />
             <SideColumn/>
         </View>
     );
@@ -23,10 +23,9 @@ const SideColumn = () => {
 };
 
 const MiddleColumn = ({user, updateUser, navigation}) => {
-
-    const [name, setName] = useState("Marian");
-    const [surName, setSurname] = useState("Barian");
-    const [pairID, setPairId] = useState("123");
+    const [name, setName] = useState(user.first_name);
+    const [surName, setSurname] = useState(user.last_name);
+    const [pairID, setPairId] = useState("");
 
     return (
 

@@ -3,7 +3,7 @@ export const reducer = (state, action) => {
         case 'logIn':
             return {
                 ...state,
-                user: action.user,
+                user: action.payload,
                 isLoggedIn: true
             };
         case 'logOut':

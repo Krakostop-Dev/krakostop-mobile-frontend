@@ -9,9 +9,9 @@ export default function ({context, navigation}) {
     const _loginPressed = async () => {
         try {
             const {token, user} = await googleSignIn();
-            navigation.navigate('ProfileScreen');
             if (token) {
                 await context.logIn(token, user);
+                navigation.navigate('ProfileScreen');
             } else {
                 console.log("TOKEN IS NULL");
             }
@@ -26,9 +26,11 @@ export default function ({context, navigation}) {
             <View style={styles.middleColumn}>
                 <Image style={styles.logo} source={logo}/>
                 <View style={styles.loginBtnContainer}>
-                    <Text>{context.user.first_name}</Text>
                     <TouchableWithoutFeedback onPress={_loginPressed}>
                         <Image style={styles.loginButton} source={loginButton}/>
+                    </TouchableWithoutFeedback>
+                    <TouchableWithoutFeedback onPress={() => navigation.navigate("ProfileScreen")} >
+                        <Text>Przejdz do profilu</Text>
                     </TouchableWithoutFeedback>
                 </View>
             </View>
