@@ -37,7 +37,7 @@ const MiddleColumn = ({user, updateUser, navigation}) => {
                                                        paiId={pairID} setPairId={setPairId}
             /></View>
             <View style={elements.textContainer}>
-                <TouchableWithoutFeedback onPress={() => navigation.navigate('LoginScreen')}>
+                <TouchableWithoutFeedback onPress={() => navigation.navigate('DashboardScreen')}>
                     <Text style={elements.mainText}>Dalej</Text>
                 </TouchableWithoutFeedback>
             </View>
@@ -96,7 +96,6 @@ const elements = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center"
     }
-
 });
 
 

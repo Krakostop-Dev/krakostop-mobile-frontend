@@ -5,10 +5,12 @@ import {createStackNavigator} from 'react-navigation-stack';
 import LoginScreen from "../views/loginScreen/LoginScreenContainer";
 import SplashScreen from "../views/splashScreen/SplashScreenContainer";
 import ProfileScreen from "../views/profileScreen/ProfileScreenContainer";
+import DashboardScreen from "../views/dashboardScreen/DashboardScreenContainer";
 
 const AppStack = createStackNavigator(
     {
-        ProfileScreen
+        ProfileScreen,
+        DashboardScreen
     },
     {
         initialRouteName: 'ProfileScreen',
@@ -21,7 +23,6 @@ const AppStack = createStackNavigator(
                 textAlign: 'right',
                 fontWeight: 'bold',
             },
-            headerTitle: 'Login'
         }
     }
 );
