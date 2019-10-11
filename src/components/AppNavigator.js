@@ -1,19 +1,17 @@
 import React from 'react';
-import { createAppContainer } from 'react-navigation';
+import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 
 import LoginScreen from "../views/loginScreen/LoginScreenContainer";
 import SplashScreen from "../views/splashScreen/SplashScreenContainer";
 import ProfileScreen from "../views/profileScreen/ProfileScreenContainer";
 
-const RootStack = createStackNavigator(
+const AppStack = createStackNavigator(
     {
-        SplashScreen,
-        LoginScreen,
-        ProfileScreen,
+        ProfileScreen
     },
     {
-        initialRouteName:   'SplashScreen',
+        initialRouteName: 'ProfileScreen',
         defaultNavigationOptions: {
             headerStyle: {
                 backgroundColor: '#f4511e',
@@ -23,9 +21,27 @@ const RootStack = createStackNavigator(
                 textAlign: 'right',
                 fontWeight: 'bold',
             },
-            headerTitle : 'Login'
+            headerTitle: 'Login'
         }
     }
 );
 
-export const AppNavigator = createAppContainer(RootStack);
+const AuthStack = createStackNavigator(
+    {
+        LoginScreen
+    }
+);
+
+
+export default createAppContainer(
+    createSwitchNavigator(
+        {
+            AuthLoading: SplashScreen,
+            App: AppStack,
+            Auth: AuthStack,
+        },
+        {
+            initialRouteName: "Auth",
+        }
+    )
+);

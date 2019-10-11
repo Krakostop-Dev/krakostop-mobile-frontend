@@ -11,7 +11,7 @@ export default function ({context, navigation}) {
             const {token, user} = await googleSignIn();
             if (token) {
                 await context.logIn(token, user);
-                navigation.navigate('ProfileScreen');
+                navigation.navigate('App');
             } else {
                 console.log("TOKEN IS NULL");
             }
