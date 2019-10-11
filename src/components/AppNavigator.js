@@ -9,7 +9,18 @@ const RootStack = createStackNavigator(
         ProfileScreen,
     },
     {
-        initialRouteName:   'LoginScreen'
+        initialRouteName:   'LoginScreen',
+        defaultNavigationOptions: {
+            headerStyle: {
+                backgroundColor: '#f4511e',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                textAlign: 'right',
+                fontWeight: 'bold',
+            },
+            headerTitle : 'Login'
+        }
     }
 );
 

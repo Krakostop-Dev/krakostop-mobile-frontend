@@ -29,9 +29,6 @@ export default function ({context, navigation}) {
                     <TouchableWithoutFeedback onPress={_loginPressed}>
                         <Image style={styles.loginButton} source={loginButton}/>
                     </TouchableWithoutFeedback>
-                    <TouchableWithoutFeedback onPress={() => navigation.navigate("ProfileScreen")} >
-                        <Text>Przejdz do profilu</Text>
-                    </TouchableWithoutFeedback>
                 </View>
             </View>
             <View style={styles.sideColumn}/>
