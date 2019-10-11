@@ -1,4 +1,4 @@
-import {AppContext, AppContextProvider} from "../components/context/AppContext";
+import {AppContext} from "../../components/context/AppContext";
 import Profile from "./ProfileComponent";
 import React from "react";
 

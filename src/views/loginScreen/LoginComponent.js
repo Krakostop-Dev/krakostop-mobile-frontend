@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, StyleSheet, Text, TouchableWithoutFeedback, View,} from 'react-native';
+import {Image, StyleSheet, TouchableWithoutFeedback, View,} from 'react-native';
 import {googleSignIn} from '../../modules/LoginWithGoogle';
 
 const logo = require('../../../assets/krakologo2019.png');
