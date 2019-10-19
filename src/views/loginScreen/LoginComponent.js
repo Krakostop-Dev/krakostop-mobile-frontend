@@ -18,10 +18,10 @@ export default function({ context, navigation }) {
         await context.logIn(token, user);
         navigation.navigate('ProfileScreen');
       } else {
-        console.log('TOKEN IS NULL');
+        console.error('TOKEN IS NULL');
       }
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   };
 

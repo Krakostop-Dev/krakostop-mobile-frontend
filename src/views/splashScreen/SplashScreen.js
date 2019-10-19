@@ -8,7 +8,7 @@ const SplashScreen = ({ context, navigation }) => {
         try {
             await context.refreshLogin();
         } catch (e) {
-            console.log(e);
+            console.error(e);
         }
         setTimeout(() => {
             if (context.isLoggedIn) {

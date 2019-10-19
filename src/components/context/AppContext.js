@@ -4,7 +4,7 @@ import {
   getDataFromStorage,
   removeDataFromStorage,
   saveDataInStorage,
-} from '../../modules/JWTTokenManager';
+} from '../../modules/Storage';
 
 export const AppContext = createContext({
   user: {},

@@ -16,15 +16,17 @@ export const googleSignIn = async () => {
   try {
     const result = await Google.logInAsync({
       androidClientId: config.androidClientId,
-      ioClientId: config.iosClientId,
+      iosClientId: config.iosClientId,
       scopes: ['profile', 'email'],
     });
     if (result.type === 'success') {
       const accessUrl = [config.baseUrl, 'api/v1/login'].join('');
       return await sendLogInRequestToBackend(accessUrl, result.idToken);
     }
-    return { cancelled: true };
+    console.error("Problem with google auth");
+    return { error: true };
   } catch (e) {
+    console.error(e);
     return { error: true };
   }
 };
