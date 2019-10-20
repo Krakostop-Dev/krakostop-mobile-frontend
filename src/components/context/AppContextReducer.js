@@ -3,19 +3,22 @@ export const reducer = (state, action) => {
     case 'logIn':
       return {
         ...state,
-        user: action.payload,
+        user: action.payload.user,
+        token: action.payload.token,
         isLoggedIn: true,
       };
     case 'logOut':
       return {
         ...state,
-        user: {},
+        user: null,
+        token: null,
         isLoggedIn: false,
       };
     case 'refreshLogin':
       return {
         ...state,
-        user: action.payload,
+        user: action.payload.user,
+        token: action.payload.token,
         isLoggedIn: true,
       };
     default:
