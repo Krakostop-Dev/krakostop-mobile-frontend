@@ -7,7 +7,8 @@ const sendLogInRequestToBackend = async (accessUrl, token) => {
     token,
   });
   if (response.status === 200) {
-    return response.data;
+
+      return response.data;
   }
   return null;
 };
