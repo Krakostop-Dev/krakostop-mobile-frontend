@@ -36,10 +36,10 @@ async function logOut(dispatch) {
     dispatch({type: 'logOut'});
 }
 
-async function updateUser(dispacth, user) {
+async function updateUser(dispatch, user) {
     //TODO: HIT BACKEDN WITH UPDATED USER
     await saveDataInStorage('USER', JSON.stringify(user));
-    dispacth({type: "updateUser", payload: user});
+    dispatch({type: "updateUser", payload: user});
 }
 
 async function refreshLogin(dispatch) {
