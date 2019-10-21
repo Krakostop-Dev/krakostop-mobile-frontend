@@ -4,11 +4,11 @@ import { createDrawerNavigator } from 'react-navigation-drawer';
 import LoginScreen from '../views/loginScreen/LoginComponent';
 import SplashScreen from '../views/splashScreen/SplashScreen';
 import DashboardScreen from '../views/dashboardScreen/DashboardScreen';
-import EditProfileScreen from "../views/profileScreen/EditProfileScreen";
+import EditProfileScreen from '../views/profileScreen/EditProfileScreen';
 
 const AppStack = createDrawerNavigator(
   {
-      EditProfileScreen,
+    EditProfileScreen,
     DashboardScreen,
   },
   {
@@ -27,8 +27,8 @@ const AppStack = createDrawerNavigator(
 );
 
 const AuthStack = createDrawerNavigator({
-    LoginScreen,
-    EditProfileScreen
+  LoginScreen,
+  EditProfileScreen,
 });
 
 export default createAppContainer(

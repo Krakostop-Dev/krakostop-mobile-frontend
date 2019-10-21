@@ -21,10 +21,10 @@ export const reducer = (state, action) => {
         token: action.payload.token,
         isLoggedIn: true,
       };
-  case 'updateUser':
+    case 'updateUser':
       return {
-          ...state,
-          user: {...state.user, ...action.payload.user}
+        ...state,
+        user: { ...state.user, ...action.payload.user },
       };
     default:
       return state;
