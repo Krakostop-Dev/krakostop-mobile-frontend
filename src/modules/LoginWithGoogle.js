@@ -7,8 +7,7 @@ const sendLogInRequestToBackend = async (accessUrl, token) => {
     token,
   });
   if (response.status === 200) {
-
-      return response.data;
+    return response.data;
   }
   return null;
 };
@@ -24,7 +23,7 @@ export const googleSignIn = async () => {
       const accessUrl = [config.baseUrl, 'api/v1/login'].join('');
       return await sendLogInRequestToBackend(accessUrl, result.idToken);
     }
-    console.error("Problem with google auth");
+    console.error('Problem with google auth');
     return { error: true };
   } catch (e) {
     console.error(e);
