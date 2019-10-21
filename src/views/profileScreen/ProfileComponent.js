@@ -42,9 +42,7 @@ const MiddleColumn = ({ user, updateUser, navigation }) => {
         />
       </View>
       <View style={elements.textContainer}>
-        <TouchableWithoutFeedback
-          onPress={() => navigation.navigate('App')}
-        >
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('App')}>
           <Text style={elements.mainText}>Dalej</Text>
         </TouchableWithoutFeedback>
       </View>

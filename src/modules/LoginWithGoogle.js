@@ -23,7 +23,7 @@ export const googleSignIn = async () => {
       const accessUrl = [config.baseUrl, 'api/v1/login'].join('');
       return await sendLogInRequestToBackend(accessUrl, result.idToken);
     }
-    console.error("Problem with google auth");
+    console.error('Problem with google auth');
     return { error: true };
   } catch (e) {
     console.error(e);

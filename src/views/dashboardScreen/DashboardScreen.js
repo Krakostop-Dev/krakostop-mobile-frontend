@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableWithoutFeedback, View} from 'react-native';
+import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
 
 const DashboardScreen = ({ context, navigation }) => {
   const _logoutPressed = async () => {
@@ -12,8 +12,8 @@ const DashboardScreen = ({ context, navigation }) => {
     <View style={styles.colsContainer}>
       <View style={styles.sideColumn} />
       <View style={styles.middleColumn}>
-        <TouchableWithoutFeedback onPress={_logoutPressed}>
-          <Text style ={styles.mainText}>Logout</Text>
+        <TouchableWithoutFeedback onPress={_logoutPressed()}>
+          <Text style={styles.mainText}>Logout</Text>
         </TouchableWithoutFeedback>
       </View>
       <View style={styles.sideColumn} />
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold',
     borderWidth: 2,
-    borderRadius: 10
+    borderRadius: 10,
   },
 });
 

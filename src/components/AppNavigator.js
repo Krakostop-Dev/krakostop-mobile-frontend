@@ -28,8 +28,8 @@ const AppStack = createDrawerNavigator(
 );
 
 const AuthStack = createDrawerNavigator({
-    LoginScreen,
-    ProfileScreen
+  LoginScreen,
+  ProfileScreen,
 });
 
 export default createAppContainer(

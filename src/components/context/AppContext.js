@@ -7,10 +7,10 @@ import {
 } from '../../modules/Storage';
 
 export const AppContext = createContext({
-  user: {},
-  token: {},
+  user: null,
+  token: null,
   isLoggedIn: false,
-  error: ''
+  error: '',
 });
 
 const initialState = {
@@ -27,7 +27,7 @@ async function logIn(dispatch, token, user) {
   await saveDataInStorage('TOKEN', token);
   await saveDataInStorage('USER', JSON.stringify(user));
 
-  dispatch({ type: 'logIn', payload: {user,token}});
+  dispatch({ type: 'logIn', payload: { user, token } });
 }
 
 async function logOut(dispatch) {
@@ -40,11 +40,8 @@ async function refreshLogin(dispatch) {
   const token = await getDataFromStorage('TOKEN');
   const user = await getDataFromStorage('USER');
 
-  console.log("TOKEN:" + token );
-  console.log("USER:" + user );
-
   if (token && user) {
-    dispatch({ type: 'refreshLogin', payload: {user,token} });
+    dispatch({ type: 'refreshLogin', payload: { user, token } });
   } else {
     console.log('There is no token!');
   }

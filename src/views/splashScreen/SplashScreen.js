@@ -4,25 +4,24 @@ import { Image, StyleSheet, View } from 'react-native';
 const logo = require('../../../assets/krakologo2019.png');
 
 const SplashScreen = ({ context, navigation }) => {
-    async function refreshLogin(){
-        try {
-            await context.refreshLogin();
-        } catch (e) {
-            console.error(e);
-        }
-        setTimeout(() => {
-            if (context.isLoggedIn) {
-                navigation.navigate('App');
-            } else {
-                navigation.navigate('Auth');
-            }
-        }, 1000);
+  async function refreshLogin() {
+    try {
+      await context.refreshLogin();
+    } catch (e) {
+      console.error(e);
     }
+    setTimeout(() => {
+      if (context.isLoggedIn) {
+        navigation.navigate('App');
+      } else {
+        navigation.navigate('Auth');
+      }
+    }, 1000);
+  }
 
-
-    useEffect( () => {
-        refreshLogin()
-    }        , []);
+  useEffect(() => {
+    refreshLogin();
+  }, []);
 
   return (
     <View style={styles.colsContainer}>
