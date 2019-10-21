@@ -1,15 +1,14 @@
 import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator } from 'react-navigation-drawer';
-import LoginScreen from '../views/loginScreen/LoginScreenContainer';
-import SplashScreen from '../views/splashScreen/SplashScreenContainer';
-import ProfileScreen from '../views/profileScreen/ProfileScreenContainer';
-import DashboardScreen from '../views/dashboardScreen/DashboardScreenContainer';
+import LoginScreen from '../views/loginScreen/LoginComponent';
+import SplashScreen from '../views/splashScreen/SplashScreen';
+import DashboardScreen from '../views/dashboardScreen/DashboardScreen';
+import EditProfileScreen from "../views/profileScreen/EditProfileScreen";
 
 const AppStack = createDrawerNavigator(
   {
-    ProfileScreen,
+      EditProfileScreen,
     DashboardScreen,
   },
   {
@@ -28,8 +27,8 @@ const AppStack = createDrawerNavigator(
 );
 
 const AuthStack = createDrawerNavigator({
-  LoginScreen,
-  ProfileScreen,
+    LoginScreen,
+    EditProfileScreen
 });
 
 export default createAppContainer(
