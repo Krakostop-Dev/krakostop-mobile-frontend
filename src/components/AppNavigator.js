@@ -5,8 +5,9 @@ import LoginScreen from '../views/loginScreen/LoginComponent';
 import SplashScreen from '../views/splashScreen/SplashScreen';
 import DashboardScreen from '../views/dashboardScreen/DashboardScreen';
 import EditProfileScreen from '../views/profileScreen/EditProfileScreen';
+import {createStackNavigator} from "react-navigation-stack";
 
-const AppStack = createDrawerNavigator(
+const AppStack = createStackNavigator(
   {
     EditProfileScreen,
     DashboardScreen,

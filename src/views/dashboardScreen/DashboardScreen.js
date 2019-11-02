@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Text, TouchableWithoutFeedback, View } from 'react-native';
 import { AppContext } from '../../components/context/AppContext';
 import { ksBasic } from '../../styles/basic/ksBasic';
+import MapComponent from "../../components/MapComponent";
 
 const DashboardScreen = ({ navigation }) => {
   const context = useContext(AppContext);
@@ -13,9 +14,7 @@ const DashboardScreen = ({ navigation }) => {
   return (
     <View style={ksBasic.stackContainer}>
       <View style={ksBasic.stack}>
-        <TouchableWithoutFeedback onPress={_logoutPressed}>
-          <Text style={ksBasic.mediumText}>Logout</Text>
-        </TouchableWithoutFeedback>
+        <MapComponent/>
       </View>
     </View>
   );
