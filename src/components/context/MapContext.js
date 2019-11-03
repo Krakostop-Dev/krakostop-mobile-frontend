@@ -1,10 +1,12 @@
 import React, { createContext } from 'react';
 import { reducer } from './MapContextReducer';
 import KsAxios from '../../modules/KsAxios';
+import * as Permissions from "expo-permissions";
 
 export const MapContext = createContext({
     my_location: null,
-    participants: null
+    participants: null,
+    isMapPermissionsGranted: false
 });
 
 const initialState = {
@@ -15,8 +17,17 @@ const initialState = {
         }
     },
     participants: [],
-    isMapPermissionsGranted: false
 };
+
+async function grantMapPermissions(dispatch){
+    const { status } = await Permissions.askAsync(Permissions.LOCATION);
+    if (status !== 'granted') {
+        dispatch({type: 'changeMapPermissions', payload: false});
+        console.error('Permission to access location was denied');
+    }else{
+        dispatch({type: 'changeMapPermissions', payload: true})
+    }
+}
 
 async function updateMyLocation(dispatch, location) {
     //TODO Send location to backend
@@ -29,6 +40,7 @@ export const MapContextProvider = props => {
         <MapContext.Provider
             value={{
                 ...state,
+                grantMapPermissions: async () => await grantMapPermissions(dispatch),
                 updateMyLocation: async (location) => await updateMyLocation(dispatch, location),
             }}
         >

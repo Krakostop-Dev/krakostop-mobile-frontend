@@ -2,20 +2,24 @@ import React, { useEffect, useContext } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 import { AppContext } from '../../components/context/AppContext';
 import { ksBasic } from '../../styles/basic/ksBasic';
+import {MapContext} from "../../components/context/MapContext";
 
 const logo = require('../../../assets/krakologo2019.png');
 
 const SplashScreen = ({ navigation }) => {
-  const context = useContext(AppContext);
+  const appContext = useContext(AppContext);
+  const mapContext = useContext(MapContext);
 
   async function refreshLogin() {
     try {
-      await context.refreshLogin();
+      await appContext.refreshLogin();
+      await mapContext.grantMapPermissions();
     } catch (e) {
       console.error(e);
     }
+
     setTimeout(() => {
-      if (context.isLoggedIn) {
+      if (appContext.isLoggedIn) {
         navigation.navigate('App');
       } else {
         navigation.navigate('Auth');

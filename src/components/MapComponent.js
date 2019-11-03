@@ -2,7 +2,6 @@ import React, { useEffect, useContext, useState } from 'react';
 import MapView from 'react-native-maps';
 import { StyleSheet, View, Dimensions } from 'react-native';
 import * as Location from 'expo-location';
-import * as Permissions from 'expo-permissions';
 import { MapContext } from './context/MapContext';
 import { KsLabel } from './ksLabel/KsLabel';
 
@@ -15,11 +14,10 @@ const MapComponent = () => {
   const [isLocationLoaded, loadLocation] = useState(false);
   useEffect(() => {
     const _getLocationAsync = async () => {
-      const { status } = await Permissions.askAsync(Permissions.LOCATION);
-      if (status !== 'granted') {
-        console.error('Permission to access location was denied');
-      }
-
+        console.log(context.isMapPermissionsGranted);
+       if(!context.isMapPermissionsGranted) {
+           await context.grantMapPermissions();
+       }
       const location = await Location.getCurrentPositionAsync({});
 
       setLocation({
