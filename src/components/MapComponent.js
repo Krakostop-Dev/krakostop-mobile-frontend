@@ -2,8 +2,9 @@ import React, { useEffect, useContext, useState } from 'react';
 import MapView from 'react-native-maps';
 import { StyleSheet, View, Dimensions } from 'react-native';
 import * as Location from 'expo-location';
+import { Spinner } from 'native-base';
 import { MapContext } from './context/MapContext';
-import { KsLabel } from './ksLabel/KsLabel';
+import { ksBasic } from '../styles/basic/ksBasic';
 
 const MapComponent = () => {
   const context = useContext(MapContext);
@@ -14,10 +15,10 @@ const MapComponent = () => {
   const [isLocationLoaded, loadLocation] = useState(false);
   useEffect(() => {
     const _getLocationAsync = async () => {
-        console.log(context.isMapPermissionsGranted);
-       if(!context.isMapPermissionsGranted) {
-           await context.grantMapPermissions();
-       }
+      console.log(context.isMapPermissionsGranted);
+      if (!context.isMapPermissionsGranted) {
+        await context.grantMapPermissions();
+      }
       const location = await Location.getCurrentPositionAsync({});
 
       setLocation({
@@ -45,7 +46,7 @@ const MapComponent = () => {
           }}
         />
       ) : (
-        <KsLabel labelText="loading" />
+        <Spinner color="red" />
       )}
     </View>
   );
@@ -53,10 +54,8 @@ const MapComponent = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
+    ...ksBasic.stackContainer,
     alignItems: 'center',
-    justifyContent: 'center',
   },
   mapStyle: {
     width: Dimensions.get('window').width,

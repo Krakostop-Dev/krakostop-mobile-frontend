@@ -8,6 +8,7 @@ export const ksBasic = StyleSheet.create({
   stackContainer: {
     flex: 1,
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: ksColors.primaryColor,
   },
