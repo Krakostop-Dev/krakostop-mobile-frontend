@@ -22,8 +22,6 @@ const initialState = {
     email: '',
     verified_login: false,
   },
-  latitude: 0,
-  longitude: 0,
 };
 
 async function logIn(dispatch, token, user) {
@@ -74,11 +72,6 @@ export const AppContextProvider = props => {
         logOut: async () => await logOut(dispatch),
         updateUser: async user => await updateUser(dispatch, user),
         refreshLogin: async () => await refreshLogin(dispatch),
-        updateLocation: (latitude, longitude) =>
-          dispatch({
-            type: 'updateLocation',
-            payload: { latitude, longitude },
-          }),
       }}
     >
       {props.children}

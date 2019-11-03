@@ -3,12 +3,11 @@ import MapView from 'react-native-maps';
 import { StyleSheet, View, Dimensions } from 'react-native';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
-import Text from 'react-native-web/dist/exports/Text';
-import { AppContext } from './context/AppContext';
+import { MapContext } from './context/MapContext';
 import { KsLabel } from './ksLabel/KsLabel';
 
 const MapComponent = () => {
-  const context = useContext(AppContext);
+  const context = useContext(MapContext);
   const [location, setLocation] = useState({
     latitude: 0,
     longitude: 50,
@@ -20,13 +19,16 @@ const MapComponent = () => {
       if (status !== 'granted') {
         console.error('Permission to access location was denied');
       }
+
       const location = await Location.getCurrentPositionAsync({});
-      context.updateLocation(location.latitude, location.longitude);
+
       setLocation({
         longitude: location.coords.longitude,
         latitude: location.coords.latitude,
       });
       loadLocation(true);
+
+      await context.updateMyLocation(location);
     };
 
     _getLocationAsync();

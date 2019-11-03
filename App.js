@@ -1,11 +1,14 @@
 import React from 'react';
 import AppNavigator from './src/components/AppNavigator';
 import { AppContextProvider } from './src/components/context/AppContext';
+import {MapContextProvider} from "./src/components/context/MapContext";
 
 export default function App() {
   return (
     <AppContextProvider>
-      <AppNavigator />
+        <MapContextProvider>
+            <AppNavigator />
+        </MapContextProvider>
     </AppContextProvider>
   );
 }

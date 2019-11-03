@@ -26,12 +26,6 @@ export const reducer = (state, action) => {
         ...state,
         user: { ...state.user, ...action.payload.user },
       };
-    case 'updateLocation':
-      return {
-        ...state,
-        latitude: action.payload.latitude,
-        longitude: action.payload.longitude,
-      };
     default:
       return state;
   }
