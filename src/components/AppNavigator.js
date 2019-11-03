@@ -1,11 +1,11 @@
 import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer';
+import { createStackNavigator } from 'react-navigation-stack';
 import LoginScreen from '../views/loginScreen/LoginComponent';
 import SplashScreen from '../views/splashScreen/SplashScreen';
 import DashboardScreen from '../views/dashboardScreen/DashboardScreen';
 import EditProfileScreen from '../views/profileScreen/EditProfileScreen';
-import {createStackNavigator} from "react-navigation-stack";
 
 const AppStack = createStackNavigator(
   {
@@ -15,6 +15,7 @@ const AppStack = createStackNavigator(
   {
     initialRouteName: 'DashboardScreen',
     defaultNavigationOptions: {
+      title: 'Dashboard',
       headerStyle: {
         backgroundColor: '#f4511e',
       },
@@ -40,7 +41,7 @@ export default createAppContainer(
       Auth: AuthStack,
     },
     {
-      initialRouteName: 'AuthLoading',
+      initialRouteName: 'App',
     }
   )
 );

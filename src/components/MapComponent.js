@@ -1,26 +1,67 @@
-import React from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import MapView from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { StyleSheet, View, Dimensions } from 'react-native';
+import * as Location from 'expo-location';
+import * as Permissions from 'expo-permissions';
+import Text from 'react-native-web/dist/exports/Text';
+import { AppContext } from './context/AppContext';
+import { KsLabel } from './ksLabel/KsLabel';
 
 const MapComponent = () => {
-        return (
-            <View style={styles.container}>
-                <MapView style={styles.mapStyle} />
-            </View>
-        );
+  const context = useContext(AppContext);
+  const [location, setLocation] = useState({
+    latitude: 0,
+    longitude: 50,
+  });
+  const [isLocationLoaded, loadLocation] = useState(false);
+  useEffect(() => {
+    const _getLocationAsync = async () => {
+      const { status } = await Permissions.askAsync(Permissions.LOCATION);
+      if (status !== 'granted') {
+        console.error('Permission to access location was denied');
+      }
+      const location = await Location.getCurrentPositionAsync({});
+      context.updateLocation(location.latitude, location.longitude);
+      setLocation({
+        longitude: location.coords.longitude,
+        latitude: location.coords.latitude,
+      });
+      loadLocation(true);
+    };
+
+    _getLocationAsync();
+  }, []);
+
+  return (
+    <View style={styles.container}>
+      {isLocationLoaded ? (
+        <MapView
+          style={styles.mapStyle}
+          initialRegion={{
+            latitude: location.latitude,
+            longitude: location.longitude,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+        />
+      ) : (
+        <KsLabel labelText="loading" />
+      )}
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    mapStyle: {
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
-    },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  mapStyle: {
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
+  },
 });
 
 export default MapComponent;
