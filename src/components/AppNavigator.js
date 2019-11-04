@@ -35,7 +35,7 @@ const AuthStack = createDrawerNavigator(
     EditProfileScreen,
   },
   {
-    initialRouteName: 'EditProfileScreen',
+    initialRouteName: 'LoginScreen',
   }
 );
 
@@ -47,7 +47,7 @@ export default createAppContainer(
       Auth: AuthStack,
     },
     {
-      initialRouteName: 'Auth',
+      initialRouteName: 'App',
     }
   )
 );

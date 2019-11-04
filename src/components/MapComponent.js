@@ -1,14 +1,15 @@
 import React, { useEffect, useContext, useState } from 'react';
-import MapView from 'react-native-maps';
+import MapView, {Marker} from 'react-native-maps';
 import { StyleSheet, View, Dimensions } from 'react-native';
 import * as Location from 'expo-location';
 import { Spinner } from 'native-base';
-import { Avatar } from 'react-native-elements';
 import { MapContext } from './context/MapContext';
 import { ksBasic } from '../styles/basic/ksBasic';
+import {Avatar} from "react-native-elements";
 
 const INIT_LATITUDE_DELTA = 0.0922;
 const INIT_LONGITUDE_DELTA = 0.0421;
+const avatar = require("../../assets/avatar_google.png");
 
 const MapComponent = () => {
   const context = useContext(MapContext);
@@ -48,7 +49,20 @@ const MapComponent = () => {
             latitudeDelta: INIT_LATITUDE_DELTA,
             longitudeDelta: INIT_LONGITUDE_DELTA,
           }}
-        />
+        >
+            <Marker
+                coordinate={{latitude: location.latitude, longitude: location.longitude}}
+                onPress={console.log("Marker works")}
+            >
+                <Avatar
+                    size="medium"
+                    rounded
+                    source={avatar}
+                    activeOpacity={0.7}
+                />
+            </Marker>
+        </MapView>
+
       ) : (
         <Spinner color="red" />
       )}
