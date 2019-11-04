@@ -3,8 +3,12 @@ import MapView from 'react-native-maps';
 import { StyleSheet, View, Dimensions } from 'react-native';
 import * as Location from 'expo-location';
 import { Spinner } from 'native-base';
+import { Avatar } from 'react-native-elements';
 import { MapContext } from './context/MapContext';
 import { ksBasic } from '../styles/basic/ksBasic';
+
+const INIT_LATITUDE_DELTA = 0.0922;
+const INIT_LONGITUDE_DELTA = 0.0421;
 
 const MapComponent = () => {
   const context = useContext(MapContext);
@@ -13,9 +17,9 @@ const MapComponent = () => {
     longitude: 50,
   });
   const [isLocationLoaded, loadLocation] = useState(false);
+
   useEffect(() => {
     const _getLocationAsync = async () => {
-      console.log(context.isMapPermissionsGranted);
       if (!context.isMapPermissionsGranted) {
         await context.grantMapPermissions();
       }
@@ -41,8 +45,8 @@ const MapComponent = () => {
           initialRegion={{
             latitude: location.latitude,
             longitude: location.longitude,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
+            latitudeDelta: INIT_LATITUDE_DELTA,
+            longitudeDelta: INIT_LONGITUDE_DELTA,
           }}
         />
       ) : (

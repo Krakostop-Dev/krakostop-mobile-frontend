@@ -1,10 +1,13 @@
-import React, { useState, useContext } from 'react';
-import { View, StyleSheet } from 'react-native';
-import { KsInput } from '../../components/ksInput/KsInput';
-import { KsButton } from '../../components/ksButton/KsButton';
-import { KsLabel } from '../../components/ksLabel/KsLabel';
-import { AppContext } from '../../components/context/AppContext';
-import { ksBasic } from '../../styles/basic/ksBasic';
+import React, {useContext, useState} from 'react';
+import {StyleSheet, View} from 'react-native';
+import {Avatar} from 'react-native-elements';
+import {KsInput} from '../../components/ksInput/KsInput';
+import {KsButton} from '../../components/ksButton/KsButton';
+import {KsLabel} from '../../components/ksLabel/KsLabel';
+import {AppContext} from '../../components/context/AppContext';
+import {ksBasic} from '../../styles/basic/ksBasic';
+
+const avatar = require('../../../assets/avatar_google.png');
 
 const EditProfileScreen = ({ navigation }) => {
   const context = useContext(AppContext);
@@ -19,11 +22,21 @@ const EditProfileScreen = ({ navigation }) => {
     navigation.navigate('App');
   };
   return (
-    <View style={ksBasic.stackContainer}>
-      <View style={ksBasic.stack}>
+    <View style={styles.container}>
+      <View style={styles.titleStack}>
         <KsLabel labelText="Zmień swoje dane" />
-
-        <View style={elements.inputFields}>
+      </View>
+      <View style={styles.avatarStack}>
+        <Avatar
+            size="large"
+            rounded
+            source={avatar}
+            onPress={() => console.log('Works!')}
+            activeOpacity={0.7}
+        />
+      </View>
+      <View style={ksBasic.stack}>
+        <View style={styles.inputFields}>
           <KsInput
             label="Imię"
             inputValue={first_name}
@@ -40,9 +53,9 @@ const EditProfileScreen = ({ navigation }) => {
             onInputChange={setPairId}
           />
         </View>
-
         <KsButton buttonText="Zapisz" onPress={saveUser} />
       </View>
+
     </View>
   );
 };
@@ -53,7 +66,20 @@ EditProfileScreen.navigationOptions = () => ({
   title: 'Edit Profile',
 });
 
-const elements = StyleSheet.create({
+const styles = StyleSheet.create({
+  container: {
+    ...ksBasic.stackContainer,
+    flexDirection: 'column',
+  },
+  avatarStack: {
+    ...ksBasic.stack,
+    alignItems: 'center',
+    flex: 0.2
+  },
+  titleStack: {
+    ...ksBasic.stack,
+    flex: 0.2
+  },
   inputFields: {
     flex: 1,
   },
