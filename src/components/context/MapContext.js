@@ -1,13 +1,13 @@
 import React, { createContext } from 'react';
 import * as Permissions from 'expo-permissions';
 import { reducer } from './MapContextReducer';
+import * as Location from "expo-location";
 
 export const MapContext = createContext({
   my_location: null,
   participants: null,
   isMapPermissionsGranted: false,
 });
-
 const initialState = {
   my_location: {
     coords: {
@@ -26,13 +26,15 @@ async function grantMapPermissions(dispatch) {
   } else {
     dispatch({ type: 'changeMapPermissions', payload: true });
   }
-}
 
-async function updateMyLocation(dispatch, location) {
-  // TODO Send location to backend
-  dispatch({ type: 'updateMyLocation', payload: location });
 }
-
+async function updateMyLocation(dispatch, state){
+  if (!state.isMapPermissionsGranted) {
+    await grantMapPermissions(dispatch);
+  }
+  const location = await Location.getCurrentPositionAsync({});
+  dispatch({ type: 'updateMyLocation', payload: {location} });
+}
 export const MapContextProvider = props => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
   return (
@@ -40,8 +42,7 @@ export const MapContextProvider = props => {
       value={{
         ...state,
         grantMapPermissions: async () => await grantMapPermissions(dispatch),
-        updateMyLocation: async location =>
-          await updateMyLocation(dispatch, location),
+        updateMyLocation: async () => await updateMyLocation(dispatch, state)
       }}
     >
       {props.children}

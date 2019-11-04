@@ -1,7 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react';
 import MapView, { Marker } from 'react-native-maps';
 import { StyleSheet, View, Dimensions } from 'react-native';
-import * as Location from 'expo-location';
 import { Spinner } from 'native-base';
 import { Avatar } from 'react-native-elements';
 import { MapContext } from './context/MapContext';
@@ -15,47 +14,32 @@ const MapComponent = () => {
   const appContext = useContext(AppContext);
   const { user } = appContext;
   const mapContext = useContext(MapContext);
-  const [location, setLocation] = useState({
-    latitude: 0,
-    longitude: 50,
-  });
-  const [isLocationLoaded, loadLocation] = useState(false);
+  const [isLocationUpdated, setUpdateLocationStatus] = useState(false);
 
   useEffect(() => {
-    const _getLocationAsync = async () => {
-      if (!mapContext.isMapPermissionsGranted) {
-        await mapContext.grantMapPermissions();
-      }
-      const location = await Location.getCurrentPositionAsync({});
-
-      setLocation({
-        longitude: location.coords.longitude,
-        latitude: location.coords.latitude,
-      });
-      loadLocation(true);
-
-      await mapContext.updateMyLocation(location);
+    const updateLocation = async () => {
+      await mapContext.updateMyLocation();
+      setUpdateLocationStatus(true);
     };
-
-    _getLocationAsync();
+    updateLocation();
   }, []);
 
   return (
     <View style={styles.container}>
-      {isLocationLoaded ? (
+      {isLocationUpdated ? (
         <MapView
           style={styles.mapStyle}
           initialRegion={{
-            latitude: location.latitude,
-            longitude: location.longitude,
+            latitude: mapContext.my_location.coords.latitude,
+            longitude: mapContext.my_location.coords.longitude,
             latitudeDelta: INIT_LATITUDE_DELTA,
             longitudeDelta: INIT_LONGITUDE_DELTA,
           }}
         >
           <Marker
             coordinate={{
-              latitude: location.latitude,
-              longitude: location.longitude,
+              latitude: mapContext.my_location.coords.latitude,
+              longitude: mapContext.my_location.coords.longitude
             }}
             onPress={console.log('Marker works')}
           >
