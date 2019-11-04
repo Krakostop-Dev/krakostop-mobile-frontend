@@ -21,7 +21,7 @@ const initialState = {
     last_name: '',
     email: '',
     verified_login: false,
-    avatar: null
+    avatar: null,
   },
 };
 
@@ -39,17 +39,17 @@ async function logOut(dispatch) {
   dispatch({ type: 'logOut' });
 }
 async function updateUser(dispatch, user) {
-  // TODO: Change order of functions
-  await saveDataInStorage('USER', JSON.stringify(user));
-  dispatch({ type: 'updateUser', payload: {user} });
-
-  // TODO: Change endpoint path if it will be different
   try {
-    await KsAxios.put('api/v1/user', user);
+    await KsAxios.put('api/v1/profile', {
+      first_name: user.first_name,
+      last_name: user.last_name,
+    });
   } catch (e) {
-    // TODO: Change console.log to console.error when endpoint will be available
-    console.log(e);
+    console.error(e);
   }
+
+  await saveDataInStorage('USER', JSON.stringify(user));
+  dispatch({ type: 'updateUser', payload: { user } });
 }
 
 async function refreshLogin(dispatch) {

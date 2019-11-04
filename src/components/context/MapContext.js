@@ -40,7 +40,8 @@ export const MapContextProvider = props => {
       value={{
         ...state,
         grantMapPermissions: async () => await grantMapPermissions(dispatch),
-        updateMyLocation: async location => await updateMyLocation(dispatch, location),
+        updateMyLocation: async location =>
+          await updateMyLocation(dispatch, location),
       }}
     >
       {props.children}

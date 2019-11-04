@@ -1,11 +1,11 @@
-import React, {useContext, useState} from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Avatar} from 'react-native-elements';
-import {KsInput} from '../../components/ksInput/KsInput';
-import {KsButton} from '../../components/ksButton/KsButton';
-import {KsLabel} from '../../components/ksLabel/KsLabel';
-import {AppContext} from '../../components/context/AppContext';
-import {ksBasic} from '../../styles/basic/ksBasic';
+import React, { useContext, useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { Avatar } from 'react-native-elements';
+import { KsInput } from '../../components/ksInput/KsInput';
+import { KsButton } from '../../components/ksButton/KsButton';
+import { KsLabel } from '../../components/ksLabel/KsLabel';
+import { AppContext } from '../../components/context/AppContext';
+import { ksBasic } from '../../styles/basic/ksBasic';
 
 const DEFAULT_AVATAR = require('../../../assets/avatar_google.png');
 
@@ -29,11 +29,11 @@ const EditProfileScreen = ({ navigation }) => {
       </View>
       <View style={styles.avatarStack}>
         <Avatar
-            size="large"
-            rounded
-            source={avatar}
-            onPress={() => console.log('Works!')}
-            activeOpacity={0.7}
+          size="large"
+          rounded
+          source={avatar}
+          onPress={() => console.log('Works!')}
+          activeOpacity={0.7}
         />
       </View>
       <View style={ksBasic.stack}>
@@ -56,7 +56,6 @@ const EditProfileScreen = ({ navigation }) => {
         </View>
         <KsButton buttonText="Zapisz" onPress={saveUser} />
       </View>
-
     </View>
   );
 };
@@ -75,11 +74,11 @@ const styles = StyleSheet.create({
   avatarStack: {
     ...ksBasic.stack,
     alignItems: 'center',
-    flex: 0.2
+    flex: 0.2,
   },
   titleStack: {
     ...ksBasic.stack,
-    flex: 0.2
+    flex: 0.2,
   },
   inputFields: {
     flex: 1,

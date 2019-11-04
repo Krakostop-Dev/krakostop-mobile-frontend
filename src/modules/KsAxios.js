@@ -6,9 +6,9 @@ import { getDataFromStorage } from './Storage';
 const isAbsoluteURLRegex = /^(?:\w+:)\/\//;
 
 const KsAxios = axios.create();
-const token = getDataFromStorage('TOKEN');
 
-KsAxios.interceptors.request.use(requestConfig => {
+KsAxios.interceptors.request.use(async requestConfig => {
+  const token =  await getDataFromStorage('TOKEN');
   requestConfig.headers.Authorization = `Bearer ${token}`;
   if (!isAbsoluteURLRegex.test(requestConfig.url)) {
     requestConfig.url = [config.baseUrl, requestConfig.url].join('');
