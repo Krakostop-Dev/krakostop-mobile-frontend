@@ -21,6 +21,7 @@ const initialState = {
     last_name: '',
     email: '',
     verified_login: false,
+    avatar: null
   },
 };
 
@@ -40,7 +41,7 @@ async function logOut(dispatch) {
 async function updateUser(dispatch, user) {
   // TODO: Change order of functions
   await saveDataInStorage('USER', JSON.stringify(user));
-  dispatch({ type: 'updateUser', payload: user });
+  dispatch({ type: 'updateUser', payload: {user} });
 
   // TODO: Change endpoint path if it will be different
   try {

@@ -6,13 +6,15 @@ import { Spinner } from 'native-base';
 import { MapContext } from './context/MapContext';
 import { ksBasic } from '../styles/basic/ksBasic';
 import {Avatar} from "react-native-elements";
+import {AppContext} from "./context/AppContext";
 
 const INIT_LATITUDE_DELTA = 0.0922;
 const INIT_LONGITUDE_DELTA = 0.0421;
-const avatar = require("../../assets/avatar_google.png");
 
 const MapComponent = () => {
-  const context = useContext(MapContext);
+  const appContext = useContext(AppContext);
+  const {user} = appContext;
+  const mapContext = useContext(MapContext);
   const [location, setLocation] = useState({
     latitude: 0,
     longitude: 50,
@@ -21,8 +23,8 @@ const MapComponent = () => {
 
   useEffect(() => {
     const _getLocationAsync = async () => {
-      if (!context.isMapPermissionsGranted) {
-        await context.grantMapPermissions();
+      if (!mapContext.isMapPermissionsGranted) {
+        await mapContext.grantMapPermissions();
       }
       const location = await Location.getCurrentPositionAsync({});
 
@@ -32,7 +34,7 @@ const MapComponent = () => {
       });
       loadLocation(true);
 
-      await context.updateMyLocation(location);
+      await mapContext.updateMyLocation(location);
     };
 
     _getLocationAsync();
@@ -57,7 +59,7 @@ const MapComponent = () => {
                 <Avatar
                     size="medium"
                     rounded
-                    source={avatar}
+                    source={user.avatar}
                     activeOpacity={0.7}
                 />
             </Marker>

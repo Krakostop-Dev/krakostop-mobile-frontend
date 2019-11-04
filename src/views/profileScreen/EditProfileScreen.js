@@ -7,7 +7,7 @@ import {KsLabel} from '../../components/ksLabel/KsLabel';
 import {AppContext} from '../../components/context/AppContext';
 import {ksBasic} from '../../styles/basic/ksBasic';
 
-const avatar = require('../../../assets/avatar_google.png');
+const DEFAULT_AVATAR = require('../../../assets/avatar_google.png');
 
 const EditProfileScreen = ({ navigation }) => {
   const context = useContext(AppContext);
@@ -15,10 +15,11 @@ const EditProfileScreen = ({ navigation }) => {
   const [first_name, setName] = useState(user.first_name);
   const [last_name, setSurname] = useState(user.last_name);
   const [pairID, setPairId] = useState('');
+  const [avatar, setAvatar] = useState(DEFAULT_AVATAR);
 
   const saveUser = async () => {
     // TODO: Validate user input
-    await context.updateUser({ first_name, last_name, pairID });
+    await context.updateUser({ first_name, last_name, pairID, avatar });
     navigation.navigate('App');
   };
   return (
