@@ -8,7 +8,7 @@ const isAbsoluteURLRegex = /^(?:\w+:)\/\//;
 const KsAxios = axios.create();
 
 KsAxios.interceptors.request.use(async requestConfig => {
-  const token =  await getDataFromStorage('TOKEN');
+  const token = await getDataFromStorage('TOKEN');
   requestConfig.headers.Authorization = `Bearer ${token}`;
   if (!isAbsoluteURLRegex.test(requestConfig.url)) {
     requestConfig.url = [config.baseUrl, requestConfig.url].join('');

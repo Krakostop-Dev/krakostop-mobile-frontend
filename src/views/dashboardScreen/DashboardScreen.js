@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Text, TouchableWithoutFeedback, View } from 'react-native';
 import { AppContext } from '../../components/context/AppContext';
 import { ksBasic } from '../../styles/basic/ksBasic';
-import MapComponent from '../../components/MapComponent';
+import MapContainer from '../../components/map/MapContainer';
 
 const DashboardScreen = ({ navigation }) => {
   const context = useContext(AppContext);
@@ -14,7 +14,7 @@ const DashboardScreen = ({ navigation }) => {
   return (
     <View style={ksBasic.stackContainer}>
       <View style={ksBasic.stack}>
-        <MapComponent />
+        <MapContainer />
       </View>
     </View>
   );
