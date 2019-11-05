@@ -10,6 +10,11 @@ export const reducer = (state, action) => {
         ...state,
         my_location: action.payload.location,
       };
+    case 'updateParticipantsLocation':
+      return {
+        ...state,
+        participants: action.payload,
+      };
     default:
       return state;
   }

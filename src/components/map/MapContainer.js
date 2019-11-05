@@ -7,11 +7,12 @@ import MapComponent from './MapComponent';
 
 const MapContainer = () => {
   const mapContext = useContext(MapContext);
-  const [isLocationUpdated, setUpdateLocationStatus] = useState(false);
+  const [isLocationDataUpdated, setUpdateLocationStatus] = useState(false);
 
   useEffect(() => {
     const updateLocation = async () => {
       await mapContext.updateMyLocation();
+      await mapContext.updateParticipantsLocation();
       setUpdateLocationStatus(true);
     };
 
@@ -20,7 +21,7 @@ const MapContainer = () => {
 
   return (
     <View style={styles.container}>
-      {isLocationUpdated ? <MapComponent /> : <Spinner color="red" />}
+      {isLocationDataUpdated ? <MapComponent /> : <Spinner color="red" />}
     </View>
   );
 };
