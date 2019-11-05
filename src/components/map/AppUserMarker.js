@@ -1,11 +1,10 @@
-import { Marker, Callout } from 'react-native-maps';
+import { Marker } from 'react-native-maps';
 import { Avatar } from 'react-native-elements';
 import React, { useContext } from 'react';
-import { TouchableHighlight, Text } from 'react-native';
 import { AppContext } from '../context/AppContext';
 import { MapContext } from '../context/MapContext';
 
-const AppUserMarker = ({}) => {
+const AppUserMarker = () => {
   const appContext = useContext(AppContext);
   const { user } = appContext;
   const mapContext = useContext(MapContext);

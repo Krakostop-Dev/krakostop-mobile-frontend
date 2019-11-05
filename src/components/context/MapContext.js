@@ -1,7 +1,7 @@
 import React, { createContext } from 'react';
 import * as Permissions from 'expo-permissions';
 import * as Location from 'expo-location';
-import { reducer } from './MapContextReducer';
+import reducer from './MapContextReducer';
 import KsAxios from '../../modules/KsAxios';
 
 export const MapContext = createContext({
@@ -62,10 +62,10 @@ export const MapContextProvider = props => {
     <MapContext.Provider
       value={{
         ...state,
-        grantMapPermissions: async () => await grantMapPermissions(dispatch),
-        updateMyLocation: async () => await updateMyLocation(dispatch, state),
+        grantMapPermissions: async () => grantMapPermissions(dispatch),
+        updateMyLocation: async () => updateMyLocation(dispatch, state),
         updateParticipantsLocation: async () =>
-          await updateParticipantsLocation(dispatch),
+          updateParticipantsLocation(dispatch),
       }}
     >
       {props.children}

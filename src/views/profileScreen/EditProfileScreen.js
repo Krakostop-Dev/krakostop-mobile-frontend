@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Avatar } from 'react-native-elements';
-import { KsInput } from '../../components/ksInput/KsInput';
-import { KsButton } from '../../components/ksButton/KsButton';
-import { KsLabel } from '../../components/ksLabel/KsLabel';
+import KsInput from '../../components/ksInput/KsInput';
+import KsButton from '../../components/ksButton/KsButton';
+import KsLabel from '../../components/ksLabel/KsLabel';
 import { AppContext } from '../../components/context/AppContext';
 import { ksBasic } from '../../styles/basic/ksBasic';
 

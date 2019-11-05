@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import { reducer } from './AppContextReducer';
+import reducer from './AppContextReducer';
 import {
   getDataFromStorage,
   removeDataFromStorage,
@@ -69,10 +69,10 @@ export const AppContextProvider = props => {
     <AppContext.Provider
       value={{
         ...state,
-        logIn: async (token, user) => await logIn(dispatch, token, user),
-        logOut: async () => await logOut(dispatch),
-        updateUser: async user => await updateUser(dispatch, user),
-        refreshLogin: async () => await refreshLogin(dispatch),
+        logIn: async (token, user) => logIn(dispatch, token, user),
+        logOut: async () => logOut(dispatch),
+        updateUser: async user => updateUser(dispatch, user),
+        refreshLogin: async () => refreshLogin(dispatch),
       }}
     >
       {props.children}

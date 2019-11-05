@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from 'react';
-import { StyleSheet, View, Dimensions } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Spinner } from 'native-base';
 import { MapContext } from '../context/MapContext';
 import { ksBasic } from '../../styles/basic/ksBasic';

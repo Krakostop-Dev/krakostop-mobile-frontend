@@ -1,4 +1,3 @@
-import React from 'react';
 import axios from 'axios';
 import config from '../../config/config';
 import { getDataFromStorage } from './Storage';
@@ -9,11 +8,12 @@ const KsAxios = axios.create();
 
 KsAxios.interceptors.request.use(async requestConfig => {
   const token = await getDataFromStorage('TOKEN');
-  requestConfig.headers.Authorization = `Bearer ${token}`;
-  if (!isAbsoluteURLRegex.test(requestConfig.url)) {
-    requestConfig.url = [config.baseUrl, requestConfig.url].join('');
+  const resultConfig = requestConfig;
+  resultConfig.headers.Authorization = `Bearer ${token}`;
+  if (!isAbsoluteURLRegex.test(resultConfig.url)) {
+    resultConfig.url = [config.baseUrl, requestConfig.url].join('');
   }
-  return requestConfig;
+  return resultConfig;
 });
 
 export default KsAxios;

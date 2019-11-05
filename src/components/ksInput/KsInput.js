@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 
-export const KsInput = ({ label, inputValue, onInputChange }) => {
+const KsInput = ({ label, inputValue, onInputChange }) => {
   return (
     <View style={formStyle.inputContainer}>
       <View style={formStyle.inputLabelContainer}>
@@ -17,6 +17,8 @@ export const KsInput = ({ label, inputValue, onInputChange }) => {
     </View>
   );
 };
+
+export default KsInput;
 
 const formStyle = StyleSheet.create({
   inputContainer: {

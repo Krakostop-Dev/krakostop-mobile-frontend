@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
 import { ksBasic } from '../../styles/basic/ksBasic';
 
-export const KsButton = ({ buttonText, onPress }) => {
+const KsButton = ({ buttonText, onPress }) => {
   return (
     <View style={elements.textContainer}>
       <TouchableWithoutFeedback onPress={onPress}>
@@ -12,6 +12,8 @@ export const KsButton = ({ buttonText, onPress }) => {
     </View>
   );
 };
+
+export default KsButton;
 
 const elements = StyleSheet.create({
   textContainer: {

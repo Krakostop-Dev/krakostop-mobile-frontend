@@ -16,9 +16,9 @@ const loginButton = require('../../../assets/btn_google_signin_light_normal_web.
 export default function({ navigation }) {
   const context = useContext(AppContext);
 
-  const [isloginButtonPressed, loginButtonPressed] = useState(false);
+  const [isLoginButtonPressed, loginButtonPressed] = useState(false);
 
-  const _loginPressed = async () => {
+  const loginPressed = async () => {
     loginButtonPressed(true);
     try {
       const { token, user } = await googleSignIn();
@@ -35,13 +35,13 @@ export default function({ navigation }) {
 
   return (
     <View style={ksBasic.stackContainer}>
-      {isloginButtonPressed ? (
+      {isLoginButtonPressed ? (
         <Spinner color="red" />
       ) : (
         <View style={ksBasic.stack}>
           <Image style={styles.logo} source={logo} />
           <View style={styles.loginBtnContainer}>
-            <TouchableWithoutFeedback onPress={_loginPressed}>
+            <TouchableWithoutFeedback onPress={loginPressed}>
               <Image style={styles.loginButton} source={loginButton} />
             </TouchableWithoutFeedback>
           </View>
