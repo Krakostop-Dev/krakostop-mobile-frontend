@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import { Text, TouchableWithoutFeedback, View } from 'react-native';
-import { AppContext } from '../../components/context/AppContext';
+import { LoginContext } from '../../components/context/LoginContext';
 import { ksBasic } from '../../styles/basic/ksBasic';
+import MapContainer from '../../components/map/MapContainer';
 
 const DashboardScreen = ({ navigation }) => {
-  const context = useContext(AppContext);
+  const context = useContext(LoginContext);
   const _logoutPressed = async () => {
     await context.logOut();
     navigation.navigate('AuthLoading');
@@ -13,9 +14,7 @@ const DashboardScreen = ({ navigation }) => {
   return (
     <View style={ksBasic.stackContainer}>
       <View style={ksBasic.stack}>
-        <TouchableWithoutFeedback onPress={_logoutPressed}>
-          <Text style={ksBasic.mediumText}>Logout</Text>
-        </TouchableWithoutFeedback>
+        <MapContainer />
       </View>
     </View>
   );

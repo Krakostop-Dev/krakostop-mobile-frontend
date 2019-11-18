@@ -1,20 +1,25 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Image,
   StyleSheet,
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
+import { Spinner } from 'native-base';
 import { googleSignIn } from '../../modules/LoginWithGoogle';
 import { ksBasic } from '../../styles/basic/ksBasic';
-import { AppContext } from '../../components/context/AppContext';
+import { LoginContext } from '../../components/context/LoginContext';
 
 const logo = require('../../../assets/krakologo2019.png');
 const loginButton = require('../../../assets/btn_google_signin_light_normal_web.png');
 
 export default function({ navigation }) {
-  const context = useContext(AppContext);
-  const _loginPressed = async () => {
+  const context = useContext(LoginContext);
+
+  const [isLoginButtonPressed, loginButtonPressed] = useState(false);
+
+  const loginPressed = async () => {
+    loginButtonPressed(true);
     try {
       const { token, user } = await googleSignIn();
       if (token) {
@@ -30,14 +35,18 @@ export default function({ navigation }) {
 
   return (
     <View style={ksBasic.stackContainer}>
-      <View style={ksBasic.stack}>
-        <Image style={styles.logo} source={logo} />
-        <View style={styles.loginBtnContainer}>
-          <TouchableWithoutFeedback onPress={_loginPressed}>
-            <Image style={styles.loginButton} source={loginButton} />
-          </TouchableWithoutFeedback>
+      {isLoginButtonPressed ? (
+        <Spinner color="red" />
+      ) : (
+        <View style={ksBasic.stack}>
+          <Image style={styles.logo} source={logo} />
+          <View style={styles.loginBtnContainer}>
+            <TouchableWithoutFeedback onPress={loginPressed}>
+              <Image style={styles.loginButton} source={loginButton} />
+            </TouchableWithoutFeedback>
+          </View>
         </View>
-      </View>
+      )}
     </View>
   );
 }

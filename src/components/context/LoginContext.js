@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import { reducer } from './AppContextReducer';
+import reducer from './LoginContextReducer';
 import {
   getDataFromStorage,
   removeDataFromStorage,
@@ -7,7 +7,7 @@ import {
 } from '../../modules/Storage';
 import KsAxios from '../../modules/KsAxios';
 
-export const AppContext = createContext({
+export const LoginContext = createContext({
   user: null,
   token: null,
   isLoggedIn: false,
@@ -21,6 +21,7 @@ const initialState = {
     last_name: '',
     email: '',
     verified_login: false,
+    avatar: null,
   },
 };
 
@@ -38,17 +39,17 @@ async function logOut(dispatch) {
   dispatch({ type: 'logOut' });
 }
 async function updateUser(dispatch, user) {
-  // TODO: Change order of functions
-  await saveDataInStorage('USER', JSON.stringify(user));
-  dispatch({ type: 'updateUser', payload: user });
-
-  // TODO: Change endpoint path if it will be different
   try {
-    await KsAxios.put('api/v1/user', user);
+    await KsAxios.put('api/v1/profile', {
+      first_name: user.first_name,
+      last_name: user.last_name,
+    });
   } catch (e) {
-    // TODO: Change console.log to console.error when endpoint will be available
-    console.log(e);
+    console.error(e);
   }
+
+  await saveDataInStorage('USER', JSON.stringify(user));
+  dispatch({ type: 'updateUser', payload: { user } });
 }
 
 async function refreshLogin(dispatch) {
@@ -62,19 +63,19 @@ async function refreshLogin(dispatch) {
   }
 }
 
-export const AppContextProvider = props => {
+export const LoginContextProvider = props => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
   return (
-    <AppContext.Provider
+    <LoginContext.Provider
       value={{
         ...state,
-        logIn: async (token, user) => await logIn(dispatch, token, user),
-        logOut: async () => await logOut(dispatch),
-        refreshLogin: async () => await refreshLogin(dispatch),
-        updateUser: async user => await updateUser(dispatch, user),
+        logIn: async (token, user) => logIn(dispatch, token, user),
+        logOut: async () => logOut(dispatch),
+        updateUser: async user => updateUser(dispatch, user),
+        refreshLogin: async () => refreshLogin(dispatch),
       }}
     >
       {props.children}
-    </AppContext.Provider>
+    </LoginContext.Provider>
   );
 };
