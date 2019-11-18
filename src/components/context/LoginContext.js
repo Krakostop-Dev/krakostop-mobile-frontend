@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import reducer from './AppContextReducer';
+import reducer from './LoginContextReducer';
 import {
   getDataFromStorage,
   removeDataFromStorage,
@@ -7,7 +7,7 @@ import {
 } from '../../modules/Storage';
 import KsAxios from '../../modules/KsAxios';
 
-export const AppContext = createContext({
+export const LoginContext = createContext({
   user: null,
   token: null,
   isLoggedIn: false,
@@ -63,10 +63,10 @@ async function refreshLogin(dispatch) {
   }
 }
 
-export const AppContextProvider = props => {
+export const LoginContextProvider = props => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
   return (
-    <AppContext.Provider
+    <LoginContext.Provider
       value={{
         ...state,
         logIn: async (token, user) => logIn(dispatch, token, user),
@@ -76,6 +76,6 @@ export const AppContextProvider = props => {
       }}
     >
       {props.children}
-    </AppContext.Provider>
+    </LoginContext.Provider>
   );
 };

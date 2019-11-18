@@ -4,13 +4,13 @@ import { Avatar } from 'react-native-elements';
 import KsInput from '../../components/ksInput/KsInput';
 import KsButton from '../../components/ksButton/KsButton';
 import KsLabel from '../../components/ksLabel/KsLabel';
-import { AppContext } from '../../components/context/AppContext';
+import { LoginContext } from '../../components/context/LoginContext';
 import { ksBasic } from '../../styles/basic/ksBasic';
 
 const DEFAULT_AVATAR = require('../../../assets/avatar_google.png');
 
 const EditProfileScreen = ({ navigation }) => {
-  const context = useContext(AppContext);
+  const context = useContext(LoginContext);
   const { user } = context;
   const [first_name, setName] = useState(user.first_name);
   const [last_name, setSurname] = useState(user.last_name);

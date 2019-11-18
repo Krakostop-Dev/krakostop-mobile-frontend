@@ -1,12 +1,12 @@
 import { Marker } from 'react-native-maps';
 import { Avatar } from 'react-native-elements';
 import React, { useContext } from 'react';
-import { AppContext } from '../context/AppContext';
+import { LoginContext } from '../context/LoginContext';
 
 const PARTICIPANT_AVATAR = require('../../../assets/hand.png');
 
 const ParticipantMarker = ({ participant }) => {
-  const appContext = useContext(AppContext);
+  const appContext = useContext(LoginContext);
   const { user } = appContext;
   const isParticipantAUser = participant.user.id === user.id;
   const result = !isParticipantAUser ? (
