@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { Spinner } from 'native-base';
 import { MapContext } from '../context/MapContext';
 import { ksBasic } from '../../styles/basic/ksBasic';
@@ -15,22 +15,19 @@ const MapContainer = () => {
       await mapContext.updateParticipantsLocation();
       setUpdateLocationStatus(true);
     };
-
     updateLocation();
   }, []);
 
-  return (
-    <View style={styles.container}>
-      {isLocationDataUpdated ? <MapComponent /> : <Spinner color="red" />}
+ return (
+    <View style={{}}>
+      {isLocationDataUpdated ? <MapComponent/> :
+      <View style={ksBasic.stackContainer}>
+        <Spinner color="red"/>
+      </View>
+      }
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    ...ksBasic.stackContainer,
-    alignItems: 'center',
-  },
-});
 
 export default MapContainer;
