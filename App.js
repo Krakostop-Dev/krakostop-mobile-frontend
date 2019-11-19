@@ -1,5 +1,5 @@
 import React from 'react';
-import AppNavigator from './src/components/AppNavigator';
+import AppNavigator from './src/modules/navigation/AppNavigator';
 import { LoginContextProvider } from './src/components/context/LoginContext';
 import { MapContextProvider } from './src/components/context/MapContext';
 
