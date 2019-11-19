@@ -3,7 +3,7 @@ import {createBottomTabNavigator} from "react-navigation-tabs";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
 import React from "react";
 
-const AppStack = createBottomTabNavigator(
+const AppBottomNavigator = createBottomTabNavigator(
     {
         Map: DashboardScreen,
         Ranking: DashboardScreen,
@@ -12,7 +12,7 @@ const AppStack = createBottomTabNavigator(
     },
     {
         defaultNavigationOptions: ({ navigation }) => ({
-            tabBarIcon: ({ focused, horizontal, tintColor }) => {
+            tabBarIcon: ({ focused, tintColor }) => {
                 const { routeName } = navigation.state;
                 let IconComponent = MaterialCommunityIcons;
                 let iconName;
@@ -40,4 +40,4 @@ const AppStack = createBottomTabNavigator(
     }
 );
 
-export default AppStack;
+export default AppBottomNavigator;

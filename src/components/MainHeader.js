@@ -1,9 +1,18 @@
-import React from "react";
-import { Header } from 'react-native-elements';
+import React, {useContext} from "react";
+import {Button, Header} from 'react-native-elements';
+import {MaterialIcons} from "@expo/vector-icons";
+import { NavigationContext } from 'react-navigation';
+let IconComponent = MaterialIcons;
 
 const MainHeader = () =>{
-  return (<Header
-      leftComponent={{ icon: 'menu', color: '#fff' }}
+    const navigation = useContext(NavigationContext);
+    return (<Header
+      leftComponent={<Button
+          onPress={() => navigation.openDrawer()}
+          icon={
+              <IconComponent name={"menu"} size={25} />
+          }
+      />}
       centerComponent={{ text: 'MY TITLE', style: { color: '#fff' } }}
       rightComponent={{ icon: 'home', color: '#fff' }}
   />)
