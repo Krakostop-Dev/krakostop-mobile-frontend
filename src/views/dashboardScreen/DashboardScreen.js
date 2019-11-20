@@ -2,7 +2,7 @@ import React  from 'react';
 import {StyleSheet, View} from 'react-native';
 import {ksBasic} from '../../styles/basic/ksBasic';
 import MapContainer from '../../components/map/MapContainer';
-import MainHeader from "../../components/MainHeader";
+import MainHeader from "../../components/header/MainHeader";
 
 const DashboardScreen = () => {
   return (

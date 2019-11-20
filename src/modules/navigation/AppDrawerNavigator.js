@@ -3,6 +3,7 @@ import { createDrawerNavigator } from 'react-navigation-drawer';
 import DashboardScreen from "../../views/dashboardScreen/DashboardScreen";
 import {MaterialIcons} from "@expo/vector-icons";
 import AppBottomNavigator from "./AppBottomNavigator";
+import {ksStyle} from "../../styles/basic/ksBasic";
 let IconComponent = MaterialIcons;
 
 export default createDrawerNavigator({
@@ -11,14 +12,14 @@ export default createDrawerNavigator({
         screen: DashboardScreen,
         navigationOptions: {
             drawerLabel: 'Partnerzy',
-            drawerIcon: ({ tintColor }) =>(<IconComponent name={"people"} size={25} color={tintColor} />)
+            drawerIcon: ({ tintColor }) =>(<IconComponent name={"people"} size={ksStyle.icon.size} color={tintColor} />)
         }
     },
     Contact: {
         screen: DashboardScreen,
         navigationOptions: {
             drawerLabel: 'Kontakt',
-            drawerIcon: ({tintColor}) => <IconComponent name={"phone"} size={25} color={tintColor}/>,
+            drawerIcon: ({tintColor}) => <IconComponent name={"phone"} size={ksStyle.icon.size} color={tintColor}/>,
         }
     }
     },

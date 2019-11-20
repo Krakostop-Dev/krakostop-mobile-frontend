@@ -2,6 +2,7 @@ import DashboardScreen from "../../views/dashboardScreen/DashboardScreen";
 import {createBottomTabNavigator} from "react-navigation-tabs";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
 import React from "react";
+import {ksStyle} from "../../styles/basic/ksBasic";
 
 const AppBottomNavigator = createBottomTabNavigator(
     {
@@ -30,12 +31,14 @@ const AppBottomNavigator = createBottomTabNavigator(
                         iconName = `timetable`;
                         break;
                 }
-                return <IconComponent name={iconName} size={25} color={tintColor} />;
+                return <IconComponent name={iconName} size={ksStyle.icon.size} color={tintColor} />;
             },
         }),
         tabBarOptions: {
-            activeTintColor: 'tomato',
+            activeTintColor: 'white',
             inactiveTintColor: 'gray',
+            inactiveBackgroundColor: ksStyle.colors.primaryColorLight,
+            activeBackgroundColor: ksStyle.colors.primaryColorLight
         },
     }
 );

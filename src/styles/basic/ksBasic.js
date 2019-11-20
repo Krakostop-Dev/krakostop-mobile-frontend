@@ -1,7 +1,20 @@
 import { StyleSheet } from 'react-native';
 
-export const ksColors = {
-  primaryColor: '#8FC6B1',
+export const ksStyle = {
+  colors: {
+    primaryColorLight: '#FFCC80',
+    primaryColorMedium: '#FFA726',
+  },
+  icon: {
+    size: 25
+  },
+  logo: {
+    source: require('../../../assets/krk_logo.png'),
+    style:{
+      width: 70,
+      height: 30
+    }
+  }
 };
 
 export const ksBasic = StyleSheet.create({
@@ -10,7 +23,7 @@ export const ksBasic = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: ksColors.primaryColor,
+    backgroundColor: ksStyle.colors.primaryColorLight,
   },
   stack: {
     flex: 0.9,
