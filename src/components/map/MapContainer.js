@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { View } from 'react-native';
 import { Spinner } from 'native-base';
-import { MapContext } from '../context/MapContext';
+import { MapContext } from '../../modules/context/MapContext';
 import { ksBasic } from '../../styles/basic/ksBasic';
 import MapComponent from './MapComponent';
 

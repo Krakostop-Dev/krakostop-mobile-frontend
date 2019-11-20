@@ -10,9 +10,13 @@ export const ksStyle = {
   },
   logo: {
     source: require('../../../assets/krk_logo.png'),
-    style:{
+    style_small:{
       width: 70,
       height: 30
+    },
+    style_medium:{
+      width: 200,
+      height: 100
     }
   }
 };

@@ -1,8 +1,8 @@
 import { Marker } from 'react-native-maps';
 import { Avatar } from 'react-native-elements';
 import React, { useContext } from 'react';
-import { LoginContext } from '../context/LoginContext';
-import { MapContext } from '../context/MapContext';
+import { LoginContext } from '../../modules/context/LoginContext';
+import { MapContext } from '../../modules/context/MapContext';
 
 const AppUserMarker = () => {
   const appContext = useContext(LoginContext);

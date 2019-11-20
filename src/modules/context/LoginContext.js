@@ -4,8 +4,8 @@ import {
   getDataFromStorage,
   removeDataFromStorage,
   saveDataInStorage,
-} from '../../modules/Storage';
-import KsAxios from '../../modules/KsAxios';
+} from '../Storage';
+import KsAxios from '../KsAxios';
 
 export const LoginContext = createContext({
   user: null,

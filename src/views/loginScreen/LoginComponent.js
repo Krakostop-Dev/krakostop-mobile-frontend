@@ -8,7 +8,7 @@ import {
 import { Spinner } from 'native-base';
 import { googleSignIn } from '../../modules/LoginWithGoogle';
 import { ksBasic } from '../../styles/basic/ksBasic';
-import { LoginContext } from '../../components/context/LoginContext';
+import { LoginContext } from '../../modules/context/LoginContext';
 
 const logo = require('../../../assets/krakologo2019.png');
 const loginButton = require('../../../assets/btn_google_signin_light_normal_web.png');

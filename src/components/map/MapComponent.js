@@ -1,7 +1,7 @@
 import MapView from 'react-native-maps';
 import React, { useContext } from 'react';
 import { Dimensions, StyleSheet } from 'react-native';
-import { MapContext } from '../context/MapContext';
+import { MapContext } from '../../modules/context/MapContext';
 import AppUserMarker from './AppUserMarker';
 import ParticipantMarker from './PatricipantMarker';
 

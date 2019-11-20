@@ -1,7 +1,7 @@
 import { Marker } from 'react-native-maps';
 import { Avatar } from 'react-native-elements';
 import React, { useContext } from 'react';
-import { LoginContext } from '../context/LoginContext';
+import { LoginContext } from '../../modules/context/LoginContext';
 
 const PARTICIPANT_AVATAR = require('../../../assets/hand.png');
 

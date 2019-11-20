@@ -9,7 +9,7 @@ export default () => {
             icon={
                 <Image
                     source={ ksStyle.logo.source}
-                    style={ksStyle.logo.style}
+                    style={ksStyle.logo.style_small}
                 />
             }
         />
