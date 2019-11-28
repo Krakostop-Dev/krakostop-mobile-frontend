@@ -1,8 +1,8 @@
 import React, { useEffect, useContext } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
-import { LoginContext } from '../../components/context/LoginContext';
+import { LoginContext } from '../../modules/context/LoginContext';
 import { ksBasic } from '../../styles/basic/ksBasic';
-import { MapContext } from '../../components/context/MapContext';
+import { MapContext } from '../../modules/context/MapContext';
 
 const logo = require('../../../assets/krakologo2019.png');
 

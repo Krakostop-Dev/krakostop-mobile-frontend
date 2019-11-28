@@ -1,13 +1,13 @@
 import React from 'react';
-import AppNavigator from './src/components/AppNavigator';
-import { LoginContextProvider } from './src/components/context/LoginContext';
-import { MapContextProvider } from './src/components/context/MapContext';
+import MainNavigator from './src/modules/navigation/MainNavigator';
+import { LoginContextProvider } from './src/modules/context/LoginContext';
+import { MapContextProvider } from './src/modules/context/MapContext';
 
 export default function App() {
   return (
     <LoginContextProvider>
       <MapContextProvider>
-        <AppNavigator />
+        <MainNavigator />
       </MapContextProvider>
     </LoginContextProvider>
   );

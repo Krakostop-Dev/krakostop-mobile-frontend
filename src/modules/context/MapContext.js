@@ -2,7 +2,7 @@ import React, { createContext } from 'react';
 import * as Permissions from 'expo-permissions';
 import * as Location from 'expo-location';
 import reducer from './MapContextReducer';
-import KsAxios from '../../modules/KsAxios';
+import KsAxios from '../KsAxios';
 
 export const MapContext = createContext({
   my_location: null,
