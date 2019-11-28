@@ -19,7 +19,7 @@ const MapContainer = () => {
   }, []);
 
  return (
-    <View style={{}}>
+     <View>
       {isLocationDataUpdated ? <MapComponent/> :
       <View style={ksBasic.stackContainer}>
         <Spinner color="red"/>

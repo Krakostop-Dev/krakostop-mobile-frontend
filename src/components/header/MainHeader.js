@@ -8,8 +8,8 @@ import HeaderRight from "./HeaderRight";
 const MainHeader = () =>{
     return (<Header
         placement="left"
-        leftComponent={<HeaderLeft/>}
-        centerComponent={<HeaderCenter/>}
+        leftComponent={HeaderLeft}
+        centerComponent={HeaderCenter}
         rightComponent={HeaderRight}
         containerStyle={{
           backgroundColor: ksStyle.colors.primaryColorLight,
