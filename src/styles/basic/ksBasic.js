@@ -6,19 +6,19 @@ export const ksStyle = {
     primaryColorMedium: '#FFA726',
   },
   icon: {
-    size: 25
+    size: 25,
   },
   logo: {
     source: require('../../../assets/krk_logo.png'),
-    style_small:{
+    style_small: {
       width: 70,
-      height: 30
+      height: 30,
     },
-    style_medium:{
+    style_medium: {
       width: 200,
-      height: 100
-    }
-  }
+      height: 100,
+    },
+  },
 };
 
 export const ksBasic = StyleSheet.create({
