@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
-import { ksStyle } from '../../styles/basic/ksBasic';
+
 import { Button } from 'react-native-elements';
 import { MaterialIcons } from '@expo/vector-icons';
 import { NavigationContext } from 'react-navigation';
-let IconComponent = MaterialIcons;
+import { ksStyle } from '../../styles/basic/ksBasic';
+
+const IconComponent = MaterialIcons;
 
 export default () => {
   const navigation = useContext(NavigationContext);

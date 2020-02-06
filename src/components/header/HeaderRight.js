@@ -2,7 +2,8 @@ import React from 'react';
 import { Button } from 'react-native-elements';
 import { MaterialIcons } from '@expo/vector-icons';
 import { ksStyle } from '../../styles/basic/ksBasic';
-let IconComponent = MaterialIcons;
+
+const IconComponent = MaterialIcons;
 
 export default () => {
   return (

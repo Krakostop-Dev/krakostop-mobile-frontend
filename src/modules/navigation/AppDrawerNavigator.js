@@ -13,6 +13,6 @@ export default new DrawerNavigator(
     contentComponent: CustomDrawerContentComponent,
     drawerOpenRoute: 'DrawerOpen',
     drawerCloseRoute: 'DrawerClose',
-    drawerToggleRoute: 'DrawerToggle',
+    drawerToggleRoute: 'DrawerToggle'
   }
 );
