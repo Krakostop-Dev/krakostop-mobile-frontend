@@ -1,29 +1,19 @@
-import React from 'react'
-import { createDrawerNavigator } from 'react-navigation-drawer';
-import DashboardScreen from "../../views/dashboardScreen/DashboardScreen";
-import {MaterialIcons} from "@expo/vector-icons";
-import AppBottomNavigator from "./AppBottomNavigator";
-import {ksStyle} from "../../styles/basic/ksBasic";
-let IconComponent = MaterialIcons;
+import React from 'react';
+import AppBottomNavigator from './AppBottomNavigator';
 
-export default createDrawerNavigator({
+import DrawerNavigator from 'react-navigation-drawer/src/navigators/createDrawerNavigator';
+import CustomDrawerContentComponent from '../../components/navigation/CustomDrawerContentComponent';
+
+
+export default new DrawerNavigator(
+  {
     Bottom: AppBottomNavigator,
-    Partners: {
-        screen: DashboardScreen,
-        navigationOptions: {
-            drawerLabel: 'Partnerzy',
-            drawerIcon: ({ tintColor }) =>(<IconComponent name={"people"} size={ksStyle.icon.size} color={tintColor} />)
-        }
-    },
-    Contact: {
-        screen: DashboardScreen,
-        navigationOptions: {
-            drawerLabel: 'Kontakt',
-            drawerIcon: ({tintColor}) => <IconComponent name={"phone"} size={ksStyle.icon.size} color={tintColor}/>,
-        }
-    }
-    },
-    {
-        initialRouteName: "Bottom"
-    }
-    );
+  },
+  {
+    drawerPosition: 'left',
+    contentComponent: CustomDrawerContentComponent,
+    drawerOpenRoute: 'DrawerOpen',
+    drawerCloseRoute: 'DrawerClose',
+    drawerToggleRoute: 'DrawerToggle',
+  }
+);

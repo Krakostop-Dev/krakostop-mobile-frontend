@@ -1,14 +1,14 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {ksBasic} from '../../styles/basic/ksBasic';
+import { StyleSheet, View } from 'react-native';
+import { ksBasic } from '../../styles/basic/ksBasic';
 import MapContainer from '../../components/map/MapContainer';
-import MainHeader from "../../components/header/MainHeader";
+import MainHeader from '../../components/header/MainHeader';
 
 const DashboardScreen = () => {
   return (
     <View style={styles.stackContainer}>
       <MainHeader style={styles.header} />
-      <MapContainer style={styles}/>
+      <MapContainer style={styles} />
     </View>
   );
 };
@@ -18,11 +18,11 @@ const styles = StyleSheet.create({
     ...ksBasic.stackContainer,
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   stack: {
     ...ksBasic.stack,
-    flex: 0.7
+    flex: 0.7,
   },
 });
 

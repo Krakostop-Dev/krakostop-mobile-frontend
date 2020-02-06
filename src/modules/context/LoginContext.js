@@ -6,7 +6,7 @@ import {
   saveDataInStorage,
 } from '../Storage';
 import KsAxios from '../KsAxios';
-import {mockUser} from "../../mockUser";
+import { mockUser } from '../../mockUser';
 
 export const LoginContext = createContext({
   user: null,
