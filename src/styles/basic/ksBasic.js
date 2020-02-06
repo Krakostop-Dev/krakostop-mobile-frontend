@@ -2,8 +2,9 @@ import { StyleSheet } from 'react-native';
 
 export const ksStyle = {
   colors: {
-    primaryColorLight: '#FFCC80',
-    primaryColorMedium: '#FFA726',
+    primaryColorLight: '#FFF3E0',
+    primaryColorMedium: '#FED290',
+    primaryColorDark: '#FFCC80',
   },
   icon: {
     size: 25,

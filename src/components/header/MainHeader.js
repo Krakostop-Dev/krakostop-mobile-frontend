@@ -13,7 +13,7 @@ const MainHeader = () => {
       centerComponent={HeaderCenter}
       rightComponent={HeaderRight}
       containerStyle={{
-        backgroundColor: ksStyle.colors.primaryColorLight,
+        backgroundColor: ksStyle.colors.primaryColorMedium,
       }}
     />
   );
