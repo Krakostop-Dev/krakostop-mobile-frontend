@@ -19,6 +19,7 @@ export const googleSignIn = async () => {
       iosClientId: config.iosClientId,
       scopes: ['profile', 'email'],
     });
+    console.log('Config base url: ' + config.baseUrl);
     if (result.type === 'success') {
       const accessUrl = [config.baseUrl, 'api/v1/login'].join('');
       return await sendLogInRequestToBackend(accessUrl, result.idToken);

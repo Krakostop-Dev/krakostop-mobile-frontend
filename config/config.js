@@ -5,7 +5,7 @@ import {
 } from 'react-native-dotenv';
 
 module.exports = {
-  baseUrl: BASE_URL,
   androidClientId: ANDROID_CLIENT_ID,
+  baseUrl: BASE_URL,
   iosClientId: IOS_CLIENT_ID,
 };

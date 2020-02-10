@@ -20,6 +20,14 @@ export const ksStyle = {
       height: 100,
     },
   },
+  drawerIcon: {
+    width: 35,
+    height: 35,
+  },
+  drawerLabel: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
 };
 
 export const ksBasic = StyleSheet.create({
