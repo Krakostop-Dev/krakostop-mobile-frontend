@@ -15,7 +15,7 @@ export const LoginContext = createContext({
   error: '',
 });
 
-/*const initialState = {
+const initialState = {
   user: {
     id: '',
     first_name: '',
@@ -24,8 +24,8 @@ export const LoginContext = createContext({
     verified_login: false,
     avatar: null,
   },
-};*/
-const initialState = mockUser;
+};
+//const initialState = mockUser;
 
 async function logIn(dispatch, token, user) {
   await saveDataInStorage('TOKEN', token);
