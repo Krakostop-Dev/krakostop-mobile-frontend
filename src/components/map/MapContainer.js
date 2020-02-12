@@ -18,16 +18,17 @@ const MapContainer = () => {
     updateLocation();
   }, []);
 
- return (
-     <View>
-      {isLocationDataUpdated ? <MapComponent/> :
-      <View style={ksBasic.stackContainer}>
-        <Spinner color="red"/>
-      </View>
-      }
+  return (
+    <View>
+      {isLocationDataUpdated ? (
+        <MapComponent />
+      ) : (
+        <View style={ksBasic.stackContainer}>
+          <Spinner color="red" />
+        </View>
+      )}
     </View>
   );
 };
-
 
 export default MapContainer;
