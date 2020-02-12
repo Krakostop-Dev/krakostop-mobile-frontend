@@ -9,7 +9,17 @@ import KsAxios from '../KsAxios';
 import { mockUser } from '../../mockUser';
 
 export const LoginContext = createContext({
-  user: null,
+  user: {
+    id: '',
+    first_name: '',
+    last_name: '',
+    email: '',
+    verified_login: false,
+    avatar: null,
+    pairID: null,
+    facebook_link: null,
+    phone_number: null,
+  },
   token: null,
   isLoggedIn: false,
   error: '',

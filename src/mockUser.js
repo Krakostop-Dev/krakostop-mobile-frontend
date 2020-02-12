@@ -10,8 +10,10 @@ export const mockUser = {
     verified_login: true,
     created_at: '2019-09-01T09:55:51.984Z',
     updated_at: '2019-11-04T11:13:14.946Z',
-    pairID: '',
+    pairID: '20',
     rank: '10',
     avatar: require('../assets/avatar_google.png'),
+    facebook_link: 'wwww.facebook.com',
+    phone_number: '1234235233',
   },
 };
