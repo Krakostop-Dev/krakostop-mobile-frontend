@@ -1,18 +1,14 @@
 /* eslint-disable no-undef */
 import { StyleSheet, Text, View } from 'react-native';
 import { Avatar } from 'react-native-elements';
-import React, { useContext } from 'react';
-import EditButton from '../../components/EditButton';
+import React, { useContext, useState } from 'react';
 import { LoginContext } from '../../modules/context/LoginContext';
+import EditAvatarButton from './EditAvatarButton';
+import SmallInfoText from '../../components/SmallInfoText';
 
 const styles = StyleSheet.create({
   header: {
     alignItems: 'center',
-  },
-  edit_avatar_button: {
-    position: 'absolute',
-    top: 80,
-    right: -5,
   },
   userName: {
     marginTop: 10,
@@ -20,26 +16,31 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   pair: {
-    fontSize: 16,
+    fontSize: 20,
   },
 });
+const PAIR_LABEL = 'Para';
 
 export default () => {
   const { user } = useContext(LoginContext);
+  const [hasErrorOccurred, setError] = useState({
+    isError: false,
+    message: '',
+  });
 
   return (
     <View style={styles.header}>
       <View>
-        <Avatar source={{ uri: user.avatar }} rounded size={100} />
-        <EditButton
-          style={styles.edit_avatar_button}
-          onPress={() => alert('Change avatar')}
-        />
+        <Avatar source={user.avatar} rounded size={120} />
+        <EditAvatarButton setError={setError} />
       </View>
+      {hasErrorOccurred.isError ? (
+        <SmallInfoText text={hasErrorOccurred.message} color="red" />
+      ) : null}
       <Text
         style={styles.userName}
       >{`${user.first_name} ${user.last_name}`}</Text>
-      <Text style={styles.pair}>{`Para #${user.pairID}`}</Text>
+      <Text style={styles.pair}>{`${PAIR_LABEL} ${user.pair_id}`}</Text>
     </View>
   );
 };

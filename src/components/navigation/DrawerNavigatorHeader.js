@@ -52,7 +52,7 @@ function DrawerNavigatorHeader({ style, navigation }) {
         onPress={() => navigation.navigate('Profile')}
       >
         <View style={styles.profile}>
-          <Avatar rounded source={{ uri: user.avatar }} size="medium" />
+          <Avatar rounded source={user.avatar} size="medium" />
           <View style={{ marginLeft: 10 }}>
             <Text style={styles.name}>{userName}</Text>
             <Text>miejsce {user.rank}</Text>

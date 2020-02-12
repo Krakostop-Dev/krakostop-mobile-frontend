@@ -1,14 +1,14 @@
 import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
-import LoginCardHeader from '../loginCard/LoginCardHeader';
-import LoginCardContent from '../loginCard/LoginCardContent';
-import LoginCard from '../loginCard/LoginCard';
+import CardHeader from '../../card/CardHeader';
+import CardContent from '../../card/CardContent';
+import Card from '../../card/Card';
 import MessengerButton from './MessengerButton';
 import ChangeAvatarView from './ChangeAvatarView';
 import InfoText from '../InfoText';
 import { LoginContext } from '../../../modules/context/LoginContext';
 import NextButton from './NextButton';
-import ErrorText from '../ErrorText';
+import SmallInfoText from '../../SmallInfoText';
 
 const HEADER_TITLE = 'Konfiguracja profilu';
 
@@ -27,19 +27,19 @@ function EditProfileCard() {
   });
 
   return (
-    <LoginCard>
-      <LoginCardHeader title={HEADER_TITLE} />
-      <LoginCardContent>
+    <Card>
+      <CardHeader title={HEADER_TITLE} />
+      <CardContent>
         <InfoText infoText={HELLO_TEXT} />
         <ChangeAvatarView setError={setError} setAvatar={setAvatar} />
         <InfoText infoText={MSG_TEXT} />
         <MessengerButton setError={setError} setMsgLink={setMsgLink} />
         <NextButton avatar={avatar} msgLink={msgLink} setError={setError} />
         {hasErrorOccurred.isError ? (
-          <ErrorText errorText={hasErrorOccurred.message} />
+          <SmallInfoText text={hasErrorOccurred.message} color="red" />
         ) : null}
-      </LoginCardContent>
-    </LoginCard>
+      </CardContent>
+    </Card>
   );
 }
 
