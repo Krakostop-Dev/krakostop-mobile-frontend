@@ -18,12 +18,10 @@ const styles = StyleSheet.create({
 
 const SplashScreen = ({ navigation }) => {
   const appContext = useContext(LoginContext);
-  const mapContext = useContext(MapContext);
 
   async function refreshLogin() {
     try {
       await appContext.refreshLogin();
-      await mapContext.grantMapPermissions();
     } catch (e) {
       console.error(e);
     }

@@ -1,9 +1,10 @@
-import React, { createContext } from 'react';
+import React, {createContext} from 'react';
 import * as Permissions from 'expo-permissions';
 import * as Location from 'expo-location';
 import PropTypes from 'prop-types';
 import reducer from './MapContextReducer';
 import KsAxios from '../KsAxios';
+import {refreshCurrentPosition} from "../location/LocationRefresh";
 
 export const MapContext = createContext({
   my_location: null,
@@ -20,23 +21,8 @@ const initialState = {
   participants: [],
 };
 
-async function grantMapPermissions(dispatch) {
-  const { status } = await Permissions.askAsync(Permissions.LOCATION);
-  if (status !== 'granted') {
-    dispatch({ type: 'changeMapPermissions', payload: false });
-    console.error('Permission to access location was denied');
-  } else {
-    dispatch({ type: 'changeMapPermissions', payload: true });
-  }
-}
-
 async function updateMyLocation(dispatch, state) {
-  if (!state.isMapPermissionsGranted) {
-    await grantMapPermissions(dispatch);
-  }
-  // TODO: Working in background
-  const location = await Location.getCurrentPositionAsync({});
-
+  const location = await refreshCurrentPosition();
   try {
     await KsAxios.post('/api/v1/locations', {
       lat: location.coords.latitude,
@@ -45,13 +31,18 @@ async function updateMyLocation(dispatch, state) {
   } catch (e) {
     console.error(e);
   }
-  dispatch({ type: 'updateMyLocation', payload: { location } });
+  dispatch({type: 'updateMyLocation', payload: {location}});
 }
+
+async function updateMyLocationWithCords(newLocation, dispatch, state) {
+  dispatch({type: 'updateMyLocation', payload: {location: newLocation}});
+}
+
 
 async function updateParticipantsLocation(dispatch) {
   try {
     const response = await KsAxios.get('/api/v1/locations/latest');
-    dispatch({ type: 'updateParticipantsLocation', payload: response.data });
+    dispatch({type: 'updateParticipantsLocation', payload: response.data});
   } catch (e) {
     console.error(e);
   }
@@ -63,8 +54,8 @@ export const MapContextProvider = ({ children }) => {
     <MapContext.Provider
       value={{
         ...state,
-        grantMapPermissions: async () => grantMapPermissions(dispatch),
         updateMyLocation: async () => updateMyLocation(dispatch, state),
+        updateMyLocationWithCords: (newLocation) => updateMyLocationWithCords(newLocation, dispatch, state),
         updateParticipantsLocation: async () =>
           updateParticipantsLocation(dispatch),
       }}
