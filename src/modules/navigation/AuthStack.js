@@ -15,7 +15,7 @@ const AuthStack = createStackNavigator(
     ErrorOverlay,
   },
   {
-    initialRouteName: 'LoginScreen',
+    initialRouteName: 'EditProfile',
     headerMode: 'none',
     mode: 'modal',
     transparentCard: true,
