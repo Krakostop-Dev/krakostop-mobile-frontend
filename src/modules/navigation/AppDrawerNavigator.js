@@ -11,7 +11,7 @@ import DashboardScreen from '../../views/dashboardScreen/DashboardScreen';
 import { Image } from 'react-native';
 import { ksStyle } from '../../styles/basic/ksBasic';
 import { DrawerItem } from '@react-navigation/drawer';
-import ProfileView from '../../views/drawerNavigatorScreens/ProfileView';
+import ProfileView from '../../views/profileScreen/ProfileView';
 
 export default new DrawerNavigator(
   {
