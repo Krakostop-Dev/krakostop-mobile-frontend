@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import {
   Image,
+  ImageBackground,
   StyleSheet,
   TouchableWithoutFeedback,
   View,
@@ -10,7 +11,7 @@ import { googleSignIn } from '../../modules/LoginWithGoogle';
 import { ksBasic } from '../../styles/basic/ksBasic';
 import { LoginContext } from '../../modules/context/LoginContext';
 
-const logo = require('../../../assets/krakologo2019.png');
+const logo = require('../../../assets/krk_logo.png');
 const loginButton = require('../../../assets/btn_google_signin_light_normal_web.png');
 
 export default function({ navigation }) {
@@ -34,35 +35,53 @@ export default function({ navigation }) {
   };
 
   return (
-    <View style={ksBasic.stackContainer}>
-      {isLoginButtonPressed ? (
-        <Spinner color="red" />
-      ) : (
-        <View style={ksBasic.stack}>
-          <Image style={styles.logo} source={logo} />
-          <View style={styles.loginBtnContainer}>
-            <TouchableWithoutFeedback onPress={loginPressed}>
-              <Image style={styles.loginButton} source={loginButton} />
-            </TouchableWithoutFeedback>
+    <ImageBackground
+      source={require('../../../assets/login_background.png')}
+      style={styles.background}
+    >
+      <View style={styles.container}>
+        {isLoginButtonPressed ? (
+          <Spinner color="red" />
+        ) : (
+          <View style={styles.stack}>
+            <Image style={styles.logo} source={logo} />
+            <View style={styles.loginBtnContainer}>
+              <TouchableWithoutFeedback onPress={loginPressed}>
+                <Image style={styles.loginButton} source={loginButton} />
+              </TouchableWithoutFeedback>
+            </View>
           </View>
-        </View>
-      )}
-    </View>
+        )}
+      </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1.0,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  stack: {
+    ...ksBasic.stack,
+    justifyContent: 'space-between',
+  },
+  background: {
+    width: '100%',
+    height: '100%',
+  },
   logo: {
-    flex: 1,
+    flex: 0.5,
     resizeMode: 'contain',
-    width: null,
-    height: null,
+    width: 300,
+    height: 150,
   },
   loginBtnContainer: {
-    flex: 1,
+    flex: 0.5,
   },
   loginButton: {
-    flex: 0.2,
+    flex: 1,
     resizeMode: 'contain',
     width: null,
     height: null,
