@@ -1,14 +1,14 @@
-import {Container} from 'native-base';
-import {ksStyle} from '../../styles/basic/ksBasic';
-import {SafeAreaView, ScrollView, StyleSheet, View} from 'react-native';
+import { Container } from 'native-base';
+import { ksStyle } from '../../styles/basic/ksBasic';
+import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
 import React from 'react';
 import DrawerNavigatorHeader from './DrawerNavigatorHeader';
-import {DrawerItems} from 'react-navigation-drawer';
+import { DrawerItems } from 'react-navigation-drawer';
 
 export default props => {
   return (
     <Container>
-      <DrawerNavigatorHeader style={styles.header}/>
+      <DrawerNavigatorHeader {...props} style={styles.header} />
       <View style={styles.list}>
         <ScrollView>
           <SafeAreaView>

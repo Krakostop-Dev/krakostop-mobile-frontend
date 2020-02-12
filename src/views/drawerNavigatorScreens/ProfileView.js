@@ -1,17 +1,16 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import Card from '../../components/card/Card';
+import CardHeader from '../../components/card/CardHeader';
+import { Text } from 'react-native';
+import CardContent from '../../components/card/CardContent';
 
-export default () => {
+export default ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <Text>Profile</Text>
-    </View>
+    <Card navigation={navigation}>
+      <CardHeader navigation={navigation} title={'Profil'} />
+      <CardContent>
+        <Text>aaaaaaaaaaaaaaa</Text>
+      </CardContent>
+    </Card>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1.0,
-    backgroundColor: 'red',
-  },
-});
