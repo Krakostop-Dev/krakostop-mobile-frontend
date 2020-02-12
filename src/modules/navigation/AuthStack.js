@@ -1,14 +1,25 @@
-import { createDrawerNavigator } from 'react-navigation-drawer';
-import LoginScreen from '../../screens/login/LoginComponent';
-import EditProfileScreen from '../../screens/profile/EditProfileScreen';
+import { createStackNavigator } from 'react-navigation-stack';
+import { ksStyle } from '../../styles/basic/ksBasic';
+import AuthCard from '../../components/login/authCard';
+import EditProfileCard from '../../components/login/editProfileCard';
+import MsgAlert from '../../components/login/msgAlert/MsgAlert';
+import ErrorOverlay from '../../components/login/loginForm/ErrorOverlay';
+import LoginScreen from '../../screens/login/LoginScreen';
 
-const AuthStack = createDrawerNavigator(
+const AuthStack = createStackNavigator(
   {
     LoginScreen,
-    EditProfileScreen,
+    Auth: AuthCard,
+    EditProfile: EditProfileCard,
+    MsgAlert,
+    ErrorOverlay,
   },
   {
     initialRouteName: 'LoginScreen',
+    headerMode: 'none',
+    mode: 'modal',
+    transparentCard: true,
+    cardStyle: { backgroundColor: ksStyle.colors.backgroundColor, opacity: 1 },
   }
 );
 

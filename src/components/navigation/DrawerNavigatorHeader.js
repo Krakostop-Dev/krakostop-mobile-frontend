@@ -38,8 +38,8 @@ const styles = StyleSheet.create({
 });
 
 function DrawerNavigatorHeader({ style, navigation }) {
-  const loginContext = useContext(LoginContext);
-  const userName = `${loginContext.user.first_name} ${loginContext.user.last_name}`;
+  const { user } = useContext(LoginContext);
+  const userName = `${user.first_name} ${user.last_name}`;
   return (
     <View span style={style}>
       <Image
@@ -52,10 +52,10 @@ function DrawerNavigatorHeader({ style, navigation }) {
         onPress={() => navigation.navigate('Profile')}
       >
         <View style={styles.profile}>
-          <Avatar rounded source={loginContext.user.avatar} size="medium" />
+          <Avatar rounded source={{ uri: user.avatar }} size="medium" />
           <View style={{ marginLeft: 10 }}>
             <Text style={styles.name}>{userName}</Text>
-            <Text>miejsce {loginContext.user.rank}</Text>
+            <Text>miejsce {user.rank}</Text>
           </View>
         </View>
       </TouchableHighlight>

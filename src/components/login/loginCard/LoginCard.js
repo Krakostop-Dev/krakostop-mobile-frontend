@@ -1,38 +1,40 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { ksStyle } from '../../styles/basic/ksBasic';
+import { StyleSheet, View, ViewPropTypes } from 'react-native';
+import { ksStyle } from '../../../styles/basic/ksBasic';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1.0,
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
   card: {
-    flex: 0.9,
-    width: '90%',
     backgroundColor: ksStyle.colors.primaryColorLight,
     borderRadius: 10,
     overflow: 'hidden',
   },
 });
 
-function Card({ children }) {
+function LoginCard({ children, style }) {
   return (
     <View style={styles.container}>
-      <View style={styles.card}>{children}</View>
+      <View style={{ ...styles.card, ...style }}>{children}</View>
     </View>
   );
 }
-export default Card;
+export default LoginCard;
 
-Card.propTypes = {
+LoginCard.defaultProps = {
+  style: {},
+};
+
+LoginCard.propTypes = {
   // eslint-disable-next-line react/require-default-props
   children(props, propName, componentName) {
     const { [propName]: prop } = props;
 
-    const cardHeader = 'CardHeader';
-    const cardContent = 'CardContent';
+    const cardHeader = 'LoginCardHeader';
+    const cardContent = 'LoginCardContent';
 
     const count = React.Children.count(prop);
     if (count !== 2) {
@@ -55,4 +57,5 @@ Card.propTypes = {
     }
     return null;
   },
+  style: ViewPropTypes.style,
 };

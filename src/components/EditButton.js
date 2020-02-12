@@ -20,15 +20,16 @@ const styles = StyleSheet.create({
 });
 
 const EDIT_ICON = require('../../assets/icons/edit.png');
+const EDIT_ICON_ROUNDED = require('../../assets/icons/edit_rounded.png');
 
-function EditButton({ style, onPress }) {
+function EditButton({ style, onPress, rounded }) {
   return (
     <TouchableOpacity
       style={{ ...styles.edit_button_container, ...style }}
       onPress={onPress}
     >
       <Image
-        source={EDIT_ICON}
+        source={rounded ? EDIT_ICON_ROUNDED : EDIT_ICON}
         style={styles.edit_button}
         resizeMode="contain"
       />
@@ -40,7 +41,9 @@ export default EditButton;
 EditButton.propTypes = {
   style: TouchableHighlight.propTypes.style,
   onPress: PropTypes.func.isRequired,
+  rounded: PropTypes.bool,
 };
 EditButton.defaultProps = {
   style: {},
+  rounded: false,
 };
