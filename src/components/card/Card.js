@@ -1,22 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { ksStyle } from '../../styles/basic/ksBasic';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1.0,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(52, 52, 52, 0.8)',
-  },
-  card: {
-    flex: 0.9,
-    width: '90%',
-    backgroundColor: ksStyle.colors.primaryColorLight,
-    borderRadius: 20,
-    overflow: 'hidden',
-  },
-});
+import CardHeader from './CardHeader';
 
 function Card({ children }) {
   return (
@@ -27,10 +12,23 @@ function Card({ children }) {
 }
 export default Card;
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1.0,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  card: {
+    flex: 0.9,
+    width: '90%',
+    backgroundColor: ksStyle.colors.primaryColorLight,
+    borderRadius: 20,
+    overflow: 'hidden',
+  },
+});
+
 Card.propTypes = {
-  // eslint-disable-next-line react/require-default-props
-  children(props, propName, componentName) {
-    // eslint-disable-next-line react/destructuring-assignment
+  children: function(props, propName, componentName) {
     const prop = props[propName];
 
     const cardHeader = 'CardHeader';
