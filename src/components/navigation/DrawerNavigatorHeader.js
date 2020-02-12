@@ -1,10 +1,16 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  View,
+} from 'react-native';
 import { ksStyle } from '../../styles/basic/ksBasic';
 import { Avatar } from 'react-native-elements';
 import React, { useContext } from 'react';
 import { LoginContext } from '../../modules/context/LoginContext';
 
-export default ({ style }) => {
+export default ({ style, navigation }) => {
   const loginContext = useContext(LoginContext);
   const userName = `${loginContext.user.first_name} ${loginContext.user.last_name}`;
   return (
@@ -14,13 +20,18 @@ export default ({ style }) => {
         resizeMode="contain"
         style={styles.logo}
       />
-      <View style={styles.profile}>
-        <Avatar rounded source={loginContext.user.avatar} size="medium" />
-        <View style={{ marginLeft: 10 }}>
-          <Text style={styles.name}>{userName}</Text>
-          <Text>miejsce {loginContext.user.rank}</Text>
+      <TouchableHighlight
+        style={styles.profile_button}
+        onPress={() => navigation.navigate('Profile')}
+      >
+        <View style={styles.profile}>
+          <Avatar rounded source={loginContext.user.avatar} size="medium" />
+          <View style={{ marginLeft: 10 }}>
+            <Text style={styles.name}>{userName}</Text>
+            <Text>miejsce {loginContext.user.rank}</Text>
+          </View>
         </View>
-      </View>
+      </TouchableHighlight>
     </View>
   );
 };
@@ -31,14 +42,17 @@ const styles = StyleSheet.create({
     height: undefined,
     marginTop: 20,
   },
-  profile: {
+  profile_button: {
     flex: 2,
     backgroundColor: ksStyle.colors.primaryColorMedium,
-    flexDirection: 'row',
-    alignItems: 'center',
     borderRadius: 20,
     margin: 10,
     padding: 3,
+  },
+  profile: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   name: {
     fontSize: 16,

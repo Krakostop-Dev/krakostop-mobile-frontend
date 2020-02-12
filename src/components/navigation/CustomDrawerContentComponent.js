@@ -8,7 +8,7 @@ import { DrawerItems } from 'react-navigation-drawer';
 export default props => {
   return (
     <Container>
-      <DrawerNavigatorHeader style={styles.header} />
+      <DrawerNavigatorHeader {...props} style={styles.header} />
       <View style={styles.list}>
         <ScrollView>
           <SafeAreaView>

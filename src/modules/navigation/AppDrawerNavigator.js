@@ -11,11 +11,18 @@ import DashboardScreen from '../../views/dashboardScreen/DashboardScreen';
 import { Image } from 'react-native';
 import { ksStyle } from '../../styles/basic/ksBasic';
 import { DrawerItem } from '@react-navigation/drawer';
+import ProfileView from '../../views/drawerNavigatorScreens/ProfileView';
 
 export default new DrawerNavigator(
   {
     Dashboard: {
       screen: DashboardScreen,
+      navigationOptions: {
+        drawerLabel: () => null,
+      },
+    },
+    Profile: {
+      screen: ProfileView,
       navigationOptions: {
         drawerLabel: () => null,
       },
@@ -99,11 +106,12 @@ export default new DrawerNavigator(
     },
   },
   {
-    initialRouteName: 'Dashboard',
+    initialRouteName: 'Profile',
     drawerPosition: 'left',
     contentComponent: CustomDrawerContentComponent,
     drawerOpenRoute: 'DrawerOpen',
     drawerCloseRoute: 'DrawerClose',
     drawerToggleRoute: 'DrawerToggle',
+    drawerBackgroundColor: 'transparent',
   }
 );
