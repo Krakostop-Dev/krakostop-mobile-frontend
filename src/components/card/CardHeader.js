@@ -12,7 +12,9 @@ function CardHeader({ navigation, title, style }) {
     <View style={{ ...style, ...styles.header }}>
       <View style={styles.left}>
         <Button
-          onPress={() => navigation.openDrawer()}
+          onPress={() => {
+            navigation.navigate("TabNavigator")}
+          }
           icon={<IconComponent name={'arrow-back'} size={40} color={'white'} />}
           type="clear"
         />
