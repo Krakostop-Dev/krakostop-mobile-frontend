@@ -1,23 +1,30 @@
-import DashboardScreen from "../../../views/dashboardScreen/DashboardScreen";
-import WhatToTakeView from "../../../views/drawerNavigatorScreens/WhatToTakeView";
-import {Image} from "react-native";
-import {ksStyle} from "../../../styles/basic/ksBasic";
-import PartnersView from "../../../views/drawerNavigatorScreens/PartnersView";
-import StartPackageView from "../../../views/drawerNavigatorScreens/StartPackageView";
-import ContactView from "../../../views/drawerNavigatorScreens/ContactView";
-import AboutAppView from "../../../views/drawerNavigatorScreens/AboutAppView";
-import LogoutView from "../../../views/drawerNavigatorScreens/LogoutView";
-import {DrawerItem} from "@react-navigation/drawer";
-import React from "react";
+import WhatToTakeView from '../../../views/drawerNavigatorScreens/WhatToTakeView';
+import { Image } from 'react-native';
+import { ksStyle } from '../../../styles/basic/ksBasic';
+import PartnersView from '../../../views/drawerNavigatorScreens/PartnersView';
+import StartPackageView from '../../../views/drawerNavigatorScreens/StartPackageView';
+import ContactView from '../../../views/drawerNavigatorScreens/ContactView';
+import AboutAppView from '../../../views/drawerNavigatorScreens/AboutAppView';
+import LogoutView from '../../../views/drawerNavigatorScreens/LogoutView';
+import { DrawerItem } from '@react-navigation/drawer';
+import React from 'react';
+import AppBottomTabNavigator from '../AppBottomTabNavigator';
+import ProfileView from "../../../views/profileScreen/ProfileView";
 
 export default {
-  Dashboard: {
-    screen: DashboardScreen,
-    navigationOptions: {
-      drawerLabel: () => null,
+    TabNavigator: {
+        screen: AppBottomTabNavigator,
+        navigationOptions: {
+            drawerLabel: () => null,
+        },
     },
-  },
-  WhatToTake: {
+    Profile: {
+        screen: ProfileView,
+        navigationOptions: {
+            drawerLabel: () => null,
+        },
+    },
+    WhatToTake: {
     screen: WhatToTakeView,
     navigationOptions: {
       drawerIcon: (
@@ -88,7 +95,7 @@ export default {
       ),
       drawerLabel: () => (
         <DrawerItem
-          labelStyle={{color: 'rgba(253, 0, 0, 0.65)'}}
+          labelStyle={{ color: 'rgba(253, 0, 0, 0.65)' }}
           label={'Wyloguj'}
         />
       ),

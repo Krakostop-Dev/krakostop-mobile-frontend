@@ -4,7 +4,7 @@ import drawerRouteConfig from "./drawerRouteConfig";
 import {createDrawerNavigator} from "react-navigation-drawer";
 
 export default createDrawerNavigator(
-  drawerRouteConfig,
+    drawerRouteConfig ,
   {
     drawerPosition: 'left',
     contentComponent: CustomDrawerContentComponent,
