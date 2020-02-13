@@ -4,10 +4,10 @@ import { ksBasic } from '../../styles/basic/ksBasic';
 import MapContainer from '../../components/map/MapContainer';
 import MainHeader from '../../components/header/MainHeader';
 
-const DashboardScreen = () => {
+const DashboardScreen = ({ navigation }) => {
   return (
     <View style={styles.stackContainer}>
-      <MainHeader style={styles.header} />
+      <MainHeader style={styles.header} navigation={navigation} />
       <MapContainer style={styles} />
     </View>
   );

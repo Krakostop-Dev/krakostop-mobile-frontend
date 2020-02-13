@@ -5,11 +5,11 @@ import HeaderLeft from './HeaderLeft';
 import HeaderCenter from './HeaderCenter';
 import HeaderRight from './HeaderRight';
 
-const MainHeader = () => {
+const MainHeader = ({ navigation }) => {
   return (
     <Header
       placement="left"
-      leftComponent={HeaderLeft}
+      leftComponent={<HeaderLeft navigation={navigation} />}
       centerComponent={HeaderCenter}
       rightComponent={HeaderRight}
       containerStyle={{
