@@ -1,5 +1,4 @@
 import React, { createContext } from 'react';
-import PropTypes from 'prop-types';
 import reducer from './LoginContextReducer';
 import {
   getDataFromStorage,
@@ -7,7 +6,7 @@ import {
   saveDataInStorage,
 } from '../Storage';
 import KsAxios from '../KsAxios';
-import {mockUser} from '../../mockUser';
+import { mockUser } from '../../mockUser';
 
 export const LoginContext = createContext({
   user: {
@@ -36,7 +35,6 @@ const initialState = {
     avatar: null,
   },
 };
-
 //const initialState = mockUser;
 
 async function logIn(dispatch, token, user) {
@@ -77,7 +75,7 @@ async function refreshLogin(dispatch) {
   }
 }
 
-export const LoginContextProvider = ({ children }) => {
+export const LoginContextProvider = props => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
   return (
     <LoginContext.Provider
@@ -89,11 +87,7 @@ export const LoginContextProvider = ({ children }) => {
         refreshLogin: async () => refreshLogin(dispatch),
       }}
     >
-      {children}
+      {props.children}
     </LoginContext.Provider>
   );
-};
-
-LoginContextProvider.propTypes = {
-  children: PropTypes.node.isRequired,
 };
