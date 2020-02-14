@@ -1,6 +1,6 @@
 import * as Google from 'expo-google-app-auth';
 import axios from 'axios';
-import config from '../../config/config';
+import config from '../../../config/config';
 
 const sendLogInRequestToBackend = async (accessUrl, token) => {
   const response = await axios.post(accessUrl, {

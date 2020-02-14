@@ -5,6 +5,7 @@ export const ksStyle = {
     primaryColorLight: '#FFF3E0',
     primaryColorMedium: '#FED290',
     primaryColorDark: '#FFCC80',
+    secondaryColorMedium: '#6EA2FE',
   },
   icon: {
     size: 25,

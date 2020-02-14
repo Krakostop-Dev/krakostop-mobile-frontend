@@ -17,13 +17,13 @@ const styles = StyleSheet.create({
     flex: 1.0,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(52, 52, 52, 0.8)'
+    backgroundColor: 'rgba(52, 52, 52, 0.8)',
   },
   card: {
     flex: 0.9,
     width: '90%',
     backgroundColor: ksStyle.colors.primaryColorLight,
-    borderRadius: 20,
+    borderRadius: 10,
     overflow: 'hidden',
   },
 });

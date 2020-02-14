@@ -9,22 +9,22 @@ import LogoutView from '../../../views/drawerNavigatorScreens/LogoutView';
 import { DrawerItem } from '@react-navigation/drawer';
 import React from 'react';
 import AppBottomTabNavigator from '../AppBottomTabNavigator';
-import ProfileView from "../../../views/profileScreen/ProfileView";
+import ProfileView from '../../../views/profileScreen/ProfileView';
 
 export default {
-    TabNavigator: {
-        screen: AppBottomTabNavigator,
-        navigationOptions: {
-            drawerLabel: () => null,
-        },
+  TabNavigator: {
+    screen: AppBottomTabNavigator,
+    navigationOptions: {
+      drawerLabel: () => null,
     },
-    Profile: {
-        screen: ProfileView,
-        navigationOptions: {
-            drawerLabel: () => null,
-        },
+  },
+  Profile: {
+    screen: ProfileView,
+    navigationOptions: {
+      drawerLabel: () => null,
     },
-    WhatToTake: {
+  },
+  WhatToTake: {
     screen: WhatToTakeView,
     navigationOptions: {
       drawerIcon: (

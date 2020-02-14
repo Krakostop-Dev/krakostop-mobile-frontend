@@ -6,7 +6,7 @@ import {
   saveDataInStorage,
 } from '../Storage';
 import KsAxios from '../KsAxios';
-import { mockUser } from '../../mockUser';
+import { mock } from '../../mock';
 
 export const LoginContext = createContext({
   user: {
@@ -35,7 +35,7 @@ export const LoginContext = createContext({
     avatar: null,
   },
 };*/
-const initialState = mockUser;
+const initialState = mock;
 
 async function logIn(dispatch, token, user) {
   await saveDataInStorage('TOKEN', token);
@@ -43,7 +43,6 @@ async function logIn(dispatch, token, user) {
 
   dispatch({ type: 'logIn', payload: { user, token } });
 }
-
 async function logOut(dispatch) {
   await removeDataFromStorage('TOKEN');
   await removeDataFromStorage('USER');

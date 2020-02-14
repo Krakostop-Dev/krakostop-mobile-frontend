@@ -1,4 +1,4 @@
-export const mockUser = {
+export const mock = {
   token:
     'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.ye4T1nR74vnxv1Vjupk0LSplqoVwoi1jAQ267D4XJZ0',
   isLoggedIn: true,

@@ -13,8 +13,8 @@ function CardHeader({ navigation, title, style }) {
       <View style={styles.left}>
         <Button
           onPress={() => {
-            navigation.navigate("TabNavigator")}
-          }
+            navigation.navigate('TabNavigator');
+          }}
           icon={<IconComponent name={'arrow-back'} size={40} color={'white'} />}
           type="clear"
         />

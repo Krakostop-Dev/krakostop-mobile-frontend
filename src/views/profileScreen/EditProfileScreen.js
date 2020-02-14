@@ -19,7 +19,7 @@ const EditProfileScreen = ({ navigation }) => {
 
   const saveUser = async () => {
     // TODO: Validate user input
-    await context.updateUser({ first_name, last_name, pairID, avatar });
+    //await context.updateUser({ first_name, last_name, pairID, avatar });
     navigation.navigate('App');
   };
   return (
