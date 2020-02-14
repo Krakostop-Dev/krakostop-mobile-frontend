@@ -1,10 +1,20 @@
 import React, { useEffect, useContext } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
+import PropTypes from 'prop-types';
 import { LoginContext } from '../../modules/context/LoginContext';
 import { ksBasic } from '../../styles/basic/ksBasic';
 import { MapContext } from '../../modules/context/MapContext';
 
-const logo = require('../../../assets/krakologo2019.png');
+const LOGO = require('../../../assets/krakologo2019.png');
+
+const styles = StyleSheet.create({
+  logo: {
+    flex: 1,
+    resizeMode: 'contain',
+    width: null,
+    height: null,
+  },
+});
 
 const SplashScreen = ({ navigation }) => {
   const appContext = useContext(LoginContext);
@@ -34,18 +44,16 @@ const SplashScreen = ({ navigation }) => {
   return (
     <View style={ksBasic.stackContainer}>
       <View style={ksBasic.stack}>
-        <Image style={styles.logo} source={logo} />
+        <Image style={styles.logo} source={LOGO} />
       </View>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  logo: {
-    flex: 1,
-    resizeMode: 'contain',
-    width: null,
-    height: null,
-  },
-});
 export default SplashScreen;
+
+SplashScreen.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};

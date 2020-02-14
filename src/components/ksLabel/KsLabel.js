@@ -1,15 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
-const KsLabel = ({ labelText }) => {
-  return (
-    <View style={elements.textContainer}>
-      <Text style={elements.mainText}>{labelText}</Text>
-    </View>
-  );
-};
-
-export default KsLabel;
+import PropTypes from 'prop-types';
 
 const elements = StyleSheet.create({
   mainText: {
@@ -26,3 +17,17 @@ const elements = StyleSheet.create({
     alignItems: 'stretch',
   },
 });
+
+const KsLabel = ({ labelText }) => {
+  return (
+    <View style={elements.textContainer}>
+      <Text style={elements.mainText}>{labelText}</Text>
+    </View>
+  );
+};
+
+export default KsLabel;
+
+KsLabel.propTypes = {
+  labelText: PropTypes.string.isRequired,
+};

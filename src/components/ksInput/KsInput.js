@@ -1,24 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
-
-const KsInput = ({ label, inputValue, onInputChange }) => {
-  return (
-    <View style={formStyle.inputContainer}>
-      <View style={formStyle.inputLabelContainer}>
-        <Text style={formStyle.inputLabel}>{label}</Text>
-      </View>
-      <TextInput
-        style={formStyle.textInput}
-        onChangeText={onInputChange}
-        value={inputValue}
-        adjustsFontSizeToFit
-        clearTextOnFocus
-      />
-    </View>
-  );
-};
-
-export default KsInput;
+import PropTypes from 'prop-types';
 
 const formStyle = StyleSheet.create({
   inputContainer: {
@@ -53,3 +35,28 @@ const formStyle = StyleSheet.create({
     textAlign: 'center',
   },
 });
+
+const KsInput = ({ label, inputValue, onInputChange }) => {
+  return (
+    <View style={formStyle.inputContainer}>
+      <View style={formStyle.inputLabelContainer}>
+        <Text style={formStyle.inputLabel}>{label}</Text>
+      </View>
+      <TextInput
+        style={formStyle.textInput}
+        onChangeText={onInputChange}
+        value={inputValue}
+        adjustsFontSizeToFit
+        clearTextOnFocus
+      />
+    </View>
+  );
+};
+
+export default KsInput;
+
+KsInput.propTypes = {
+  label: PropTypes.string.isRequired,
+  inputValue: PropTypes.string.isRequired,
+  onInputChange: PropTypes.func.isRequired,
+};

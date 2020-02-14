@@ -4,15 +4,6 @@ import { ksBasic } from '../../styles/basic/ksBasic';
 import MapContainer from '../../components/map/MapContainer';
 import MainHeader from '../../components/header/MainHeader';
 
-const DashboardScreen = () => {
-  return (
-    <View style={styles.stackContainer}>
-      <MainHeader style={styles.header} />
-      <MapContainer style={styles} />
-    </View>
-  );
-};
-
 const styles = StyleSheet.create({
   stackContainer: {
     ...ksBasic.stackContainer,
@@ -25,5 +16,14 @@ const styles = StyleSheet.create({
     flex: 0.7,
   },
 });
+
+const DashboardScreen = () => {
+  return (
+    <View style={styles.stackContainer}>
+      <MainHeader style={styles.header} />
+      <MapContainer style={styles} />
+    </View>
+  );
+};
 
 export default DashboardScreen;

@@ -14,6 +14,7 @@ export default createDrawerNavigator(
       screen: DashboardScreen,
       navigationOptions: {
         drawerLabel: 'Partnerzy',
+        // eslint-disable-next-line react/prop-types
         drawerIcon: ({ tintColor }) => (
           <IconComponent
             name="people"
@@ -27,6 +28,7 @@ export default createDrawerNavigator(
       screen: DashboardScreen,
       navigationOptions: {
         drawerLabel: 'Kontakt',
+        // eslint-disable-next-line react/prop-types
         drawerIcon: ({ tintColor }) => (
           <IconComponent
             name="phone"

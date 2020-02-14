@@ -1,6 +1,7 @@
 import React, { createContext } from 'react';
 import * as Permissions from 'expo-permissions';
 import * as Location from 'expo-location';
+import PropTypes from 'prop-types';
 import reducer from './MapContextReducer';
 import KsAxios from '../KsAxios';
 
@@ -56,7 +57,7 @@ async function updateParticipantsLocation(dispatch) {
   }
 }
 
-export const MapContextProvider = props => {
+export const MapContextProvider = ({ children }) => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
   return (
     <MapContext.Provider
@@ -68,7 +69,11 @@ export const MapContextProvider = props => {
           updateParticipantsLocation(dispatch),
       }}
     >
-      {props.children}
+      {children}
     </MapContext.Provider>
   );
+};
+
+MapContextProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };

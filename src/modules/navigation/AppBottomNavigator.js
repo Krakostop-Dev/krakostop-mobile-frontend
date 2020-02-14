@@ -13,6 +13,7 @@ const AppBottomNavigator = createBottomTabNavigator(
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
+      // eslint-disable-next-line react/prop-types
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         const IconComponent = MaterialCommunityIcons;
@@ -29,6 +30,8 @@ const AppBottomNavigator = createBottomTabNavigator(
             break;
           case 'Schedule':
             iconName = `timetable`;
+            break;
+          default:
             break;
         }
         return (

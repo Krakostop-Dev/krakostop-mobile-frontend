@@ -12,7 +12,7 @@ const sendLogInRequestToBackend = async (accessUrl, token) => {
   return null;
 };
 
-export const googleSignIn = async () => {
+export default async () => {
   try {
     const result = await Google.logInAsync({
       androidClientId: config.androidClientId,
