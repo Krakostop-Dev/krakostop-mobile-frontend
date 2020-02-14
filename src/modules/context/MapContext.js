@@ -35,7 +35,6 @@ async function updateMyLocation(dispatch, state) {
 }
 
 async function updateMyLocationWithCords(newLocation, dispatch, state) {
-  console.log("UPDAON WITH CORDS");
   dispatch({type: 'updateMyLocation', payload: {location: newLocation}});
 }
 
