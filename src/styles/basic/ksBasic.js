@@ -4,8 +4,9 @@ const LOGO = require('../../../assets/krk_logo.png');
 
 export const ksStyle = {
   colors: {
-    primaryColorLight: '#FFCC80',
-    primaryColorMedium: '#FFA726',
+    primaryColorLight: '#FFF3E0',
+    primaryColorMedium: '#FED290',
+    primaryColorDark: '#FFCC80',
   },
   icon: {
     size: 25,
@@ -20,6 +21,14 @@ export const ksStyle = {
       width: 200,
       height: 100,
     },
+  },
+  drawerIcon: {
+    width: 35,
+    height: 35,
+  },
+  drawerLabel: {
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 };
 
