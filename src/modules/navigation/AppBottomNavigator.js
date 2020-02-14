@@ -1,7 +1,7 @@
-import DashboardScreen from '../../views/dashboardScreen/DashboardScreen';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import React from 'react';
+import DashboardScreen from '../../views/dashboardScreen/DashboardScreen';
 
 import { ksStyle } from '../../styles/basic/ksBasic';
 
@@ -17,7 +17,7 @@ const AppBottomNavigator = createBottomTabNavigator(
       // eslint-disable-next-line react/prop-types
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
-        let IconComponent = MaterialCommunityIcons;
+        const IconComponent = MaterialCommunityIcons;
         let iconName;
         switch (routeName) {
           case 'Map':
