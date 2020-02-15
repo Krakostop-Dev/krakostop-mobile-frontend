@@ -1,7 +1,17 @@
 import React from 'react';
 
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
+import PropTypes from 'prop-types';
 import { ksBasic } from '../../styles/basic/ksBasic';
+
+const elements = StyleSheet.create({
+  textContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'stretch',
+  },
+});
 
 const KsButton = ({ buttonText, onPress }) => {
   return (
@@ -15,11 +25,7 @@ const KsButton = ({ buttonText, onPress }) => {
 
 export default KsButton;
 
-const elements = StyleSheet.create({
-  textContainer: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'stretch',
-  },
-});
+KsButton.propTypes = {
+  buttonText: PropTypes.string.isRequired,
+  onPress: PropTypes.func.isRequired,
+};

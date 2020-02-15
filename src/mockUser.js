@@ -1,4 +1,6 @@
-export const mockUser = {
+const AVATAR_GOOGLE = require('../assets/avatar_google.png');
+
+const mockUser = {
   token:
     'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.ye4T1nR74vnxv1Vjupk0LSplqoVwoi1jAQ267D4XJZ0',
   isLoggedIn: true,
@@ -17,3 +19,5 @@ export const mockUser = {
     phone_number: '1234235233',
   },
 };
+
+export default mockUser;

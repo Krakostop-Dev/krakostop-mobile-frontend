@@ -5,7 +5,7 @@ export const saveDataInStorage = async (key, value) => {
 };
 
 export const getDataFromStorage = async key => {
-  return await SecureStore.getItemAsync(key);
+  return SecureStore.getItemAsync(key);
 };
 
 export const removeDataFromStorage = async key => {

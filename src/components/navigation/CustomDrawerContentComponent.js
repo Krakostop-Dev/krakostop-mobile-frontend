@@ -1,24 +1,10 @@
 import { Container } from 'native-base';
-import { ksStyle } from '../../styles/basic/ksBasic';
 import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
 import React from 'react';
-import DrawerNavigatorHeader from './DrawerNavigatorHeader';
 import { DrawerItems } from 'react-navigation-drawer';
+import DrawerNavigatorHeader from './DrawerNavigatorHeader';
+import { ksStyle } from '../../styles/basic/ksBasic';
 
-export default props => {
-  return (
-    <Container>
-      <DrawerNavigatorHeader {...props} style={styles.header} />
-      <View style={styles.list}>
-        <ScrollView>
-          <SafeAreaView>
-            <DrawerItems {...props} />
-          </SafeAreaView>
-        </ScrollView>
-      </View>
-    </Container>
-  );
-};
 const styles = StyleSheet.create({
   header: {
     flex: 2,
@@ -29,3 +15,19 @@ const styles = StyleSheet.create({
     backgroundColor: ksStyle.colors.primaryColorLight,
   },
 });
+
+export default props => {
+  return (
+    <Container>
+      <DrawerNavigatorHeader {...props} style={styles.header} />
+      <View style={styles.list}>
+        <ScrollView>
+          <SafeAreaView>
+            {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+            <DrawerItems {...props} />
+          </SafeAreaView>
+        </ScrollView>
+      </View>
+    </Container>
+  );
+};

@@ -1,9 +1,10 @@
 {
   "expo": {
+
     "name": "Krakostop mobile frontend",
     "slug": "krakostop-mobile-frontend",
     "privacy": "public",
-    "sdkVersion": "34.0.0",
+    "sdkVersion": "35.0.0",
     "platforms": [
       "ios",
       "android",
@@ -23,8 +24,22 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "android": {
+      "package": "eu.krakostop.krakostopapp"
+    },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "buildNumber": "1",
+      "bundleIdentifier": "eu.krakostop.krakostopapp",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "This app uses yours location to share share it with other users",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "This app uses yours location to share share it with other users",
+        "NSLocationAlwaysUsageDescription": "This app uses yours location to share share it with other users",
+        "UIBackgroundModes": [
+          "fetch",
+          "location"
+        ]
+      }
     }
   }
 }

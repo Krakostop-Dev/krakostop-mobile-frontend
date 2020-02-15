@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+const LOGO = require('../../../assets/krk_logo.png');
+
 export const ksStyle = {
   colors: {
     primaryColorLight: '#FFF3E0',
@@ -10,7 +12,7 @@ export const ksStyle = {
     size: 25,
   },
   logo: {
-    source: require('../../../assets/krk_logo.png'),
+    source: LOGO,
     style_small: {
       width: 70,
       height: 30,

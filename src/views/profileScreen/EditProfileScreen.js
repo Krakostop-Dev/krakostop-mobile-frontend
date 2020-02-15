@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Avatar } from 'react-native-elements';
+import PropTypes from 'prop-types';
 import KsInput from '../../components/ksInput/KsInput';
 import KsButton from '../../components/ksButton/KsButton';
 import KsLabel from '../../components/ksLabel/KsLabel';
@@ -9,17 +10,42 @@ import { ksBasic } from '../../styles/basic/ksBasic';
 
 const DEFAULT_AVATAR = require('../../../assets/avatar_google.png');
 
+const styles = StyleSheet.create({
+  container: {
+    ...ksBasic.stackContainer,
+    flexDirection: 'column',
+  },
+  avatarStack: {
+    ...ksBasic.stack,
+    alignItems: 'center',
+    flex: 0.2,
+  },
+  titleStack: {
+    ...ksBasic.stack,
+    flex: 0.2,
+  },
+  inputFields: {
+    flex: 1,
+  },
+});
+
 const EditProfileScreen = ({ navigation }) => {
   const context = useContext(LoginContext);
   const { user } = context;
-  const [first_name, setName] = useState(user.first_name);
-  const [last_name, setSurname] = useState(user.last_name);
+  const [firstName, setName] = useState(user.first_name);
+  const [lastName, setSurname] = useState(user.last_name);
   const [pairID, setPairId] = useState('');
+  // eslint-disable-next-line no-unused-vars
   const [avatar, setAvatar] = useState(DEFAULT_AVATAR);
 
   const saveUser = async () => {
     // TODO: Validate user input
-    await context.updateUser({ first_name, last_name, pairID, avatar });
+    await context.updateUser({
+      first_name: firstName,
+      last_name: lastName,
+      pairID,
+      avatar,
+    });
     navigation.navigate('App');
   };
   return (
@@ -40,12 +66,12 @@ const EditProfileScreen = ({ navigation }) => {
         <View style={styles.inputFields}>
           <KsInput
             label="Imię"
-            inputValue={first_name}
+            inputValue={firstName}
             onInputChange={setName}
           />
           <KsInput
             label="Nazwisko"
-            inputValue={last_name}
+            inputValue={lastName}
             onInputChange={setSurname}
           />
           <KsInput
@@ -66,21 +92,8 @@ EditProfileScreen.navigationOptions = () => ({
   title: 'Edit Profile',
 });
 
-const styles = StyleSheet.create({
-  container: {
-    ...ksBasic.stackContainer,
-    flexDirection: 'column',
-  },
-  avatarStack: {
-    ...ksBasic.stack,
-    alignItems: 'center',
-    flex: 0.2,
-  },
-  titleStack: {
-    ...ksBasic.stack,
-    flex: 0.2,
-  },
-  inputFields: {
-    flex: 1,
-  },
-});
+EditProfileScreen.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};

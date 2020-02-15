@@ -1,6 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1.0,
+    backgroundColor: 'red',
+  },
+});
+
 function WhatToTake() {
   return (
     <View style={styles.container}>
@@ -8,11 +15,5 @@ function WhatToTake() {
     </View>
   );
 }
-export default WhatToTake;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1.0,
-    backgroundColor: 'red',
-  },
-});
+export default WhatToTake;
