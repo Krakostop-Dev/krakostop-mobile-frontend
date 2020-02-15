@@ -8,6 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: ESLint Action
-    - uses: hallee/eslint-action@1.0.1
-      env:
-        CI: true
+      uses: hallee/eslint-action@1.0.1
+
