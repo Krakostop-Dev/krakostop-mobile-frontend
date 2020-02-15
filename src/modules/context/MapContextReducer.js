@@ -1,5 +1,5 @@
 const reducer = (state, action) => {
-  console.log("Reducer");
+  console.log('Reducer');
   switch (action.type) {
     case 'changeMapPermissions':
       return {

@@ -1,4 +1,6 @@
-export const mockUser = {
+const AVATAR_GOOGLE = require('../assets/avatar_google.png');
+
+const mockUser = {
   token:
     'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.ye4T1nR74vnxv1Vjupk0LSplqoVwoi1jAQ267D4XJZ0',
   isLoggedIn: true,
@@ -12,6 +14,8 @@ export const mockUser = {
     updated_at: '2019-11-04T11:13:14.946Z',
     pairID: '',
     rank: '10',
-    avatar: require('../assets/avatar_google.png'),
+    avatar: AVATAR_GOOGLE,
   },
 };
+
+export default mockUser;

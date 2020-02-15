@@ -1,11 +1,10 @@
-import * as Location from "expo-location";
+import * as Location from 'expo-location';
 
 export const locationTrackerConfig = {
   accuracy: Location.Accuracy.Highest,
   timeInterval: 1000,
-  distanceInterval: 0
+  distanceInterval: 0,
 };
-
 
 export const RACE_START_LOCATION = {
   coords: {

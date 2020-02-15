@@ -3,7 +3,6 @@ import { Image, StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
 import { LoginContext } from '../../modules/context/LoginContext';
 import { ksBasic } from '../../styles/basic/ksBasic';
-import { MapContext } from '../../modules/context/MapContext';
 
 const LOGO = require('../../../assets/krakologo2019.png');
 

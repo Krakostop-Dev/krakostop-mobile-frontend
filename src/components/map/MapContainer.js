@@ -1,11 +1,11 @@
-import React, {useEffect, useContext, useState} from 'react';
-import {View} from 'react-native';
-import {Spinner} from 'native-base';
-import {MapContext} from '../../modules/context/MapContext';
-import {ksBasic} from '../../styles/basic/ksBasic';
+import React, { useEffect, useContext, useState } from 'react';
+import { View } from 'react-native';
+import { Spinner } from 'native-base';
+import { MapContext } from '../../modules/context/MapContext';
+import { ksBasic } from '../../styles/basic/ksBasic';
 import MapComponent from './MapComponent';
-import {startTrackingLocation} from "../../modules/location/LocationTracker";
-import {refreshCurrentPosition} from "../../modules/location/LocationRefresh";
+import startTrackingLocation from '../../modules/location/LocationTracker';
+import refreshCurrentPosition from '../../modules/location/LocationRefresh';
 
 const MapContainer = () => {
   const mapContext = useContext(MapContext);
@@ -15,23 +15,25 @@ const MapContainer = () => {
     let locationPromise;
     const updateLocation = async () => {
       await mapContext.updateParticipantsLocation();
-      locationPromise = await startTrackingLocation(newLocation => mapContext.updateMyLocationWithCords(newLocation));
+      locationPromise = await startTrackingLocation(newLocation =>
+        mapContext.updateMyLocationWithCords(newLocation)
+      );
       await refreshCurrentPosition(false);
       setUpdateLocationStatus(true);
     };
     updateLocation();
     return () => {
       locationPromise.then(remove => remove());
-    }
+    };
   }, []);
 
   return (
     <View>
       {isLocationDataUpdated ? (
-        <MapComponent/>
+        <MapComponent />
       ) : (
         <View style={ksBasic.stackContainer}>
-          <Spinner color="red"/>
+          <Spinner color="red" />
         </View>
       )}
     </View>

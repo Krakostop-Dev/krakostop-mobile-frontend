@@ -1,10 +1,8 @@
-import React, {createContext} from 'react';
-import * as Permissions from 'expo-permissions';
-import * as Location from 'expo-location';
+import React, { createContext } from 'react';
 import PropTypes from 'prop-types';
 import reducer from './MapContextReducer';
 import KsAxios from '../KsAxios';
-import {refreshCurrentPosition} from "../location/LocationRefresh";
+import refreshCurrentPosition from '../location/LocationRefresh';
 
 export const MapContext = createContext({
   my_location: null,
@@ -21,6 +19,7 @@ const initialState = {
   participants: [],
 };
 
+// eslint-disable-next-line no-unused-vars
 async function updateMyLocation(dispatch, state) {
   const location = await refreshCurrentPosition();
   try {
@@ -31,18 +30,18 @@ async function updateMyLocation(dispatch, state) {
   } catch (e) {
     console.error(e);
   }
-  dispatch({type: 'updateMyLocation', payload: {location}});
+  dispatch({ type: 'updateMyLocation', payload: { location } });
 }
 
+// eslint-disable-next-line no-unused-vars
 async function updateMyLocationWithCords(newLocation, dispatch, state) {
-  dispatch({type: 'updateMyLocation', payload: {location: newLocation}});
+  dispatch({ type: 'updateMyLocation', payload: { location: newLocation } });
 }
-
 
 async function updateParticipantsLocation(dispatch) {
   try {
     const response = await KsAxios.get('/api/v1/locations/latest');
-    dispatch({type: 'updateParticipantsLocation', payload: response.data});
+    dispatch({ type: 'updateParticipantsLocation', payload: response.data });
   } catch (e) {
     console.error(e);
   }
@@ -55,7 +54,8 @@ export const MapContextProvider = ({ children }) => {
       value={{
         ...state,
         updateMyLocation: async () => updateMyLocation(dispatch, state),
-        updateMyLocationWithCords: (newLocation) => updateMyLocationWithCords(newLocation, dispatch, state),
+        updateMyLocationWithCords: newLocation =>
+          updateMyLocationWithCords(newLocation, dispatch, state),
         updateParticipantsLocation: async () =>
           updateParticipantsLocation(dispatch),
       }}
