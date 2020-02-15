@@ -13,7 +13,7 @@ export default () => {
   return (
     <Button
       onPress={() => navigation.openDrawer()}
-      icon={<IconComponent name={'menu'} size={ksStyle.icon.size}/>}
+      icon={<IconComponent name="menu" size={ksStyle.icon.size} />}
       type="clear"
     />
   );

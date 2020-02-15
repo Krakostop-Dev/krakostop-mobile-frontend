@@ -3,7 +3,6 @@ import { Image, StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
 import { LoginContext } from '../../modules/context/LoginContext';
 import { ksBasic } from '../../styles/basic/ksBasic';
-import { MapContext } from '../../modules/context/MapContext';
 
 const LOGO = require('../../../assets/krakologo2019.png');
 
@@ -18,12 +17,10 @@ const styles = StyleSheet.create({
 
 const SplashScreen = ({ navigation }) => {
   const appContext = useContext(LoginContext);
-  const mapContext = useContext(MapContext);
 
   async function refreshLogin() {
     try {
       await appContext.refreshLogin();
-      await mapContext.grantMapPermissions();
     } catch (e) {
       console.error(e);
     }
