@@ -1,24 +1,10 @@
 import React from 'react';
+import { StyleSheet, View } from 'react-native';
 import Card from '../../components/card/Card';
 import CardHeader from '../../components/card/CardHeader';
-import { StyleSheet, View } from 'react-native';
 import CardContent from '../../components/card/CardContent';
 import ProfileViewContentForm from './ProfileViewContentForm';
 import ProfileViewContentHeader from './ProfileViewContentHeader';
-
-export default ({ navigation }) => {
-  return (
-    <Card navigation={navigation}>
-      <CardHeader navigation={navigation} title={'Profil'} />
-      <CardContent style={styles.content}>
-        <View style={styles.container}>
-          <ProfileViewContentHeader />
-          <ProfileViewContentForm />
-        </View>
-      </CardContent>
-    </Card>
-  );
-};
 
 const styles = StyleSheet.create({
   content: {
@@ -47,3 +33,18 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
+
+// eslint-disable-next-line react/prop-types
+export default ({ navigation }) => {
+  return (
+    <Card navigation={navigation}>
+      <CardHeader navigation={navigation} title="Profil" />
+      <CardContent style={styles.content}>
+        <View style={styles.container}>
+          <ProfileViewContentHeader />
+          <ProfileViewContentForm />
+        </View>
+      </CardContent>
+    </Card>
+  );
+};
