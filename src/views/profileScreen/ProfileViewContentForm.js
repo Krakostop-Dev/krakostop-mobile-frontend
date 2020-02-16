@@ -4,43 +4,6 @@ import { ksStyle } from '../../styles/basic/ksBasic';
 import { LoginContext } from '../../modules/context/LoginContext';
 import EditButton from '../../components/EditButton';
 
-export default () => {
-  const { user } = useContext(LoginContext);
-  return (
-    <View style={styles.form}>
-      <Text style={styles.input_label}>Email</Text>
-      <TextInput
-        style={styles.input}
-        defaultValue={user.email}
-        disabled={true}
-        placeholderTextColor={'rgba(0, 0, 0, 0.6)'}
-      />
-      <Text style={styles.input_label}>Numer telefonu</Text>
-      <TextInput
-        style={styles.input}
-        defaultValue={user.phone_number}
-        disabled={true}
-        placeholderTextColor={'rgba(0, 0, 0, 0.6)'}
-      />
-      <View style={styles.facebook_label_container}>
-        <Text style={styles.input_label}>Link do profilu Facebook</Text>
-        <EditButton
-          style={styles.edit_button}
-          onPress={() => {
-            alert('Change facebook');
-          }}
-        />
-      </View>
-      <TextInput
-        style={styles.input}
-        defaultValue={user.facebook_link}
-        disabled={true}
-        placeholderTextColor={'rgba(0, 0, 0, 0.6)'}
-      />
-    </View>
-  );
-};
-
 const styles = StyleSheet.create({
   form: {
     width: '100%',
@@ -69,3 +32,41 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
 });
+
+export default () => {
+  const { user } = useContext(LoginContext);
+  return (
+    <View style={styles.form}>
+      <Text style={styles.input_label}>Email</Text>
+      <TextInput
+        style={styles.input}
+        defaultValue={user.email}
+        editable={false}
+        placeholderTextColor="rgba(0, 0, 0, 0.6)"
+      />
+      <Text style={styles.input_label}>Numer telefonu</Text>
+      <TextInput
+        style={styles.input}
+        defaultValue={user.phone_number}
+        editable={false}
+        placeholderTextColor="rgba(0, 0, 0, 0.6)"
+      />
+      <View style={styles.facebook_label_container}>
+        <Text style={styles.input_label}>Link do profilu Facebook</Text>
+        <EditButton
+          style={styles.edit_button}
+          onPress={() => {
+            // eslint-disable-next-line no-undef
+            alert('Change facebook');
+          }}
+        />
+      </View>
+      <TextInput
+        style={styles.input}
+        defaultValue={user.facebook_link}
+        editable={false}
+        placeholderTextColor="rgba(0, 0, 0, 0.6)"
+      />
+    </View>
+  );
+};

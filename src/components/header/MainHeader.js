@@ -1,5 +1,6 @@
 import React from 'react';
 import { Header } from 'react-native-elements';
+import PropTypes from 'prop-types';
 import { ksStyle } from '../../styles/basic/ksBasic';
 import HeaderLeft from './HeaderLeft';
 import HeaderCenter from './HeaderCenter';
@@ -19,3 +20,9 @@ const MainHeader = ({ navigation }) => {
   );
 };
 export default MainHeader;
+
+MainHeader.propTypes = {
+  navigation: PropTypes.shape({
+    openDrawer: PropTypes.func.isRequired,
+  }).isRequired,
+};

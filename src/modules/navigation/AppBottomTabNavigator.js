@@ -1,4 +1,3 @@
-import DashboardScreen from '../../views/dashboardScreen/DashboardScreen';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import React from 'react';

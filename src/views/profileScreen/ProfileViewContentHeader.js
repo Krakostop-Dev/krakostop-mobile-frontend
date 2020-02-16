@@ -1,28 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { Avatar } from 'react-native-elements';
-import EditButton from '../../components/EditButton';
 import React, { useContext } from 'react';
+import EditButton from '../../components/EditButton';
 import { LoginContext } from '../../modules/context/LoginContext';
-
-export default () => {
-  const { user } = useContext(LoginContext);
-
-  return (
-    <View style={styles.header}>
-      <View>
-        <Avatar source={user.avatar} rounded size={100} />
-        <EditButton
-          style={styles.edit_avatar_button}
-          onPress={() => alert('Change avatar')}
-        />
-      </View>
-      <Text
-        style={styles.userName}
-      >{`${user.first_name} ${user.last_name}`}</Text>
-      <Text style={styles.pair}>{`Para #${user.pairID}`}</Text>
-    </View>
-  );
-};
 
 const styles = StyleSheet.create({
   header: {
@@ -42,3 +22,28 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
+
+const ProfileViewContentHeader = () => {
+  const { user } = useContext(LoginContext);
+
+  return (
+    <View style={styles.header}>
+      <View>
+        <Avatar source={user.avatar} rounded size={100} />
+        <EditButton
+          onPress={() =>
+            // eslint-disable-next-line no-undef
+            alert('Change avatar')
+          }
+          style={styles.edit_avatar_button}
+        />
+      </View>
+      <Text
+        style={styles.userName}
+      >{`${user.first_name} ${user.last_name}`}</Text>
+      <Text style={styles.pair}>{`Para #${user.pairID}`}</Text>
+    </View>
+  );
+};
+
+export default ProfileViewContentHeader;

@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
 export default props => {
   return (
     <Container>
+      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
       <DrawerNavigatorHeader {...props} style={styles.header} />
       <View style={styles.list}>
         <ScrollView>

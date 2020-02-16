@@ -14,7 +14,7 @@ const mockUser = {
     updated_at: '2019-11-04T11:13:14.946Z',
     pairID: '20',
     rank: '10',
-    avatar: require('../assets/avatar_google.png'),
+    avatar: AVATAR_GOOGLE,
     facebook_link: 'wwww.facebook.com',
     phone_number: '1234235233',
   },

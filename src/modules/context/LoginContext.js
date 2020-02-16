@@ -7,7 +7,7 @@ import {
   saveDataInStorage,
 } from '../Storage';
 import KsAxios from '../KsAxios';
-import  mockUser from '../../mockUser';
+import mockUser from '../../mockUser';
 
 export const LoginContext = createContext({
   user: {
@@ -26,7 +26,7 @@ export const LoginContext = createContext({
   error: '',
 });
 
-/*const initialState = {
+/* const initialState = {
   user: {
     id: '',
     first_name: '',
@@ -35,7 +35,8 @@ export const LoginContext = createContext({
     verified_login: false,
     avatar: null,
   },
-};*/
+}; */
+
 const initialState = mockUser;
 
 async function logIn(dispatch, token, user) {
