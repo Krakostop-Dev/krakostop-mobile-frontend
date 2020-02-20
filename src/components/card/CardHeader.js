@@ -1,37 +1,11 @@
 import { Image, StyleSheet, Text, View, ViewPropTypes } from 'react-native';
 import { Button } from 'react-native-elements';
-import { ksStyle } from '../../styles/basic/ksBasic';
 import React from 'react';
 import { MaterialIcons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
+import { ksStyle } from '../../styles/basic/ksBasic';
 
 const IconComponent = MaterialIcons;
-
-function CardHeader({ navigation, title, style }) {
-  return (
-    <View style={{ ...style, ...styles.header }}>
-      <View style={styles.left}>
-        <Button
-          onPress={() => {
-            navigation.navigate("TabNavigator")}
-          }
-          icon={<IconComponent name={'arrow-back'} size={40} color={'white'} />}
-          type="clear"
-        />
-        <Text style={styles.title}>{title}</Text>
-      </View>
-      <View style={styles.right}>
-        <Image
-          source={ksStyle.logo.source}
-          style={styles.logo}
-          resizeMode="contain"
-        />
-      </View>
-    </View>
-  );
-}
-
-export default CardHeader;
 
 const styles = StyleSheet.create({
   header: {
@@ -62,10 +36,39 @@ const styles = StyleSheet.create({
   },
 });
 
+function CardHeader({ navigation, title, style }) {
+  return (
+    <View style={{ ...style, ...styles.header }}>
+      <View style={styles.left}>
+        <Button
+          onPress={() => {
+            navigation.navigate('TabNavigator');
+          }}
+          icon={<IconComponent name="arrow-back" size={40} color="white" />}
+          type="clear"
+        />
+        <Text style={styles.title}>{title}</Text>
+      </View>
+      <View style={styles.right}>
+        <Image
+          source={ksStyle.logo.source}
+          style={styles.logo}
+          resizeMode="contain"
+        />
+      </View>
+    </View>
+  );
+}
+
+export default CardHeader;
+
 CardHeader.propTypes = {
   title: PropTypes.string.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
   style: ViewPropTypes.style,
+};
+CardHeader.defaultProps = {
+  style: {},
 };
