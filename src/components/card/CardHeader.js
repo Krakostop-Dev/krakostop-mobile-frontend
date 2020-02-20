@@ -69,7 +69,6 @@ CardHeader.propTypes = {
   }).isRequired,
   style: ViewPropTypes.style,
 };
-
 CardHeader.defaultProps = {
   style: {},
 };

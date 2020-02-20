@@ -1,23 +1,13 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { ksStyle } from '../../styles/basic/ksBasic';
-import CardHeader from './CardHeader';
-
-function Card({ children }) {
-  return (
-    <View style={styles.container}>
-      <View style={styles.card}>{children}</View>
-    </View>
-  );
-}
-export default Card;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1.0,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(52, 52, 52, 0.8)'
+    backgroundColor: 'rgba(52, 52, 52, 0.8)',
   },
   card: {
     flex: 0.9,
@@ -28,9 +18,19 @@ const styles = StyleSheet.create({
   },
 });
 
+function Card({ children }) {
+  return (
+    <View style={styles.container}>
+      <View style={styles.card}>{children}</View>
+    </View>
+  );
+}
+export default Card;
+
 Card.propTypes = {
-  children: function(props, propName, componentName) {
-    const prop = props[propName];
+  // eslint-disable-next-line react/require-default-props
+  children(props, propName, componentName) {
+    const { [propName]: prop } = props;
 
     const cardHeader = 'CardHeader';
     const cardContent = 'CardContent';

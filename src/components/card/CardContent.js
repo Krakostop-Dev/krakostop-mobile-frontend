@@ -14,11 +14,11 @@ function CardContent({ children, style }) {
 
 export default CardContent;
 
-CardContent.propTypes = {
-  children: PropTypes.node.isRequired,
-  style: ViewPropTypes.style,
-};
-
 CardContent.defaultProps = {
+  children: null,
   style: {},
+};
+CardContent.propTypes = {
+  children: PropTypes.node,
+  style: ViewPropTypes.style,
 };

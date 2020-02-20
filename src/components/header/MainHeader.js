@@ -20,9 +20,8 @@ const MainHeader = ({ navigation }) => {
   );
 };
 export default MainHeader;
-
 MainHeader.propTypes = {
   navigation: PropTypes.shape({
-    openDrawer: PropTypes.func.isRequired,
+    navigate: PropTypes.func.isRequired,
   }).isRequired,
 };

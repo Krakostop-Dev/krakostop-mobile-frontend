@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const EDIT = require('../../assets/icons/edit.png');
+const EDIT_ICON = require('../../assets/icons/edit.png');
 
 function EditButton({ style, onPress }) {
   return (
@@ -27,7 +27,11 @@ function EditButton({ style, onPress }) {
       style={{ ...styles.edit_button_container, ...style }}
       onPress={onPress}
     >
-      <Image source={EDIT} style={styles.edit_button} resizeMode="contain" />
+      <Image
+        source={EDIT_ICON}
+        style={styles.edit_button}
+        resizeMode="contain"
+      />
     </TouchableOpacity>
   );
 }
@@ -37,7 +41,6 @@ EditButton.propTypes = {
   style: TouchableHighlight.propTypes.style,
   onPress: PropTypes.func.isRequired,
 };
-
 EditButton.defaultProps = {
   style: {},
 };

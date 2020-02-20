@@ -1,6 +1,6 @@
 import { Image } from 'react-native';
-import React from 'react';
 import { DrawerItem } from '@react-navigation/drawer';
+import React from 'react';
 import WhatToTakeView from '../../../views/drawerNavigatorScreens/WhatToTakeView';
 import { ksStyle } from '../../../styles/basic/ksBasic';
 import PartnersView from '../../../views/drawerNavigatorScreens/PartnersView';
@@ -8,8 +8,8 @@ import StartPackageView from '../../../views/drawerNavigatorScreens/StartPackage
 import ContactView from '../../../views/drawerNavigatorScreens/ContactView';
 import AboutAppView from '../../../views/drawerNavigatorScreens/AboutAppView';
 import LogoutView from '../../../views/drawerNavigatorScreens/LogoutView';
-import AppBottomTabNavigator from '../AppBottomTabNavigator';
 import ProfileView from '../../../views/profileScreen/ProfileView';
+import AppBottomTabNavigator from '../AppBottomTabNavigator';
 
 const BACKPACK = require('../../../../assets/icons/backpack.png');
 const PARTNERS = require('../../../../assets/icons/partners.png');

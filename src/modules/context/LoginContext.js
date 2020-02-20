@@ -36,7 +36,6 @@ export const LoginContext = createContext({
     avatar: null,
   },
 }; */
-
 const initialState = mockUser;
 
 async function logIn(dispatch, token, user) {
@@ -77,7 +76,7 @@ async function refreshLogin(dispatch) {
   }
 }
 
-export const LoginContextProvider = ({ children }) => {
+function LoginContextProvider({ children }) {
   const [state, dispatch] = React.useReducer(reducer, initialState);
   return (
     <LoginContext.Provider
@@ -92,8 +91,13 @@ export const LoginContextProvider = ({ children }) => {
       {children}
     </LoginContext.Provider>
   );
-};
+}
+
+export default LoginContextProvider;
 
 LoginContextProvider.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
 };

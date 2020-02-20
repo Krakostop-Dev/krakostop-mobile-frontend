@@ -4,6 +4,7 @@ import {
   Text,
   TouchableHighlight,
   View,
+  ViewPropTypes,
 } from 'react-native';
 import { Avatar } from 'react-native-elements';
 import React, { useContext } from 'react';
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const DrawerNavigatorHeader = ({ style, navigation }) => {
+function DrawerNavigatorHeader({ style, navigation }) {
   const loginContext = useContext(LoginContext);
   const userName = `${loginContext.user.first_name} ${loginContext.user.last_name}`;
   return (
@@ -60,7 +61,7 @@ const DrawerNavigatorHeader = ({ style, navigation }) => {
       </TouchableHighlight>
     </View>
   );
-};
+}
 
 export default DrawerNavigatorHeader;
 
@@ -68,5 +69,8 @@ DrawerNavigatorHeader.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
-  style: PropTypes.shape({}).isRequired,
+  style: ViewPropTypes.style,
+};
+DrawerNavigatorHeader.defaultProps = {
+  style: {},
 };

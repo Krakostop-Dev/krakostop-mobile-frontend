@@ -34,3 +34,9 @@ DashboardScreen.propTypes = {
 };
 
 export default DashboardScreen;
+
+DashboardScreen.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};

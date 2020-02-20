@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Button } from 'react-native-elements';
 import { MaterialIcons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
@@ -6,7 +7,7 @@ import { ksStyle } from '../../styles/basic/ksBasic';
 
 const IconComponent = MaterialIcons;
 
-const HeaderLeft = ({ navigation }) => {
+function HeaderLeft({ navigation }) {
   return (
     <Button
       onPress={() => navigation.openDrawer()}
@@ -14,7 +15,7 @@ const HeaderLeft = ({ navigation }) => {
       type="clear"
     />
   );
-};
+}
 
 export default HeaderLeft;
 
