@@ -16,7 +16,7 @@ const mockUser = {
     rank: '10',
     avatar: AVATAR_GOOGLE,
     facebook_link: 'wwww.facebook.com',
-    phone_number: '1234235233',
+    phone_number: '123 423 523',
   },
 };
 
