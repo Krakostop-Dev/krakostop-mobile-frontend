@@ -40,6 +40,9 @@
           "location"
         ]
       }
+    },
+    "packagerOpts": {
+      "sourceExts": ["js", "json", "ts", "tsx", "jsx"]
     }
   }
 }
