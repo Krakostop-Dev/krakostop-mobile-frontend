@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import PropTypes from 'prop-types';
 import Card from '../../components/card/Card';
 import CardHeader from '../../components/card/CardHeader';
 import CardContent from '../../components/card/CardContent';
@@ -34,8 +35,7 @@ const styles = StyleSheet.create({
   },
 });
 
-// eslint-disable-next-line react/prop-types
-export default ({ navigation }) => {
+function ProfileView({ navigation }) {
   return (
     <Card navigation={navigation}>
       <CardHeader navigation={navigation} title="Profil" />
@@ -47,4 +47,11 @@ export default ({ navigation }) => {
       </CardContent>
     </Card>
   );
+}
+export default ProfileView;
+
+ProfileView.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
 };

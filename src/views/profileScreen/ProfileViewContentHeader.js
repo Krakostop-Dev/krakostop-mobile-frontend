@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { StyleSheet, Text, View } from 'react-native';
 import { Avatar } from 'react-native-elements';
 import React, { useContext } from 'react';
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const ProfileViewContentHeader = () => {
+export default () => {
   const { user } = useContext(LoginContext);
 
   return (
@@ -31,11 +32,8 @@ const ProfileViewContentHeader = () => {
       <View>
         <Avatar source={user.avatar} rounded size={100} />
         <EditButton
-          onPress={() =>
-            // eslint-disable-next-line no-undef
-            alert('Change avatar')
-          }
           style={styles.edit_avatar_button}
+          onPress={() => alert('Change avatar')}
         />
       </View>
       <Text
@@ -45,5 +43,3 @@ const ProfileViewContentHeader = () => {
     </View>
   );
 };
-
-export default ProfileViewContentHeader;

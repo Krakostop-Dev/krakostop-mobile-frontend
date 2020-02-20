@@ -41,14 +41,14 @@ export default () => {
       <TextInput
         style={styles.input}
         defaultValue={user.email}
-        editable={false}
+        disabled
         placeholderTextColor="rgba(0, 0, 0, 0.6)"
       />
       <Text style={styles.input_label}>Numer telefonu</Text>
       <TextInput
         style={styles.input}
         defaultValue={user.phone_number}
-        editable={false}
+        disabled
         placeholderTextColor="rgba(0, 0, 0, 0.6)"
       />
       <View style={styles.facebook_label_container}>
@@ -64,7 +64,7 @@ export default () => {
       <TextInput
         style={styles.input}
         defaultValue={user.facebook_link}
-        editable={false}
+        disabled
         placeholderTextColor="rgba(0, 0, 0, 0.6)"
       />
     </View>
