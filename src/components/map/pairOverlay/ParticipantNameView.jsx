@@ -3,8 +3,6 @@ import { StyleSheet, Text, View } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 5,
-    paddingBottom: 5,
     flexDirection: 'row',
   },
   text: {
@@ -14,7 +12,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontFamily: 'sans-serif',
     flexShrink: 1,
-    fontWeight: 'bold',
   },
 });
 

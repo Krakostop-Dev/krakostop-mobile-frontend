@@ -8,8 +8,8 @@ const MESSENGER_ICON = require('../../../../assets/messenger.png');
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    width: 110,
-    height: 110,
+    width: 120,
+    height: 120,
   },
   opacity: {
     position: 'absolute',
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 50,
-    height: 58.4,
+    height: 50,
   },
 });
 
@@ -27,7 +27,7 @@ function ParticipantAvatarView() {
   return (
     <View style={styles.container}>
       <Avatar
-        size={100}
+        size={110}
         rounded
         source={PARTICIPANT_AVATAR}
         activeOpacity={0.7}
