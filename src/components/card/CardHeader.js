@@ -42,7 +42,7 @@ function CardHeader({ navigation, title, style }) {
       <View style={styles.left}>
         <Button
           onPress={() => {
-            navigation.navigate('TabNavigator');
+            navigation.goBack();
           }}
           icon={<IconComponent name="arrow-back" size={40} color="white" />}
           type="clear"
@@ -65,6 +65,7 @@ export default CardHeader;
 CardHeader.propTypes = {
   title: PropTypes.string.isRequired,
   navigation: PropTypes.shape({
+    goBack: PropTypes.func.isRequired,
     navigate: PropTypes.func.isRequired,
   }).isRequired,
   style: ViewPropTypes.style,

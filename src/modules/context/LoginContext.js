@@ -36,6 +36,7 @@ export const LoginContext = createContext({
     avatar: null,
   },
 }; */
+
 const initialState = mockUser;
 
 async function logIn(dispatch, token, user) {
