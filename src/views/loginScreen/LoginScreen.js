@@ -1,11 +1,8 @@
-import React, { useContext, useState } from 'react';
-import { Image, ImageBackground, StyleSheet, View } from 'react-native';
+import React, { useState } from 'react';
+import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { Spinner } from 'native-base';
 import PropTypes from 'prop-types';
 import LoginForm from './LoginForm';
-import { LoginContext } from '../../modules/context/LoginContext';
-import mock from '../../mock';
-import LoginWithEmail from '../../modules/login/LoginWithEmail';
 import { ksStyle } from '../../styles/basic/ksBasic';
 
 const BACKGROUND_IMAGE = require('../../../assets/login_background.png');
@@ -33,28 +30,13 @@ const styles = StyleSheet.create({
   },
 });
 
-function LoginScreen({ navigation }) {
-  const context = useContext(LoginContext);
-
+function LoginScreen() {
   const [isLoginButtonPressed, loginButtonPressed] = useState(false);
+  const [hasErrorOccurred, setError] = useState({
+    isError: false,
+    message: '',
+  });
 
-  const loginPressed = async (email, pairNr) => {
-    console.log(`EMAIL: ${email} PAIR ID ${pairNr}`);
-    loginButtonPressed(true);
-    try {
-      const { token, user } = await LoginWithEmail(email, pairNr);
-      console.log(`TOKEN: ${token} USER: ${user}`);
-      // TODO: Change mock to proper values
-      if (mock.token) {
-        await context.logIn(mock.token, mock.user);
-        navigation.navigate('EditProfileScreen');
-      } else {
-        console.error('Token is null');
-      }
-    } catch (e) {
-      console.error(e);
-    }
-  };
   return (
     <ImageBackground source={BACKGROUND_IMAGE} style={styles.background}>
       {isLoginButtonPressed ? (
@@ -63,7 +45,11 @@ function LoginScreen({ navigation }) {
         <View style={styles.container}>
           <View style={styles.stack}>
             <Image style={styles.logo} source={ksStyle.logo.source} />
-            <LoginForm onClick={loginPressed} />
+            <LoginForm
+              loginButtonPressed={loginButtonPressed}
+              setError={setError}
+            />
+            {hasErrorOccurred ? <Text>{hasErrorOccurred.message}</Text> : null}
           </View>
         </View>
       )}
