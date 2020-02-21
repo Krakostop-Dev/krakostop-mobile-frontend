@@ -1,4 +1,11 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  View,
+  ViewPropTypes,
+} from 'react-native';
 import { Avatar } from 'react-native-elements';
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
@@ -12,14 +19,17 @@ const styles = StyleSheet.create({
     height: undefined,
     marginTop: 20,
   },
-  profile: {
+  profile_button: {
     flex: 2,
     backgroundColor: ksStyle.colors.primaryColorMedium,
-    flexDirection: 'row',
-    alignItems: 'center',
     borderRadius: 20,
     margin: 10,
     padding: 3,
+  },
+  profile: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   name: {
     fontSize: 16,
@@ -27,7 +37,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function DrawerNavigatorHeader({ style }) {
+function DrawerNavigatorHeader({ style, navigation }) {
   const loginContext = useContext(LoginContext);
   const userName = `${loginContext.user.first_name} ${loginContext.user.last_name}`;
   return (
@@ -37,19 +47,30 @@ function DrawerNavigatorHeader({ style }) {
         resizeMode="contain"
         style={styles.logo}
       />
-      <View style={styles.profile}>
-        <Avatar rounded source={loginContext.user.avatar} size="medium" />
-        <View style={{ marginLeft: 10 }}>
-          <Text style={styles.name}>{userName}</Text>
-          <Text>miejsce {loginContext.user.rank}</Text>
+      <TouchableHighlight
+        style={styles.profile_button}
+        onPress={() => navigation.navigate('Profile')}
+      >
+        <View style={styles.profile}>
+          <Avatar rounded source={loginContext.user.avatar} size="medium" />
+          <View style={{ marginLeft: 10 }}>
+            <Text style={styles.name}>{userName}</Text>
+            <Text>miejsce {loginContext.user.rank}</Text>
+          </View>
         </View>
-      </View>
+      </TouchableHighlight>
     </View>
   );
 }
+
 export default DrawerNavigatorHeader;
 
 DrawerNavigatorHeader.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  style: PropTypes.object.isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+  style: ViewPropTypes.style,
+};
+DrawerNavigatorHeader.defaultProps = {
+  style: {},
 };

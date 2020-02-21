@@ -10,7 +10,17 @@ import KsAxios from '../KsAxios';
 // import mockUser from '../../mockUser';
 
 export const LoginContext = createContext({
-  user: null,
+  user: {
+    id: '',
+    first_name: '',
+    last_name: '',
+    email: '',
+    verified_login: false,
+    avatar: null,
+    pairID: null,
+    facebook_link: null,
+    phone_number: null,
+  },
   token: null,
   isLoggedIn: false,
   error: '',
@@ -67,7 +77,7 @@ async function refreshLogin(dispatch) {
   }
 }
 
-export const LoginContextProvider = ({ children }) => {
+function LoginContextProvider({ children }) {
   const [state, dispatch] = React.useReducer(reducer, initialState);
   return (
     <LoginContext.Provider
@@ -82,8 +92,13 @@ export const LoginContextProvider = ({ children }) => {
       {children}
     </LoginContext.Provider>
   );
-};
+}
+
+export default LoginContextProvider;
 
 LoginContextProvider.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
 };
