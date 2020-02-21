@@ -1,52 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { Image, ImageBackground, StyleSheet, View } from 'react-native';
+import { Spinner } from 'native-base';
+import PropTypes from 'prop-types';
 import LoginForm from './LoginForm';
 import { LoginContext } from '../../modules/context/LoginContext';
-import { Spinner } from 'native-base';
-import { mock } from '../../mock';
+import mock from '../../mock';
 import LoginWithEmail from '../../modules/login/LoginWithEmail';
+import { ksStyle } from '../../styles/basic/ksBasic';
 
-const logo = require('../../../assets/krk_logo.png');
-
-export default function({ navigation }) {
-  const context = useContext(LoginContext);
-
-  const [isLoginButtonPressed, loginButtonPressed] = useState(false);
-
-  const loginPressed = async (email, pairID) => {
-    console.log('EMAIL: ' + email + ' PAIR ID ' + pairID);
-    loginButtonPressed(true);
-    try {
-      const { token, user } = await LoginWithEmail(email, pairID);
-      //TODO: Change mock to proper values
-      if (mock.token) {
-        await context.logIn(mock.token, mock.user);
-        navigation.navigate('EditProfileScreen');
-      } else {
-        console.error('Token is null');
-      }
-    } catch (e) {
-      console.error(e);
-    }
-  };
-  return (
-    <ImageBackground
-      source={require('../../../assets/login_background.png')}
-      style={styles.background}
-    >
-      {isLoginButtonPressed ? (
-        <Spinner color="red" />
-      ) : (
-        <View style={styles.container}>
-          <View style={styles.stack}>
-            <Image style={styles.logo} source={logo} />
-            <LoginForm onClick={loginPressed} />
-          </View>
-        </View>
-      )}
-    </ImageBackground>
-  );
-}
+const BACKGROUND_IMAGE = require('../../../assets/login_background.png');
 
 const styles = StyleSheet.create({
   background: {
@@ -70,3 +32,49 @@ const styles = StyleSheet.create({
     height: 150,
   },
 });
+
+function LoginScreen({ navigation }) {
+  const context = useContext(LoginContext);
+
+  const [isLoginButtonPressed, loginButtonPressed] = useState(false);
+
+  const loginPressed = async (email, pairNr) => {
+    console.log(`EMAIL: ${email} PAIR ID ${pairNr}`);
+    loginButtonPressed(true);
+    try {
+      const { token, user } = await LoginWithEmail(email, pairNr);
+      console.log(`TOKEN: ${token} USER: ${user}`);
+      // TODO: Change mock to proper values
+      if (mock.token) {
+        await context.logIn(mock.token, mock.user);
+        navigation.navigate('EditProfileScreen');
+      } else {
+        console.error('Token is null');
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+  return (
+    <ImageBackground source={BACKGROUND_IMAGE} style={styles.background}>
+      {isLoginButtonPressed ? (
+        <Spinner color="red" />
+      ) : (
+        <View style={styles.container}>
+          <View style={styles.stack}>
+            <Image style={styles.logo} source={ksStyle.logo.source} />
+            <LoginForm onClick={loginPressed} />
+          </View>
+        </View>
+      )}
+    </ImageBackground>
+  );
+}
+
+export default LoginScreen;
+
+LoginScreen.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
