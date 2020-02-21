@@ -1,15 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { Button } from 'react-native-elements';
 import { MaterialIcons } from '@expo/vector-icons';
-import { NavigationContext } from 'react-navigation';
+import PropTypes from 'prop-types';
 import { ksStyle } from '../../styles/basic/ksBasic';
 
 const IconComponent = MaterialIcons;
 
-export default () => {
-  const navigation = useContext(NavigationContext);
-
+function HeaderLeft({ navigation }) {
   return (
     <Button
       onPress={() => navigation.openDrawer()}
@@ -17,4 +15,12 @@ export default () => {
       type="clear"
     />
   );
+}
+
+export default HeaderLeft;
+
+HeaderLeft.propTypes = {
+  navigation: PropTypes.shape({
+    openDrawer: PropTypes.func.isRequired,
+  }).isRequired,
 };
