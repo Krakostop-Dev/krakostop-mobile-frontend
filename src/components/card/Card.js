@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     flex: 0.9,
     width: '90%',
     backgroundColor: ksStyle.colors.primaryColorLight,
-    borderRadius: 20,
+    borderRadius: 10,
     overflow: 'hidden',
   },
 });

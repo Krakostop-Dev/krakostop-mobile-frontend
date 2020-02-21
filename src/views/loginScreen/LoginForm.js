@@ -5,9 +5,11 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
+import { NavigationContext } from 'react-navigation';
 import { ksStyle } from '../../styles/basic/ksBasic';
+import LoginButtonOnPress from '../../modules/login/LoginButtonOnPress';
 
 const styles = StyleSheet.create({
   input: {
@@ -32,9 +34,11 @@ const styles = StyleSheet.create({
   },
 });
 
-function LoginForm({ onClick }) {
-  const [email, setEmail] = useState('');
-  const [pairID, setPairID] = useState('');
+function LoginForm({ loginButtonPressed, setError }) {
+  const navigation = useContext(NavigationContext);
+
+  const [email, setEmail] = useState('justynabasiak@interia.pl');
+  const [pairID, setPairID] = useState('2');
 
   return (
     <View>
@@ -59,7 +63,15 @@ function LoginForm({ onClick }) {
       />
       <TouchableHighlight
         style={styles.login_button_container}
-        onPress={() => onClick(email, pairID)}
+        onPress={() =>
+          LoginButtonOnPress(
+            email,
+            pairID,
+            loginButtonPressed,
+            setError,
+            navigation
+          )
+        }
       >
         <Text style={styles.login_button_text}>Zaloguj</Text>
       </TouchableHighlight>
@@ -70,5 +82,6 @@ function LoginForm({ onClick }) {
 export default LoginForm;
 
 LoginForm.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  loginButtonPressed: PropTypes.func.isRequired,
+  setError: PropTypes.func.isRequired,
 };
