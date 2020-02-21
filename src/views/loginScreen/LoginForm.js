@@ -9,7 +9,7 @@ import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { NavigationContext } from 'react-navigation';
 import { ksStyle } from '../../styles/basic/ksBasic';
-import LoginButtonOnPress from '../../modules/login/LoginButtonOnPress';
+import LoginButtonOnPress from '../../modules/login/loginButtonOnPress';
 
 const styles = StyleSheet.create({
   input: {

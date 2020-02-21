@@ -1,4 +1,4 @@
-import LoginWithEmail from './LoginRequest';
+import LoginWithEmail from './sendEmailWithAuthCode';
 
 async function LoginButtonOnPress(
   email,
@@ -12,7 +12,7 @@ async function LoginButtonOnPress(
   const { status, message } = await LoginWithEmail(email, pairNr);
   if (status === 200) {
     loginButtonPressed(false);
-    navigation.navigate('EmailAuth');
+    navigation.navigate('EmailAuth', { email });
   } else {
     loginButtonPressed(false);
     setError({ isError: true, message });
