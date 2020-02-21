@@ -1,12 +1,12 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import LoginScreen from '../../views/loginScreen/LoginScreen';
 import { ksStyle } from '../../styles/basic/ksBasic';
-import EmailAuthenticationScreen from '../../views/loginScreen/EmailAuthenticationScreen';
+import EmailAuthenticationOverlay from '../../views/loginScreen/EmailAuthenticationOverlay';
 
 const AuthStack = createStackNavigator(
   {
     LoginScreen,
-    EmailAuth: EmailAuthenticationScreen,
+    EmailAuth: EmailAuthenticationOverlay,
   },
   {
     initialRouteName: 'LoginScreen',
