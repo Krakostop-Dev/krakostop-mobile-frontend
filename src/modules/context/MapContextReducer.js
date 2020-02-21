@@ -1,11 +1,6 @@
 const reducer = (state, action) => {
   console.log('Reducer');
   switch (action.type) {
-    case 'changeMapPermissions':
-      return {
-        ...state,
-        isMapPermissionsGranted: action.payload,
-      };
     case 'updateMyLocation':
       return {
         ...state,
