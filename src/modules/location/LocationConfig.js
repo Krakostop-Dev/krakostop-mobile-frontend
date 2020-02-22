@@ -2,7 +2,7 @@ import * as Location from 'expo-location';
 
 export const locationTrackerConfig = {
   accuracy: Location.Accuracy.Highest,
-  timeInterval: 1000,
+  timeInterval: 60000,
   distanceInterval: 0,
 };
 

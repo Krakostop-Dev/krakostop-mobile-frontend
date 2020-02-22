@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
   container: {
@@ -15,14 +16,21 @@ const styles = StyleSheet.create({
   },
 });
 
-function ParticipantNameView() {
+function ParticipantNameView({ user }) {
   return (
     <View style={styles.container}>
       <Text numberOfLines={10} style={styles.text}>
-        Jan Kowalski
+        {`${user.first_name} ${user.last_name}`}
       </Text>
     </View>
   );
 }
 
 export default ParticipantNameView;
+
+ParticipantNameView.propTypes = {
+  user: PropTypes.shape({
+    first_name: PropTypes.string.isRequired,
+    last_name: PropTypes.string.isRequired,
+  }).isRequired,
+};

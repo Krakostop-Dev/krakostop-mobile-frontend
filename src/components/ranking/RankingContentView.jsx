@@ -1,39 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View } from 'react-native';
 import RankingItemView from './RankingItemView';
+import { MapContext } from '../../modules/context/MapContext';
 
 function RankingContentView() {
+  const mapContext = useContext(MapContext);
+  const { participants } = mapContext;
+
   return (
     <View>
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
-      <RankingItemView />
+      {participants.map((participant, index) => (
+        <RankingItemView
+          participant={participant}
+          index={index}
+          key={participant.id}
+        />
+      ))}
     </View>
   );
 }

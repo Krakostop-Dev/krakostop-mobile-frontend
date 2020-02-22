@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function PairOverlayHeaderView({ setIsVisible }) {
+function PairOverlayHeaderView({ participant, index, setIsVisible }) {
   return (
     <View style={styles.container}>
       <View>
@@ -48,12 +48,12 @@ function PairOverlayHeaderView({ setIsVisible }) {
       </View>
       <View style={styles.titleView}>
         <Text style={styles.titleText} numberOfLines={2}>
-          Para #57
+          Para #{participant.pair.pair_nr}
         </Text>
       </View>
       <View style={styles.subtitleView}>
         <Text style={styles.subtitleText} numberOfLines={2}>
-          miejsce 40
+          miejsce {index + 1}
         </Text>
         <Text style={styles.subtitleText} numberOfLines={2}>
           1090km do mety
@@ -67,4 +67,10 @@ export default PairOverlayHeaderView;
 
 PairOverlayHeaderView.propTypes = {
   setIsVisible: PropTypes.func.isRequired,
+  participant: PropTypes.shape({
+    pair: PropTypes.shape({
+      pair_nr: PropTypes.number.isRequired,
+    }).isRequired,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
 };

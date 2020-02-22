@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function PairOverlay({ isVisible, setIsVisible }) {
+function PairOverlay({ participant, index, isVisible, setIsVisible }) {
   return (
     <Overlay
       isVisible={isVisible}
@@ -29,11 +29,15 @@ function PairOverlay({ isVisible, setIsVisible }) {
       borderRadius={3}
     >
       <View style={styles.container}>
-        <PairOverlayHeaderView setIsVisible={setIsVisible} />
+        <PairOverlayHeaderView
+          participant={participant}
+          index={index}
+          setIsVisible={setIsVisible}
+        />
 
         <View style={styles.pairView}>
-          <ParticipantView />
-          <ParticipantView />
+          <ParticipantView user={participant.pair.users[0]} />
+          <ParticipantView user={participant.pair.users[1]} />
         </View>
       </View>
     </Overlay>
@@ -45,4 +49,20 @@ export default PairOverlay;
 PairOverlay.propTypes = {
   isVisible: PropTypes.bool.isRequired,
   setIsVisible: PropTypes.func.isRequired,
+  participant: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    lat: PropTypes.string.isRequired,
+    lng: PropTypes.string.isRequired,
+    pair: PropTypes.shape({
+      pair_nr: PropTypes.number.isRequired,
+      users: PropTypes.arrayOf(
+        PropTypes.shape({
+          first_name: PropTypes.string.isRequired,
+          last_name: PropTypes.string.isRequired,
+          phone: PropTypes.string.isRequired,
+        }).isRequired
+      ).isRequired,
+    }).isRequired,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
 };
