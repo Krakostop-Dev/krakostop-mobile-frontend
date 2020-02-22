@@ -1,6 +1,6 @@
 import axios from 'axios';
-import config from '../../config/config';
-import { getDataFromStorage } from './Storage';
+import config from '../../../config/config';
+import { getDataFromStorage } from '../Storage';
 
 const isAbsoluteURLRegex = /^(?:\w+:)\/\//;
 
