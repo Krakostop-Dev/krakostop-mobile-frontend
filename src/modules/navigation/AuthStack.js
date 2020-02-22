@@ -1,6 +1,6 @@
 import { createDrawerNavigator } from 'react-navigation-drawer';
-import LoginScreen from '../../views/loginScreen/LoginComponent';
-import EditProfileScreen from '../../views/profileScreen/EditProfileScreen';
+import LoginScreen from '../../screens/login/LoginComponent';
+import EditProfileScreen from '../../screens/profile/EditProfileScreen';
 
 const AuthStack = createDrawerNavigator(
   {

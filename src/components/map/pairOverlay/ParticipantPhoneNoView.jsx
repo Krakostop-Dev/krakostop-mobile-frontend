@@ -1,28 +1,25 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-  },
+  container: { flexDirection: 'row' },
   text: {
     textAlign: 'center',
     flex: 1,
     flexWrap: 'wrap',
-    fontSize: 17,
     fontFamily: 'sans-serif',
     flexShrink: 1,
   },
 });
 
-function ParticipantNameView() {
+function ParticipantPhoneNoView() {
   return (
     <View style={styles.container}>
-      <Text numberOfLines={10} style={styles.text}>
-        Jan Kowalski
+      <Text style={styles.text} numberOfLines={4}>
+        tel. 882 301 499
       </Text>
     </View>
   );
 }
 
-export default ParticipantNameView;
+export default ParticipantPhoneNoView;

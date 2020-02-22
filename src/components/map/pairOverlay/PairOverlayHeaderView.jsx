@@ -13,14 +13,6 @@ const styles = StyleSheet.create({
     paddingRight: 5,
     borderTopLeftRadius: 3,
     borderTopRightRadius: 3,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 1.41,
-    elevation: 2,
   },
   titleView: { flex: 1 },
   titleText: {
@@ -50,13 +42,7 @@ function PairOverlayHeaderView({ setIsVisible }) {
       <View>
         <Button
           onPress={() => setIsVisible(false)}
-          icon={
-            <MaterialIcons
-              name="arrow-back"
-              size={30}
-              color="white"
-            />
-          }
+          icon={<MaterialIcons name="arrow-back" size={30} color="white" />}
           type="clear"
         />
       </View>

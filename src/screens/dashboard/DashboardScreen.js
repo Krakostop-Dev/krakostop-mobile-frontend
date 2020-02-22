@@ -21,16 +21,10 @@ const styles = StyleSheet.create({
 const DashboardScreen = ({ navigation }) => {
   return (
     <View style={styles.stackContainer}>
-      <MainHeader style={styles.header} navigation={navigation} />
+      <MainHeader navigation={navigation} />
       <MapContainer style={styles} />
     </View>
   );
-};
-
-DashboardScreen.propTypes = {
-  navigation: PropTypes.shape({
-    openDrawer: PropTypes.func.isRequired,
-  }).isRequired,
 };
 
 export default DashboardScreen;
@@ -38,5 +32,6 @@ export default DashboardScreen;
 DashboardScreen.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
+    openDrawer: PropTypes.func.isRequired,
   }).isRequired,
 };
