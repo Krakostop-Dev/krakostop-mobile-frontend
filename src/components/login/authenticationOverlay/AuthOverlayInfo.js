@@ -13,16 +13,21 @@ const styles = StyleSheet.create({
   },
 });
 
-function AuthOverlayInfo({ infoText }) {
+function AuthOverlayInfo({ style, infoText }) {
   return (
     <View style={styles.info_container}>
-      <Text style={styles.info_text}>{infoText}</Text>
+      <Text style={{ ...style, ...styles.info_text }}>{infoText}</Text>
     </View>
   );
 }
 
 export default AuthOverlayInfo;
 
+AuthOverlayInfo.defaultProps = {
+  style: {},
+};
+
 AuthOverlayInfo.propTypes = {
   infoText: PropTypes.string.isRequired,
+  style: Text.propTypes.style,
 };

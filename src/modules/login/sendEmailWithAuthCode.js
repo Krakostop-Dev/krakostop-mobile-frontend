@@ -5,7 +5,7 @@ const WRONG_CREDENTIALS_MESSAGE = 'Podane dane logowania są niepoprawne.';
 const CONNECTION_PROBLEM =
   'Wystąpił problem z połączeniem. Spróbuj ponownie później.';
 
-async function SendEmailWithAuthCode(email, pairNr) {
+async function sendEmailWithAuthCode(email, pairNr) {
   let response;
   try {
     const accessUrl = [config.baseUrl, 'api/v1/login'].join('');
@@ -38,4 +38,4 @@ async function SendEmailWithAuthCode(email, pairNr) {
   }
 }
 
-export default SendEmailWithAuthCode;
+export default sendEmailWithAuthCode;
