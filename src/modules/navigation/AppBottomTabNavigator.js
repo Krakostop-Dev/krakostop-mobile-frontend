@@ -1,13 +1,14 @@
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import React from 'react';
-import DashboardScreen from '../../views/dashboardScreen/DashboardScreen';
+import DashboardScreen from '../../screens/dashboard/DashboardScreen';
 import { ksStyle } from '../../styles/basic/ksBasic';
+import RankingScreen from '../../screens/ranking/RankingScreen';
 
 const AppBottomTabNavigator = createBottomTabNavigator(
   {
     Map: DashboardScreen,
-    Ranking: DashboardScreen,
+    Ranking: RankingScreen,
     Chat: DashboardScreen,
     Schedule: DashboardScreen,
   },

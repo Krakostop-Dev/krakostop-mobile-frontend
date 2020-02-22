@@ -1,5 +1,5 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
-import SplashScreen from '../../views/splashScreen/SplashScreen';
+import SplashScreen from '../../screens/splash/SplashScreen';
 import AuthStack from './AuthStack';
 import AppDrawerNavigator from './drawerNavigator/AppDrawerNavigator';
 
