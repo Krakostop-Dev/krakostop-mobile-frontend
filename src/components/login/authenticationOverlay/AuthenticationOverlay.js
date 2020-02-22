@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
 import { ksStyle } from '../../../styles/basic/ksBasic';
 import AuthOverlayHeader from './AuthOverlayHeader';
 import AuthOverlayContent from './AuthOverlayContent';
+import AuthInputView from './AuthInputView';
+import AuthTimeExpiredView from './AuthTimeExpiredView';
 import AuthTimer from './AuthTimer';
-import AuthOverlayInfo from './AuthOverlayInfo';
-import AuthCodeInput from './AuthCodeInput';
 
 const styles = StyleSheet.create({
   container: {
@@ -23,30 +23,37 @@ const styles = StyleSheet.create({
   },
 });
 
-const AUTH_CODE_LENGTH = 6;
 const HEADER_TITLE = 'Weryfikacja emaila';
-const EMAIL_AUTH_INFO = `Na twój adres email został wysłany ${AUTH_CODE_LENGTH}-cyfrowy kod weryfikacyjny.\nWpisz go poniżej:`;
+const CODE_VALIDITY_TIME = 5;
 
 function AuthenticationOverlay({ navigation }) {
   const email = navigation.getParam('email');
-  const [hasErrorOccurred, setError] = useState({
-    isError: false,
-    message: '',
-  });
+  const pairNr = navigation.getParam('pairNr');
+
+  const [hasTimeExpired, setTimeExpired] = useState(false);
+  const [isTimerRestarted, setTimerRestarted] = useState(false);
 
   return (
     <View style={styles.container}>
       <View style={styles.card}>
         <AuthOverlayHeader title={HEADER_TITLE} />
         <AuthOverlayContent>
-          <AuthTimer />
-          <AuthOverlayInfo infoText={EMAIL_AUTH_INFO} />
-          <AuthCodeInput
-            email={email}
-            setError={setError}
-            authCodeLength={AUTH_CODE_LENGTH}
+          <AuthTimer
+            codeValidityTime={CODE_VALIDITY_TIME}
+            setTimeExpired={setTimeExpired}
+            setTimerRestarted={setTimerRestarted}
+            isTimerRestarted={isTimerRestarted}
           />
-          {hasErrorOccurred ? <Text>{hasErrorOccurred.message}</Text> : null}
+          {hasTimeExpired ? (
+            <AuthTimeExpiredView
+              email={email}
+              pairNr={pairNr}
+              setTimeExpired={setTimeExpired}
+              setTimerRestarted={setTimerRestarted}
+            />
+          ) : (
+            <AuthInputView email={email} />
+          )}
         </AuthOverlayContent>
       </View>
     </View>

@@ -44,7 +44,7 @@ function LoginForm({ loginButtonPressed, setError }) {
     const { status, message } = await LoginWithEmail(email, pairNr);
     if (status === 200) {
       loginButtonPressed(false);
-      navigation.navigate('EmailAuth', { email });
+      navigation.navigate('EmailAuth', { email, pairNr });
     } else {
       loginButtonPressed(false);
       setError({ isError: true, message });

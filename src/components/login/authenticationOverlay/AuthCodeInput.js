@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     borderRadius: 10,
     margin: 5,
-    marginTop: 20,
+    marginTop: 10,
     borderWidth: 1,
   },
 });
