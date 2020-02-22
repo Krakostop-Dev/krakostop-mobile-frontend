@@ -6,7 +6,7 @@ import {
   removeDataFromStorage,
   saveDataInStorage,
 } from '../Storage';
-import KsAxios from '../KsAxios';
+import { updateUserProfileOnServer } from '../communication/CommunicationMenager';
 // import mockUser from '../../mockUser';
 
 export const LoginContext = createContext({
@@ -53,15 +53,8 @@ async function logOut(dispatch) {
   dispatch({ type: 'logOut' });
 }
 async function updateUser(dispatch, user) {
-  try {
-    await KsAxios.put('api/v1/profile', {
-      first_name: user.first_name,
-      last_name: user.last_name,
-    });
-  } catch (e) {
-    console.error(e);
-  }
-
+  // TODO: DO NOT UPDATE CONTEXT IF updateOnServerFailed
+  await updateUserProfileOnServer(user.first_name, user.last_name);
   await saveDataInStorage('USER', JSON.stringify(user));
   dispatch({ type: 'updateUser', payload: { user } });
 }
