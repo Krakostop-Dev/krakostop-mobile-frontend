@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import PropTypes from 'prop-types';
 import { ksStyle } from '../../../styles/basic/ksBasic';
 import AuthOverlayHeader from './AuthOverlayHeader';
 import AuthOverlayContent from './AuthOverlayContent';
 import AuthInputView from './AuthInputView';
-import AuthTimeExpiredView from './AuthTimeExpiredView';
-import AuthTimer from './AuthTimer';
+import ButtonWithIcon from './ButtonWithIcon';
+import LoginWithEmail from '../../../modules/login/sendEmailWithAuthCode';
 
 const styles = StyleSheet.create({
   container: {
@@ -23,37 +23,39 @@ const styles = StyleSheet.create({
   },
 });
 
+const BUTTON_ICON = require('../../../../assets/envelope.png');
+
 const HEADER_TITLE = 'Weryfikacja emaila';
-const CODE_VALIDITY_TIME = 5;
+const BUTTON_LABEL = 'Prześlij ponownie';
 
 function AuthenticationOverlay({ navigation }) {
   const email = navigation.getParam('email');
   const pairNr = navigation.getParam('pairNr');
 
-  const [hasTimeExpired, setTimeExpired] = useState(false);
-  const [isTimerRestarted, setTimerRestarted] = useState(false);
+  const [hasErrorOccurred, setError] = useState({
+    isError: false,
+    message: '',
+  });
+
+  async function onPress() {
+    const { status, message } = await LoginWithEmail(email, pairNr);
+    if (status !== 200) {
+      setError({ isError: true, message });
+    }
+  }
 
   return (
     <View style={styles.container}>
       <View style={styles.card}>
         <AuthOverlayHeader title={HEADER_TITLE} />
         <AuthOverlayContent>
-          <AuthTimer
-            codeValidityTime={CODE_VALIDITY_TIME}
-            setTimeExpired={setTimeExpired}
-            setTimerRestarted={setTimerRestarted}
-            isTimerRestarted={isTimerRestarted}
+          <AuthInputView email={email} />
+          <ButtonWithIcon
+            icon={BUTTON_ICON}
+            label={BUTTON_LABEL}
+            onPress={onPress}
           />
-          {hasTimeExpired ? (
-            <AuthTimeExpiredView
-              email={email}
-              pairNr={pairNr}
-              setTimeExpired={setTimeExpired}
-              setTimerRestarted={setTimerRestarted}
-            />
-          ) : (
-            <AuthInputView email={email} />
-          )}
+          {hasErrorOccurred ? <Text>{hasErrorOccurred.message}</Text> : null}
         </AuthOverlayContent>
       </View>
     </View>
