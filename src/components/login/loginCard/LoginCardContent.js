@@ -9,17 +9,17 @@ const styles = StyleSheet.create({
   },
 });
 
-function AuthOverlayContent({ children, style }) {
+function LoginCardContent({ children, style }) {
   return <View style={{ ...styles.content, ...style }}>{children}</View>;
 }
 
-export default AuthOverlayContent;
+export default LoginCardContent;
 
-AuthOverlayContent.defaultProps = {
+LoginCardContent.defaultProps = {
   children: null,
   style: {},
 };
-AuthOverlayContent.propTypes = {
+LoginCardContent.propTypes = {
   children: PropTypes.node,
   style: ViewPropTypes.style,
 };

@@ -29,7 +29,7 @@ function AuthCodeInput({ setError, email, authCodeLength }) {
       if (status === 200) {
         const { user, token } = data;
         await loginContext.logIn(token, user);
-        navigation.navigate('App');
+        navigation.navigate('EditProfile');
       } else {
         setError({ isError: true, message });
       }

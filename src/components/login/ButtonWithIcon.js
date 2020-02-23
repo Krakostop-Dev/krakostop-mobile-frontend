@@ -8,14 +8,12 @@ import {
 } from 'react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ksStyle } from '../../../styles/basic/ksBasic';
+import { ksStyle } from '../../styles/basic/ksBasic';
 
 const styles = StyleSheet.create({
   button_container: {
-    borderRadius: 10,
     backgroundColor: ksStyle.colors.secondaryColorMedium,
-    margin: 5,
-    marginTop: 10,
+    borderRadius: 10,
   },
   button: {
     flexDirection: 'row',
