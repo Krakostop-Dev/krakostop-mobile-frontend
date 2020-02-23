@@ -1,15 +1,17 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import LoginScreen from '../../views/loginScreen/LoginScreen';
 import { ksStyle } from '../../styles/basic/ksBasic';
-import AuthenticationOverlay from '../../components/login/authenticationOverlay';
+import AuthCard from '../../components/login/authCard';
+import EditProfileCard from '../../components/login/editProfileCard';
 
 const AuthStack = createStackNavigator(
   {
     LoginScreen,
-    EmailAuth: AuthenticationOverlay,
+    Auth: AuthCard,
+    EditProfile: EditProfileCard,
   },
   {
-    initialRouteName: 'LoginScreen',
+    initialRouteName: 'EditProfile',
     headerMode: 'none',
     mode: 'modal',
     transparentCard: true,

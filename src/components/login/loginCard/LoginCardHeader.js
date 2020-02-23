@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function AuthOverlayHeader({ title }) {
+function LoginCardHeader({ title }) {
   return (
     <View style={styles.header}>
       <Text style={styles.header_text}>{title}</Text>
@@ -24,8 +24,8 @@ function AuthOverlayHeader({ title }) {
   );
 }
 
-export default AuthOverlayHeader;
+export default LoginCardHeader;
 
-AuthOverlayHeader.propTypes = {
+LoginCardHeader.propTypes = {
   title: PropTypes.string.isRequired,
 };

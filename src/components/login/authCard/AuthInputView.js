@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import AuthOverlayInfo from './AuthOverlayInfo';
+import InfoText from '../InfoText';
 import AuthCodeInput from './AuthCodeInput';
 
 const styles = StyleSheet.create({
@@ -22,7 +22,7 @@ function AuthInputView({ email }) {
 
   return (
     <View style={styles.container}>
-      <AuthOverlayInfo infoText={EMAIL_AUTH_INFO} />
+      <InfoText infoText={EMAIL_AUTH_INFO} />
       <AuthCodeInput
         email={email}
         setError={setError}
