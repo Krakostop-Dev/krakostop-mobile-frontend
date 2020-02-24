@@ -40,7 +40,7 @@ function EditProfileCard() {
           label="Dalej"
           style={{
             width: '30%',
-            marginTop: 5,
+            marginTop: 20,
             alignSelf: 'flex-end',
           }}
         />
