@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import { NavigationContext } from 'react-navigation';
 import ButtonWithIcon from '../ButtonWithIcon';
@@ -6,8 +7,12 @@ import LoginWithEmail from '../../../modules/login/sendEmailWithAuthCode';
 
 const BUTTON_ICON = require('../../../../assets/icons/messenger.png');
 
-const BUTTON_LABEL = 'Połącz czat z Messengerem';
-
+const BUTTON_LABEL = 'Połącz z Messengerem';
+const styles = StyleSheet.create({
+  button: {
+    backgroundColor: '#2196F3',
+  },
+});
 function MessengerButton({ setError }) {
   const navigation = useContext(NavigationContext);
 
@@ -20,7 +25,12 @@ function MessengerButton({ setError }) {
     }
   }
   return (
-    <ButtonWithIcon icon={BUTTON_ICON} label={BUTTON_LABEL} onPress={onPress} />
+    <ButtonWithIcon
+      style={styles.button}
+      icon={BUTTON_ICON}
+      label={BUTTON_LABEL}
+      onPress={onPress}
+    />
   );
 }
 
