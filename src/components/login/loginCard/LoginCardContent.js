@@ -6,6 +6,8 @@ const styles = StyleSheet.create({
   content: {
     flex: 5,
     alignItems: 'center',
+    width: '90%',
+    alignSelf: 'center',
   },
 });
 

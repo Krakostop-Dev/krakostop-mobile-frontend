@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
   button_container: {
     backgroundColor: ksStyle.colors.secondaryColorMedium,
     borderRadius: 10,
+    marginVertical: 5,
   },
   button: {
     flexDirection: 'row',
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
   },
   button_label: {
     color: 'white',
-    fontSize: 18,
+    fontSize: 16,
   },
 });
 

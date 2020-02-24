@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Button, Text } from 'react-native';
+import { Text } from 'react-native';
 import PropTypes from 'prop-types';
 import { NavigationContext } from 'react-navigation';
 import LoginCardHeader from '../loginCard/LoginCardHeader';
@@ -9,6 +9,7 @@ import MessengerButton from './MessengerButton';
 import ChangeAvatarView from './ChangeAvatarView';
 import InfoText from '../InfoText';
 import { LoginContext } from '../../../modules/context/LoginContext';
+import ButtonWithText from '../ButtonWithText';
 
 const HEADER_TITLE = 'Konfiguracja profilu';
 
@@ -34,7 +35,15 @@ function EditProfileCard() {
         <ChangeAvatarView />
         <InfoText infoText={MSG_TEXT} />
         <MessengerButton setError={setError} />
-        <Button onPress={() => navigation.navigate('App')} title="Dalej" />
+        <ButtonWithText
+          onPress={() => navigation.navigate('App')}
+          label="Dalej"
+          style={{
+            width: '30%',
+            marginTop: 5,
+            alignSelf: 'flex-end',
+          }}
+        />
         {hasErrorOccurred ? <Text>{hasErrorOccurred.message}</Text> : null}
       </LoginCardContent>
     </LoginCard>
