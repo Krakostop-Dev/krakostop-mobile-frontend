@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
   info_container: {
-    margin: 5,
-    width: '90%',
+    marginVertical: 5,
   },
   info_text: {
     textAlign: 'center',

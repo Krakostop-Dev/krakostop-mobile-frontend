@@ -1,15 +1,10 @@
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableHighlight,
-  View,
-} from 'react-native';
+import { StyleSheet, TextInput, View } from 'react-native';
 import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { NavigationContext } from 'react-navigation';
 import { ksStyle } from '../../styles/basic/ksBasic';
 import LoginWithEmail from '../../modules/login/sendEmailWithAuthCode';
+import ButtonWithText from './ButtonWithText';
 
 const styles = StyleSheet.create({
   input: {
@@ -33,6 +28,8 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 });
+
+const BUTTON_LABEL = 'Zaloguj';
 
 function LoginForm({ loginButtonPressed, setError }) {
   const navigation = useContext(NavigationContext);
@@ -72,12 +69,7 @@ function LoginForm({ loginButtonPressed, setError }) {
         disabled
         placeholderTextColor="rgba(0, 0, 0, 0.2)"
       />
-      <TouchableHighlight
-        style={styles.login_button_container}
-        onPress={() => onPress()}
-      >
-        <Text style={styles.login_button_text}>Zaloguj</Text>
-      </TouchableHighlight>
+      <ButtonWithText label={BUTTON_LABEL} onPress={onPress} />
     </View>
   );
 }
