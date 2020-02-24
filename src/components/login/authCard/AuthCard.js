@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import LoginCardHeader from '../loginCard/LoginCardHeader';
 import LoginCardContent from '../loginCard/LoginCardContent';
@@ -9,6 +9,12 @@ import LoginCard from '../loginCard/LoginCard';
 import AuthResendEmailButton from './AuthResendEmailButton';
 
 const HEADER_TITLE = 'Weryfikacja emaila';
+
+const styles = StyleSheet.create({
+  card: {
+    flex: 0.4,
+  },
+});
 
 function AuthCard({ navigation }) {
   const email = navigation.getParam('email');
@@ -20,7 +26,7 @@ function AuthCard({ navigation }) {
   });
 
   return (
-    <LoginCard>
+    <LoginCard style={styles.card}>
       <LoginCardHeader title={HEADER_TITLE} />
       <LoginCardContent>
         <AuthInputView email={email} />

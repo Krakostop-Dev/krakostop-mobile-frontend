@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, ViewPropTypes } from 'react-native';
 import { ksStyle } from '../../../styles/basic/ksBasic';
 
 const styles = StyleSheet.create({
@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   card: {
-    flex: 0.5,
+    flex: 0.6,
     width: '90%',
     backgroundColor: ksStyle.colors.primaryColorLight,
     borderRadius: 10,
@@ -17,14 +17,18 @@ const styles = StyleSheet.create({
   },
 });
 
-function LoginCard({ children }) {
+function LoginCard({ children, style }) {
   return (
     <View style={styles.container}>
-      <View style={styles.card}>{children}</View>
+      <View style={{ ...styles.card, ...style }}>{children}</View>
     </View>
   );
 }
 export default LoginCard;
+
+LoginCard.defaultProps = {
+  style: {},
+};
 
 LoginCard.propTypes = {
   // eslint-disable-next-line react/require-default-props
@@ -55,4 +59,5 @@ LoginCard.propTypes = {
     }
     return null;
   },
+  style: ViewPropTypes.style,
 };

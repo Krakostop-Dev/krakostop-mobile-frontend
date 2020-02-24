@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
   info_container: {
-    marginVertical: 5,
+    marginVertical: 10,
   },
   info_text: {
     textAlign: 'center',
@@ -12,10 +12,14 @@ const styles = StyleSheet.create({
   },
 });
 
-function InfoText({ style, infoText }) {
+function InfoText({ style, infoText, warning }) {
   return (
     <View style={styles.info_container}>
-      <Text style={{ ...style, ...styles.info_text }}>{infoText}</Text>
+      <Text
+        style={[style, styles.info_text, warning ? { color: 'red' } : null]}
+      >
+        {infoText}
+      </Text>
     </View>
   );
 }
@@ -24,9 +28,11 @@ export default InfoText;
 
 InfoText.defaultProps = {
   style: {},
+  warning: false,
 };
 
 InfoText.propTypes = {
   infoText: PropTypes.string.isRequired,
   style: Text.propTypes.style,
+  warning: PropTypes.bool,
 };

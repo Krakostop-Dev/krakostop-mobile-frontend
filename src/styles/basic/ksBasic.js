@@ -32,6 +32,12 @@ export const ksStyle = {
     fontSize: 16,
     fontWeight: 'bold',
   },
+  input: {
+    padding: 10,
+    fontSize: 16,
+    marginBottom: 10,
+    borderRadius: 10,
+  },
 };
 
 export const ksBasic = StyleSheet.create({

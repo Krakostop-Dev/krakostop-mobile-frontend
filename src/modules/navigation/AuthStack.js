@@ -3,15 +3,17 @@ import LoginScreen from '../../views/loginScreen/LoginScreen';
 import { ksStyle } from '../../styles/basic/ksBasic';
 import AuthCard from '../../components/login/authCard';
 import EditProfileCard from '../../components/login/editProfileCard';
+import MsgAlert from '../../components/login/msgAlert/MsgAlert';
 
 const AuthStack = createStackNavigator(
   {
     LoginScreen,
     Auth: AuthCard,
     EditProfile: EditProfileCard,
+    MsgAlert,
   },
   {
-    initialRouteName: 'EditProfile',
+    initialRouteName: 'LoginScreen',
     headerMode: 'none',
     mode: 'modal',
     transparentCard: true,
