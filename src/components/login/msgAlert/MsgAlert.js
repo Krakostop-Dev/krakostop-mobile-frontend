@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   },
 });
 const INFO_TEXT =
-  'Nie łącząc konta z Messengerem nie będziesz mógł korzystać z czatu.\nJeśli jesteś pewny swojej decyzji wpisz poniżej “rezygnuję”.';
+  'Nie łącząc konta z Messengerem nie będziesz mógł/a korzystać z czatu.\nJeśli jesteś pewny/a swojej decyzji wpisz poniżej “rezygnuje”.';
 function MsgAlert() {
   return (
     <View style={styles.container}>
