@@ -36,7 +36,7 @@ function EditProfileCard() {
         <InfoText infoText={MSG_TEXT} />
         <MessengerButton setError={setError} />
         <ButtonWithText
-          onPress={() => navigation.navigate('App')}
+          onPress={() => navigation.navigate('MsgAlert')}
           label="Dalej"
           style={{
             width: '30%',

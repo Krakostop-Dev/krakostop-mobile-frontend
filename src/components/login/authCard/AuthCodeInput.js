@@ -4,14 +4,12 @@ import PropTypes from 'prop-types';
 import { NavigationContext } from 'react-navigation';
 import authenticateUser from '../../../modules/login/authenticateUser';
 import { LoginContext } from '../../../modules/context/LoginContext';
+import { ksStyle } from '../../../styles/basic/ksBasic';
 
 const styles = StyleSheet.create({
   input: {
+    ...ksStyle.input,
     width: '50%',
-    padding: 10,
-    fontSize: 16,
-    borderRadius: 10,
-    margin: 5,
     marginTop: 10,
     borderWidth: 1,
   },

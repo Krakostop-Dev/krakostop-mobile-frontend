@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { Spinner } from 'native-base';
 import PropTypes from 'prop-types';
-import LoginForm from '../../components/login/LoginForm';
+import LoginForm from '../../components/login/loginForm/LoginForm';
 import { ksStyle } from '../../styles/basic/ksBasic';
 
 const BACKGROUND_IMAGE = require('../../../assets/login_background.png');
@@ -49,7 +49,9 @@ function LoginScreen() {
               loginButtonPressed={loginButtonPressed}
               setError={setError}
             />
-            {hasErrorOccurred ? <Text>{hasErrorOccurred.message}</Text> : null}
+            {hasErrorOccurred ? (
+              <Text style={styles.error}>{hasErrorOccurred.message}</Text>
+            ) : null}
           </View>
         </View>
       )}
