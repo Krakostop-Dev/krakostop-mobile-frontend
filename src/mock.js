@@ -3,20 +3,19 @@ const AVATAR_GOOGLE = require('../assets/avatar_google.png');
 const mockUser = {
   token:
     'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.ye4T1nR74vnxv1Vjupk0LSplqoVwoi1jAQ267D4XJZ0',
-  isLoggedIn: true,
   user: {
     id: 1,
-    first_name: 'Tomasz',
-    last_name: 'Pęcak',
-    email: 'pecatoma@gmail.com',
-    verified_login: true,
-    created_at: '2019-09-01T09:55:51.984Z',
-    updated_at: '2019-11-04T11:13:14.946Z',
-    pairID: '20',
-    rank: '10',
+    first_name: 'Justyna',
+    last_name: 'Basiak',
+    email: 'justynabasiak@interia.pl',
+    verified_login: false,
+    created_at: '2020-02-24T17:37:29.128Z',
+    updated_at: '2020-02-24T17:37:34.498Z',
+    phone: '515189436',
+    city: 'Kraków',
+    pair_id: 1,
+    messenger: null,
     avatar: AVATAR_GOOGLE,
-    facebook_link: 'wwww.facebook.com',
-    phone_number: '123 423 523',
   },
 };
 

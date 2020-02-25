@@ -13,6 +13,7 @@ async function authenticateUser(email, verificationCode) {
       email,
       verification_code: verificationCode,
     });
+
     if (response.status === 200) {
       return {
         status: 200,

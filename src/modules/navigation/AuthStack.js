@@ -13,7 +13,7 @@ const AuthStack = createStackNavigator(
     MsgAlert,
   },
   {
-    initialRouteName: 'LoginScreen',
+    initialRouteName: 'EditProfile',
     headerMode: 'none',
     mode: 'modal',
     transparentCard: true,

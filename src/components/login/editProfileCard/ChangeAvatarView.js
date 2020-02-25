@@ -1,8 +1,10 @@
-/* eslint-disable no-undef */
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
+import PropTypes from 'prop-types';
 import { Avatar } from 'react-native-elements';
 import EditButton from '../../EditButton';
+import loadImage from '../../../modules/loadImage';
+import { LoginContext } from '../../../modules/context/LoginContext';
 
 const styles = StyleSheet.create({
   container: {
@@ -23,12 +25,28 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
 });
-function ChangeAvatarView() {
+
+function ChangeAvatarView({ setAvatar }) {
+  const { user } = useContext(LoginContext);
+  const [loadedAvatar, setLoadedAvatar] = useState(null);
+  async function onPress() {
+    const avatar = await loadImage();
+    if (avatar) {
+      setLoadedAvatar(avatar);
+      setAvatar(avatar.uri);
+    }
+  }
+
   return (
     <View style={styles.container}>
-      <Avatar rounded size="large" containerStyle={styles.avatar} />
+      <Avatar
+        rounded
+        size="large"
+        containerStyle={styles.avatar}
+        source={loadedAvatar ? { uri: loadedAvatar.uri } : user.avatar}
+      />
       <EditButton
-        onPress={() => alert('CHANGE AVATAR')}
+        onPress={() => onPress()}
         style={styles.edit_button}
         rounded
       />
@@ -38,4 +56,6 @@ function ChangeAvatarView() {
 
 export default ChangeAvatarView;
 
-ChangeAvatarView.propTypes = {};
+ChangeAvatarView.propTypes = {
+  setAvatar: PropTypes.func.isRequired,
+};
