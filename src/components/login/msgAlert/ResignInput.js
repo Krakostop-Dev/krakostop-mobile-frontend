@@ -1,7 +1,11 @@
 import React, { useContext } from 'react';
 import { StyleSheet, TextInput } from 'react-native';
+import PropTypes from 'prop-types';
 import { NavigationContext } from 'react-navigation';
 import { ksStyle } from '../../../styles/basic/ksBasic';
+import updateUser from '../../../modules/login/updateUser';
+import { LoginContext } from '../../../modules/context/LoginContext';
+import config from '../../../../config/config';
 
 const styles = StyleSheet.create({
   input: {
@@ -15,12 +19,23 @@ const styles = StyleSheet.create({
 const CODE_INPUT_PLACEHOLDER = 'rezygnuje';
 const RESIGN_LABEL = 'rezygnuje';
 
-function ResignInput() {
+function ResignInput({ avatar, setError }) {
   const navigation = useContext(NavigationContext);
+  const loginContext = useContext(LoginContext);
 
   async function onChangeText(authCode) {
     if (authCode.toLowerCase() === RESIGN_LABEL.toLowerCase()) {
-      navigation.navigate('App');
+      const { status, message, user } = await updateUser(avatar);
+      if (status === 200) {
+        user.avatar = config.baseUrl + user.avatar;
+        await loginContext.updateUser(user);
+        navigation.navigate('App');
+      } else {
+        setError({
+          isError: true,
+          message,
+        });
+      }
     }
   }
 
@@ -37,3 +52,8 @@ function ResignInput() {
 }
 
 export default ResignInput;
+
+ResignInput.propTypes = {
+  avatar: PropTypes.string.isRequired,
+  setError: PropTypes.func.isRequired,
+};

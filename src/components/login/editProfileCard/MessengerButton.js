@@ -13,12 +13,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#2196F3',
   },
 });
-function MessengerButton({ setError }) {
+function MessengerButton({ setError, setMsgLink }) {
   const navigation = useContext(NavigationContext);
 
   async function onPress() {
     const { status, message } = await LoginWithEmail('email', 'pairNr');
     if (status === 200) {
+      setMsgLink('msg.com');
       navigation.navigate('App');
     } else {
       setError({ isError: true, message });
@@ -38,4 +39,5 @@ export default MessengerButton;
 
 MessengerButton.propTypes = {
   setError: PropTypes.func.isRequired,
+  setMsgLink: PropTypes.func.isRequired,
 };

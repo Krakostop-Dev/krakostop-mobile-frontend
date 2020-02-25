@@ -20,7 +20,12 @@ function AppUserMarker() {
       }}
       onPress={() => setIsPairOverlayVisible(true)}
     >
-      <Avatar size="medium" rounded source={user.avatar} activeOpacity={0.7} />
+      <Avatar
+        size="medium"
+        rounded
+        source={{ uri: user.avatar }}
+        activeOpacity={0.7}
+      />
       <PairOverlay
         isVisible={isPairOverlayVisible}
         setIsVisible={setIsPairOverlayVisible}

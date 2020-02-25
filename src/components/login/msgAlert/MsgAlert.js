@@ -1,5 +1,6 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import PropTypes from 'prop-types';
 import { ksStyle } from '../../../styles/basic/ksBasic';
 import InfoText from '../InfoText';
 import BackButton from './BackButton';
@@ -21,12 +22,20 @@ const styles = StyleSheet.create({
 });
 const INFO_TEXT =
   'Nie łącząc konta z Messengerem nie będziesz mógł/a korzystać z czatu.\nJeśli jesteś pewny/a swojej decyzji wpisz poniżej “rezygnuje”.';
-function MsgAlert() {
+function MsgAlert({ navigation }) {
+  const avatar = navigation.getParam('avatar');
+
+  const [hasErrorOccurred, setError] = useState({
+    isError: false,
+    message: '',
+  });
+
   return (
     <View style={styles.container}>
       <View style={styles.card}>
         <InfoText infoText={INFO_TEXT} warning />
-        <ResignInput />
+        <ResignInput avatar={avatar} setError={setError} />
+        {hasErrorOccurred ? <Text>{hasErrorOccurred.message}</Text> : null}
         <BackButton />
       </View>
     </View>
@@ -34,3 +43,9 @@ function MsgAlert() {
 }
 
 export default MsgAlert;
+
+MsgAlert.propTypes = {
+  navigation: PropTypes.shape({
+    getParam: PropTypes.func.isRequired,
+  }).isRequired,
+};
