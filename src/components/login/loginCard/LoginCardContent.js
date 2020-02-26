@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
   content: {
-    flex: 5,
-    alignItems: 'center',
     width: '90%',
+    padding: 10,
+    alignItems: 'center',
     alignSelf: 'center',
   },
 });

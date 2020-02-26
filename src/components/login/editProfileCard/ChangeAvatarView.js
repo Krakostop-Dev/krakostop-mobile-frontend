@@ -5,6 +5,7 @@ import { Avatar } from 'react-native-elements';
 import EditButton from '../../EditButton';
 import loadImage from '../../../modules/loadImage';
 import { LoginContext } from '../../../modules/context/LoginContext';
+import OkButton from './OkButton';
 
 const styles = StyleSheet.create({
   container: {
@@ -15,7 +16,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  edit_button: {
+  button: {
     position: 'absolute',
     top: 50,
     right: -5,
@@ -45,11 +46,11 @@ function ChangeAvatarView({ setAvatar }) {
         containerStyle={styles.avatar}
         source={loadedAvatar ? { uri: loadedAvatar.uri } : user.avatar}
       />
-      <EditButton
-        onPress={() => onPress()}
-        style={styles.edit_button}
-        rounded
-      />
+      {loadedAvatar ? (
+        <OkButton onPress={onPress} style={styles.button} />
+      ) : (
+        <EditButton onPress={() => onPress()} style={styles.button} rounded />
+      )}
     </View>
   );
 }

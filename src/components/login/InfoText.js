@@ -1,26 +1,22 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
-  info_container: {
-    marginVertical: 10,
-  },
   info_text: {
+    marginVertical: 5,
     textAlign: 'center',
     fontSize: 18,
   },
 });
 
-function InfoText({ style, infoText, warning }) {
+function InfoText({ style, infoText, warning: important }) {
   return (
-    <View style={styles.info_container}>
-      <Text
-        style={[styles.info_text, style, warning ? { color: 'red' } : null]}
-      >
-        {infoText}
-      </Text>
-    </View>
+    <Text
+      style={[styles.info_text, style, important ? { color: 'red' } : null]}
+    >
+      {infoText}
+    </Text>
   );
 }
 

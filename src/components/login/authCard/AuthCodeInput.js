@@ -9,18 +9,19 @@ import { ksStyle } from '../../../styles/basic/ksBasic';
 const styles = StyleSheet.create({
   input: {
     ...ksStyle.input,
-    width: '50%',
-    marginTop: 10,
+    width: 150,
+    margin: 5,
     borderWidth: 1,
   },
 });
 const CODE_INPUT_PLACEHOLDER = 'Kod weryfikacyjny';
 
-function AuthCodeInput({ setError, email, authCodeLength }) {
+function AuthCodeInput({ setError, email, authCodeLength, hasErrorOccurred }) {
   const loginContext = useContext(LoginContext);
   const navigation = useContext(NavigationContext);
 
   async function onChangeText(authCode) {
+    setError({ isError: false, message: '' });
     if (authCode.length === authCodeLength) {
       setError({ isError: false, message: '' });
       const { status, message, data } = await authenticateUser(email, authCode);
@@ -36,11 +37,14 @@ function AuthCodeInput({ setError, email, authCodeLength }) {
 
   return (
     <TextInput
-      style={styles.input}
+      style={[
+        styles.input,
+        hasErrorOccurred.isError ? { borderColor: 'red' } : null,
+      ]}
       placeholder={CODE_INPUT_PLACEHOLDER}
       keyboardType="numeric"
       onChangeText={onChangeText}
-      maxLength={6}
+      maxLength={authCodeLength}
       disabled
       placeholderTextColor="rgba(0, 0, 0, 0.2)"
     />
@@ -53,4 +57,5 @@ AuthCodeInput.propTypes = {
   email: PropTypes.string.isRequired,
   authCodeLength: PropTypes.number.isRequired,
   setError: PropTypes.func.isRequired,
+  hasErrorOccurred: PropTypes.func.isRequired,
 };

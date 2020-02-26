@@ -9,8 +9,9 @@ import config from '../../../../config/config';
 
 const styles = StyleSheet.create({
   button: {
-    width: '30%',
-    marginTop: 20,
+    width: 100,
+    marginHorizontal: 5,
+    marginTop: 0,
     alignSelf: 'flex-end',
   },
 });

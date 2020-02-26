@@ -14,13 +14,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: ksStyle.colors.secondaryColorMedium,
+    marginVertical: 10,
     borderRadius: 10,
-    margin: 5,
+    padding: 10,
   },
   login_button_text: {
     fontSize: 16,
     color: 'white',
-    padding: 10,
   },
 });
 

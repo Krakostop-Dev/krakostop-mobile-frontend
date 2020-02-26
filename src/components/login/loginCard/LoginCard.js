@@ -9,8 +9,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   card: {
-    flex: 0.6,
-    width: '90%',
     backgroundColor: ksStyle.colors.primaryColorLight,
     borderRadius: 10,
     overflow: 'hidden',

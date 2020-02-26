@@ -1,12 +1,12 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import InfoText from '../InfoText';
 import AuthCodeInput from './AuthCodeInput';
+import ErrorText from '../ErrorText';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: 'center',
   },
 });
@@ -26,9 +26,12 @@ function AuthInputView({ email }) {
       <AuthCodeInput
         email={email}
         setError={setError}
+        hasErrorOccurred={hasErrorOccurred}
         authCodeLength={AUTH_CODE_LENGTH}
       />
-      {hasErrorOccurred ? <Text>{hasErrorOccurred.message}</Text> : null}
+      {hasErrorOccurred.isError ? (
+        <ErrorText errorText={hasErrorOccurred.message} />
+      ) : null}
     </View>
   );
 }

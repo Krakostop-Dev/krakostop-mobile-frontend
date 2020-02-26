@@ -35,7 +35,7 @@ export const ksStyle = {
   input: {
     padding: 10,
     fontSize: 16,
-    marginBottom: 10,
+    marginBottom: 5,
     borderRadius: 10,
   },
 };

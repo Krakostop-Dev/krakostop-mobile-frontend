@@ -15,10 +15,10 @@ const styles = StyleSheet.create({
     backgroundColor: ksStyle.colors.secondaryColorMedium,
     borderRadius: 10,
     marginVertical: 10,
+    padding: 10,
   },
   button: {
     flexDirection: 'row',
-    padding: 10,
   },
   button_image: {
     width: 25,

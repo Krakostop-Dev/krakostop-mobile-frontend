@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import { Text } from 'react-native';
 import PropTypes from 'prop-types';
 import LoginCardHeader from '../loginCard/LoginCardHeader';
 import LoginCardContent from '../loginCard/LoginCardContent';
@@ -9,6 +8,7 @@ import ChangeAvatarView from './ChangeAvatarView';
 import InfoText from '../InfoText';
 import { LoginContext } from '../../../modules/context/LoginContext';
 import NextButton from './NextButton';
+import ErrorText from '../ErrorText';
 
 const HEADER_TITLE = 'Konfiguracja profilu';
 
@@ -35,7 +35,9 @@ function EditProfileCard() {
         <InfoText infoText={MSG_TEXT} />
         <MessengerButton setError={setError} setMsgLink={setMsgLink} />
         <NextButton avatar={avatar} msgLink={msgLink} setError={setError} />
-        {hasErrorOccurred ? <Text>{hasErrorOccurred.message}</Text> : null}
+        {hasErrorOccurred.isError ? (
+          <ErrorText errorText={hasErrorOccurred.message} />
+        ) : null}
       </LoginCardContent>
     </LoginCard>
   );

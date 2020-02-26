@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
 import { ksStyle } from '../../../styles/basic/ksBasic';
 import InfoText from '../InfoText';
 import BackButton from './BackButton';
 import ResignInput from './ResignInput';
+import ErrorText from '../ErrorText';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,7 +15,7 @@ const styles = StyleSheet.create({
   },
   card: {
     width: '90%',
-    padding: 20,
+    padding: 10,
     backgroundColor: ksStyle.colors.primaryColorLight,
     borderRadius: 10,
     overflow: 'hidden',
@@ -35,7 +36,9 @@ function MsgAlert({ navigation }) {
       <View style={styles.card}>
         <InfoText infoText={INFO_TEXT} warning />
         <ResignInput avatar={avatar} setError={setError} />
-        {hasErrorOccurred ? <Text>{hasErrorOccurred.message}</Text> : null}
+        {hasErrorOccurred.isError ? (
+          <ErrorText errorText={hasErrorOccurred.message} />
+        ) : null}
         <BackButton />
       </View>
     </View>

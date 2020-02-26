@@ -5,7 +5,7 @@ import { ksStyle } from '../../../styles/basic/ksBasic';
 
 const styles = StyleSheet.create({
   header: {
-    flex: 1,
+    height: 60,
     backgroundColor: ksStyle.colors.primaryColorMedium,
     justifyContent: 'center',
     alignItems: 'center',
