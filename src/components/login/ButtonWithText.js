@@ -10,12 +10,12 @@ import { ksStyle } from '../../styles/basic/ksBasic';
 
 const styles = StyleSheet.create({
   login_button_container: {
-    width: '50%',
-    alignSelf: 'center',
-    borderRadius: 10,
-    backgroundColor: ksStyle.colors.secondaryColorMedium,
     flexDirection: 'row',
     justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: ksStyle.colors.secondaryColorMedium,
+    borderRadius: 10,
+    margin: 5,
   },
   login_button_text: {
     fontSize: 16,

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { Image, ImageBackground, StyleSheet, View } from 'react-native';
 import { Spinner } from 'native-base';
 import PropTypes from 'prop-types';
 import LoginForm from '../../components/login/loginForm/LoginForm';
@@ -18,10 +18,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   stack: {
+    width: '90%',
     marginTop: 100,
     flex: 0.7,
     flexDirection: 'column',
     justifyContent: 'space-between',
+    alignItems: 'center',
   },
   logo: {
     resizeMode: 'contain',
@@ -32,11 +34,6 @@ const styles = StyleSheet.create({
 
 function LoginScreen() {
   const [isLoginButtonPressed, loginButtonPressed] = useState(false);
-  const [hasErrorOccurred, setError] = useState({
-    isError: false,
-    message: '',
-  });
-
   return (
     <ImageBackground source={BACKGROUND_IMAGE} style={styles.background}>
       {isLoginButtonPressed ? (
@@ -45,13 +42,7 @@ function LoginScreen() {
         <View style={styles.container}>
           <View style={styles.stack}>
             <Image style={styles.logo} source={ksStyle.logo.source} />
-            <LoginForm
-              loginButtonPressed={loginButtonPressed}
-              setError={setError}
-            />
-            {hasErrorOccurred ? (
-              <Text style={styles.error}>{hasErrorOccurred.message}</Text>
-            ) : null}
+            <LoginForm loginButtonPressed={loginButtonPressed} />
           </View>
         </View>
       )}

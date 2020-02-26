@@ -16,7 +16,7 @@ function InfoText({ style, infoText, warning }) {
   return (
     <View style={styles.info_container}>
       <Text
-        style={[style, styles.info_text, warning ? { color: 'red' } : null]}
+        style={[styles.info_text, style, warning ? { color: 'red' } : null]}
       >
         {infoText}
       </Text>

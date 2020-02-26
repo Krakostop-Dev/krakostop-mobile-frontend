@@ -8,9 +8,13 @@ const styles = StyleSheet.create({
   input: {
     ...ksStyle.input,
     backgroundColor: ksStyle.colors.primaryColorMedium,
+    width: 300,
+  },
+  button: {
+    width: 150,
   },
 });
-function LoginForm({ loginButtonPressed, setError }) {
+function LoginForm({ loginButtonPressed }) {
   const [email, setEmail] = useState('justynabasiak@interia.pl');
   const [pairNr, setPairNr] = useState('2');
 
@@ -39,7 +43,6 @@ function LoginForm({ loginButtonPressed, setError }) {
         pairNr={pairNr}
         email={email}
         loginButtonPressed={loginButtonPressed}
-        setError={setError}
       />
     </View>
   );
@@ -49,5 +52,4 @@ export default LoginForm;
 
 LoginForm.propTypes = {
   loginButtonPressed: PropTypes.func.isRequired,
-  setError: PropTypes.func.isRequired,
 };
