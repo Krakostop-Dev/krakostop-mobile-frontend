@@ -30,7 +30,7 @@ export default () => {
   return (
     <View style={styles.header}>
       <View>
-        <Avatar source={user.avatar} rounded size={100} />
+        <Avatar source={{ uri: user.avatar }} rounded size={100} />
         <EditButton
           style={styles.edit_avatar_button}
           onPress={() => alert('Change avatar')}

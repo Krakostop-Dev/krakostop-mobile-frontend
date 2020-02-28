@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import FormData from 'form-data';
-import KsAxios from '../KsAxios';
+import KsAxios from '../communication/KsAxios';
 
 const NO_USER = 'Brak użytkownika dla podanego tokenu';
 const CONNECTION_PROBLEM =
