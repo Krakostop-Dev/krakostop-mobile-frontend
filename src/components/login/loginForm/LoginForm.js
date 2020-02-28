@@ -15,8 +15,8 @@ const styles = StyleSheet.create({
   },
 });
 function LoginForm({ loginButtonPressed }) {
-  const [email, setEmail] = useState('justynabasiak@interia.pl');
-  const [pairNr, setPairNr] = useState('2');
+  const [email, setEmail] = useState('');
+  const [pairNr, setPairNr] = useState('');
 
   return (
     <View>
@@ -32,7 +32,7 @@ function LoginForm({ loginButtonPressed }) {
       />
       <TextInput
         style={styles.input}
-        placeholder="Nr pary"
+        placeholder="Numer pary"
         keyboardType="numeric"
         value={pairNr}
         onChangeText={setPairNr}
