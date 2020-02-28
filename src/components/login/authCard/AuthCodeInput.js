@@ -57,5 +57,8 @@ AuthCodeInput.propTypes = {
   email: PropTypes.string.isRequired,
   authCodeLength: PropTypes.number.isRequired,
   setError: PropTypes.func.isRequired,
-  hasErrorOccurred: PropTypes.func.isRequired,
+  hasErrorOccurred: PropTypes.shape({
+    isError: PropTypes.bool.isRequired,
+    message: PropTypes.string.isRequired,
+  }).isRequired,
 };
