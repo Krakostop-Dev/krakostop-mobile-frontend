@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
 import { Avatar } from 'react-native-elements';
 import EditButton from '../../EditButton';
-import loadImage from '../../../modules/loadImage';
+import loadImage from '../../../modules/ImageLoader';
 import { LoginContext } from '../../../modules/context/LoginContext';
 import OkButton from './OkButton';
 

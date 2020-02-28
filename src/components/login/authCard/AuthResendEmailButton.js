@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonWithIcon from '../ButtonWithIcon';
-import LoginWithEmail from '../../../modules/login/sendEmailWithAuthCode';
+import { sendEmailWithPairNr } from '../../../modules/communication/CommunicationMenager';
 
 const BUTTON_ICON = require('../../../../assets/icons/envelope.png');
 
@@ -9,7 +9,7 @@ const BUTTON_LABEL = 'Prześlij ponownie';
 
 function AuthResendEmailButton({ email, pairNr, setError }) {
   async function onPress() {
-    const { status, message } = await LoginWithEmail(email, pairNr);
+    const { status, message } = await sendEmailWithPairNr(email, pairNr);
     if (status !== 200) {
       setError({ isError: true, message });
     }

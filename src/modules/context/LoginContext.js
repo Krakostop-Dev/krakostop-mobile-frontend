@@ -6,8 +6,7 @@ import {
   removeDataFromStorage,
   saveDataInStorage,
 } from '../Storage';
-import { updateUserProfileOnServer } from '../communication/CommunicationMenager';
-// import mockUser from '../../mockUser';
+import mockUser from '../../mock';
 
 export const LoginContext = createContext({
   user: {
@@ -26,7 +25,7 @@ export const LoginContext = createContext({
   error: '',
 });
 
-const initialState = {
+/* const initialState = {
   user: {
     id: '',
     first_name: '',
@@ -35,9 +34,9 @@ const initialState = {
     verified_login: false,
     avatar: null,
   },
-};
+}; */
 
-// const initialState = mockUser;
+const initialState = mockUser;
 
 async function logIn(dispatch, token, user) {
   await saveDataInStorage('TOKEN', token);
@@ -53,8 +52,6 @@ async function logOut(dispatch) {
   dispatch({ type: 'logOut' });
 }
 async function updateUser(dispatch, user) {
-  // TODO: DO NOT UPDATE CONTEXT IF updateOnServerFailed
-  await updateUserProfileOnServer(user.first_name, user.last_name);
   await saveDataInStorage('USER', JSON.stringify(user));
   dispatch({ type: 'updateUser', payload: { user } });
 }

@@ -3,9 +3,9 @@ import { StyleSheet } from 'react-native';
 import { NavigationContext } from 'react-navigation';
 import PropTypes from 'prop-types';
 import ButtonWithText from '../ButtonWithText';
-import updateUser from '../../../modules/login/updateUser';
 import { LoginContext } from '../../../modules/context/LoginContext';
 import config from '../../../../config/config';
+import { updateProfileOnServer } from '../../../modules/communication/CommunicationMenager';
 
 const styles = StyleSheet.create({
   button: {
@@ -25,7 +25,10 @@ function NextButton({ avatar, msgLink, setError }) {
     if (!msgLink) {
       navigation.navigate('MsgAlert', { avatar });
     } else {
-      const { status, message, user } = await updateUser(avatar, msgLink);
+      const { status, message, user } = await updateProfileOnServer(
+        avatar,
+        msgLink
+      );
       if (status === 200) {
         user.avatar = config.baseUrl + user.avatar;
         await loginContext.updateUser(user);

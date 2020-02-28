@@ -1,9 +1,8 @@
-import React, { useContext } from 'react';
+/* eslint-disable no-undef */
+import React from 'react';
 import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import { NavigationContext } from 'react-navigation';
 import ButtonWithIcon from '../ButtonWithIcon';
-import LoginWithEmail from '../../../modules/login/sendEmailWithAuthCode';
 
 const BUTTON_ICON = require('../../../../assets/icons/messenger.png');
 
@@ -13,17 +12,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#2196F3',
   },
 });
+// eslint-disable-next-line no-unused-vars
 function MessengerButton({ setError, setMsgLink }) {
-  const navigation = useContext(NavigationContext);
-
   async function onPress() {
-    const { status, message } = await LoginWithEmail('email', 'pairNr');
-    if (status === 200) {
-      setMsgLink('msg.com');
-      navigation.navigate('App');
-    } else {
-      setError({ isError: true, message });
-    }
+    // TODO: Create logic to connect msg with app
+    alert('Connect MSG');
   }
   return (
     <ButtonWithIcon

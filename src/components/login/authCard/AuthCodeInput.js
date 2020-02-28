@@ -2,9 +2,9 @@ import { StyleSheet, TextInput } from 'react-native';
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { NavigationContext } from 'react-navigation';
-import authenticateUser from '../../../modules/login/authenticateUser';
 import { LoginContext } from '../../../modules/context/LoginContext';
 import { ksStyle } from '../../../styles/basic/ksBasic';
+import { sendEmailWithAuthCode } from '../../../modules/communication/CommunicationMenager';
 
 const styles = StyleSheet.create({
   input: {
@@ -24,7 +24,10 @@ function AuthCodeInput({ setError, email, authCodeLength, hasErrorOccurred }) {
     setError({ isError: false, message: '' });
     if (authCode.length === authCodeLength) {
       setError({ isError: false, message: '' });
-      const { status, message, data } = await authenticateUser(email, authCode);
+      const { status, message, data } = await sendEmailWithAuthCode(
+        email,
+        authCode
+      );
       if (status === 200) {
         const { user, token } = data;
         await loginContext.logIn(token, user);
