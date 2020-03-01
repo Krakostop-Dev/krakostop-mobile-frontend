@@ -7,6 +7,7 @@ export const ksStyle = {
     primaryColorLight: '#FFF3E0',
     primaryColorMedium: '#FED290',
     primaryColorDark: '#FFCC80',
+    secondaryColorMedium: '#6EA2FE',
     backgroundColor: 'rgba(52, 52, 52, 0.8)',
   },
   icon: {
@@ -30,6 +31,12 @@ export const ksStyle = {
   drawerLabel: {
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  input: {
+    padding: 10,
+    fontSize: 16,
+    marginBottom: 5,
+    borderRadius: 10,
   },
 };
 
