@@ -6,6 +6,7 @@ import { ksStyle } from '../../../styles/basic/ksBasic';
 import { LoginContext } from '../../../modules/context/LoginContext';
 import { updateProfileOnServer } from '../../../modules/communication/CommunicationMenager';
 import { convertRelativePathToAbsoluteUri } from '../../../modules/ImageLoader';
+import ErrorMessages from '../../../modules/ErrorMessages';
 
 const styles = StyleSheet.create({
   input: {
@@ -18,12 +19,17 @@ const styles = StyleSheet.create({
 });
 const RESIGN_LABEL = 'rezygnuje';
 
-function ResignInput({ avatar, setError }) {
+function ResignInput({ avatar, setError, setResigned }) {
   const navigation = useContext(NavigationContext);
   const loginContext = useContext(LoginContext);
 
   async function onChangeText(authCode) {
+    setError({
+      isError: false,
+      message: ErrorMessages.TYPO,
+    });
     if (authCode.toLowerCase() === RESIGN_LABEL.toLowerCase()) {
+      setResigned(true);
       const { status, message, user } = await updateProfileOnServer({ avatar });
       if (status === 200) {
         if (user) {
@@ -32,11 +38,17 @@ function ResignInput({ avatar, setError }) {
         }
         navigation.navigate('App');
       } else {
+        setResigned(false);
         setError({
           isError: true,
           message,
         });
       }
+    } else if (authCode.length === RESIGN_LABEL.length) {
+      setError({
+        isError: true,
+        message: ErrorMessages.TYPO,
+      });
     }
   }
 
@@ -57,4 +69,5 @@ export default ResignInput;
 ResignInput.propTypes = {
   avatar: PropTypes.string.isRequired,
   setError: PropTypes.func.isRequired,
+  setResigned: PropTypes.func.isRequired,
 };
