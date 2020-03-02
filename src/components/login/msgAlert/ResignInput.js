@@ -26,8 +26,10 @@ function ResignInput({ avatar, setError }) {
     if (authCode.toLowerCase() === RESIGN_LABEL.toLowerCase()) {
       const { status, message, user } = await updateProfileOnServer({ avatar });
       if (status === 200) {
-        user.avatar = { uri: config.baseUrl + user.avatar };
-        await loginContext.updateUser(user);
+        if (user) {
+          user.avatar = { uri: config.baseUrl + user.avatar };
+          await loginContext.updateUser(user);
+        }
         navigation.navigate('App');
       } else {
         setError({

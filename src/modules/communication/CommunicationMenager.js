@@ -84,6 +84,10 @@ export async function sendEmailWithAuthCode(email, verificationCode) {
 }
 
 export async function updateProfileOnServer({ avatar, msgLink, phoneNumber }) {
+  if (!avatar && !msgLink && !phoneNumber) {
+    console.log('EMPTY update');
+    return { status: 200, message: 'OK' };
+  }
   const data = new FormData();
   if (avatar) {
     data.append('avatar', {
