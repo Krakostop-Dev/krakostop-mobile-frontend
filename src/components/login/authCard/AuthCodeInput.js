@@ -5,7 +5,7 @@ import { NavigationContext } from 'react-navigation';
 import { LoginContext } from '../../../modules/context/LoginContext';
 import { ksStyle } from '../../../styles/basic/ksBasic';
 import { sendEmailWithAuthCode } from '../../../modules/communication/CommunicationMenager';
-import config from '../../../../config/config';
+import { convertRelativePathToAbsoluteUri } from '../../../modules/ImageLoader';
 
 const styles = StyleSheet.create({
   input: {
@@ -31,7 +31,7 @@ function AuthCodeInput({ setError, email, authCodeLength, hasErrorOccurred }) {
       );
       if (status === 200) {
         const { user, token } = data;
-        user.avatar = { uri: config.baseUrl + user.avatar };
+        user.avatar = convertRelativePathToAbsoluteUri(user.avatar);
         await loginContext.logIn(token, user);
         navigation.navigate('EditProfile');
       } else {
