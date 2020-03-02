@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { NavigationContext } from 'react-navigation';
 import { ksStyle } from '../../../styles/basic/ksBasic';
 import { LoginContext } from '../../../modules/context/LoginContext';
-import config from '../../../../config/config';
 import { updateProfileOnServer } from '../../../modules/communication/CommunicationMenager';
+import { convertRelativePathToAbsoluteUri } from '../../../modules/ImageLoader';
 
 const styles = StyleSheet.create({
   input: {
@@ -27,7 +27,7 @@ function ResignInput({ avatar, setError }) {
       const { status, message, user } = await updateProfileOnServer({ avatar });
       if (status === 200) {
         if (user) {
-          user.avatar = { uri: config.baseUrl + user.avatar };
+          user.avatar = convertRelativePathToAbsoluteUri(user.avatar);
           await loginContext.updateUser(user);
         }
         navigation.navigate('App');

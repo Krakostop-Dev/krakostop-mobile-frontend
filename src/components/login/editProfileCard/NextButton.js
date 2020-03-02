@@ -4,8 +4,8 @@ import { NavigationContext } from 'react-navigation';
 import PropTypes from 'prop-types';
 import ButtonWithText from '../ButtonWithText';
 import { LoginContext } from '../../../modules/context/LoginContext';
-import config from '../../../../config/config';
 import { updateProfileOnServer } from '../../../modules/communication/CommunicationMenager';
+import { convertRelativePathToAbsoluteUri } from '../../../modules/ImageLoader';
 
 const styles = StyleSheet.create({
   button: {
@@ -31,7 +31,7 @@ function NextButton({ avatar, msgLink, setError }) {
       });
 
       if (status === 200) {
-        user.avatar = { uri: config.baseUrl + user.avatar };
+        user.avatar = convertRelativePathToAbsoluteUri(user.avatar);
         await loginContext.updateUser(user);
         navigation.navigate('App');
       } else {

@@ -2,10 +2,12 @@ import React, { useContext } from 'react';
 import { StyleSheet, ViewPropTypes } from 'react-native';
 import PropTypes from 'prop-types';
 import EditButton from '../../components/EditButton';
-import loadImage from '../../modules/ImageLoader';
+import {
+  convertRelativePathToAbsoluteUri,
+  loadImage,
+} from '../../modules/ImageLoader';
 import { LoginContext } from '../../modules/context/LoginContext';
 import { updateProfileOnServer } from '../../modules/communication/CommunicationMenager';
-import config from '../../../config/config';
 
 const styles = StyleSheet.create({
   edit_avatar_button: {
@@ -27,7 +29,7 @@ function EditAvatarButton({ style, setError }) {
         avatar: avatar.uri,
       });
       if (status === 200) {
-        user.avatar = { uri: config.baseUrl + user.avatar };
+        user.avatar = convertRelativePathToAbsoluteUri(user.avatar);
         await loginContext.updateUser(user);
       } else {
         setError({ isError: true, message });
