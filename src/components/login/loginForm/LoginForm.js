@@ -15,8 +15,8 @@ const styles = StyleSheet.create({
   },
 });
 function LoginForm({ loginButtonPressed }) {
-  const [email, setEmail] = useState('');
-  const [pairNr, setPairNr] = useState('');
+  const [email, setEmail] = useState('email1@example.org');
+  const [pairNr, setPairNr] = useState('1');
 
   return (
     <View>
