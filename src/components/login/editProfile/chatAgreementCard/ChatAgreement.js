@@ -17,6 +17,7 @@ function ChatAgreement() {
     isError: false,
     message: '',
   });
+
   return (
     <Card>
       <CardHeader title={HEADER_TITLE} />
