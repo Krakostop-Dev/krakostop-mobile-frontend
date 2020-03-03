@@ -5,7 +5,7 @@ import { ksStyle } from '../../../styles/basic/ksBasic';
 import InfoText from '../InfoText';
 import BackButton from './BackButton';
 import ResignInput from './ResignInput';
-import ErrorText from '../ErrorText';
+import SmallInfoText from '../../SmallInfoText';
 
 const styles = StyleSheet.create({
   container: {
@@ -37,7 +37,7 @@ function MsgAlert({ navigation }) {
         <InfoText infoText={INFO_TEXT} warning />
         <ResignInput avatar={avatar} setError={setError} />
         {hasErrorOccurred.isError ? (
-          <ErrorText errorText={hasErrorOccurred.message} />
+          <SmallInfoText text={hasErrorOccurred.message} color="red" />
         ) : null}
         <BackButton />
       </View>

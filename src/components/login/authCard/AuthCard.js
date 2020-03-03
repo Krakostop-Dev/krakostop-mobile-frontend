@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import LoginCardHeader from '../loginCard/LoginCardHeader';
-import LoginCardContent from '../loginCard/LoginCardContent';
+import CardHeader from '../../card/CardHeader';
+import CardContent from '../../card/CardContent';
 import AuthInputView from './AuthInputView';
 
-import LoginCard from '../loginCard/LoginCard';
+import Card from '../../card/Card';
 import AuthResendEmailButton from './AuthResendEmailButton';
 import InfoText from '../InfoText';
-import ErrorText from '../ErrorText';
+import SmallInfoText from '../../SmallInfoText';
 
 const HEADER_TITLE = 'Weryfikacja emaila';
 
@@ -23,9 +23,9 @@ function AuthCard({ navigation }) {
   });
 
   return (
-    <LoginCard>
-      <LoginCardHeader title={HEADER_TITLE} />
-      <LoginCardContent>
+    <Card>
+      <CardHeader title={HEADER_TITLE} />
+      <CardContent>
         <AuthInputView email={email} />
         <InfoText infoText={RESEND_INFO} />
         <AuthResendEmailButton
@@ -34,10 +34,10 @@ function AuthCard({ navigation }) {
           setError={setError}
         />
         {hasErrorOccurred.isError ? (
-          <ErrorText errorText={hasErrorOccurred.message} />
+          <SmallInfoText text={hasErrorOccurred.message} color="red" />
         ) : null}
-      </LoginCardContent>
-    </LoginCard>
+      </CardContent>
+    </Card>
   );
 }
 

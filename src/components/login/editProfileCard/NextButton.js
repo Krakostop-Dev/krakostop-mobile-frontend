@@ -25,12 +25,13 @@ function NextButton({ avatar, msgLink, setError }) {
     if (!msgLink) {
       navigation.navigate('MsgAlert', { avatar });
     } else {
-      const { status, message, user } = await updateProfileOnServer(
+      const { status, message, user } = await updateProfileOnServer({
         avatar,
-        msgLink
-      );
+        msgLink,
+      });
+
       if (status === 200) {
-        user.avatar = config.baseUrl + user.avatar;
+        user.avatar = { uri: config.baseUrl + user.avatar };
         await loginContext.updateUser(user);
         navigation.navigate('App');
       } else {

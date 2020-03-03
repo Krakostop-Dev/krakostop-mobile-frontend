@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
   content: {
-    flex: 10,
+    width: '90%',
+    padding: 10,
+    alignItems: 'center',
+    alignSelf: 'center',
   },
 });
 

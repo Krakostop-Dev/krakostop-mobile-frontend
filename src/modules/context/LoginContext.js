@@ -17,7 +17,7 @@ export const LoginContext = createContext({
     avatar: null,
     pairID: null,
     facebook_link: null,
-    phone_number: null,
+    phone: null,
   },
   token: null,
   isLoggedIn: false,

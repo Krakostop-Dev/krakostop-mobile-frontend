@@ -4,4 +4,6 @@ export default {
     'Wystąpił problem z połączeniem. Spróbuj ponownie później.',
   WRONG_CODE: 'Wprowadzony kod jest niepoprawny ',
   NO_USER: 'Brak użytkownika dla podanego tokenu',
+  TO_SHORT_PHONE_NUMBER:
+    'Wprowadzony numer telefonu jest za krótki \n(powienien mieć 9 cyfr).',
 };

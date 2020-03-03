@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   },
 });
 // eslint-disable-next-line no-unused-vars
-function MessengerButton({ setError, setMsgLink }) {
+function MessengerButton({ setError }) {
   async function onPress() {
     // TODO: Create logic to connect msg with app
     alert('Connect MSG');
@@ -32,5 +32,4 @@ export default MessengerButton;
 
 MessengerButton.propTypes = {
   setError: PropTypes.func.isRequired,
-  setMsgLink: PropTypes.func.isRequired,
 };

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import InfoText from '../InfoText';
 import AuthCodeInput from './AuthCodeInput';
-import ErrorText from '../ErrorText';
+import SmallInfoText from '../../SmallInfoText';
 
 const styles = StyleSheet.create({
   container: {
@@ -30,7 +30,7 @@ function AuthInputView({ email }) {
         authCodeLength={AUTH_CODE_LENGTH}
       />
       {hasErrorOccurred.isError ? (
-        <ErrorText errorText={hasErrorOccurred.message} />
+        <SmallInfoText text={hasErrorOccurred.message} color="red" />
       ) : null}
     </View>
   );
