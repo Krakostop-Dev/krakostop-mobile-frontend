@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Image, ImageBackground, StyleSheet, View } from 'react-native';
 import { Spinner } from 'native-base';
 import PropTypes from 'prop-types';
-import LoginForm from '../../components/login/loginForm/LoginForm';
+import LoginForm from '../../components/login/auth/loginForm/LoginForm';
 import { ksStyle } from '../../styles/basic/ksBasic';
 
 const BACKGROUND_IMAGE = require('../../../assets/login_background.png');

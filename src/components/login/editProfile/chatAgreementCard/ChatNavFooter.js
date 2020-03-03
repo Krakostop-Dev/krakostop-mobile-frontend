@@ -1,13 +1,11 @@
 import React, { useContext } from 'react';
 import { NavigationContext } from 'react-navigation';
 import PropTypes from 'prop-types';
-import { LoginContext } from '../../../modules/context/LoginContext';
-import { updateProfileOnServer } from '../../../modules/communication/CommunicationMenager';
-import NextButton from '../../NextButton';
+import { LoginContext } from '../../../../modules/context/LoginContext';
+import { updateProfileOnServer } from '../../../../modules/communication/CommunicationMenager';
+import NavigationFooter from '../NavigationFooter';
 
-const BUTTON_LABEL = 'Dalej';
-
-function EditAvatarNextButton({ msgLink, setError }) {
+function EditAvatarNavFooter({ msgLink, setError }) {
   const navigation = useContext(NavigationContext);
   const loginContext = useContext(LoginContext);
 
@@ -29,12 +27,12 @@ function EditAvatarNextButton({ msgLink, setError }) {
     navigation.navigate('MsgAlert');
   }
 
-  return <NextButton label={BUTTON_LABEL} onPress={onPress} />;
+  return <NavigationFooter nextButtonOnPress={onPress} />;
 }
 
-export default EditAvatarNextButton;
+export default EditAvatarNavFooter;
 
-EditAvatarNextButton.propTypes = {
+EditAvatarNavFooter.propTypes = {
   msgLink: PropTypes.string.isRequired,
   setError: PropTypes.func.isRequired,
 };

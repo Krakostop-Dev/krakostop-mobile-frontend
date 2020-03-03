@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import CardHeader from '../../card/CardHeader';
-import CardContent from '../../card/CardContent';
+import CardHeader from '../../../card/CardHeader';
+import CardContent from '../../../card/CardContent';
 import AuthInputView from './AuthInputView';
 
-import Card from '../../card/Card';
+import Card from '../../../card/Card';
 import AuthResendEmailButton from './AuthResendEmailButton';
-import InfoText from '../InfoText';
-import SmallInfoText from '../../SmallInfoText';
+import InfoText from '../../InfoText';
+import SmallInfoText from '../../../SmallInfoText';
 
 const HEADER_TITLE = 'Weryfikacja emaila';
 

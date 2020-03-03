@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { StyleSheet } from 'react-native';
 import { NavigationContext } from 'react-navigation';
 import PropTypes from 'prop-types';
-import ButtonWithText from '../ButtonWithText';
-import { sendEmailWithPairNr } from '../../../modules/communication/CommunicationMenager';
+import ButtonWithText from '../../ButtonWithText';
+import { sendEmailWithPairNr } from '../../../../modules/communication/CommunicationMenager';
 
 const BUTTON_LABEL = 'Zaloguj';
 

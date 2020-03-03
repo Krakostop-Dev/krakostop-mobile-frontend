@@ -2,11 +2,8 @@ import React, { useContext } from 'react';
 import { StyleSheet, TextInput } from 'react-native';
 import PropTypes from 'prop-types';
 import { NavigationContext } from 'react-navigation';
-import { ksStyle } from '../../../styles/basic/ksBasic';
-import { LoginContext } from '../../../modules/context/LoginContext';
-import { updateProfileOnServer } from '../../../modules/communication/CommunicationMenager';
-import { convertRelativePathToAbsoluteUri } from '../../../modules/ImageLoader';
-import ErrorMessages from '../../../modules/ErrorMessages';
+import { ksStyle } from '../../../../styles/basic/ksBasic';
+import ErrorMessages from '../../../../modules/ErrorMessages';
 
 const styles = StyleSheet.create({
   input: {
@@ -19,9 +16,8 @@ const styles = StyleSheet.create({
 });
 const RESIGN_LABEL = 'rezygnuje';
 
-function ResignInput({ avatar, setError, setResigned }) {
+function ResignInput({ setError, setResigned }) {
   const navigation = useContext(NavigationContext);
-  const loginContext = useContext(LoginContext);
 
   async function onChangeText(authCode) {
     setError({
@@ -30,20 +26,7 @@ function ResignInput({ avatar, setError, setResigned }) {
     });
     if (authCode.toLowerCase() === RESIGN_LABEL.toLowerCase()) {
       setResigned(true);
-      const { status, message, user } = await updateProfileOnServer({ avatar });
-      if (status === 200) {
-        if (user) {
-          user.avatar = convertRelativePathToAbsoluteUri(user.avatar);
-          await loginContext.updateUser(user);
-        }
-        navigation.navigate('App');
-      } else {
-        setResigned(false);
-        setError({
-          isError: true,
-          message,
-        });
-      }
+      navigation.navigate('EditProfile3');
     } else if (authCode.length === RESIGN_LABEL.length) {
       setError({
         isError: true,
@@ -67,7 +50,6 @@ function ResignInput({ avatar, setError, setResigned }) {
 export default ResignInput;
 
 ResignInput.propTypes = {
-  avatar: PropTypes.string.isRequired,
   setError: PropTypes.func.isRequired,
   setResigned: PropTypes.func.isRequired,
 };

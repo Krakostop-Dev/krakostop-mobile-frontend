@@ -1,9 +1,9 @@
 import { StyleSheet, View } from 'react-native';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import InfoText from '../InfoText';
+import InfoText from '../../InfoText';
 import AuthCodeInput from './AuthCodeInput';
-import SmallInfoText from '../../SmallInfoText';
+import SmallInfoText from '../../../SmallInfoText';
 
 const styles = StyleSheet.create({
   container: {

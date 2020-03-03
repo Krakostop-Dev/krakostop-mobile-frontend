@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import Card from '../../card/Card';
-import CardHeader from '../../card/CardHeader';
-import CardContent from '../../card/CardContent';
-import InfoText from '../InfoText';
+import Card from '../../../card/Card';
+import CardHeader from '../../../card/CardHeader';
+import CardContent from '../../../card/CardContent';
+import InfoText from '../../InfoText';
 import MessengerButton from './MessengerButton';
-import SmallInfoText from '../../SmallInfoText';
-import ChatNextButton from './ChatNextButton';
+import SmallInfoText from '../../../SmallInfoText';
+import ChatNavFooter from './ChatNavFooter';
 
 const HEADER_TITLE = 'Konfiguracja Profilu 2/3';
 const MSG_TEXT =
@@ -23,7 +23,7 @@ function ChatAgreement() {
       <CardContent>
         <InfoText infoText={MSG_TEXT} />
         <MessengerButton setError={setError} setMsgLink={setMsgLink} />
-        <ChatNextButton msgLink={msgLink} setError={setError} />
+        <ChatNavFooter msgLink={msgLink} setError={setError} />
         {hasErrorOccurred.isError ? (
           <SmallInfoText text={hasErrorOccurred.message} color="red" />
         ) : null}
