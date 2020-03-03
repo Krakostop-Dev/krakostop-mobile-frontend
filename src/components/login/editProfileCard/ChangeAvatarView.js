@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
 import { Avatar } from 'react-native-elements';
 import EditButton from '../../EditButton';
-import loadImage from '../../../modules/ImageLoader';
+import { loadImage } from '../../../modules/ImageLoader';
 import OkButton from './OkButton';
+import { LoginContext } from '../../../modules/context/LoginContext';
 
 const styles = StyleSheet.create({
   container: {
@@ -25,9 +26,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
 });
-const AVATAR_GOOGLE = require('../../../../assets/avatar_google.png');
 
 function ChangeAvatarView({ setAvatar }) {
+  const { user } = useContext(LoginContext);
+
   const [loadedAvatar, setLoadedAvatar] = useState(null);
   async function onPress() {
     const avatar = await loadImage();
@@ -43,7 +45,7 @@ function ChangeAvatarView({ setAvatar }) {
         rounded
         size="large"
         containerStyle={styles.avatar}
-        source={loadedAvatar ? { uri: loadedAvatar.uri } : AVATAR_GOOGLE}
+        source={loadedAvatar ? { uri: loadedAvatar.uri } : user.avatar}
       />
       {loadedAvatar ? (
         <OkButton onPress={onPress} style={styles.button} />

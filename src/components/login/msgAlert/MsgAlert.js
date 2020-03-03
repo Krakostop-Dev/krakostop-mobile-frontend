@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
+import { Spinner } from 'native-base';
 import { ksStyle } from '../../../styles/basic/ksBasic';
 import InfoText from '../InfoText';
 import BackButton from './BackButton';
@@ -31,16 +32,26 @@ function MsgAlert({ navigation }) {
     message: '',
   });
 
+  const [hasResigned, setResigned] = useState(false);
+
   return (
     <View style={styles.container}>
-      <View style={styles.card}>
-        <InfoText infoText={INFO_TEXT} warning />
-        <ResignInput avatar={avatar} setError={setError} />
-        {hasErrorOccurred.isError ? (
-          <SmallInfoText text={hasErrorOccurred.message} color="red" />
-        ) : null}
-        <BackButton />
-      </View>
+      {hasResigned ? (
+        <Spinner color="red" />
+      ) : (
+        <View style={styles.card}>
+          <InfoText infoText={INFO_TEXT} warning />
+          <ResignInput
+            avatar={avatar}
+            setError={setError}
+            setResigned={setResigned}
+          />
+          {hasErrorOccurred.isError ? (
+            <SmallInfoText text={hasErrorOccurred.message} color="red" />
+          ) : null}
+          <BackButton />
+        </View>
+      )}
     </View>
   );
 }

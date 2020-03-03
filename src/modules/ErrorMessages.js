@@ -6,4 +6,5 @@ export default {
   NO_USER: 'Brak użytkownika dla podanego tokenu',
   TO_SHORT_PHONE_NUMBER:
     'Wprowadzony numer telefonu jest za krótki \n(powienien mieć 9 cyfr).',
+  TYPO: 'Wprowadzono błędny tekst',
 };

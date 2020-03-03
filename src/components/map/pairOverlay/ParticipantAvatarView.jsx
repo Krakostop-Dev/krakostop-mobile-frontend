@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
+import PropTypes from 'prop-types';
 import { Avatar } from 'react-native-elements';
+import { convertRelativePathToAbsoluteUri } from '../../../modules/ImageLoader';
 
 const PARTICIPANT_AVATAR = require('../../../../assets/hand.png');
 const MESSENGER_ICON = require('../../../../assets/messenger.png');
@@ -23,15 +25,16 @@ const styles = StyleSheet.create({
   },
 });
 
-function ParticipantAvatarView() {
+function ParticipantAvatarView({ avatar }) {
+  const [loadedAvatar, setLoadedAvatar] = useState(PARTICIPANT_AVATAR);
+
+  useEffect(() => {
+    setLoadedAvatar(convertRelativePathToAbsoluteUri(avatar));
+  }, []);
+
   return (
     <View style={styles.container}>
-      <Avatar
-        size={110}
-        rounded
-        source={PARTICIPANT_AVATAR}
-        activeOpacity={0.7}
-      />
+      <Avatar size={110} rounded source={loadedAvatar} activeOpacity={0.7} />
       <TouchableOpacity
         onPress={() => console.log('messenger clicked :)')}
         style={styles.opacity}
@@ -43,3 +46,7 @@ function ParticipantAvatarView() {
 }
 
 export default ParticipantAvatarView;
+
+ParticipantAvatarView.propTypes = {
+  avatar: PropTypes.string.isRequired,
+};
