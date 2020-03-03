@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function EditAvatar() {
+function EditAvatarCard() {
   const { user } = useContext(LoginContext);
 
   const HELLO_TEXT = `Cześć ${user.first_name}!\nW celu dokończenia konfiguracji Twojego profilu prosimy Cię o wgranie avatara.`;
@@ -49,4 +49,4 @@ function EditAvatar() {
   );
 }
 
-export default EditAvatar;
+export default EditAvatarCard;

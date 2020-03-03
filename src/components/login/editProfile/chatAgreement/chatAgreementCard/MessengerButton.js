@@ -2,9 +2,9 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import ButtonWithIcon from '../../ButtonWithIcon';
+import ButtonWithIcon from '../../../ButtonWithIcon';
 
-const BUTTON_ICON = require('../../../../../assets/icons/messenger.png');
+const BUTTON_ICON = require('../../../../../../assets/icons/messenger.png');
 
 const BUTTON_LABEL = 'Połącz z Messengerem';
 const styles = StyleSheet.create({

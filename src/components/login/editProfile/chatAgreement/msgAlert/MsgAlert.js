@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
 import { Spinner } from 'native-base';
-import { ksStyle } from '../../../../styles/basic/ksBasic';
-import InfoText from '../../InfoText';
+import { NavigationContext } from 'react-navigation';
+import { ksStyle } from '../../../../../styles/basic/ksBasic';
+import InfoText from '../../../InfoText';
 import BackButton from './BackButton';
 import ResignInput from './ResignInput';
-import SmallInfoText from '../../../SmallInfoText';
+import SmallInfoText from '../../../../SmallInfoText';
 
 const styles = StyleSheet.create({
   container: {
@@ -24,7 +25,8 @@ const styles = StyleSheet.create({
 });
 const INFO_TEXT =
   'Nie łącząc konta z Messengerem nie będziesz mógł/a korzystać z czatu.\nJeśli jesteś pewny/a swojej decyzji wpisz poniżej “rezygnuje”.';
-function MsgAlert({ navigation }) {
+function MsgAlert({ setDisplayMsgAlert }) {
+  const navigation = useContext(NavigationContext);
   const avatar = navigation.getParam('avatar');
 
   const [hasErrorOccurred, setError] = useState({
@@ -45,11 +47,12 @@ function MsgAlert({ navigation }) {
             avatar={avatar}
             setError={setError}
             setResigned={setResigned}
+            setDisplayMsgAlert={setDisplayMsgAlert}
           />
           {hasErrorOccurred.isError ? (
             <SmallInfoText text={hasErrorOccurred.message} color="red" />
           ) : null}
-          <BackButton />
+          <BackButton setDisplayMsgAlert={setDisplayMsgAlert} />
         </View>
       )}
     </View>
@@ -59,7 +62,5 @@ function MsgAlert({ navigation }) {
 export default MsgAlert;
 
 MsgAlert.propTypes = {
-  navigation: PropTypes.shape({
-    getParam: PropTypes.func.isRequired,
-  }).isRequired,
+  setDisplayMsgAlert: PropTypes.func.isRequired,
 };
