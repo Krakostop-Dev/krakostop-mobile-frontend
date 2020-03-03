@@ -2,7 +2,7 @@ import { StyleSheet, Text, TextInput, View } from 'react-native';
 import React, { useContext, useState } from 'react';
 import { LoginContext } from '../../modules/context/LoginContext';
 import { ksStyle } from '../../styles/basic/ksBasic';
-import MessengerButton from '../../components/login/editProfileCard/MessengerButton';
+import MessengerButton from '../../components/login/chatAgreementCard/MessengerButton';
 import SmallInfoText from '../../components/SmallInfoText';
 import PhoneInput from './PhoneInput';
 

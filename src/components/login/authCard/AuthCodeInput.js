@@ -33,7 +33,7 @@ function AuthCodeInput({ setError, email, authCodeLength, hasErrorOccurred }) {
         const { user, token } = data;
         user.avatar = convertRelativePathToAbsoluteUri(user.avatar);
         await loginContext.logIn(token, user);
-        navigation.navigate('EditProfile');
+        navigation.navigate('EditProfile1');
       } else {
         setError({ isError: true, message });
       }
