@@ -6,7 +6,6 @@ import {
   removeDataFromStorage,
   saveDataInStorage,
 } from '../Storage';
-import mock from '../../mock';
 
 export const LoginContext = createContext({
   user: {
@@ -25,7 +24,6 @@ export const LoginContext = createContext({
   error: '',
 });
 
-/*
 const initialState = {
   user: {
     id: '',
@@ -36,8 +34,7 @@ const initialState = {
     avatar: null,
   },
 };
-*/
-const initialState = mock;
+
 async function logIn(dispatch, token, user) {
   await saveDataInStorage('TOKEN', token);
   await saveDataInStorage('USER', JSON.stringify(user));
