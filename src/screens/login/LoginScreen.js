@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Image, ImageBackground, StyleSheet, View } from 'react-native';
+import { ImageBackground, StyleSheet, View } from 'react-native';
 import { Spinner } from 'native-base';
 import PropTypes from 'prop-types';
 import LoginForm from '../../components/login/auth/loginForm/LoginForm';
-import { ksStyle } from '../../styles/basic/ksBasic';
 
 const BACKGROUND_IMAGE = require('../../../assets/login_background.png');
 
@@ -18,11 +17,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   stack: {
-    width: '90%',
-    marginTop: 100,
-    flex: 0.7,
+    flex: 0.8,
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
     alignItems: 'center',
   },
   logo: {
@@ -41,7 +38,6 @@ function LoginScreen() {
       ) : (
         <View style={styles.container}>
           <View style={styles.stack}>
-            <Image style={styles.logo} source={ksStyle.logo.source} />
             <LoginForm loginButtonPressed={loginButtonPressed} />
           </View>
         </View>
