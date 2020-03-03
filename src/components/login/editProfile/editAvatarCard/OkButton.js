@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const OK_ICON = require('../../../../assets/icons/ok.png');
+const OK_ICON = require('../../../../../assets/icons/ok.png');
 
 function OkButton({ style, onPress }) {
   return (

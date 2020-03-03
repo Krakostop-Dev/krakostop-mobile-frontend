@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
 import { Spinner } from 'native-base';
-import { ksStyle } from '../../../styles/basic/ksBasic';
-import InfoText from '../InfoText';
+import { ksStyle } from '../../../../styles/basic/ksBasic';
+import InfoText from '../../InfoText';
 import BackButton from './BackButton';
 import ResignInput from './ResignInput';
-import SmallInfoText from '../../SmallInfoText';
+import SmallInfoText from '../../../SmallInfoText';
 
 const styles = StyleSheet.create({
   container: {

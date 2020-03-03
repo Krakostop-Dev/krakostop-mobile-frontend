@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react';
-import Card from '../../card/Card';
-import CardHeader from '../../card/CardHeader';
-import CardContent from '../../card/CardContent';
-import InfoText from '../InfoText';
-import { LoginContext } from '../../../modules/context/LoginContext';
+import Card from '../../../card/Card';
+import CardHeader from '../../../card/CardHeader';
+import CardContent from '../../../card/CardContent';
+import InfoText from '../../InfoText';
+import { LoginContext } from '../../../../modules/context/LoginContext';
 import ChangeAvatarView from './ChangeAvatarView';
-import SmallInfoText from '../../SmallInfoText';
-import EditAvatarNextButton from './EditAvatarNextButton';
+import SmallInfoText from '../../../SmallInfoText';
+import EditAvatarNavFooter from './EditAvatarNavFooter';
 
 const HEADER_TITLE = 'Konfiguracja Profilu 1/3';
 
@@ -30,7 +30,7 @@ function EditAvatar() {
         {hasErrorOccurred.isError ? (
           <SmallInfoText text={hasErrorOccurred.message} color="red" />
         ) : null}
-        <EditAvatarNextButton setError={setError} avatar={avatar} msgLink="" />
+        <EditAvatarNavFooter setError={setError} avatar={avatar} />
       </CardContent>
     </Card>
   );

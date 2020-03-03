@@ -2,10 +2,10 @@ import React, { useContext, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
 import { Avatar } from 'react-native-elements';
-import EditButton from '../../EditButton';
-import { loadImage } from '../../../modules/ImageLoader';
+import EditButton from '../../../EditButton';
+import { loadImage } from '../../../../modules/ImageLoader';
 import OkButton from './OkButton';
-import { LoginContext } from '../../../modules/context/LoginContext';
+import { LoginContext } from '../../../../modules/context/LoginContext';
 
 const styles = StyleSheet.create({
   container: {

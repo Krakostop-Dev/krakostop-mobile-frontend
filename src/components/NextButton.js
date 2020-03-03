@@ -5,18 +5,19 @@ import ButtonWithText from './login/ButtonWithText';
 
 const styles = StyleSheet.create({
   button: {
-    width: 100,
+    width: '30%',
     marginHorizontal: 5,
     marginTop: 0,
-    alignSelf: 'flex-end',
   },
 });
 
-function NextButton({ style, label, onPress }) {
+const LABEL = 'Dalej';
+
+function NextButton({ style, onPress }) {
   return (
     <ButtonWithText
       onPress={onPress}
-      label={label}
+      label={LABEL}
       style={{ ...styles.button, ...style }}
     />
   );
@@ -30,6 +31,5 @@ NextButton.defaultProps = {
 
 NextButton.propTypes = {
   style: ViewPropTypes.style,
-  label: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,
 };

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 import PropTypes from 'prop-types';
 import LoginButton from './LoginButton';
-import { ksStyle } from '../../../styles/basic/ksBasic';
+import { ksStyle } from '../../../../styles/basic/ksBasic';
 
 const styles = StyleSheet.create({
   input: {

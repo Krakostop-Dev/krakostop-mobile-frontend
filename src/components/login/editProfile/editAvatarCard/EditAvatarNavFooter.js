@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import { NavigationContext } from 'react-navigation';
 import PropTypes from 'prop-types';
-import { LoginContext } from '../../../modules/context/LoginContext';
-import { updateProfileOnServer } from '../../../modules/communication/CommunicationMenager';
-import { convertRelativePathToAbsoluteUri } from '../../../modules/ImageLoader';
-import NextButton from '../../NextButton';
+import { LoginContext } from '../../../../modules/context/LoginContext';
+import { updateProfileOnServer } from '../../../../modules/communication/CommunicationMenager';
+import { convertRelativePathToAbsoluteUri } from '../../../../modules/ImageLoader';
+import NavigationFooter from '../NavigationFooter';
 
 const BUTTON_LABEL = 'Dalej';
 
-function EditAvatarNextButton({ avatar, setError }) {
+function EditAvatarNavFooter({ avatar, setError }) {
   const navigation = useContext(NavigationContext);
   const loginContext = useContext(LoginContext);
 
@@ -31,12 +31,18 @@ function EditAvatarNextButton({ avatar, setError }) {
     navigation.navigate('EditProfile2');
   }
 
-  return <NextButton label={BUTTON_LABEL} onPress={onPress} />;
+  return (
+    <NavigationFooter
+      label={BUTTON_LABEL}
+      nextButtonOnPress={onPress}
+      backButton={false}
+    />
+  );
 }
 
-export default EditAvatarNextButton;
+export default EditAvatarNavFooter;
 
-EditAvatarNextButton.propTypes = {
+EditAvatarNavFooter.propTypes = {
   avatar: PropTypes.string.isRequired,
   setError: PropTypes.func.isRequired,
 };
