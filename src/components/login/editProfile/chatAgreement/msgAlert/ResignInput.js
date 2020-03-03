@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { StyleSheet, TextInput } from 'react-native';
 import PropTypes from 'prop-types';
 import { NavigationContext } from 'react-navigation';
-import { ksStyle } from '../../../../styles/basic/ksBasic';
-import ErrorMessages from '../../../../modules/ErrorMessages';
+import { ksStyle } from '../../../../../styles/basic/ksBasic';
+import ErrorMessages from '../../../../../modules/ErrorMessages';
 
 const styles = StyleSheet.create({
   input: {
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 });
 const RESIGN_LABEL = 'rezygnuje';
 
-function ResignInput({ setError, setResigned }) {
+function ResignInput({ setError, setResigned, setDisplayMsgAlert }) {
   const navigation = useContext(NavigationContext);
 
   async function onChangeText(authCode) {
@@ -27,6 +27,7 @@ function ResignInput({ setError, setResigned }) {
     if (authCode.toLowerCase() === RESIGN_LABEL.toLowerCase()) {
       setResigned(true);
       navigation.navigate('EditProfile3');
+      setDisplayMsgAlert(false);
     } else if (authCode.length === RESIGN_LABEL.length) {
       setError({
         isError: true,
@@ -52,4 +53,5 @@ export default ResignInput;
 ResignInput.propTypes = {
   setError: PropTypes.func.isRequired,
   setResigned: PropTypes.func.isRequired,
+  setDisplayMsgAlert: PropTypes.func.isRequired,
 };

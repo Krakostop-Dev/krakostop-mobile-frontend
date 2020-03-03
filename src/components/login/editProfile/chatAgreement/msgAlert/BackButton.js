@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { StyleSheet } from 'react-native';
-import { NavigationContext } from 'react-navigation';
-import ButtonWithText from '../../ButtonWithText';
+import PropTypes from 'prop-types';
+import ButtonWithText from '../../../ButtonWithText';
 
 const BUTTON_LABEL = 'Wróć i połącz';
 
@@ -12,10 +12,9 @@ const styles = StyleSheet.create({
   },
 });
 
-function BackButton() {
-  const navigation = useContext(NavigationContext);
+function BackButton({ setDisplayMsgAlert }) {
   function onPress() {
-    navigation.goBack();
+    setDisplayMsgAlert(false);
   }
   return (
     <ButtonWithText
@@ -27,3 +26,7 @@ function BackButton() {
 }
 
 export default BackButton;
+
+BackButton.propTypes = {
+  setDisplayMsgAlert: PropTypes.func.isRequired,
+};

@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { NavigationContext } from 'react-navigation';
 import PropTypes from 'prop-types';
-import { LoginContext } from '../../../../modules/context/LoginContext';
-import { updateProfileOnServer } from '../../../../modules/communication/CommunicationMenager';
-import NavigationFooter from '../NavigationFooter';
+import { LoginContext } from '../../../../../modules/context/LoginContext';
+import { updateProfileOnServer } from '../../../../../modules/communication/CommunicationMenager';
+import NavigationFooter from '../../NavigationFooter';
 
-function EditAvatarNavFooter({ msgLink, setError }) {
+function ChatNavFooter({ msgLink, setError, setDisplayMsgAlert }) {
   const navigation = useContext(NavigationContext);
   const loginContext = useContext(LoginContext);
 
@@ -24,15 +24,16 @@ function EditAvatarNavFooter({ msgLink, setError }) {
         });
       }
     }
-    navigation.navigate('MsgAlert');
+    setDisplayMsgAlert(true);
   }
 
   return <NavigationFooter nextButtonOnPress={onPress} />;
 }
 
-export default EditAvatarNavFooter;
+export default ChatNavFooter;
 
-EditAvatarNavFooter.propTypes = {
+ChatNavFooter.propTypes = {
   msgLink: PropTypes.string.isRequired,
   setError: PropTypes.func.isRequired,
+  setDisplayMsgAlert: PropTypes.func.isRequired,
 };
