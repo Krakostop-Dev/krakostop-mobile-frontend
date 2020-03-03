@@ -1,39 +1,24 @@
 import React, { useContext } from 'react';
-import { StyleSheet } from 'react-native';
 import { NavigationContext } from 'react-navigation';
 import PropTypes from 'prop-types';
-import ButtonWithText from '../ButtonWithText';
 import { LoginContext } from '../../../modules/context/LoginContext';
 import { updateProfileOnServer } from '../../../modules/communication/CommunicationMenager';
-import { convertRelativePathToAbsoluteUri } from '../../../modules/ImageLoader';
+import NextButton from '../../NextButton';
 
-const styles = StyleSheet.create({
-  button: {
-    width: 100,
-    marginHorizontal: 5,
-    marginTop: 0,
-    alignSelf: 'flex-end',
-  },
-});
 const BUTTON_LABEL = 'Dalej';
 
-function NextButton({ avatar, msgLink, setError }) {
+function EditAvatarNextButton({ msgLink, setError }) {
   const navigation = useContext(NavigationContext);
   const loginContext = useContext(LoginContext);
 
   async function onPress() {
-    if (!msgLink) {
-      navigation.navigate('MsgAlert', { avatar });
-    } else {
+    if (msgLink) {
       const { status, message, user } = await updateProfileOnServer({
-        avatar,
         msgLink,
       });
-
       if (status === 200) {
-        user.avatar = convertRelativePathToAbsoluteUri(user.avatar);
         await loginContext.updateUser(user);
-        navigation.navigate('App');
+        navigation.navigate('EditProfile3');
       } else {
         setError({
           isError: true,
@@ -41,21 +26,15 @@ function NextButton({ avatar, msgLink, setError }) {
         });
       }
     }
+    navigation.navigate('MsgAlert');
   }
 
-  return (
-    <ButtonWithText
-      onPress={onPress}
-      label={BUTTON_LABEL}
-      style={styles.button}
-    />
-  );
+  return <NextButton label={BUTTON_LABEL} onPress={onPress} />;
 }
 
-export default NextButton;
+export default EditAvatarNextButton;
 
-NextButton.propTypes = {
-  avatar: PropTypes.string.isRequired,
+EditAvatarNextButton.propTypes = {
   msgLink: PropTypes.string.isRequired,
   setError: PropTypes.func.isRequired,
 };
