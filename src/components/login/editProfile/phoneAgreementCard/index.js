@@ -1,3 +1,3 @@
-import PhoneAgreement from './PhoneAgreement';
+import PhoneAgreementCard from './PhoneAgreementCard';
 
-export default PhoneAgreement;
+export default PhoneAgreementCard;
