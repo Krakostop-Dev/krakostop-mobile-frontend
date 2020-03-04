@@ -5,6 +5,7 @@ import { ksStyle } from '../../styles/basic/ksBasic';
 import MessengerButton from '../../components/login/editProfile/chatAgreement/chatAgreementCard/MessengerButton';
 import SmallInfoText from '../../components/SmallInfoText';
 import PhoneInput from './PhoneInput';
+import PhoneAgreementView from '../../components/login/editProfile/PhoneAgreementView';
 
 const styles = StyleSheet.create({
   input_form: {
@@ -32,6 +33,7 @@ const styles = StyleSheet.create({
 });
 const EMAIL_LABEL = 'Email';
 const PHONE_LABEL = 'Numer telefonu';
+const PHONE_AGREEMENT_LABEL = 'Wyświetl numer pozostałym uczestnikom wyścigu.';
 
 export default () => {
   const { user } = useContext(LoginContext);
@@ -51,6 +53,7 @@ export default () => {
       />
       <Text style={styles.input_label}>{PHONE_LABEL}</Text>
       <PhoneInput />
+      <PhoneAgreementView label={PHONE_AGREEMENT_LABEL} />
       <MessengerButton setError={setError} />
       {hasErrorOccurred.isError ? (
         <SmallInfoText text={hasErrorOccurred.message} color="red" />

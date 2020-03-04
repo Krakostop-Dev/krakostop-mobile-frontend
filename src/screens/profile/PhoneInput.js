@@ -37,9 +37,7 @@ const PHONE_SUCCESSFULLY_UPDATED = 'Zaktualizowano numer telefonu';
 
 function PhoneInput({ style }) {
   const { user, updateUser } = useContext(LoginContext);
-  const [phoneNumber, setPhoneNumber] = useState(
-    user.is_phone_visible ? user.phone : 'BRAK'
-  );
+  const [phoneNumber, setPhoneNumber] = useState(user.phone);
   const [hasErrorOccurred, setError] = useState({
     isError: false,
     message: '',
