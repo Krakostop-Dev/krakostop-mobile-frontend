@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 import { LoginContext } from '../../../../modules/context/LoginContext';
 import NavigationFooter from '../NavigationFooter';
 
-function PhoneAgreementNavFooter({ disagreement }) {
+function PhoneAgreementNavFooter({ agreement }) {
   const navigation = useContext(NavigationContext);
   const loginContext = useContext(LoginContext);
   const { user } = loginContext;
 
   async function onPress() {
     // TODO: send info to server
-    if (disagreement) {
+    if (!agreement) {
       user.is_phone_visible = false;
       await loginContext.updateUser(user);
     }
@@ -24,5 +24,5 @@ function PhoneAgreementNavFooter({ disagreement }) {
 export default PhoneAgreementNavFooter;
 
 PhoneAgreementNavFooter.propTypes = {
-  disagreement: PropTypes.bool.isRequired,
+  agreement: PropTypes.bool.isRequired,
 };

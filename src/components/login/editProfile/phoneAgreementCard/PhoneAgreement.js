@@ -3,7 +3,7 @@ import Card from '../../../card/Card';
 import CardHeader from '../../../card/CardHeader';
 import CardContent from '../../../card/CardContent';
 import InfoText from '../../InfoText';
-import DisagreementView from './DisagreementView';
+import AgreementView from './AgreementView';
 import PhoneView from './PhoneView';
 import PhoneAgreementNavFooter from './PhoneAgreemNavFooter';
 
@@ -12,7 +12,7 @@ const PHONE_INFO_TEXT =
   'Poniżej znajduje się twój numer telefonu. Będzie on widoczny dla innych uczestników wyścigu.';
 
 function PhoneAgreement() {
-  const [disagreement, setDisagreement] = useState(false);
+  const [agreement, setAgreement] = useState(true);
 
   return (
     <Card>
@@ -20,11 +20,8 @@ function PhoneAgreement() {
       <CardContent>
         <InfoText infoText={PHONE_INFO_TEXT} />
         <PhoneView />
-        <DisagreementView
-          setDisagreement={setDisagreement}
-          disagreement={disagreement}
-        />
-        <PhoneAgreementNavFooter disagreement={disagreement} />
+        <AgreementView setAgreement={setAgreement} agreement={agreement} />
+        <PhoneAgreementNavFooter agreement={agreement} />
       </CardContent>
     </Card>
   );
