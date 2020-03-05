@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { StyleSheet } from 'react-native';
 import { NavigationContext } from 'react-navigation';
 import PropTypes from 'prop-types';
-import ButtonWithText from '../ButtonWithText';
+import ButtonWithText from '../../buttons/ButtonWithText';
 import { LoginContext } from '../../../modules/context/LoginContext';
 import config from '../../../../config/config';
 import { updateProfileOnServer } from '../../../modules/communication/CommunicationMenager';

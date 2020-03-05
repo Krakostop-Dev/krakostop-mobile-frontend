@@ -2,7 +2,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { Avatar } from 'react-native-elements';
 import React, { useContext } from 'react';
-import EditButton from '../../components/EditButton';
+import EditButton from '../../components/buttons/EditButton';
 import { LoginContext } from '../../modules/context/LoginContext';
 
 const styles = StyleSheet.create({

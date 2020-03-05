@@ -2,7 +2,7 @@ import { StyleSheet, Text, TextInput, View } from 'react-native';
 import React, { useContext } from 'react';
 import { ksStyle } from '../../styles/basic/ksBasic';
 import { LoginContext } from '../../modules/context/LoginContext';
-import EditButton from '../../components/EditButton';
+import EditButton from '../../components/buttons/EditButton';
 
 const styles = StyleSheet.create({
   form: {

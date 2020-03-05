@@ -2,8 +2,8 @@ import React from 'react';
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Avatar } from 'react-native-elements';
 
-const PARTICIPANT_AVATAR = require('../../../../assets/hand.png');
-const MESSENGER_ICON = require('../../../../assets/messenger.png');
+const PARTICIPANT_AVATAR = require('../../../assets/hand.png');
+const MESSENGER_ICON = require('../../../assets/messenger.png');
 
 const styles = StyleSheet.create({
   container: {

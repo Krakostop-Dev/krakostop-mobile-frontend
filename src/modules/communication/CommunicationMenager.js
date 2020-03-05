@@ -102,7 +102,7 @@ export async function updateProfileOnServer(avatar, msgLink) {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
       processData: false,
-      mimeType: 'multipart/form-data',
+      mimeType: 'multipart/form-calendarData',
       contentType: false,
     });
     if (response.status === 200) {

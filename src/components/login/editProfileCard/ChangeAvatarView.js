@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
 import { Avatar } from 'react-native-elements';
-import EditButton from '../../EditButton';
+import EditButton from '../../buttons/EditButton';
 import loadImage from '../../../modules/ImageLoader';
 import OkButton from './OkButton';
 

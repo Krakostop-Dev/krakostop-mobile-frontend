@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
+    padding: 2,
   },
   text: {
     textAlign: 'center',
