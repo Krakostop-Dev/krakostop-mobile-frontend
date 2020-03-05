@@ -1,10 +1,9 @@
 {
   "expo": {
-
     "name": "Krakostop mobile frontend",
     "slug": "krakostop-mobile-frontend",
     "privacy": "public",
-    "sdkVersion": "35.0.0",
+    "sdkVersion": "36.0.0",
     "platforms": [
       "ios",
       "android",
@@ -42,7 +41,13 @@
       }
     },
     "packagerOpts": {
-      "sourceExts": ["js", "json", "ts", "tsx", "jsx"]
+      "sourceExts": [
+        "js",
+        "json",
+        "ts",
+        "tsx",
+        "jsx"
+      ]
     }
   }
 }
