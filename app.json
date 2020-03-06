@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Krakostop mobile",
-    "slug": "krakostop-mobile",
+    "name": "Krakostop",
+    "slug": "krakostop",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
