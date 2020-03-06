@@ -15,7 +15,9 @@ function ParticipantMarker({ participant, index }) {
   useEffect(() => {
     // TODO: CHECK WHICH USER SEND LATEST LOCATION
     // TODO: CHECKS IF AVATAR != DEFAULT AVATAR
-    const { avatar: avatarPath } = participant.pair.users[0];
+    const { avatar: avatarPath } = participant.pair.users[0].avatar
+      ? participant.pair.users[0]
+      : participant.pair.users[1];
     setAvatar(convertRelativePathToAbsoluteUri(avatarPath));
   }, []);
 
@@ -52,7 +54,7 @@ ParticipantMarker.propTypes = {
           first_name: PropTypes.string.isRequired,
           last_name: PropTypes.string.isRequired,
           phone: PropTypes.string.isRequired,
-          avatar: PropTypes.string.isRequired,
+          avatar: PropTypes.string,
         }).isRequired
       ).isRequired,
     }).isRequired,
