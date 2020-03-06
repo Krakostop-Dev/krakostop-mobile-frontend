@@ -47,6 +47,10 @@ function ParticipantAvatarView({ avatar }) {
 
 export default ParticipantAvatarView;
 
+ParticipantAvatarView.defaultProps = {
+  avatar: { PARTICIPANT_AVATAR },
+};
+
 ParticipantAvatarView.propTypes = {
-  avatar: PropTypes.string.isRequired,
+  avatar: PropTypes.string,
 };
