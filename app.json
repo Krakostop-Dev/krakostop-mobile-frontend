@@ -6,8 +6,7 @@
     "sdkVersion": "36.0.0",
     "platforms": [
       "ios",
-      "android",
-      "web"
+      "android"
     ],
     "version": "1.0.0",
     "orientation": "portrait",
@@ -29,7 +28,8 @@
         "googleMaps": {
           "apiKey": "Should be updated before build"
         }
-      }
+      },
+      "versionCode": 1
     },
     "ios": {
       "supportsTablet": true,
