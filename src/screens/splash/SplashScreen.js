@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { LoginContext } from '../../modules/context/LoginContext';
 import { ksBasic } from '../../styles/basic/ksBasic';
 
-const LOGO = require('../../../assets/krakologo2019.png');
+const LOGO = require('../../../assets/icon.png');
 
 const styles = StyleSheet.create({
   logo: {
