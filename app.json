@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Krakostop mobile frontend",
-    "slug": "krakostop-mobile-frontend",
+    "name": "Krakostop mobile",
+    "slug": "krakostop-mobile",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
@@ -21,10 +21,15 @@
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
-      "**/*"
+      "assets/*"
     ],
     "android": {
-      "package": "eu.krakostop.krakostopapp"
+      "package": "eu.krakostop.krakostopapp",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyDIyJpLqNDRo4hQk6qDtSQrp8itclO1odU"
+        }
+      }
     },
     "ios": {
       "supportsTablet": true,
@@ -48,6 +53,7 @@
         "tsx",
         "jsx"
       ]
-    }
+    },
+    "description": ""
   }
 }
