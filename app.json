@@ -23,7 +23,7 @@
       "assets/*"
     ],
     "android": {
-      "package": "eu.krakostop.krakostopapp",
+      "package": "eu.krakostop.app.android",
       "config": {
         "googleMaps": {
           "apiKey": "Should be updated before build"
@@ -34,7 +34,7 @@
     "ios": {
       "supportsTablet": true,
       "buildNumber": "1",
-      "bundleIdentifier": "eu.krakostop.krakostopapp",
+      "bundleIdentifier": "eu.krakostop.app.ios",
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "This app uses yours location to share share it with other users",
         "NSLocationAlwaysAndWhenInUseUsageDescription": "This app uses yours location to share share it with other users",
