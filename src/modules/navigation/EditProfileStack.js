@@ -12,7 +12,7 @@ const EditProfileStack = createStackNavigator(
   },
   {
     navigationOptions: {},
-    initialRouteName: 'EditProfile1',
+    initialRouteName: 'EditProfile2',
     headerMode: 'none',
     mode: 'modal',
     transparentCard: true,

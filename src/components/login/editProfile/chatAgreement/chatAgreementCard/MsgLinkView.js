@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import {
   Image,
   StyleSheet,
@@ -6,11 +6,14 @@ import {
   View,
   ViewPropTypes,
 } from 'react-native';
-import { ksStyle } from '../../styles/basic/ksBasic';
-import { LoginContext } from '../../modules/context/LoginContext';
-import SmallInfoText from '../../components/SmallInfoText';
-import Messages from '../../modules/Messages';
-import { updateProfileOnServer } from '../../modules/communication/CommunicationMenager';
+import PropTypes from 'prop-types';
+import { ksStyle } from '../../../../../styles/basic/ksBasic';
+import Messages from '../../../../../modules/Messages';
+import SmallInfoText from '../../../../SmallInfoText';
+import {
+  checkFormatValidity,
+  checkProfileValidity,
+} from '../../../../../modules/MessengerLinkValidator';
 
 const styles = StyleSheet.create({
   container: {
@@ -30,37 +33,47 @@ const styles = StyleSheet.create({
     height: 25,
   },
 });
-const EDIT_ICON = require('../../../assets/icons/edit.png');
+const EDIT_ICON = require('../../../../../../assets/icons/edit.png');
 
-const NUMBER_LENGTH = 9;
-const PHONE_SUCCESSFULLY_UPDATED = 'Zaktualizowano numer telefonu';
+const PHONE_SUCCESSFULLY_UPDATED = 'Pomyślnie połączono z messengerem';
 
-function PhoneInput({ style }) {
-  const { user, updateUser } = useContext(LoginContext);
-  const [phoneNumber, setPhoneNumber] = useState(user.phone);
+function MsgLinkView({
+  style,
+  msgLink,
+  setMsgLink,
+  isFormatValid,
+  setFormatValidity,
+}) {
+  // const { user, updateUser } = useContext(LoginContext);
+
   const [hasErrorOccurred, setError] = useState({
     isError: false,
     message: '',
   });
+
   const [success, isSuccess] = useState(false);
   async function onSubmit() {
     isSuccess(false);
     setError({ isError: false, message: '' });
-    if (phoneNumber.length === NUMBER_LENGTH) {
-      const { status, message } = await updateProfileOnServer({ phoneNumber });
+    setFormatValidity(checkFormatValidity(msgLink));
+    if (isFormatValid) {
+      await checkProfileValidity(msgLink);
+      /*      const { status, message } = await updateProfileOnServer({
+        msgLink,
+      });
       if (status === 200) {
         isSuccess(true);
-        user.phone = phoneNumber;
+        user.phone = msgLink;
         await updateUser(user);
       } else
         setError({
           isError: true,
           message,
-        });
+        }); */
     } else {
       setError({
         isError: true,
-        message: Messages.TO_SHORT_PHONE_NUMBER,
+        message: Messages.MSG_LINK_FORMAT,
       });
     }
   }
@@ -80,13 +93,10 @@ function PhoneInput({ style }) {
             hasErrorOccurred.isError ? { color: 'red' } : null,
             success ? { color: 'green' } : null,
           ]}
-          value={phoneNumber}
-          onChangeText={setPhoneNumber}
-          maxLength={NUMBER_LENGTH}
+          value={msgLink}
+          onChangeText={setMsgLink}
           editable
           placeholderTextColor="rgba(0, 0, 0, 0.6)"
-          autoCompleteType="tel"
-          keyboardType="number-pad"
           onSubmitEditing={onSubmit}
         />
         <Image style={styles.button} source={EDIT_ICON} />
@@ -101,12 +111,16 @@ function PhoneInput({ style }) {
   );
 }
 
-export default PhoneInput;
+export default MsgLinkView;
 
-PhoneInput.defaultProps = {
+MsgLinkView.defaultProps = {
   style: {},
 };
 
-PhoneInput.propTypes = {
+MsgLinkView.propTypes = {
   style: ViewPropTypes.style,
+  setMsgLink: PropTypes.func.isRequired,
+  msgLink: PropTypes.string.isRequired,
+  isFormatValid: PropTypes.bool.isRequired,
+  setFormatValidity: PropTypes.func.isRequired,
 };

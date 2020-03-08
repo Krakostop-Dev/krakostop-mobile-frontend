@@ -26,7 +26,7 @@ const AuthStack = createSwitchNavigator(
     },
   },
   {
-    initialRouteName: 'Login',
+    initialRouteName: 'EditProfile',
   }
 );
 
