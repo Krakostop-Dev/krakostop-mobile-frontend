@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ButtonWithIcon from '../../buttons/ButtonWithIcon';
-import { sendEmailWithPairNr } from '../../../modules/communication/CommunicationMenager';
+import ButtonWithIcon from '../../../buttons/ButtonWithIcon';
+import { sendEmailWithPairNr } from '../../../../modules/communication/CommunicationMenager';
 
-const BUTTON_ICON = require('../../../../assets/icons/envelope.png');
+const BUTTON_ICON = require('../../../../../assets/icons/envelope.png');
 
 const BUTTON_LABEL = 'Prześlij ponownie';
 

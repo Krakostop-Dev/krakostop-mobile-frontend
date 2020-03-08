@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import PropTypes from 'prop-types';
 import { Avatar } from 'react-native-elements';
-import { convertRelativePathToAbsoluteUri } from '../../../modules/ImageLoader';
+import { convertRelativePathToAbsoluteUri } from '../../modules/ImageLoader';
 
 const PARTICIPANT_AVATAR = require('../../../assets/hand.png');
 const MESSENGER_ICON = require('../../../assets/messenger.png');

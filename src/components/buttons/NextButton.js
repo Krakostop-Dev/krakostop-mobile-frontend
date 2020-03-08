@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, ViewPropTypes } from 'react-native';
 import PropTypes from 'prop-types';
-import ButtonWithText from './login/ButtonWithText';
+import ButtonWithText from './ButtonWithText';
 
 const styles = StyleSheet.create({
   button: {

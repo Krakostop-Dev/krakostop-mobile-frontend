@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
 import { Avatar } from 'react-native-elements';
-import EditButton from '../../buttons/EditButton';
+import EditButton from '../../../buttons/EditButton';
 import { loadImage } from '../../../../modules/ImageLoader';
 import OkButton from './OkButton';
 import { LoginContext } from '../../../../modules/context/LoginContext';

@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     borderRadius: 3,
   },
   white: { color: 'white' },
-  bold: { fontWeight: '500' },
+  bold: { fontWeight: 'bold' },
 });
 
 function AttractionContentView({ fullDescription, shortDescription, place }) {

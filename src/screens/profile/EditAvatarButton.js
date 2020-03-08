@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { StyleSheet, ViewPropTypes } from 'react-native';
 import PropTypes from 'prop-types';
-import EditButton from '../../components/EditButton';
+import EditButton from '../../components/buttons/EditButton';
 import {
   convertRelativePathToAbsoluteUri,
   loadImage,

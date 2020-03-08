@@ -1,9 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { NavigationContext } from 'react-navigation';
-import ButtonWithText from '../../buttons/ButtonWithText';
+import ButtonWithText from '../../../../buttons/ButtonWithText';
 import PropTypes from 'prop-types';
-import ButtonWithText from '../../../ButtonWithText';
 
 const BUTTON_LABEL = 'Wróć i połącz';
 
