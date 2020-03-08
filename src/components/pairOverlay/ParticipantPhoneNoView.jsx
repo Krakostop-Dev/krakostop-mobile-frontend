@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexWrap: 'wrap',
     fontFamily: 'sans-serif',
-    fontSize: 14,
+    fontSize: 15,
     flexShrink: 1,
   },
 });

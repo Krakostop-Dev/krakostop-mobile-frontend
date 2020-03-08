@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Text,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import { ksStyle } from '../../styles/basic/ksBasic';
 import RankingPairOverlay from '../pairOverlay/RankingPairOverlay';

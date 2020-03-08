@@ -8,8 +8,8 @@ const calendarData = [
         id: 1,
         name: 'Nazwa wydarzenia',
         shortDescription: 'Opis wydarzenia. Opis wydarze...',
-        longDescription:
-          'Opis wydarzenia. Opis wydarzenia. Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.',
+        fullDescription:
+          'Opis wydarzenia. Opis wydarzenia. Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia. Opis wydarzenia. Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.',
         place: 'Miejsce wydarzenia',
         time: '15:30',
       },
@@ -17,8 +17,8 @@ const calendarData = [
         id: 2,
         name: 'Nazwa wydarzenia',
         shortDescription: 'Opis wydarzenia. Opis wydarze...',
-        longDescription:
-          'Opis wydarzenia. Opis wydarzenia. Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.',
+        fullDescription:
+          'Opis wydarzenia. Opis wydarzenia. Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia. Opis wydarzenia. Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.',
         place: 'Miejsce wydarzenia',
         time: '15:30',
       },
@@ -26,8 +26,8 @@ const calendarData = [
         id: 3,
         name: 'Nazwa wydarzenia',
         shortDescription: 'Opis wydarzenia. Opis wydarze...',
-        longDescription:
-          'Opis wydarzenia. Opis wydarzenia. Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.',
+        fullDescription:
+          'Opis wydarzenia. Opis wydarzenia. Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia. Opis wydarzenia. Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.',
         place: 'Miejsce wydarzenia',
         time: '15:30',
       },
@@ -42,7 +42,7 @@ const calendarData = [
         id: 1,
         name: 'Nazwa wydarzenia',
         shortDescription: 'Opis wydarzenia. Opis wydarze...',
-        longDescription:
+        fullDescription:
           'Opis wydarzenia. Opis wydarzenia. Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.',
         place: 'Miejsce wydarzenia',
         time: '15:30',
@@ -51,7 +51,7 @@ const calendarData = [
         id: 2,
         name: 'Nazwa wydarzenia',
         shortDescription: 'Opis wydarzenia. Opis wydarze...',
-        longDescription:
+        fullDescription:
           'Opis wydarzenia. Opis wydarzenia. Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.',
         place: 'Miejsce wydarzenia',
         time: '15:30',
@@ -60,7 +60,7 @@ const calendarData = [
         id: 3,
         name: 'Nazwa wydarzenia',
         shortDescription: 'Opis wydarzenia. Opis wydarze...',
-        longDescription:
+        fullDescription:
           'Opis wydarzenia. Opis wydarzenia. Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.',
         place: 'Miejsce wydarzenia',
         time: '15:30',
@@ -76,7 +76,7 @@ const calendarData = [
         id: 1,
         name: 'Nazwa wydarzenia',
         shortDescription: 'Opis wydarzenia. Opis wydarze...',
-        longDescription:
+        fullDescription:
           'Opis wydarzenia. Opis wydarzenia. Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.',
         place: 'Miejsce wydarzenia',
         time: '15:30',
@@ -85,7 +85,7 @@ const calendarData = [
         id: 2,
         name: 'Nazwa wydarzenia',
         shortDescription: 'Opis wydarzenia. Opis wydarze...',
-        longDescription:
+        fullDescription:
           'Opis wydarzenia. Opis wydarzenia. Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.',
         place: 'Miejsce wydarzenia',
         time: '15:30',
@@ -94,7 +94,7 @@ const calendarData = [
         id: 3,
         name: 'Nazwa wydarzenia',
         shortDescription: 'Opis wydarzenia. Opis wydarze...',
-        longDescription:
+        fullDescription:
           'Opis wydarzenia. Opis wydarzenia. Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.',
         place: 'Miejsce wydarzenia',
         time: '15:30',
@@ -110,7 +110,7 @@ const calendarData = [
         id: 1,
         name: 'Nazwa wydarzenia',
         shortDescription: 'Opis wydarzenia. Opis wydarze...',
-        longDescription:
+        fullDescription:
           'Opis wydarzenia. Opis wydarzenia. Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.',
         place: 'Miejsce wydarzenia',
         time: '15:30',
@@ -119,7 +119,7 @@ const calendarData = [
         id: 2,
         name: 'Nazwa wydarzenia',
         shortDescription: 'Opis wydarzenia. Opis wydarze...',
-        longDescription:
+        fullDescription:
           'Opis wydarzenia. Opis wydarzenia. Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.',
         place: 'Miejsce wydarzenia',
         time: '15:30',
@@ -128,7 +128,7 @@ const calendarData = [
         id: 3,
         name: 'Nazwa wydarzenia',
         shortDescription: 'Opis wydarzenia. Opis wydarze...',
-        longDescription:
+        fullDescription:
           'Opis wydarzenia. Opis wydarzenia. Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.',
         place: 'Miejsce wydarzenia',
         time: '15:30',
@@ -144,7 +144,7 @@ const calendarData = [
         id: 1,
         name: 'Nazwa wydarzenia',
         shortDescription: 'Opis wydarzenia. Opis wydarze...',
-        longDescription:
+        fullDescription:
           'Opis wydarzenia. Opis wydarzenia. Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.',
         place: 'Miejsce wydarzenia',
         time: '15:30',
@@ -153,7 +153,7 @@ const calendarData = [
         id: 2,
         name: 'Nazwa wydarzenia',
         shortDescription: 'Opis wydarzenia. Opis wydarze...',
-        longDescription:
+        fullDescription:
           'Opis wydarzenia. Opis wydarzenia. Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.',
         place: 'Miejsce wydarzenia',
         time: '15:30',
@@ -162,7 +162,7 @@ const calendarData = [
         id: 3,
         name: 'Nazwa wydarzenia',
         shortDescription: 'Opis wydarzenia. Opis wydarze...',
-        longDescription:
+        fullDescription:
           'Opis wydarzenia. Opis wydarzenia. Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.Opis wydarzenia.',
         place: 'Miejsce wydarzenia',
         time: '15:30',

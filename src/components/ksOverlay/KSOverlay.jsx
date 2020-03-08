@@ -7,6 +7,7 @@ import { ksStyle } from '../../styles/basic/ksBasic';
 const styles = StyleSheet.create({
   overlay: {
     padding: 0,
+    maxHeight: '90%',
   },
 });
 

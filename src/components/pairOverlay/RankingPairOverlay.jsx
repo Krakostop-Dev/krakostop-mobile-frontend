@@ -17,7 +17,11 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
     paddingRight: 5,
   },
-  buttonView: { flexDirection: 'row', justifyContent: 'center' },
+  buttonView: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingBottom: 3,
+  },
   button: {
     width: '70%',
     flexDirection: 'row',
@@ -45,7 +49,7 @@ function RankingPairOverlay({ participant, index, isVisible, setIsVisible }) {
             style={styles.button}
             icon={BUTTON_ICON}
             label="Zlokalizuj na mapie"
-            onPress={() => alert('Simple Button pressed')}
+            onPress={() => console.log('Simple Button pressed')}
           />
         </View>
       </View>
