@@ -1,61 +1,25 @@
-import { Image, StyleSheet, Text, View, ViewPropTypes } from 'react-native';
-import { Button } from 'react-native-elements';
+import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { MaterialIcons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
 import { ksStyle } from '../../styles/basic/ksBasic';
 
-const IconComponent = MaterialIcons;
-
 const styles = StyleSheet.create({
   header: {
-    flex: 1,
+    height: 60,
     backgroundColor: ksStyle.colors.primaryColorMedium,
-    flexDirection: 'row',
-  },
-  title: {
-    flex: 2,
-    color: 'white',
-    fontSize: 30,
-    marginLeft: 10,
-  },
-  left: {
-    flex: 2,
-    flexDirection: 'row',
+    justifyContent: 'center',
     alignItems: 'center',
   },
-  right: {
-    flex: 1,
-  },
-  logo: {
-    flex: 1,
-    width: undefined,
-    height: undefined,
-    padding: 10,
-    margin: 10,
+  header_text: {
+    color: 'white',
+    fontSize: 24,
   },
 });
 
-function CardHeader({ navigation, title, style }) {
+function CardHeader({ title }) {
   return (
-    <View style={{ ...style, ...styles.header }}>
-      <View style={styles.left}>
-        <Button
-          onPress={() => {
-            navigation.goBack();
-          }}
-          icon={<IconComponent name="arrow-back" size={40} color="white" />}
-          type="clear"
-        />
-        <Text style={styles.title}>{title}</Text>
-      </View>
-      <View style={styles.right}>
-        <Image
-          source={ksStyle.logo.source}
-          style={styles.logo}
-          resizeMode="contain"
-        />
-      </View>
+    <View style={styles.header}>
+      <Text style={styles.header_text}>{title}</Text>
     </View>
   );
 }
@@ -64,12 +28,4 @@ export default CardHeader;
 
 CardHeader.propTypes = {
   title: PropTypes.string.isRequired,
-  navigation: PropTypes.shape({
-    goBack: PropTypes.func.isRequired,
-    navigate: PropTypes.func.isRequired,
-  }).isRequired,
-  style: ViewPropTypes.style,
-};
-CardHeader.defaultProps = {
-  style: {},
 };

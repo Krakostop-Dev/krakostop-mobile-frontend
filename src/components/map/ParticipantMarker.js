@@ -1,13 +1,25 @@
 import { Marker } from 'react-native-maps';
 import { Avatar } from 'react-native-elements';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import MapPairOverlay from '../pairOverlay/MapPairOverlay';
+
+import { convertRelativePathToAbsoluteUri } from '../../modules/ImageLoader';
 
 const PARTICIPANT_AVATAR = require('../../../assets/hand.png');
 
 function ParticipantMarker({ participant, index }) {
   const [isPairOverlayVisible, setIsPairOverlayVisible] = useState(false);
+  const [avatar, setAvatar] = useState(PARTICIPANT_AVATAR);
+
+  useEffect(() => {
+    // TODO: CHECK WHICH USER SEND LATEST LOCATION
+    // TODO: CHECKS IF AVATAR != DEFAULT AVATAR
+    const { avatar: avatarPath } = participant.pair.users[0].avatar
+      ? participant.pair.users[0]
+      : participant.pair.users[1];
+    setAvatar(convertRelativePathToAbsoluteUri(avatarPath));
+  }, []);
 
   return (
     <Marker
@@ -20,7 +32,7 @@ function ParticipantMarker({ participant, index }) {
       <Avatar
         size="medium"
         rounded
-        source={PARTICIPANT_AVATAR}
+        source={avatar}
         activeOpacity={0.7}
       />
       <MapPairOverlay
@@ -47,6 +59,7 @@ ParticipantMarker.propTypes = {
           first_name: PropTypes.string.isRequired,
           last_name: PropTypes.string.isRequired,
           phone: PropTypes.string.isRequired,
+          avatar: PropTypes.string,
         }).isRequired
       ).isRequired,
     }).isRequired,

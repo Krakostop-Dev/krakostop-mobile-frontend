@@ -1,20 +1,18 @@
 {
   "expo": {
-
-    "name": "Krakostop mobile frontend",
-    "slug": "krakostop-mobile-frontend",
+    "name": "Krakostop",
+    "slug": "krakostop",
     "privacy": "public",
-    "sdkVersion": "35.0.0",
+    "sdkVersion": "36.0.0",
     "platforms": [
       "ios",
-      "android",
-      "web"
+      "android"
     ],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -22,15 +20,21 @@
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
-      "**/*"
+      "assets/*"
     ],
     "android": {
-      "package": "eu.krakostop.krakostopapp"
+      "package": "eu.krakostop.app.android",
+      "config": {
+        "googleMaps": {
+          "apiKey": "Should be updated before build"
+        }
+      },
+      "versionCode": 1
     },
     "ios": {
       "supportsTablet": true,
       "buildNumber": "1",
-      "bundleIdentifier": "eu.krakostop.krakostopapp",
+      "bundleIdentifier": "eu.krakostop.app.ios",
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "This app uses yours location to share share it with other users",
         "NSLocationAlwaysAndWhenInUseUsageDescription": "This app uses yours location to share share it with other users",
@@ -42,7 +46,14 @@
       }
     },
     "packagerOpts": {
-      "sourceExts": ["js", "json", "ts", "tsx", "jsx"]
-    }
+      "sourceExts": [
+        "js",
+        "json",
+        "ts",
+        "tsx",
+        "jsx"
+      ]
+    },
+    "description": ""
   }
 }

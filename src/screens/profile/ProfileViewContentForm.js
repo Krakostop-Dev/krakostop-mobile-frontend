@@ -1,27 +1,27 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native';
-import React, { useContext } from 'react';
-import { ksStyle } from '../../styles/basic/ksBasic';
+import React, { useContext, useState } from 'react';
 import { LoginContext } from '../../modules/context/LoginContext';
 import EditButton from '../../components/buttons/EditButton';
+import { ksStyle } from '../../styles/basic/ksBasic';
+import MessengerButton from '../../components/login/editProfile/chatAgreement/chatAgreementCard/MessengerButton';
+import SmallInfoText from '../../components/SmallInfoText';
+import PhoneInput from './PhoneInput';
+import PhoneAgreementView from '../../components/login/editProfile/PhoneAgreementView';
 
 const styles = StyleSheet.create({
-  form: {
+  input_form: {
+    marginVertical: 20,
     width: '100%',
-    borderRadius: 20,
-    marginTop: 30,
-    backgroundColor: ksStyle.colors.primaryColorMedium,
-    padding: 20,
   },
   input_label: {
     fontSize: 16,
     color: 'rgba(0, 0, 0, 0.5)',
+    marginTop: 10,
   },
   input: {
+    ...ksStyle.input,
     borderWidth: 1,
     borderColor: 'rgba(0, 0, 0, 0.4)',
-    padding: 10,
-    fontSize: 16,
-    marginBottom: 5,
   },
   edit_button: {
     height: 20,
@@ -32,41 +32,33 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
 });
+const EMAIL_LABEL = 'Email';
+const PHONE_LABEL = 'Numer telefonu';
+const PHONE_AGREEMENT_LABEL = 'Wyświetl numer pozostałym uczestnikom wyścigu.';
 
 export default () => {
   const { user } = useContext(LoginContext);
+  const [hasErrorOccurred, setError] = useState({
+    isError: false,
+    message: '',
+  });
   return (
-    <View style={styles.form}>
-      <Text style={styles.input_label}>Email</Text>
+    <View style={styles.input_form}>
+      <Text style={styles.input_label}>{EMAIL_LABEL}</Text>
       <TextInput
         style={styles.input}
         defaultValue={user.email}
         disabled
         placeholderTextColor="rgba(0, 0, 0, 0.6)"
+        editable={false}
       />
-      <Text style={styles.input_label}>Numer telefonu</Text>
-      <TextInput
-        style={styles.input}
-        defaultValue={user.phone_number}
-        disabled
-        placeholderTextColor="rgba(0, 0, 0, 0.6)"
-      />
-      <View style={styles.facebook_label_container}>
-        <Text style={styles.input_label}>Link do profilu Facebook</Text>
-        <EditButton
-          style={styles.edit_button}
-          onPress={() => {
-            // eslint-disable-next-line no-undef
-            alert('Change facebook');
-          }}
-        />
-      </View>
-      <TextInput
-        style={styles.input}
-        defaultValue={user.facebook_link}
-        disabled
-        placeholderTextColor="rgba(0, 0, 0, 0.6)"
-      />
+      <Text style={styles.input_label}>{PHONE_LABEL}</Text>
+      <PhoneInput />
+      <PhoneAgreementView label={PHONE_AGREEMENT_LABEL} />
+      <MessengerButton setError={setError} />
+      {hasErrorOccurred.isError ? (
+        <SmallInfoText text={hasErrorOccurred.message} color="red" />
+      ) : null}
     </View>
   );
 };

@@ -1,25 +1,32 @@
 import { createStackNavigator } from 'react-navigation-stack';
+import { createSwitchNavigator } from 'react-navigation';
 import { ksStyle } from '../../styles/basic/ksBasic';
-import AuthCard from '../../components/login/authCard';
-import EditProfileCard from '../../components/login/editProfileCard';
-import MsgAlert from '../../components/login/msgAlert/MsgAlert';
-import ErrorOverlay from '../../components/login/loginForm/ErrorOverlay';
+import AuthCard from '../../components/login/auth/authCard';
 import LoginScreen from '../../screens/login/LoginScreen';
+import EditProfileStack from './EditProfileStack';
+import ErrorOverlay from '../../components/login/auth/loginForm/ErrorOverlay';
 
-const AuthStack = createStackNavigator(
+const AuthStack = createSwitchNavigator(
   {
-    LoginScreen,
-    Auth: AuthCard,
-    EditProfile: EditProfileCard,
-    MsgAlert,
-    ErrorOverlay,
+    Login: createStackNavigator(
+      { LoginScreen, Auth: AuthCard, ErrorOverlay },
+      {
+        initialRouteName: 'LoginScreen',
+        headerMode: 'none',
+        mode: 'modal',
+        transparentCard: true,
+        cardStyle: {
+          backgroundColor: ksStyle.colors.backgroundColor,
+          opacity: 1,
+        },
+      }
+    ),
+    EditProfile: {
+      screen: EditProfileStack,
+    },
   },
   {
-    initialRouteName: 'LoginScreen',
-    headerMode: 'none',
-    mode: 'modal',
-    transparentCard: true,
-    cardStyle: { backgroundColor: ksStyle.colors.backgroundColor, opacity: 1 },
+    initialRouteName: 'Login',
   }
 );
 

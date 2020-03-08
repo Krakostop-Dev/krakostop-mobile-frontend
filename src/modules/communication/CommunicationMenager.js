@@ -2,7 +2,7 @@ import axios from 'axios';
 import FormData from 'form-data';
 import config from '../../../config/config';
 import KsAxios from './KsAxios';
-import ErrorMessages from './ErrorMessages';
+import ErrorMessages from '../ErrorMessages';
 
 const apiPath = '/api/v1';
 
@@ -83,7 +83,10 @@ export async function sendEmailWithAuthCode(email, verificationCode) {
   }
 }
 
-export async function updateProfileOnServer(avatar, msgLink) {
+export async function updateProfileOnServer({ avatar, msgLink, phoneNumber }) {
+  if (!avatar && !msgLink && !phoneNumber) {
+    return { status: 200, message: 'OK' };
+  }
   const data = new FormData();
   if (avatar) {
     data.append('avatar', {
@@ -94,6 +97,9 @@ export async function updateProfileOnServer(avatar, msgLink) {
   }
   if (msgLink) {
     data.append('messenger', msgLink);
+  }
+  if (phoneNumber) {
+    data.append('phone', phoneNumber);
   }
   let response;
   try {
