@@ -29,12 +29,7 @@ function ParticipantMarker({ participant, index }) {
       }}
       onPress={() => setIsPairOverlayVisible(true)}
     >
-      <Avatar
-        size="medium"
-        rounded
-        source={avatar}
-        activeOpacity={0.7}
-      />
+      <Avatar size="medium" rounded source={avatar} activeOpacity={0.7} />
       <MapPairOverlay
         isVisible={isPairOverlayVisible}
         setIsVisible={setIsPairOverlayVisible}
