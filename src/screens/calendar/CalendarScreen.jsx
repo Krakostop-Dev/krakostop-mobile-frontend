@@ -1,13 +1,15 @@
 import React from 'react';
-import { View, ScrollView, ImageBackground, StyleSheet } from 'react-native';
+import { View, ScrollView, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import MainHeader from '../../components/header/MainHeader';
 import CalendarView from '../../components/calendar/CalendarView';
-
-const BACKGROUND = require('../../../assets/ranking-background.png');
+import { ksStyle } from '../../styles/basic/ksBasic';
 
 const styles = StyleSheet.create({
-  background: { width: '100%', height: '100%' },
+  background: {
+    height: '100%',
+    backgroundColor: ksStyle.colors.primaryColorLight,
+  },
   container: {
     width: '100%',
     height: '100%',
@@ -21,13 +23,13 @@ function CalendarScreen({ navigation }) {
     <View>
       <MainHeader navigation={navigation} />
 
-      <ImageBackground source={BACKGROUND} style={styles.background}>
+      <View style={styles.background}>
         <ScrollView>
           <View style={styles.container}>
             <CalendarView />
           </View>
         </ScrollView>
-      </ImageBackground>
+      </View>
     </View>
   );
 }

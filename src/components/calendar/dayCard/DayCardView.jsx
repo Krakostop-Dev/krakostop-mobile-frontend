@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   card: {
     width: '100%',
     borderRadius: 3,
-    backgroundColor: ksStyle.colors.primaryColorLight,
+    backgroundColor: ksStyle.colors.primaryColorMedium,
   },
 });
 
