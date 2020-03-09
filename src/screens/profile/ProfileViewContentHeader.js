@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import { StyleSheet, Text, View } from 'react-native';
 import { Avatar } from 'react-native-elements';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { LoginContext } from '../../modules/context/LoginContext';
 import EditAvatarButton from './EditAvatarButton';
 import SmallInfoText from '../../components/SmallInfoText';
