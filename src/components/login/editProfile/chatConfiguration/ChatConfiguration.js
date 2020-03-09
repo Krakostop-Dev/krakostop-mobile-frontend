@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import MsgAlert from './msgAlert/MsgAlert';
-import ChatAgreementCard from './chatAgreementCard';
+import ChatConfigurationCard from './chatConfigurationCard';
 
-function ChatAgreement() {
+function ChatConfiguration() {
   const [displayMsgAlert, setDisplayMsgAlert] = useState(false);
 
   return displayMsgAlert ? (
     <MsgAlert setDisplayMsgAlert={setDisplayMsgAlert} />
   ) : (
-    <ChatAgreementCard setDisplayMsgAlert={setDisplayMsgAlert} />
+    <ChatConfigurationCard setDisplayMsgAlert={setDisplayMsgAlert} />
   );
 }
 
-export default ChatAgreement;
+export default ChatConfiguration;

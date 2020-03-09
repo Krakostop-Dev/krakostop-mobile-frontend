@@ -83,7 +83,12 @@ export async function sendEmailWithAuthCode(email, verificationCode) {
   }
 }
 
-export async function updateProfileOnServer({ avatar, msgLink, phoneNumber }) {
+export async function updateProfileOnServer({
+  avatar,
+  fbProfileLink,
+  msgLink,
+  phoneNumber,
+}) {
   if (!avatar && !msgLink && !phoneNumber) {
     return { status: 200, message: 'OK' };
   }
@@ -95,7 +100,8 @@ export async function updateProfileOnServer({ avatar, msgLink, phoneNumber }) {
       name: 'avatar.jpg',
     });
   }
-  if (msgLink) {
+  if (msgLink && fbProfileLink) {
+    data.append('facebook', fbProfileLink);
     data.append('messenger', msgLink);
   }
   if (phoneNumber) {

@@ -8,7 +8,6 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 import { ksStyle } from '../../../../../styles/basic/ksBasic';
-import { checkFormatValidity } from '../../../../../modules/MessengerManager';
 
 const styles = StyleSheet.create({
   container: {
@@ -32,13 +31,14 @@ const EDIT_ICON = require('../../../../../../assets/icons/edit.png');
 
 function FacebookProfileLinkView({
   style,
-  fbLink,
-  setFbLink,
-  setFbLinkFormatValidity,
+  fbProfileLink,
+  setFbProfileLink,
+  setMsgLinkIfFBLinkFormatIsValid,
   hasErrorOccurred,
 }) {
-  function onSubmit() {
-    setFbLinkFormatValidity(checkFormatValidity(fbLink));
+  function onChange(link) {
+    setFbProfileLink(link);
+    setMsgLinkIfFBLinkFormatIsValid(link);
   }
   return (
     <View>
@@ -55,11 +55,11 @@ function FacebookProfileLinkView({
               styles.input,
               hasErrorOccurred.isError ? { color: 'red' } : null,
             ]}
-            value={fbLink}
-            onChangeText={setFbLink}
+            value={fbProfileLink}
+            onChangeText={link => onChange(link)}
             editable
             placeholderTextColor="rgba(0, 0, 0, 0.6)"
-            onSubmitEditing={onSubmit}
+            multiline={false}
           />
         </View>
         <Image style={styles.button} source={EDIT_ICON} />
@@ -79,7 +79,7 @@ FacebookProfileLinkView.propTypes = {
   hasErrorOccurred: PropTypes.shape({
     isError: PropTypes.bool.isRequired,
   }).isRequired,
-  fbLink: PropTypes.string.isRequired,
-  setFbLink: PropTypes.func.isRequired,
-  setFbLinkFormatValidity: PropTypes.func.isRequired,
+  fbProfileLink: PropTypes.string.isRequired,
+  setFbProfileLink: PropTypes.func.isRequired,
+  setMsgLinkIfFBLinkFormatIsValid: PropTypes.func.isRequired,
 };

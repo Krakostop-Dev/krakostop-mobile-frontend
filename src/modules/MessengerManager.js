@@ -1,19 +1,19 @@
-import { Linking } from 'expo';
-
-export function getProfileNameFromLink(msgLink) {
-  const regexFb = new RegExp('.*facebook.com/');
-  const regexRest = new RegExp('/.*');
-  const linkWithoutFb = msgLink.replace(regexFb, '');
-  return linkWithoutFb.replace(regexRest, '');
-}
-
-export function checkFormatValidity(msgLink) {
+export function checkFbProfileFormatValidity(fbProfileLink) {
   const regexFb = new RegExp('.*facebook.com/.*/?');
-  return regexFb.test(msgLink);
+  return regexFb.test(fbProfileLink);
 }
 
-export async function checkProfileValidity(msgLink) {
-  const profileName = getProfileNameFromLink(msgLink);
-  const response = await Linking.openURL(`https://m.me/${profileName}`);
-  console.log(JSON.stringify(response));
+export function getProfileNameFromFbProfileLink(fbProfileLink) {
+  if (checkFbProfileFormatValidity(fbProfileLink)) {
+    const regexFb = new RegExp('.*facebook.com/');
+    const regexRest = new RegExp('/.*');
+    const linkWithoutFb = fbProfileLink.replace(regexFb, '');
+    return linkWithoutFb.replace(regexRest, '');
+  }
+  return null;
+}
+
+export function createMsgLinkFromFbProfileLink(fbProfileLink) {
+  const profileName = getProfileNameFromFbProfileLink(fbProfileLink);
+  return `https://m.me/${profileName}`;
 }

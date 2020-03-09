@@ -5,14 +5,20 @@ import { LoginContext } from '../../../../../modules/context/LoginContext';
 import { updateProfileOnServer } from '../../../../../modules/communication/CommunicationMenager';
 import NavigationFooter from '../../NavigationFooter';
 
-function ChatNavFooter({ msgLink, setError, setDisplayMsgAlert }) {
+function ChatNavFooter({
+  fbProfileLink,
+  msgLink,
+  setError,
+  setDisplayMsgAlert,
+}) {
   const navigation = useContext(NavigationContext);
   const loginContext = useContext(LoginContext);
 
   async function onPress() {
-    if (msgLink) {
+    if (msgLink && fbProfileLink) {
       const { status, message, user } = await updateProfileOnServer({
         msgLink,
+        fbProfileLink,
       });
       if (status === 200) {
         await loginContext.updateUser(user);
@@ -23,8 +29,9 @@ function ChatNavFooter({ msgLink, setError, setDisplayMsgAlert }) {
           message,
         });
       }
+    } else {
+      setDisplayMsgAlert(true);
     }
-    setDisplayMsgAlert(true);
   }
 
   return <NavigationFooter nextButtonOnPress={onPress} />;
@@ -34,6 +41,7 @@ export default ChatNavFooter;
 
 ChatNavFooter.propTypes = {
   msgLink: PropTypes.string.isRequired,
+  fbProfileLink: PropTypes.string.isRequired,
   setError: PropTypes.func.isRequired,
   setDisplayMsgAlert: PropTypes.func.isRequired,
 };

@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   },
 });
 const INFO_TEXT =
-  'Nie łącząc konta z Messengerem nie będziesz mógł/a korzystać z czatu.\nJeśli jesteś pewny/a swojej decyzji wpisz poniżej “rezygnuje”.';
+  'Format Twojego linku jest niezgodny. W takiej sytuacji nie będziesz mógł/a korzystać z czatu. \nJeśli jesteś pewny/a swojej decyzji wpisz poniżej “rezygnuje”.';
 function MsgAlert({ setDisplayMsgAlert }) {
   const navigation = useContext(NavigationContext);
   const avatar = navigation.getParam('avatar');
