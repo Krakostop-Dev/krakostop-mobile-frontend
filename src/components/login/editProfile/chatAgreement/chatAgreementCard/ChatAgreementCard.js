@@ -9,7 +9,7 @@ import SmallInfoText from '../../../../SmallInfoText';
 import ChatNavFooter from './ChatNavFooter';
 import MsgLinkView from './MsgLinkView';
 import { LoginContext } from '../../../../../modules/context/LoginContext';
-import { checkFormatValidity } from '../../../../../modules/MessengerLinkValidator';
+import { checkFormatValidity } from '../../../../../modules/MessengerManager';
 import Messages from '../../../../../modules/Messages';
 
 const HEADER_TITLE = 'Konfiguracja Profilu 2/3';

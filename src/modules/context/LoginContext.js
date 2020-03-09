@@ -20,6 +20,7 @@ export const LoginContext = createContext({
     messenger: null,
     phone: null,
     is_phone_visible: null,
+    facebook: null,
   },
   token: null,
   isLoggedIn: false,

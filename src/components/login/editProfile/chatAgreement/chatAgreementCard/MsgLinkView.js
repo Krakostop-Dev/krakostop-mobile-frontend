@@ -13,7 +13,7 @@ import SmallInfoText from '../../../../SmallInfoText';
 import {
   checkFormatValidity,
   checkProfileValidity,
-} from '../../../../../modules/MessengerLinkValidator';
+} from '../../../../../modules/MessengerManager';
 
 const styles = StyleSheet.create({
   container: {
