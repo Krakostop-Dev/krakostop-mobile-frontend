@@ -6,7 +6,7 @@ import { NavigationContext } from 'react-navigation';
 import { ksStyle } from '../../../../../styles/basic/ksBasic';
 import InfoText from '../../../InfoText';
 import BackButton from './BackButton';
-import ResignInput from './ResignInput';
+import ResignationInput from './ResignationInput';
 import SmallInfoText from '../../../../SmallInfoText';
 
 const styles = StyleSheet.create({
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
 });
 const INFO_TEXT =
   'Format Twojego linku jest niezgodny. W takiej sytuacji nie będziesz mógł/a korzystać z czatu. \nJeśli jesteś pewny/a swojej decyzji wpisz poniżej “rezygnuje”.';
-function MsgAlert({ setDisplayMsgAlert }) {
+function ResignationAlert({ setDisplayMsgAlert }) {
   const navigation = useContext(NavigationContext);
   const avatar = navigation.getParam('avatar');
 
@@ -43,7 +43,7 @@ function MsgAlert({ setDisplayMsgAlert }) {
       ) : (
         <View style={styles.card}>
           <InfoText infoText={INFO_TEXT} warning />
-          <ResignInput
+          <ResignationInput
             avatar={avatar}
             setError={setError}
             setResigned={setResigned}
@@ -59,8 +59,8 @@ function MsgAlert({ setDisplayMsgAlert }) {
   );
 }
 
-export default MsgAlert;
+export default ResignationAlert;
 
-MsgAlert.propTypes = {
+ResignationAlert.propTypes = {
   setDisplayMsgAlert: PropTypes.func.isRequired,
 };

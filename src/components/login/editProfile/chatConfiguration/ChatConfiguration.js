@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import MsgAlert from './msgAlert/MsgAlert';
+import ResignationAlert from './resignationAlert/ResignationAlert';
 import ChatConfigurationCard from './chatConfigurationCard';
 
 function ChatConfiguration() {
   const [displayMsgAlert, setDisplayMsgAlert] = useState(false);
 
   return displayMsgAlert ? (
-    <MsgAlert setDisplayMsgAlert={setDisplayMsgAlert} />
+    <ResignationAlert setDisplayMsgAlert={setDisplayMsgAlert} />
   ) : (
     <ChatConfigurationCard setDisplayMsgAlert={setDisplayMsgAlert} />
   );

@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 });
 const RESIGN_LABEL = 'rezygnuje';
 
-function ResignInput({ setError, setResigned, setDisplayMsgAlert }) {
+function ResignationInput({ setError, setResigned, setDisplayMsgAlert }) {
   const navigation = useContext(NavigationContext);
 
   async function onChangeText(authCode) {
@@ -48,9 +48,9 @@ function ResignInput({ setError, setResigned, setDisplayMsgAlert }) {
   );
 }
 
-export default ResignInput;
+export default ResignationInput;
 
-ResignInput.propTypes = {
+ResignationInput.propTypes = {
   setError: PropTypes.func.isRequired,
   setResigned: PropTypes.func.isRequired,
   setDisplayMsgAlert: PropTypes.func.isRequired,
