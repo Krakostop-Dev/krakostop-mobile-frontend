@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { NavigationContext } from 'react-navigation';
 import PropTypes from 'prop-types';
-import NextButton from '../../NextButton';
+import NextButton from '../../buttons/NextButton';
 
 const styles = StyleSheet.create({
   container: {

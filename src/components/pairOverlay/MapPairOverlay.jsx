@@ -1,15 +1,11 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Overlay } from 'react-native-elements';
 import PropTypes from 'prop-types';
-import { ksStyle } from '../../../styles/basic/ksBasic';
 import ParticipantView from './ParticipantView';
 import PairOverlayHeaderView from './PairOverlayHeaderView';
+import KSOverlay from '../ksOverlay/KSOverlay';
 
 const styles = StyleSheet.create({
-  overlay: {
-    padding: 0,
-  },
   container: { flexDirection: 'column' },
   pairView: {
     flexDirection: 'row',
@@ -18,16 +14,9 @@ const styles = StyleSheet.create({
   },
 });
 
-function PairOverlay({ participant, index, isVisible, setIsVisible }) {
+function MapPairOverlay({ participant, index, isVisible, setIsVisible }) {
   return (
-    <Overlay
-      isVisible={isVisible}
-      onBackdropPress={() => setIsVisible(false)}
-      overlayBackgroundColor={ksStyle.colors.primaryColorLight}
-      height="auto"
-      overlayStyle={styles.overlay}
-      borderRadius={3}
-    >
+    <KSOverlay setIsVisible={setIsVisible} isVisible={isVisible}>
       <View style={styles.container}>
         <PairOverlayHeaderView
           participant={participant}
@@ -40,13 +29,13 @@ function PairOverlay({ participant, index, isVisible, setIsVisible }) {
           <ParticipantView user={participant.pair.users[1]} />
         </View>
       </View>
-    </Overlay>
+    </KSOverlay>
   );
 }
 
-export default PairOverlay;
+export default MapPairOverlay;
 
-PairOverlay.propTypes = {
+MapPairOverlay.propTypes = {
   isVisible: PropTypes.bool.isRequired,
   setIsVisible: PropTypes.func.isRequired,
   participant: PropTypes.shape({

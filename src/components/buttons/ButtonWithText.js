@@ -2,7 +2,7 @@ import React from 'react';
 import {
   StyleSheet,
   Text,
-  TouchableHighlight,
+  TouchableOpacity,
   ViewPropTypes,
 } from 'react-native';
 import PropTypes from 'prop-types';
@@ -26,12 +26,12 @@ const styles = StyleSheet.create({
 
 function ButtonWithText({ onPress, style, label }) {
   return (
-    <TouchableHighlight
+    <TouchableOpacity
       style={{ ...styles.login_button_container, ...style }}
       onPress={() => onPress()}
     >
       <Text style={styles.login_button_text}>{label}</Text>
-    </TouchableHighlight>
+    </TouchableOpacity>
   );
 }
 
