@@ -1,6 +1,7 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
+import { Linking } from 'expo';
 import ConversationAvatarView from './ConversationAvatarView';
 import ConversationNameView from './ConversationNameView';
 import ConversationTimeDateView from './ConversationTimeDateView';
@@ -18,11 +19,12 @@ const styles = StyleSheet.create({
 });
 
 function ConversationView({ conversation }) {
+  async function conversationOnPress() {
+    await Linking.openURL(conversation.messenger);
+  }
+
   return (
-    <TouchableOpacity
-      onPress={() => console.log('messenger clicked')}
-      style={styles.touchable}
-    >
+    <TouchableOpacity onPress={conversationOnPress} style={styles.touchable}>
       <ConversationAvatarView avatar={conversation.avatar} />
       <ConversationNameView name={conversation.name} />
       <ConversationTimeDateView
@@ -41,5 +43,6 @@ ConversationView.propTypes = {
     name: PropTypes.string.isRequired,
     time: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
+    messenger: PropTypes.string.isRequired,
   }).isRequired,
 };

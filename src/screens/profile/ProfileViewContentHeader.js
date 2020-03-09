@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
 });
-const PAIR_LABEL = 'Para';
+const PAIR_LABEL = 'Para #';
 
 export default () => {
   const { user } = useContext(LoginContext);
