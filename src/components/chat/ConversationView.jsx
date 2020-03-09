@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
-import { Linking } from 'expo';
 import ConversationAvatarView from './ConversationAvatarView';
 import ConversationNameView from './ConversationNameView';
 import ConversationTimeDateView from './ConversationTimeDateView';
+import { redirectToMessenger } from '../../modules/MessengerManager';
 
 const styles = StyleSheet.create({
   touchable: {
@@ -19,12 +19,11 @@ const styles = StyleSheet.create({
 });
 
 function ConversationView({ conversation }) {
-  async function conversationOnPress() {
-    await Linking.openURL(conversation.messenger);
-  }
-
   return (
-    <TouchableOpacity onPress={conversationOnPress} style={styles.touchable}>
+    <TouchableOpacity
+      onPress={() => redirectToMessenger(conversation.messenger)}
+      style={styles.touchable}
+    >
       <ConversationAvatarView avatar={conversation.avatar} />
       <ConversationNameView name={conversation.name} />
       <ConversationTimeDateView
