@@ -6,6 +6,7 @@ import {
   removeDataFromStorage,
   saveDataInStorage,
 } from '../Storage';
+import { convertRelativePathToAbsoluteUri } from '../ImageLoader';
 
 export const LoginContext = createContext({
   user: {
@@ -54,8 +55,12 @@ async function logOut(dispatch) {
   dispatch({ type: 'logOut' });
 }
 async function updateUser(dispatch, user) {
-  await saveDataInStorage('USER', JSON.stringify(user));
-  dispatch({ type: 'updateUser', payload: { user } });
+  const newUser = user;
+  if (!user.avatar.uri) {
+    newUser.avatar = convertRelativePathToAbsoluteUri(user.avatar);
+  }
+  await saveDataInStorage('USER', JSON.stringify(newUser));
+  dispatch({ type: 'updateUser', payload: { newUser } });
 }
 
 async function refreshLogin(dispatch) {

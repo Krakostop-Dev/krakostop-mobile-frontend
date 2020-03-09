@@ -22,7 +22,9 @@ const CHAT_INFO_TEXT =
 function ChatConfigurationCard({ setDisplayMsgAlert }) {
   const { user } = useContext(LoginContext);
   const [msgLink, setMsgLink] = useState(user.messenger);
-  const [fbProfileLink, setFbProfileLink] = useState(user.facebook);
+  const [fbProfileLink, setFbProfileLink] = useState(
+    user.facebook ? user.facebook : ''
+  );
   const [isFbLinkFormatValid, setFbLinkFormatValidity] = useState(false);
 
   const [hasErrorOccurred, setError] = useState({
