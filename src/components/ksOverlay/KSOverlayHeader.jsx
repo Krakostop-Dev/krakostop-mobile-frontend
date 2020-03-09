@@ -3,7 +3,7 @@ import { View, StyleSheet, Text } from 'react-native';
 import { Button } from 'react-native-elements';
 import { MaterialIcons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
-import { ksStyle } from '../../../styles/basic/ksBasic';
+import { ksStyle } from '../../styles/basic/ksBasic';
 
 const styles = StyleSheet.create({
   container: {
@@ -27,16 +27,21 @@ const styles = StyleSheet.create({
     paddingRight: 7,
     paddingLeft: 5,
   },
+  subtitleLargeSize: {
+    fontSize: 23,
+  },
+  subtitleSmallSize: {
+    fontSize: 16,
+  },
   subtitleText: {
     flexWrap: 'wrap',
-    fontSize: 16,
     fontFamily: 'sans-serif',
     color: 'white',
     textAlign: 'right',
   },
 });
 
-function PairOverlayHeaderView({ participant, index, setIsVisible }) {
+function KSOverlayHeader({ title, subtitles, setIsVisible }) {
   return (
     <View style={styles.container}>
       <View>
@@ -48,29 +53,33 @@ function PairOverlayHeaderView({ participant, index, setIsVisible }) {
       </View>
       <View style={styles.titleView}>
         <Text style={styles.titleText} numberOfLines={2}>
-          Para #{participant.pair.pair_nr}
+          {title}
         </Text>
       </View>
       <View style={styles.subtitleView}>
-        <Text style={styles.subtitleText} numberOfLines={2}>
-          miejsce {index + 1}
-        </Text>
-        <Text style={styles.subtitleText} numberOfLines={2}>
-          1090km do mety
-        </Text>
+        {subtitles.map(subtitle => (
+          <Text
+            style={[
+              styles.subtitleText,
+              subtitles.length > 1
+                ? styles.subtitleSmallSize
+                : styles.subtitleLargeSize,
+            ]}
+            numberOfLines={2}
+            key={subtitle}
+          >
+            {subtitle}
+          </Text>
+        ))}
       </View>
     </View>
   );
 }
 
-export default PairOverlayHeaderView;
+export default KSOverlayHeader;
 
-PairOverlayHeaderView.propTypes = {
+KSOverlayHeader.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitles: PropTypes.arrayOf(PropTypes.string).isRequired,
   setIsVisible: PropTypes.func.isRequired,
-  participant: PropTypes.shape({
-    pair: PropTypes.shape({
-      pair_nr: PropTypes.number.isRequired,
-    }).isRequired,
-  }).isRequired,
-  index: PropTypes.number.isRequired,
 };

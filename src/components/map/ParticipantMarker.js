@@ -2,7 +2,7 @@ import { Marker } from 'react-native-maps';
 import { Avatar } from 'react-native-elements';
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import PairOverlay from './pairOverlay';
+import MapPairOverlay from '../pairOverlay/MapPairOverlay';
 
 import { convertRelativePathToAbsoluteUri } from '../../modules/ImageLoader';
 
@@ -30,7 +30,7 @@ function ParticipantMarker({ participant, index }) {
       onPress={() => setIsPairOverlayVisible(true)}
     >
       <Avatar size="medium" rounded source={avatar} activeOpacity={0.7} />
-      <PairOverlay
+      <MapPairOverlay
         isVisible={isPairOverlayVisible}
         setIsVisible={setIsPairOverlayVisible}
         participant={participant}

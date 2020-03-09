@@ -3,12 +3,13 @@ import { Text, View, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
-  container: { flexDirection: 'row' },
+  container: { flexDirection: 'row', padding: 5 },
   text: {
     textAlign: 'center',
     flex: 1,
     flexWrap: 'wrap',
     fontFamily: 'sans-serif',
+    fontSize: 15,
     flexShrink: 1,
   },
 });

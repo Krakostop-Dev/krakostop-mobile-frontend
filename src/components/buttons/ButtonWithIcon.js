@@ -2,7 +2,7 @@ import {
   Image,
   StyleSheet,
   Text,
-  TouchableHighlight,
+  TouchableOpacity,
   View,
   ViewPropTypes,
 } from 'react-native';
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
 
 function ButtonWithIcon({ onPress, style, icon, label }) {
   return (
-    <TouchableHighlight
+    <TouchableOpacity
       onPress={() => onPress()}
       style={{ ...styles.button_container, ...style }}
     >
@@ -41,7 +41,7 @@ function ButtonWithIcon({ onPress, style, icon, label }) {
         <Image source={icon} style={styles.button_image} />
         <Text style={styles.button_label}>{label}</Text>
       </View>
-    </TouchableHighlight>
+    </TouchableOpacity>
   );
 }
 

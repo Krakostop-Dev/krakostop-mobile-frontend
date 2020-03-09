@@ -3,7 +3,7 @@ import { StyleSheet, View, ViewPropTypes } from 'react-native';
 import PropTypes from 'prop-types';
 import { ksStyle } from '../../../../styles/basic/ksBasic';
 import InfoText from '../../InfoText';
-import ButtonWithText from '../../ButtonWithText';
+import ButtonWithText from '../../../buttons/ButtonWithText';
 
 const styles = StyleSheet.create({
   container: {

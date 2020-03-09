@@ -2,7 +2,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import ButtonWithIcon from '../../../ButtonWithIcon';
+import ButtonWithIcon from '../../../../buttons/ButtonWithIcon';
 
 const BUTTON_ICON = require('../../../../../../assets/icons/messenger.png');
 

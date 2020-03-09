@@ -19,8 +19,8 @@ const styles = StyleSheet.create({
   },
 });
 
-const EDIT_ICON = require('../../assets/icons/edit.png');
-const EDIT_ICON_ROUNDED = require('../../assets/icons/edit_rounded.png');
+const EDIT_ICON = require('../../../assets/icons/edit.png');
+const EDIT_ICON_ROUNDED = require('../../../assets/icons/edit_rounded.png');
 
 function EditButton({ style, onPress, rounded }) {
   return (
