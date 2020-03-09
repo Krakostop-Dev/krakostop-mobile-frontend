@@ -4,13 +4,14 @@ import React from 'react';
 import DashboardScreen from '../../screens/dashboard/DashboardScreen';
 import { ksStyle } from '../../styles/basic/ksBasic';
 import RankingScreen from '../../screens/ranking/RankingScreen';
+import ChatScreen from '../../screens/chat/ChatScreen';
 import CalendarScreen from '../../screens/calendar/CalendarScreen';
 
 const AppBottomTabNavigator = createBottomTabNavigator(
   {
     Map: DashboardScreen,
     Ranking: RankingScreen,
-    Chat: DashboardScreen,
+    Chat: ChatScreen,
     Schedule: CalendarScreen,
   },
   {
