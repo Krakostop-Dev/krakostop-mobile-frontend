@@ -1,8 +1,9 @@
-import MapView from 'react-native-maps';
 import React, { useContext } from 'react';
+import MapView from 'react-native-map-clustering';
 import { Dimensions, StyleSheet } from 'react-native';
 import { MapContext } from '../../modules/context/MapContext';
 import ParticipantMarker from './ParticipantMarker';
+import ClusteredMarker from './ClusterMarker';
 
 const INIT_LATITUDE_DELTA = 0.0922;
 const INIT_LONGITUDE_DELTA = 0.0421;
@@ -26,12 +27,28 @@ function MapComponent() {
   };
 
   return (
-    <MapView style={styles.mapStyle} initialRegion={initialRegion}>
+    <MapView
+      style={styles.mapStyle}
+      initialRegion={initialRegion}
+      renderCluster={({ id, geometry, properties, onPress }) => (
+        <ClusteredMarker
+          key={`cluster-${id}`}
+          id={id}
+          geometry={geometry}
+          properties={properties}
+          onPress={onPress}
+        />
+      )}
+    >
       {participants.map((participant, index) => (
         <ParticipantMarker
           participant={participant}
           index={index}
-          key={participant.id}
+          key={`Participant-${participant.id}`}
+          coordinate={{
+            latitude: Number(participant.lat),
+            longitude: Number(participant.lng),
+          }}
         />
       ))}
     </MapView>
