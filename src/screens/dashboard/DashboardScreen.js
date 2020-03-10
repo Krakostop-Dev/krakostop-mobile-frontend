@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import PropTypes from 'prop-types';
 import { ksBasic } from '../../styles/basic/ksBasic';
 import MapContainer from '../../components/map/MapContainer';
 import MainHeader from '../../components/header/MainHeader';
@@ -18,20 +17,13 @@ const styles = StyleSheet.create({
   },
 });
 
-const DashboardScreen = ({ navigation }) => {
+const DashboardScreen = () => {
   return (
     <View style={styles.stackContainer}>
-      <MainHeader navigation={navigation} />
+      <MainHeader />
       <MapContainer style={styles} />
     </View>
   );
 };
 
 export default DashboardScreen;
-
-DashboardScreen.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired,
-    openDrawer: PropTypes.func.isRequired,
-  }).isRequired,
-};

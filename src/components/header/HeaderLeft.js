@@ -1,26 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Avatar } from 'react-native-elements';
+import { NavigationContext } from 'react-navigation';
+import { LoginContext } from '../../modules/context/LoginContext';
 
-import { Button } from 'react-native-elements';
-import { MaterialIcons } from '@expo/vector-icons';
-import PropTypes from 'prop-types';
-import { ksStyle } from '../../styles/basic/ksBasic';
+function HeaderLeft() {
+  const { user } = useContext(LoginContext);
+  const navigation = useContext(NavigationContext);
 
-const IconComponent = MaterialIcons;
-
-function HeaderLeft({ navigation }) {
   return (
-    <Button
-      onPress={() => navigation.openDrawer()}
-      icon={<IconComponent name="menu" size={ksStyle.icon.size} />}
-      type="clear"
+    <Avatar
+      source={user.avatar}
+      rounded
+      size={50}
+      onPress={() => navigation.navigate('Profile')}
     />
   );
 }
 
 export default HeaderLeft;
-
-HeaderLeft.propTypes = {
-  navigation: PropTypes.shape({
-    openDrawer: PropTypes.func.isRequired,
-  }).isRequired,
-};
