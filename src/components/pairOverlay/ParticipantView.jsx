@@ -19,7 +19,10 @@ function ParticipantView({ user }) {
     <View style={styles.container}>
       <ParticipantNameView user={user} />
       <ParticipantAvatarView avatar={user.avatar} messenger={user.messenger} />
-      <ParticipantPhoneNoView phone={user.phone} />
+      <ParticipantPhoneNoView
+        phone={user.phone}
+        isPhoneEnabled={user.is_phone_enabled}
+      />
     </View>
   );
 }
@@ -31,6 +34,7 @@ ParticipantView.propTypes = {
     first_name: PropTypes.string.isRequired,
     last_name: PropTypes.string.isRequired,
     phone: PropTypes.string.isRequired,
+    is_phone_enabled: PropTypes.bool.isRequired,
     messenger: PropTypes.string,
     avatar: PropTypes.string,
   }).isRequired,

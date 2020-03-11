@@ -88,8 +88,9 @@ export async function updateProfileOnServer({
   fbProfileLink,
   msgLink,
   phoneNumber,
+  isPhoneEnabled,
 }) {
-  if (!avatar && !msgLink && !phoneNumber) {
+  if (!avatar && !msgLink && !phoneNumber && isPhoneEnabled === undefined) {
     return { status: 200, message: 'OK' };
   }
   const data = new FormData();
@@ -106,6 +107,9 @@ export async function updateProfileOnServer({
   }
   if (phoneNumber) {
     data.append('phone', phoneNumber);
+  }
+  if (isPhoneEnabled !== undefined) {
+    data.append('is_phone_enabled', isPhoneEnabled);
   }
   let response;
   try {

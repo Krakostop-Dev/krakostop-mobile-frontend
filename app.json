@@ -23,7 +23,7 @@
       "assets/*"
     ],
     "android": {
-      "package": "eu.krakostop.app.android",
+      "package": "eu.krakostop.krakostopapp",
       "config": {
         "googleMaps": {
           "apiKey": "Should be updated before build"

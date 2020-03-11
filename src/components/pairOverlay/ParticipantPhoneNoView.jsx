@@ -1,6 +1,10 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, StyleSheet, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
+import {
+  redirectToPhoneApp,
+  formatPhoneNumber,
+} from '../../modules/PhoneManager';
 
 const styles = StyleSheet.create({
   container: { flexDirection: 'row', padding: 5 },
@@ -14,21 +18,19 @@ const styles = StyleSheet.create({
   },
 });
 
-function ParticipantPhoneNoView({ phone }) {
-  const formattedPhone = [
-    phone.slice(0, 3),
-    ' ',
-    phone.slice(3, 6),
-    ' ',
-    phone.slice(6),
-  ].join('');
+function ParticipantPhoneNoView({ phone, isPhoneEnabled }) {
+  const formattedPhone = formatPhoneNumber(phone);
+
+  async function onPress() {
+    if (isPhoneEnabled) redirectToPhoneApp(phone);
+  }
 
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <Text style={styles.text} numberOfLines={4}>
-        tel. {formattedPhone}
+        tel. {isPhoneEnabled ? formattedPhone : ''}
       </Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 
@@ -36,4 +38,5 @@ export default ParticipantPhoneNoView;
 
 ParticipantPhoneNoView.propTypes = {
   phone: PropTypes.string.isRequired,
+  isPhoneEnabled: PropTypes.bool.isRequired,
 };
