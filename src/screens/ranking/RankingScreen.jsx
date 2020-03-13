@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import MainHeader from '../../components/header/MainHeader';
 import HeaderView from '../../components/ranking/HeaderView';
 import RankingContentView from '../../components/ranking/RankingContentView';
-
-const BACKGROUND = require('../../../assets/ranking-background.png');
+import Images from '../../../assets/Images';
 
 const styles = StyleSheet.create({
   background: { width: '100%', height: '100%' },
@@ -22,7 +21,10 @@ function RankingScreen({ navigation }) {
     <View>
       <MainHeader navigation={navigation} />
 
-      <ImageBackground source={BACKGROUND} style={styles.background}>
+      <ImageBackground
+        source={Images.backgrounds.ranking}
+        style={styles.background}
+      >
         <ScrollView>
           <View style={styles.container}>
             <HeaderView />

@@ -3,8 +3,7 @@ import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import { Linking } from 'expo';
 import ButtonWithIcon from '../../../../../buttons/ButtonWithIcon';
-
-const BUTTON_ICON = require('../../../../../../../assets/icons/messenger.png');
+import Images from '../../../../../../../assets/Images';
 
 const BUTTON_LABEL = 'Sprawdź poprawność linku';
 const styles = StyleSheet.create({
@@ -20,7 +19,7 @@ function CheckMessengerButton({ msgLink, setButtonBeenPressed }) {
   return (
     <ButtonWithIcon
       style={styles.button}
-      icon={BUTTON_ICON}
+      icon={Images.icons.messenger_white}
       label={BUTTON_LABEL}
       onPress={onPress}
     />

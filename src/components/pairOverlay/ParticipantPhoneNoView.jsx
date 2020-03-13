@@ -6,6 +6,7 @@ import {
   formatPhoneNumber,
 } from '../../modules/PhoneManager';
 import { ksStyle } from '../../styles/basic/ksBasic';
+import Images from '../../../assets/Images';
 
 const styles = StyleSheet.create({
   container: {
@@ -34,8 +35,6 @@ const styles = StyleSheet.create({
   },
 });
 
-const PHONE_ICON = require('../../../assets/icons/phone.png');
-
 function ParticipantPhoneNoView({ phone }) {
   const formattedPhone = formatPhoneNumber(phone);
 
@@ -45,7 +44,7 @@ function ParticipantPhoneNoView({ phone }) {
 
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      <Image style={styles.icon} source={PHONE_ICON} />
+      <Image style={styles.icon} source={Images.icons.phone} />
       <View style={styles.number}>
         <Text style={styles.text} numberOfLines={1}>
           {formattedPhone}

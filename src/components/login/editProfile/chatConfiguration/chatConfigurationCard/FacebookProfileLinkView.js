@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 import { ksStyle } from '../../../../../styles/basic/ksBasic';
+import Images from '../../../../../../assets/Images';
 
 const styles = StyleSheet.create({
   container: {
@@ -27,7 +28,6 @@ const styles = StyleSheet.create({
     height: 25,
   },
 });
-const EDIT_ICON = require('../../../../../../assets/icons/edit.png');
 
 function FacebookProfileLinkView({
   style,
@@ -62,7 +62,7 @@ function FacebookProfileLinkView({
             multiline={false}
           />
         </View>
-        <Image style={styles.button} source={EDIT_ICON} />
+        <Image style={styles.button} source={Images.icons.edit} />
       </View>
     </View>
   );

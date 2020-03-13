@@ -1,8 +1,9 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import ConversationView from './ConversationView';
+import Images from '../../../assets/Images';
 
-const AVATAR = require('../../../assets/hand.png');
+const AVATAR = Images.others.avatar_mock;
 
 const mockConversations = [
   {

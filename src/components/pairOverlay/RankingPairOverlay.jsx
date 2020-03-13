@@ -5,8 +5,7 @@ import ParticipantView from './ParticipantView';
 import PairOverlayHeaderView from './PairOverlayHeaderView';
 import KSOverlay from '../ksOverlay/KSOverlay';
 import ButtonWithIcon from '../buttons/ButtonWithIcon';
-
-const BUTTON_ICON = require('../../../assets/map.png');
+import Images from '../../../assets/Images';
 
 const styles = StyleSheet.create({
   container: { flexDirection: 'column' },
@@ -47,7 +46,7 @@ function RankingPairOverlay({ participant, index, isVisible, setIsVisible }) {
         <View style={styles.buttonView}>
           <ButtonWithIcon
             style={styles.button}
-            icon={BUTTON_ICON}
+            icon={Images.icons.map}
             label="Zlokalizuj na mapie"
             onPress={() => console.log('Simple Button pressed')}
           />
