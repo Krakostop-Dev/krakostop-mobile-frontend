@@ -12,6 +12,7 @@ const MapContainer = () => {
   const [isLocationDataUpdated, setUpdateLocationStatus] = useState(false);
 
   useEffect(() => {
+    let mounted = true;
     let locationPromise;
     const updateLocation = async () => {
       await mapContext.updateParticipantsLocation();
@@ -21,8 +22,11 @@ const MapContainer = () => {
       await refreshCurrentPosition(false);
       setUpdateLocationStatus(true);
     };
-    updateLocation();
+    if (mounted) {
+      updateLocation();
+    }
     return () => {
+      mounted = false;
       locationPromise.then(remove => remove());
     };
   }, []);

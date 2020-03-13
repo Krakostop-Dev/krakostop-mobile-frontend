@@ -11,6 +11,7 @@ const mockConversations = [
     name: 'Jan Kowalski',
     time: '19:43',
     date: '24.04',
+    messenger: 'https://m.me/zuck',
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ const mockConversations = [
     name: 'Jan Kowalski',
     time: '19:43',
     date: '24.04',
+    messenger: 'https://m.me/zuck',
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ const mockConversations = [
     name: 'Jan Kowalski',
     time: '19:43',
     date: '24.04',
+    messenger: 'https://m.me/zuck',
   },
   {
     id: 4,
@@ -32,6 +35,7 @@ const mockConversations = [
     name: 'Jan Kowalski',
     time: '19:43',
     date: '24.04',
+    messenger: 'https://m.me/zuck',
   },
 ];
 

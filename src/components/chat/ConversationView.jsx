@@ -1,9 +1,10 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import ConversationAvatarView from './ConversationAvatarView';
 import ConversationNameView from './ConversationNameView';
 import ConversationTimeDateView from './ConversationTimeDateView';
+import { redirectToMessenger } from '../../modules/MessengerManager';
 
 const styles = StyleSheet.create({
   touchable: {
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
 function ConversationView({ conversation }) {
   return (
     <TouchableOpacity
-      onPress={() => console.log('messenger clicked')}
+      onPress={() => redirectToMessenger(conversation.messenger)}
       style={styles.touchable}
     >
       <ConversationAvatarView avatar={conversation.avatar} />
@@ -41,5 +42,6 @@ ConversationView.propTypes = {
     name: PropTypes.string.isRequired,
     time: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
+    messenger: PropTypes.string.isRequired,
   }).isRequired,
 };

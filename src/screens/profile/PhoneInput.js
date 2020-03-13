@@ -9,7 +9,7 @@ import {
 import { ksStyle } from '../../styles/basic/ksBasic';
 import { LoginContext } from '../../modules/context/LoginContext';
 import SmallInfoText from '../../components/SmallInfoText';
-import ErrorMessages from '../../modules/ErrorMessages';
+import Messages from '../../modules/Messages';
 import { updateProfileOnServer } from '../../modules/communication/CommunicationMenager';
 
 const styles = StyleSheet.create({
@@ -60,7 +60,7 @@ function PhoneInput({ style }) {
     } else {
       setError({
         isError: true,
-        message: ErrorMessages.TO_SHORT_PHONE_NUMBER,
+        message: Messages.TO_SHORT_PHONE_NUMBER,
       });
     }
   }

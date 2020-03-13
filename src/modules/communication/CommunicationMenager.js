@@ -2,7 +2,7 @@ import axios from 'axios';
 import FormData from 'form-data';
 import config from '../../../config/config';
 import KsAxios from './KsAxios';
-import ErrorMessages from '../ErrorMessages';
+import Messages from '../Messages';
 
 const apiPath = '/api/v1';
 
@@ -33,19 +33,19 @@ export async function sendEmailWithPairNr(email, pairNr) {
     }
     return {
       status: 500,
-      message: ErrorMessages.CONNECTION_PROBLEM,
+      message: Messages.CONNECTION_PROBLEM,
     };
   } catch (e) {
     const status = e.response ? e.response.status : 500;
     if (status === 401) {
       return {
         status,
-        message: ErrorMessages.WRONG_CREDENTIALS,
+        message: Messages.WRONG_CREDENTIALS,
       };
     }
     return {
       status,
-      message: ErrorMessages.CONNECTION_PROBLEM,
+      message: Messages.CONNECTION_PROBLEM,
     };
   }
 }
@@ -66,24 +66,29 @@ export async function sendEmailWithAuthCode(email, verificationCode) {
     }
     return {
       status: 500,
-      message: ErrorMessages.CONNECTION_PROBLEM,
+      message: Messages.CONNECTION_PROBLEM,
     };
   } catch (e) {
     const status = e.response ? e.response.status : 500;
     if (status === 401) {
       return {
         status,
-        message: ErrorMessages.WRONG_CODE,
+        message: Messages.WRONG_CODE,
       };
     }
     return {
       status,
-      message: ErrorMessages.CONNECTION_PROBLEM,
+      message: Messages.CONNECTION_PROBLEM,
     };
   }
 }
 
-export async function updateProfileOnServer({ avatar, msgLink, phoneNumber }) {
+export async function updateProfileOnServer({
+  avatar,
+  fbProfileLink,
+  msgLink,
+  phoneNumber,
+}) {
   if (!avatar && !msgLink && !phoneNumber) {
     return { status: 200, message: 'OK' };
   }
@@ -95,7 +100,8 @@ export async function updateProfileOnServer({ avatar, msgLink, phoneNumber }) {
       name: 'avatar.jpg',
     });
   }
-  if (msgLink) {
+  if (msgLink && fbProfileLink) {
+    data.append('facebook', fbProfileLink);
     data.append('messenger', msgLink);
   }
   if (phoneNumber) {
@@ -119,19 +125,19 @@ export async function updateProfileOnServer({ avatar, msgLink, phoneNumber }) {
     }
     return {
       status: 500,
-      message: ErrorMessages.CONNECTION_PROBLEM,
+      message: Messages.CONNECTION_PROBLEM,
     };
   } catch (e) {
     const status = e.response ? e.response.status : 500;
     if (status === 401) {
       return {
         status,
-        message: ErrorMessages.NO_USER,
+        message: Messages.NO_USER,
       };
     }
     return {
       status,
-      message: ErrorMessages.CONNECTION_PROBLEM,
+      message: Messages.CONNECTION_PROBLEM,
     };
   }
 }

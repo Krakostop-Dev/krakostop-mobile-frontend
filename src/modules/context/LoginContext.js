@@ -6,6 +6,7 @@ import {
   removeDataFromStorage,
   saveDataInStorage,
 } from '../Storage';
+import { convertRelativePathToAbsoluteUri } from '../ImageLoader';
 
 export const LoginContext = createContext({
   user: {
@@ -16,9 +17,10 @@ export const LoginContext = createContext({
     verified_login: false,
     avatar: null,
     pairID: null,
-    facebook_link: null,
+    messenger: null,
     phone: null,
     is_phone_visible: null,
+    facebook: null,
   },
   token: null,
   isLoggedIn: false,
@@ -33,7 +35,9 @@ const initialState = {
     email: '',
     verified_login: false,
     avatar: null,
+    facebook: 'https://www.facebook.com/zuck',
     is_phone_visible: true,
+    messenger: null,
   },
 };
 
@@ -51,8 +55,12 @@ async function logOut(dispatch) {
   dispatch({ type: 'logOut' });
 }
 async function updateUser(dispatch, user) {
-  await saveDataInStorage('USER', JSON.stringify(user));
-  dispatch({ type: 'updateUser', payload: { user } });
+  const newUser = user;
+  if (!user.avatar.uri) {
+    newUser.avatar = convertRelativePathToAbsoluteUri(user.avatar);
+  }
+  await saveDataInStorage('USER', JSON.stringify(newUser));
+  dispatch({ type: 'updateUser', payload: { newUser } });
 }
 
 async function refreshLogin(dispatch) {

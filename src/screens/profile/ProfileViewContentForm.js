@@ -2,7 +2,6 @@ import { StyleSheet, Text, TextInput, View } from 'react-native';
 import React, { useContext, useState } from 'react';
 import { LoginContext } from '../../modules/context/LoginContext';
 import { ksStyle } from '../../styles/basic/ksBasic';
-import MessengerButton from '../../components/login/editProfile/chatAgreement/chatAgreementCard/MessengerButton';
 import SmallInfoText from '../../components/SmallInfoText';
 import PhoneInput from './PhoneInput';
 import PhoneAgreementView from '../../components/login/editProfile/PhoneAgreementView';
@@ -37,6 +36,7 @@ const PHONE_AGREEMENT_LABEL = 'Wyświetl numer pozostałym uczestnikom wyścigu.
 
 export default () => {
   const { user } = useContext(LoginContext);
+  // eslint-disable-next-line no-unused-vars
   const [hasErrorOccurred, setError] = useState({
     isError: false,
     message: '',
@@ -54,7 +54,6 @@ export default () => {
       <Text style={styles.input_label}>{PHONE_LABEL}</Text>
       <PhoneInput />
       <PhoneAgreementView label={PHONE_AGREEMENT_LABEL} />
-      <MessengerButton setError={setError} />
       {hasErrorOccurred.isError ? (
         <SmallInfoText text={hasErrorOccurred.message} color="red" />
       ) : null}
