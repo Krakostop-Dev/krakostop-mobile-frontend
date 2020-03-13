@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'stretch',
-    justifyContent: 'center',
+    paddingBottom: 10,
   },
 });
 
@@ -19,10 +19,12 @@ function ParticipantView({ user }) {
     <View style={styles.container}>
       <ParticipantNameView user={user} />
       <ParticipantAvatarView avatar={user.avatar} messenger={user.messenger} />
-      <ParticipantPhoneNoView
-        phone={user.phone}
-        isPhoneEnabled={user.is_phone_enabled}
-      />
+      {user.is_phone_enabled && (
+        <ParticipantPhoneNoView
+          phone={user.phone}
+          isPhoneEnabled={user.is_phone_enabled}
+        />
+      )}
     </View>
   );
 }

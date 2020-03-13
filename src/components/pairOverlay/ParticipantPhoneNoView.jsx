@@ -1,35 +1,56 @@
 import React from 'react';
-import { Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, StyleSheet, TouchableOpacity, Image, View } from 'react-native';
 import PropTypes from 'prop-types';
 import {
   redirectToPhoneApp,
   formatPhoneNumber,
 } from '../../modules/PhoneManager';
+import { ksStyle } from '../../styles/basic/ksBasic';
 
 const styles = StyleSheet.create({
-  container: { flexDirection: 'row', padding: 5 },
+  container: {
+    marginTop: 10,
+    flexDirection: 'row',
+    borderRadius: 30,
+    backgroundColor: ksStyle.colors.secondaryColorMedium,
+  },
   text: {
     textAlign: 'center',
     flex: 1,
     flexWrap: 'wrap',
     fontFamily: 'sans-serif',
-    fontSize: 15,
+    fontSize: 16,
     flexShrink: 1,
+    color: 'white',
+  },
+  icon: {
+    width: 35,
+    height: 35,
+  },
+  number: {
+    paddingVertical: 5,
+    paddingLeft: 1,
+    paddingRight: 10,
   },
 });
 
-function ParticipantPhoneNoView({ phone, isPhoneEnabled }) {
+const PHONE_ICON = require('../../../assets/icons/phone.png');
+
+function ParticipantPhoneNoView({ phone }) {
   const formattedPhone = formatPhoneNumber(phone);
 
   async function onPress() {
-    if (isPhoneEnabled) redirectToPhoneApp(phone);
+    await redirectToPhoneApp(phone);
   }
 
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      <Text style={styles.text} numberOfLines={4}>
-        tel. {isPhoneEnabled ? formattedPhone : ''}
-      </Text>
+      <Image style={styles.icon} source={PHONE_ICON} />
+      <View style={styles.number}>
+        <Text style={styles.text} numberOfLines={1}>
+          {formattedPhone}
+        </Text>
+      </View>
     </TouchableOpacity>
   );
 }
@@ -38,5 +59,4 @@ export default ParticipantPhoneNoView;
 
 ParticipantPhoneNoView.propTypes = {
   phone: PropTypes.string.isRequired,
-  isPhoneEnabled: PropTypes.bool.isRequired,
 };
