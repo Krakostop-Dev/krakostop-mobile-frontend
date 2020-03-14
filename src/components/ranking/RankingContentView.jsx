@@ -13,7 +13,7 @@ function RankingContentView() {
       {lastParticipants.map((participant, index) => (
         <RankingItemView
           participant={participant}
-          index={index}
+          index={index + 3}
           key={participant.id}
         />
       ))}
