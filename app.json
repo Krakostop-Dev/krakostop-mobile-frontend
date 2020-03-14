@@ -32,12 +32,16 @@
     },
     "ios": {
       "supportsTablet": true,
-      "buildNumber": "1",
+      "config": {
+        "googleMapsApiKey": "Maps KEy"
+      },
+      "buildNumber": "0.0.2",
       "bundleIdentifier": "eu.krakostop.app.ios",
       "infoPlist": {
-        "NSLocationWhenInUseUsageDescription": "This app uses yours location to share share it with other users",
-        "NSLocationAlwaysAndWhenInUseUsageDescription": "This app uses yours location to share share it with other users",
-        "NSLocationAlwaysUsageDescription": "This app uses yours location to share share it with other users",
+        "NSLocationWhenInUseUsageDescription": "This app uses yours location to share it with other users of the app even when app is closed.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "This app uses yours location to share it with other users of the app even when app is closed.",
+        "NSLocationAlwaysUsageDescription": "This app uses yours location to share it with other users of the app even when app is closed.",
+        "NSPhotoLibraryUsageDescription": "This app uses photo you choose as a profile picture for your account",
         "UIBackgroundModes": [
           "fetch",
           "location"

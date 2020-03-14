@@ -118,7 +118,7 @@ export async function updateProfileOnServer({
         'Content-Type': 'application/x-www-form-urlencoded',
       },
       processData: false,
-      mimeType: 'multipart/form-calendarData',
+      mimeType: 'multipart/form-data',
       contentType: false,
     });
     if (response.status === 200) {
