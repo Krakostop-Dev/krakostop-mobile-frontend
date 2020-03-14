@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { StyleSheet, Text, View } from 'react-native';
 import { Avatar } from 'react-native-elements';
 import React, { useContext, useState } from 'react';
@@ -20,7 +19,6 @@ const styles = StyleSheet.create({
   },
 });
 const PAIR_LABEL = 'Para #';
-
 export default () => {
   const { user } = useContext(LoginContext);
   const [hasErrorOccurred, setError] = useState({

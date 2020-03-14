@@ -48,8 +48,8 @@ const AppBottomTabNavigator = createBottomTabNavigator(
     }),
     tabBarOptions: {
       activeTintColor: 'white',
-      inactiveTintColor: 'gray',
-      inactiveBackgroundColor: ksStyle.colors.primaryColorMedium,
+      inactiveTintColor: 'rgba(255, 255, 255, 0.5)',
+      inactiveBackgroundColor: ksStyle.colors.primaryColorDark,
       activeBackgroundColor: ksStyle.colors.primaryColorDark,
     },
   }

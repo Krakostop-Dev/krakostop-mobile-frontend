@@ -8,7 +8,13 @@ const IconComponent = MaterialIcons;
 export default () => {
   return (
     <Button
-      icon={<IconComponent name="search" size={ksStyle.icon.size} />}
+      icon={
+        <IconComponent
+          name="search"
+          size={ksStyle.icon.size}
+          color="rgba(255, 255, 255, 0.5)"
+        />
+      }
       type="clear"
     />
   );

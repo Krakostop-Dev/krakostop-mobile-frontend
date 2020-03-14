@@ -1,13 +1,13 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import SplashScreen from '../../screens/splash/SplashScreen';
 import AuthStack from './AuthStack';
-import AppDrawerNavigator from './drawerNavigator/AppDrawerNavigator';
+import AppStack from './AppStackNavigator';
 
 export default createAppContainer(
   createSwitchNavigator(
     {
       AuthLoading: SplashScreen,
-      App: AppDrawerNavigator,
+      App: AppStack,
       Auth: AuthStack,
     },
     {
