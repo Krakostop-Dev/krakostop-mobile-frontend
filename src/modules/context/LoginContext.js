@@ -60,7 +60,7 @@ async function updateUser(dispatch, user) {
     newUser.avatar = convertRelativePathToAbsoluteUri(user.avatar);
   }
   await saveDataInStorage('USER', JSON.stringify(newUser));
-  dispatch({ type: 'updateUser', payload: { newUser } });
+  dispatch({ type: 'updateUser', payload: { user: newUser } });
 }
 
 async function refreshLogin(dispatch) {
