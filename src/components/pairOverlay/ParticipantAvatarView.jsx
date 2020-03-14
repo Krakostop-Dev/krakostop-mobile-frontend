@@ -30,7 +30,9 @@ function ParticipantAvatarView({ avatar, messenger }) {
   const [loadedAvatar, setLoadedAvatar] = useState(PARTICIPANT_AVATAR);
 
   useEffect(() => {
-    setLoadedAvatar(convertRelativePathToAbsoluteUri(avatar));
+    if (avatar) {
+      setLoadedAvatar(convertRelativePathToAbsoluteUri(avatar));
+    }
   }, []);
 
   return (
