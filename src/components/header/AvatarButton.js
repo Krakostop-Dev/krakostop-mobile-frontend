@@ -3,7 +3,7 @@ import { Avatar } from 'react-native-elements';
 import { LoginContext } from '../../modules/context/LoginContext';
 import ProfileOverlay from './profile/ProfileOverlay';
 
-function HeaderLeft() {
+function AvatarButton() {
   const { user } = useContext(LoginContext);
 
   const [isProfileOverlayVisible, setIsProfileOverlayVisible] = useState(false);
@@ -24,4 +24,4 @@ function HeaderLeft() {
   );
 }
 
-export default HeaderLeft;
+export default AvatarButton;
