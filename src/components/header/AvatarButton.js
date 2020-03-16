@@ -3,7 +3,7 @@ import { Avatar } from 'react-native-elements';
 import { NavigationContext } from 'react-navigation';
 import { LoginContext } from '../../modules/context/LoginContext';
 
-function HeaderLeft() {
+function AvatarButton() {
   const { user } = useContext(LoginContext);
   const navigation = useContext(NavigationContext);
 
@@ -17,4 +17,4 @@ function HeaderLeft() {
   );
 }
 
-export default HeaderLeft;
+export default AvatarButton;

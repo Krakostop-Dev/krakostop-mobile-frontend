@@ -3,10 +3,12 @@ import { StyleSheet } from 'react-native';
 export const ksStyle = {
   colors: {
     primaryColorLight: '#FFF3E0',
-    primaryColorMedium: '#FED290',
+    primaryColorMedium: '#FFC062',
     primaryColorDark: '#FFA726',
     secondaryColorMedium: '#6EA2FE',
     backgroundColor: 'rgba(52, 52, 52, 0.8)',
+    inactiveIconColor: 'rgba(255, 255, 255, 0.5)',
+    activeIconColor: 'white',
   },
   icon: {
     size: 30,
