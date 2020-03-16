@@ -11,6 +11,7 @@ const MESSENGER_ICON = require('../../../assets/messenger.png');
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
+    alignItems: 'center',
     width: 120,
     height: 120,
   },

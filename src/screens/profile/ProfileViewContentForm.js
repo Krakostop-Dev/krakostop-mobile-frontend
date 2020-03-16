@@ -53,7 +53,7 @@ export default () => {
       />
       <Text style={styles.input_label}>{PHONE_LABEL}</Text>
       <PhoneInput />
-      <PhoneAgreementView label={PHONE_AGREEMENT_LABEL} />
+      <PhoneAgreementView label={PHONE_AGREEMENT_LABEL} setError={setError} />
       {hasErrorOccurred.isError ? (
         <SmallInfoText text={hasErrorOccurred.message} color="red" />
       ) : null}
