@@ -6,7 +6,7 @@ import RankingTopPlaceContentView from './RankingTopPlaceContentView';
 import RankingPairOverlay from '../../pairOverlay/RankingPairOverlay';
 
 const styles = StyleSheet.create({
-  touchable: { width: '33%' },
+  touchable: { width: '32%' },
   container: {
     width: '100%',
     alignItems: 'center',

@@ -8,7 +8,13 @@ const SECOND_PLACE = require('../../../assets/2nd-place.png');
 const THIRD_PLACE = require('../../../assets/3th-place.png');
 
 const styles = StyleSheet.create({
-  container: { flexDirection: 'row', height: 250, width: '90%', paddingTop: 8 },
+  container: {
+    flexDirection: 'row',
+    width: '90%',
+    height: 275,
+    paddingTop: 8,
+    justifyContent: 'space-between',
+  },
 });
 
 function RankingTop3View() {
