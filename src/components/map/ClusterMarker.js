@@ -5,6 +5,7 @@ import { Marker } from 'react-native-maps';
 import returnClusterStyle from '../../modules/map/ClusterHelper';
 import Images from '../../../assets/Images';
 
+
 const ClusteredMarker = ({ id, geometry, properties, onPress }) => {
   const points = properties.point_count;
   const { width, height, top, fontSize } = returnClusterStyle(points);
