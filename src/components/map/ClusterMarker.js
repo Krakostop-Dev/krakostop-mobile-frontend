@@ -3,7 +3,8 @@ import { ImageBackground, Text, View } from 'react-native';
 import PropTypes from 'prop-types';
 import { Marker } from 'react-native-maps';
 import returnClusterStyle from '../../modules/map/ClusterHelper';
-import Images from '../../../assets/Images';
+
+const CLUSTER_IMAGE = require('../../../assets/cluster.png');
 
 const ClusteredMarker = ({ id, geometry, properties, onPress }) => {
   const points = properties.point_count;
@@ -18,7 +19,7 @@ const ClusteredMarker = ({ id, geometry, properties, onPress }) => {
       }}
       onPress={onPress}
     >
-      <ImageBackground source={Images.others.cluster} style={{ width, height }}>
+      <ImageBackground source={CLUSTER_IMAGE} style={{ width, height }}>
         <View
           style={{
             position: 'absolute',

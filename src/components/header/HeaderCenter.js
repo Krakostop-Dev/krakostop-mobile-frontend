@@ -1,14 +1,9 @@
 import React from 'react';
-import { Button, Image } from 'react-native-elements';
+import { Image } from 'react-native';
 import { ksStyle } from '../../styles/basic/ksBasic';
 
 export default () => {
   return (
-    <Button
-      type="clear"
-      icon={
-        <Image source={ksStyle.logo.source} style={ksStyle.logo.style_small} />
-      }
-    />
+    <Image source={ksStyle.logo.source} style={ksStyle.logo.style_small} />
   );
 };

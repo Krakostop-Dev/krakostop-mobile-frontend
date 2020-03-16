@@ -8,7 +8,7 @@ import { convertRelativePathToAbsoluteUri } from '../../modules/ImageLoader';
 
 const PARTICIPANT_AVATAR = require('../../../assets/hand.png');
 
-function ParticipantMarker({ participant, index }) {
+function ParticipantMarker({ participant, index, coordinate }) {
   const [isPairOverlayVisible, setIsPairOverlayVisible] = useState(false);
   const [avatar, setAvatar] = useState(PARTICIPANT_AVATAR);
 
@@ -23,10 +23,7 @@ function ParticipantMarker({ participant, index }) {
 
   return (
     <Marker
-      coordinate={{
-        latitude: Number(participant.lat),
-        longitude: Number(participant.lng),
-      }}
+      coordinate={coordinate}
       onPress={() => setIsPairOverlayVisible(true)}
     >
       <Avatar size="medium" rounded source={avatar} activeOpacity={0.7} />
@@ -60,4 +57,8 @@ ParticipantMarker.propTypes = {
     }).isRequired,
   }).isRequired,
   index: PropTypes.number.isRequired,
+  coordinate: PropTypes.shape({
+    latitude: PropTypes.number.isRequired,
+    longitude: PropTypes.number.isRequired,
+  }).isRequired,
 };

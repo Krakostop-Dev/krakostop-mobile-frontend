@@ -1,49 +1,23 @@
 import { createStackNavigator } from 'react-navigation-stack';
-import AppBottomTabNavigator from './AppBottomTabNavigator';
-import ProfileView from '../../screens/profile/ProfileView';
-import WhatToTakeView from '../../screens/drawerNavigator/WhatToTakeView';
-import PartnersView from '../../screens/drawerNavigator/PartnersView';
-import StartPackageView from '../../screens/drawerNavigator/StartPackageView';
-import ContactView from '../../screens/drawerNavigator/ContactView';
-import AboutAppView from '../../screens/drawerNavigator/AboutAppView';
-import LogoutView from '../../screens/drawerNavigator/LogoutView';
 import { ksStyle } from '../../styles/basic/ksBasic';
+import ProfileView from '../../screens/profile/ProfileView';
+import AppBottomTabNavigator from './AppBottomTabNavigator';
 
-const AppStackNavigator = createStackNavigator(
+const AppStack = createStackNavigator(
   {
-    AppBottomTabNavigator,
-    Profile: {
-      screen: ProfileView,
-      navigationOptions: {
-        drawerLabel: () => null,
-      },
-    },
-    WhatToTake: {
-      screen: WhatToTakeView,
-    },
-    Partners: {
-      screen: PartnersView,
-    },
-    Package: {
-      screen: StartPackageView,
-    },
-    Contact: {
-      screen: ContactView,
-    },
-    AboutApp: {
-      screen: AboutAppView,
-    },
-    Logout: {
-      screen: LogoutView,
-    },
+    Profile: ProfileView,
+    TabNavigator: AppBottomTabNavigator,
   },
   {
-    initialRouteName: 'AppBottomTabNavigator',
+    initialRouteName: 'TabNavigator',
     headerMode: 'none',
     mode: 'modal',
     transparentCard: true,
-    cardStyle: { backgroundColor: ksStyle.colors.backgroundColor, opacity: 1 },
+    cardStyle: {
+      backgroundColor: ksStyle.colors.backgroundColor,
+      opacity: 1,
+    },
   }
 );
 
-export default AppStackNavigator;
+export default AppStack;

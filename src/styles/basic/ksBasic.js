@@ -6,18 +6,18 @@ export const ksStyle = {
   colors: {
     primaryColorLight: '#FFF3E0',
     primaryColorMedium: '#FED290',
-    primaryColorDark: '#FFCC80',
+    primaryColorDark: '#FFA726',
     secondaryColorMedium: '#6EA2FE',
     backgroundColor: 'rgba(52, 52, 52, 0.8)',
   },
   icon: {
-    size: 25,
+    size: 30,
   },
   logo: {
     source: LOGO,
     style_small: {
-      width: 70,
-      height: 30,
+      width: 110,
+      height: 50,
     },
     style_medium: {
       width: 200,

@@ -1276,6 +1276,18 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
+"@mapbox/geo-viewport@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@mapbox/geo-viewport/-/geo-viewport-0.4.0.tgz#0a8dc5812d3be12c778d6545b2f3f4dec9c633da"
+  integrity sha512-5OAXoP8C96Co3UDIzFliSzrK5njb9oG2H/RTMaZUW1swxIZlj3n3A5ccep5XAEIhTWxBLg/Cz48D3rUbAdXwHQ==
+  dependencies:
+    "@mapbox/sphericalmercator" "~1.1.0"
+
+"@mapbox/sphericalmercator@~1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@mapbox/sphericalmercator/-/sphericalmercator-1.1.0.tgz#f3b1af042620716a1289fc41e1e97f610823aefe"
+  integrity sha512-pEsfZyG4OMThlfFQbCte4gegvHUjxXCjz0KZ4Xk8NdOYTQBLflj6U8PL05RPAiuRAMAQNUUKJuL6qYZ5Y4kAWA==
+
 "@react-native-community/cli-debugger-ui@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli-debugger-ui/-/cli-debugger-ui-3.0.0.tgz#d01d08d1e5ddc1633d82c7d84d48fff07bd39416"
@@ -3651,6 +3663,11 @@ expo-error-recovery@~1.0.0:
   resolved "https://registry.yarnpkg.com/expo-error-recovery/-/expo-error-recovery-1.0.0.tgz#2ca9d59fcd16c5c881af877993731056f2d46afe"
   integrity sha512-xnxciNEpGmwxx8BAE2A9fd9HxtzWtz8p9mikKU+EfWgOXaYD3FJwgbFoVLD2pm4QUarxwOcic76rcwg+0cNnGg==
 
+expo-facebook@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/expo-facebook/-/expo-facebook-8.0.0.tgz#d337a56459a3833488a879b925349b30c06a0afd"
+  integrity sha512-fF+lwFLWkB/mrr/xu4aIZ3HhpsITUTC1Dut4fD7ZzBPpQ3x2s1KpdNOOrb6FQFlE0thFlLAASRe0HDhFD7EN4w==
+
 expo-file-system@~8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/expo-file-system/-/expo-file-system-8.0.0.tgz#60b90c8a375308dc85922592a77531a8e0cde6f7"
@@ -5375,6 +5392,11 @@ jsx-ast-utils@^2.2.1, jsx-ast-utils@^2.2.3:
   dependencies:
     array-includes "^3.0.3"
     object.assign "^4.1.0"
+
+kdbush@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/kdbush/-/kdbush-3.0.0.tgz#f8484794d47004cc2d85ed3a79353dbe0abc2bf0"
+  integrity sha512-hRkd6/XW4HTsA9vjVpY9tuXJYLSlelnkTmVFu4M9/7MIYQtFcHpbugAU7UbOfjOiVSVYl2fqgBuJ32JUmRo5Ew==
 
 keyv@3.0.0:
   version "3.0.0"
@@ -7274,6 +7296,11 @@ react-native-elements@^1.2.7:
     react-native-ratings "^6.3.0"
     react-native-status-bar-height "^2.2.0"
 
+react-native-fbsdk@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/react-native-fbsdk/-/react-native-fbsdk-1.1.2.tgz#4264903add869d05b84ef55ade9ff720c2957781"
+  integrity sha512-Sp+oja868QVsB5vpEFbwZkEcCJOSBuZgh7UGJzUhaoTCs/zwSUHA6b4QichM7GiTxtQyKfT/F31DtvLj2N/qAQ==
+
 react-native-fs@^2.16.6:
   version "2.16.6"
   resolved "https://registry.yarnpkg.com/react-native-fs/-/react-native-fs-2.16.6.tgz#2901789a43210a35a0ef0a098019bbef3af395fd"
@@ -7305,6 +7332,14 @@ react-native-keyboard-aware-scroll-view@0.9.1:
   dependencies:
     prop-types "^15.6.2"
     react-native-iphone-x-helper "^1.0.3"
+
+react-native-map-clustering@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/react-native-map-clustering/-/react-native-map-clustering-3.1.2.tgz#87683fa57c64ee4c0f92defb165733439510478e"
+  integrity sha512-jC647iVfSKQZBjPz84ftjFw9L6yKTbftyp/9g8B06i77JaBluYk0j+3FG/a5bJndS3iq4x3C1Crbebk1OIADpA==
+  dependencies:
+    "@mapbox/geo-viewport" "^0.4.0"
+    supercluster "^6.0.2"
 
 react-native-maps@0.26.1:
   version "0.26.1"
@@ -8575,6 +8610,13 @@ superagent@^3.5.0:
     mime "^1.4.1"
     qs "^6.5.1"
     readable-stream "^2.3.5"
+
+supercluster@^6.0.2:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/supercluster/-/supercluster-6.0.2.tgz#aa2eaae185ef97872f388c683ec29f6991721ee3"
+  integrity sha512-aa0v2HURjBTOpbcknilcfxGDuArM8khklKSmZ/T8ZXL0BuRwb5aRw95lz+2bmWpFvCXDX/+FzqHxmg0TIaJErw==
+  dependencies:
+    kdbush "^3.0.0"
 
 supports-color@^2.0.0:
   version "2.0.0"
