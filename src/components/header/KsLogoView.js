@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image } from 'react-native';
-import { ksStyle } from '../../../styles/basic/ksBasic';
-import Images from '../../../../assets/Images';
+import { ksStyle } from '../../styles/basic/ksBasic';
+import Images from '../../../assets/Images';
 
 export default () => {
   return (
