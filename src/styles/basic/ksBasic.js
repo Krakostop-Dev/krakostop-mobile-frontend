@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 export const ksStyle = {
   colors: {
     primaryColorLight: '#FFF3E0',
+    primaryColorMediumLight: '#FFE0B2',
     primaryColorMedium: '#FFC062',
     primaryColorDark: '#FFA726',
     secondaryColorMedium: '#6EA2FE',

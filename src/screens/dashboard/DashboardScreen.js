@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { ksBasic } from '../../styles/basic/ksBasic';
 import MapContainer from '../../components/map/MapContainer';
 import MainHeader from '../../components/header/MainHeader';
+import CustomizedSearchBarOverlay from '../../components/searchBar';
 
 const styles = StyleSheet.create({
   stackContainer: {
@@ -21,6 +22,7 @@ const DashboardScreen = () => {
   return (
     <View style={styles.stackContainer}>
       <MainHeader />
+      <CustomizedSearchBarOverlay />
       <MapContainer style={styles} />
     </View>
   );
