@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 import { ksStyle } from '../../styles/basic/ksBasic';
 import SearchButton from '../buttons/SearchButton';
+import { SearchContext } from '../../modules/context/SearchContext';
 
 const styles = StyleSheet.create({
   containerStyle: {
+    padding: 0,
     flexDirection: 'row',
     backgroundColor: 'transparent',
-    borderRadius: 3,
     borderBottomColor: 'transparent',
     borderTopColor: 'transparent',
     borderBottomWidth: 0,
+    borderTopWidth: 0,
     paddingBottom: 0,
+    ...ksStyle.shadow,
   },
   inputContainerStyle: {
     flexDirection: 'row',
@@ -25,10 +28,12 @@ const styles = StyleSheet.create({
 });
 
 function CustomizedSearchBar() {
-  const [search, setSearch] = useState();
+  const { searchPattern, searchByPattern } = useContext(SearchContext);
+  const [search, setSearch] = useState(searchPattern);
 
-  function onChangeSearch(text) {
-    setSearch(text);
+  function onChangeSearch(pattern) {
+    setSearch(pattern);
+    searchByPattern(pattern);
   }
 
   return (
@@ -43,7 +48,7 @@ function CustomizedSearchBar() {
       }}
       inputStyle={styles.input}
       value={search}
-      onChangeText={text => onChangeSearch(text)}
+      onChangeText={pattern => onChangeSearch(pattern)}
       searchIcon={<SearchButton />}
     />
   );

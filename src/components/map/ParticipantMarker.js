@@ -9,7 +9,7 @@ import Images from '../../../assets/Images';
 
 function ParticipantMarker({ participant, index, coordinate }) {
   const [isPairOverlayVisible, setIsPairOverlayVisible] = useState(false);
-  const [avatar, setAvatar] = useState(Images.others.avatar_mock);
+  const [avatar, setAvatar] = useState(Images.others.avatar_default);
 
   useEffect(() => {
     // TODO: CHECK WHICH USER SEND LATEST LOCATION

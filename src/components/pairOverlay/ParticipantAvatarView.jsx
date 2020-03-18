@@ -6,7 +6,7 @@ import { convertRelativePathToAbsoluteUri } from '../../modules/ImageLoader';
 import { redirectToMessenger } from '../../modules/MessengerManager';
 import Images from '../../../assets/Images';
 
-const PARTICIPANT_AVATAR = Images.others.avatar_mock;
+const PARTICIPANT_AVATAR = Images.others.avatar_default;
 
 const styles = StyleSheet.create({
   container: {
@@ -28,7 +28,9 @@ const styles = StyleSheet.create({
 });
 
 function ParticipantAvatarView({ avatar, messenger }) {
-  const [loadedAvatar, setLoadedAvatar] = useState(Images.others.avatar_mock);
+  const [loadedAvatar, setLoadedAvatar] = useState(
+    Images.others.avatar_default
+  );
 
   useEffect(() => {
     setLoadedAvatar(convertRelativePathToAbsoluteUri(avatar));

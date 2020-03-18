@@ -14,9 +14,18 @@ export const sendLocationToServer = location => {
   // TODO-ADD INDICATOR OF SERVER PROBLEM
 };
 
-export const getLatestParticipantLocationsFromServer = () => {
-  return KsAxios.get(`${apiPath}/locations/latest`);
-};
+function addRankingPositionToEachPair(pairs) {
+  const pairsWithRanking = pairs.map((pair, index) => ({
+    ...pair,
+    ranking: index + 1,
+  }));
+  return pairsWithRanking;
+}
+
+export async function getLatestParticipantLocationsFromServer() {
+  const response = await KsAxios.get(`${apiPath}/locations/latest`);
+  return addRankingPositionToEachPair(response.data);
+}
 
 export async function sendEmailWithPairNr(email, pairNr) {
   let response;
