@@ -15,9 +15,10 @@ function SearchResultList() {
     <FlatList
       style={styles.container}
       data={searchData}
-      renderItem={({ item, index }) => (
-        <SearchResultView result={item} id={index} />
-      )}
+      renderItem={({ item, index }) => {
+        console.log(index);
+        return <SearchResultView result={item} id={index} />;
+      }}
       keyExtractor={(item, index) => index.toString()}
     />
   );
