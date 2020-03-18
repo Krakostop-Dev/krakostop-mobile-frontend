@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import ConversationView from './ConversationView';
 import Images from '../../../assets/Images';
 
-const AVATAR = Images.others.avatar_mock;
+const AVATAR = Images.others.avatar_default;
 
 const mockConversations = [
   {

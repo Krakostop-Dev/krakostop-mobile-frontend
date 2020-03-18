@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 });
 
 function SearchResultView({ result, id }) {
-  const PAIR_LABEL = `Rara #${result.pair_id}`;
+  const PAIR_LABEL = `Para #${result.pair_id}`;
   const RANKING_LABEL = `Miejsce ${result.ranking}`;
 
   function isResultIdEven() {
@@ -50,9 +50,9 @@ SearchResultView.propTypes = {
   result: PropTypes.shape({
     first_name: PropTypes.string.isRequired,
     last_name: PropTypes.string.isRequired,
-    avatar: PropTypes.number.isRequired,
-    pair_id: PropTypes.string.isRequired,
-    ranking: PropTypes.string.isRequired,
+    avatar: PropTypes.string.isRequired,
+    pair_id: PropTypes.number.isRequired,
+    ranking: PropTypes.number.isRequired,
   }).isRequired,
   id: PropTypes.number.isRequired,
 };

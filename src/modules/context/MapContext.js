@@ -36,8 +36,8 @@ async function updateMyLocationWithCords(newLocation, dispatch, state) {
 
 async function updateParticipantsLocation(dispatch) {
   try {
-    const response = await getLatestParticipantLocationsFromServer();
-    dispatch({ type: 'updateParticipantsLocation', payload: response.data });
+    const pairs = await getLatestParticipantLocationsFromServer();
+    dispatch({ type: 'updateParticipantsLocation', payload: pairs });
   } catch (e) {
     console.error(e);
   }

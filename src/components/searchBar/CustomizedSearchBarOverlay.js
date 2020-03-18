@@ -9,6 +9,7 @@ import {
 import SearchResultList from './searchResultList';
 import { SearchContext } from '../../modules/context/SearchContext';
 import CustomizedSearchBar from './CustomizedSearchBar';
+import { ksStyle } from '../../styles/basic/ksBasic';
 
 const styles = StyleSheet.create({
   background: {
@@ -16,12 +17,18 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   container: {
-    height: '35%',
+    maxHeight: '35%',
     width: '100%',
     flexDirection: 'row-reverse',
   },
   content: {
-    width: '85%',
+    width: '80%',
+    marginRight: 10,
+    marginTop: 10,
+    borderRadius: 3,
+
+    backgroundColor: ksStyle.colors.primaryColorMediumLight,
+    ...ksStyle.shadow,
   },
 });
 function CustomizedSearchBarOverlay() {

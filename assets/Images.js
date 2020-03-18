@@ -19,6 +19,6 @@ export default {
   others: {
     cluster: require('./others/cluster.png'),
     krk_logo: require('./others/krk_logo.png'),
-    avatar_mock: require('./others/avatar_mock.png'),
+    avatar_default: require('./others/avatar_default.png'),
   },
 };
