@@ -1,3 +1,5 @@
+import checkStringPattern from './SearchHelper';
+
 function isSearchingByPairNr(search) {
   // eslint-disable-next-line no-restricted-globals
   return !isNaN(search);
@@ -25,12 +27,14 @@ function isDoubleMatch(firstNamePatternPos, lastNamePatternPos) {
 
 function searchByName(searchPattern, users) {
   const filteredUsers = users.reduce((r, user) => {
-    const firstNamePatternPos = user.first_name
-      .toLowerCase()
-      .search(searchPattern.toLowerCase());
-    const lastNamePatternPos = user.last_name
-      .toLowerCase()
-      .search(searchPattern.toLowerCase());
+    const firstNamePatternPos = checkStringPattern(
+      user.first_name,
+      searchPattern
+    );
+    const lastNamePatternPos = checkStringPattern(
+      user.last_name,
+      searchPattern
+    );
     if (isDoubleMatch(firstNamePatternPos, lastNamePatternPos)) {
       const resultPatternPos =
         firstNamePatternPos < lastNamePatternPos
@@ -60,7 +64,7 @@ function searchByName(searchPattern, users) {
 
 function searchParticipants(searchPattern, participants) {
   const users = mapPairsToUsersWithRanking(participants);
-  if (isSearchingByPairNr(searchPattern)) {
+  if (isSearchingByPairNr(searchPattern) && searchPattern.length > 0) {
     return searchByPairNr(searchPattern, users);
   }
   if (searchPattern.length > 2) {
