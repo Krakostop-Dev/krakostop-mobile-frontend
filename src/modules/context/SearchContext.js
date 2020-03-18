@@ -2,7 +2,7 @@ import React, { createContext, useContext } from 'react';
 import PropTypes from 'prop-types';
 import reducer from './SearchContextReducer';
 import { MapContext } from './MapContext';
-import searchParticipants from '../SearchManger';
+import searchParticipants from '../search/SearchManger';
 
 export const SearchContext = createContext({
   isSearchActive: false,
