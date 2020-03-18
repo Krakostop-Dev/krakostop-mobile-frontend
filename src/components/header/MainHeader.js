@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet } from 'react-native';
 import { Header } from 'react-native-elements';
 import AvatarButton from './AvatarButton';
 import SearchButton from '../buttons/SearchButton';
 import { ksStyle } from '../../styles/basic/ksBasic';
 import KsLogoView from './KsLogoView';
+import { SearchContext } from '../../modules/context/SearchContext';
 
 const styles = StyleSheet.create({
   containerStyle: {
@@ -13,10 +14,11 @@ const styles = StyleSheet.create({
 });
 
 const MainHeader = () => {
+  const { isSearchActive } = useContext(SearchContext);
   return (
     <Header
       leftComponent={AvatarButton}
-      centerComponent={KsLogoView}
+      centerComponent={!isSearchActive && KsLogoView}
       rightComponent={SearchButton}
       containerStyle={styles.containerStyle}
     />

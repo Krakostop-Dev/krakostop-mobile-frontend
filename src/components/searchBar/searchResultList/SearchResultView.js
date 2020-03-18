@@ -6,18 +6,18 @@ import SearchResultAvatar from './SearchResultAvatar';
 import { ksStyle } from '../../../styles/basic/ksBasic';
 
 const styles = StyleSheet.create({
-  touchable: {
-    width: '100%',
+  container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 5,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
   },
 });
 
 function SearchResultView({ result, id }) {
-  const PAIR_LABEL = `para ${result.pair_id}`;
-  const RANKING_LABEL = `miejsce ${result.ranking}`;
+  const PAIR_LABEL = `Rara #${result.pair_id}`;
+  const RANKING_LABEL = `Miejsce ${result.ranking}`;
 
   function isResultIdEven() {
     return id % 2 === 0;
@@ -27,9 +27,9 @@ function SearchResultView({ result, id }) {
     <TouchableOpacity onPress={() => Alert.alert('ELOOO')}>
       <View
         style={{
-          ...styles.touchable,
+          ...styles.container,
           backgroundColor: isResultIdEven()
-            ? ksStyle.colors.primaryColorMedium
+            ? ksStyle.colors.primaryColorLightDark
             : ksStyle.colors.primaryColorMediumLight,
         }}
       >
