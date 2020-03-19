@@ -7,6 +7,8 @@ import SearchResultAvatar from './SearchResultAvatar';
 import { ksStyle } from '../../../styles/basic/ksBasic';
 import { MapContext } from '../../../modules/context/MapContext';
 import navigateToLocation from '../../../modules/map/MapManager';
+import { SearchContext } from '../../../modules/context/SearchContext';
+import { redirectToMessenger } from '../../../modules/MessengerManager';
 
 const styles = StyleSheet.create({
   container: {
@@ -21,6 +23,7 @@ const styles = StyleSheet.create({
 function SearchResultView({ result, id }) {
   const navigation = useContext(NavigationContext);
   const { map } = useContext(MapContext);
+  const { setSearchActive } = useContext(SearchContext);
   const PAIR_LABEL = `Para #${result.pair_id}`;
   const RANKING_LABEL = `Miejsce ${result.ranking}`;
 
@@ -28,13 +31,19 @@ function SearchResultView({ result, id }) {
     return id % 2 === 0;
   }
 
-  function onResultPressed() {
+  async function onResultPressed() {
+    console.log(navigation.state.routeName);
     if (navigation.state.routeName === 'Map') {
       navigateToLocation(map, {
         latitude: Number(result.lat),
         longitude: Number(result.lng),
       });
     }
+    if (navigation.state.routeName === 'Chat') {
+      await redirectToMessenger(result.messenger);
+    }
+
+    setSearchActive(false);
   }
 
   return (
@@ -69,6 +78,7 @@ SearchResultView.propTypes = {
     ranking: PropTypes.number.isRequired,
     lat: PropTypes.string.isRequired,
     lng: PropTypes.string.isRequired,
+    messenger: PropTypes.string.isRequired,
   }).isRequired,
   id: PropTypes.number.isRequired,
 };
