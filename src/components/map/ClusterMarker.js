@@ -5,7 +5,6 @@ import { Marker } from 'react-native-maps';
 import returnClusterStyle from '../../modules/map/ClusterHelper';
 import Images from '../../../assets/Images';
 
-
 const styles = StyleSheet.create({
   cluster: {
     position: 'absolute',
@@ -30,7 +29,7 @@ const ClusteredMarker = ({ id, geometry, properties, onPress }) => {
       }}
       onPress={onPress}
     >
-      <ImageBackground source={CLUSTER_IMAGE} style={{ width, height }}>
+      <ImageBackground source={Images.others.cluster} style={{ width, height }}>
         <View style={{ ...styles.cluster, top }}>
           <Text style={{ fontSize }}>{points}</Text>
         </View>

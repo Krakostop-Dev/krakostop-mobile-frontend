@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
 function PhoneAgreementView({ label, setError }) {
   const loginContext = useContext(LoginContext);
   const { user } = loginContext;
-  
+
   const [agreement, setAgreement] = useState(true);
 
   async function updateUser() {
