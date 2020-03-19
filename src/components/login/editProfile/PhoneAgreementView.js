@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import PropTypes from 'prop-types';
 import ToggleSwitch from 'toggle-switch-react-native';
 import { LoginContext } from '../../../modules/context/LoginContext';
+import { updateProfileOnServer } from '../../../modules/communication/CommunicationMenager';
 
 const styles = StyleSheet.create({
   container: {
@@ -20,18 +21,26 @@ const styles = StyleSheet.create({
   },
 });
 
-function PhoneAgreementView({ label }) {
+function PhoneAgreementView({ label, setError }) {
   const loginContext = useContext(LoginContext);
   const { user } = loginContext;
-  const [agreement, setAgreement] = useState(
-    user.is_phone_visible === undefined ? true : user.is_phone_visible
-  );
+  // TODO: Change to useState(user.is_phone_enabled) after backend update
+  const [agreement, setAgreement] = useState(true);
 
   async function updateUser() {
     setAgreement(!agreement);
-    // TODO: Update user on server
-    user.is_phone_visible = !agreement;
-    await loginContext.updateUser(user);
+    const { status, message } = await updateProfileOnServer({
+      isPhoneEnabled: !agreement,
+    });
+    if (status === 200) {
+      user.is_phone_enabled = !agreement;
+      await loginContext.updateUser(user);
+    } else {
+      setError({
+        isError: true,
+        message,
+      });
+    }
   }
 
   return (
@@ -53,4 +62,5 @@ export default PhoneAgreementView;
 
 PhoneAgreementView.propTypes = {
   label: PropTypes.string.isRequired,
+  setError: PropTypes.func.isRequired,
 };

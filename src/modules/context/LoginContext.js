@@ -19,7 +19,7 @@ export const LoginContext = createContext({
     pairID: null,
     messenger: null,
     phone: null,
-    is_phone_visible: null,
+    is_phone_enabled: null,
     facebook: null,
   },
   token: null,
@@ -36,7 +36,7 @@ const initialState = {
     verified_login: false,
     avatar: null,
     facebook: 'https://www.facebook.com/zuck',
-    is_phone_visible: true,
+    is_phone_enabled: true,
     messenger: null,
   },
 };
@@ -56,7 +56,7 @@ async function logOut(dispatch) {
 }
 async function updateUser(dispatch, user) {
   const newUser = user;
-  if (!user.avatar.uri) {
+  if (typeof user.avatar.uri === 'undefined') {
     newUser.avatar = convertRelativePathToAbsoluteUri(user.avatar);
   }
   await saveDataInStorage('USER', JSON.stringify(newUser));

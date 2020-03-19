@@ -11,6 +11,7 @@ const MESSENGER_ICON = require('../../../assets/messenger.png');
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
+    alignItems: 'center',
     width: 120,
     height: 120,
   },
@@ -30,7 +31,9 @@ function ParticipantAvatarView({ avatar, messenger }) {
   const [loadedAvatar, setLoadedAvatar] = useState(PARTICIPANT_AVATAR);
 
   useEffect(() => {
-    setLoadedAvatar(convertRelativePathToAbsoluteUri(avatar));
+    if (avatar) {
+      setLoadedAvatar(convertRelativePathToAbsoluteUri(avatar));
+    }
   }, []);
 
   return (

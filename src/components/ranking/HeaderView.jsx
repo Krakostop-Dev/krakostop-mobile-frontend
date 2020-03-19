@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
+import { MapContext } from '../../modules/context/MapContext';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,7 +18,10 @@ const styles = StyleSheet.create({
 });
 
 function HeaderView() {
-  return (
+  const mapContext = useContext(MapContext);
+  const { participants } = mapContext;
+
+  return participants.length > 3 ? (
     <View style={styles.container}>
       <View style={styles.place}>
         <Text>Miejsce</Text>
@@ -32,7 +36,7 @@ function HeaderView() {
         <Text>Km do mety</Text>
       </View>
     </View>
-  );
+  ) : null;
 }
 
 export default HeaderView;
