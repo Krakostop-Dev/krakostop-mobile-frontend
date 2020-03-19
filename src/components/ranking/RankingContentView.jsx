@@ -6,13 +6,14 @@ import { MapContext } from '../../modules/context/MapContext';
 function RankingContentView() {
   const mapContext = useContext(MapContext);
   const { participants } = mapContext;
+  const lastParticipants = participants.slice(3);
 
   return (
     <View>
-      {participants.map((participant, index) => (
+      {lastParticipants.map((participant, index) => (
         <RankingItemView
           participant={participant}
-          index={index}
+          index={index + 3}
           key={participant.id}
         />
       ))}

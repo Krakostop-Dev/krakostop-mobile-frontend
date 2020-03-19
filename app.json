@@ -25,7 +25,7 @@
       "package": "eu.krakostop.krakostopapp",
       "config": {
         "googleMaps": {
-          "apiKey": "Should be updated before build"
+          "apiKey": "AIzaSyDIyJpLqNDRo4hQk6qDtSQrp8itclO1odU"
         }
       },
       "versionCode": 3

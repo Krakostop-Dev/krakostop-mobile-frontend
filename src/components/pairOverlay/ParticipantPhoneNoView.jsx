@@ -8,6 +8,7 @@ import {
 import { ksStyle } from '../../styles/basic/ksBasic';
 import Images from '../../../assets/Images';
 
+
 const styles = StyleSheet.create({
   container: {
     marginTop: 10,
@@ -34,6 +35,8 @@ const styles = StyleSheet.create({
     paddingRight: 10,
   },
 });
+
+const PHONE_ICON = require('../../../assets/icons/phone.png');
 
 function ParticipantPhoneNoView({ phone }) {
   const formattedPhone = formatPhoneNumber(phone);

@@ -31,7 +31,9 @@ function ParticipantAvatarView({ avatar, messenger }) {
   const [loadedAvatar, setLoadedAvatar] = useState(Images.others.avatar_mock);
 
   useEffect(() => {
-    setLoadedAvatar(convertRelativePathToAbsoluteUri(avatar));
+    if (avatar) {
+      setLoadedAvatar(convertRelativePathToAbsoluteUri(avatar));
+    }
   }, []);
 
   return (

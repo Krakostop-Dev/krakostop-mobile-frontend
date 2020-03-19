@@ -2,9 +2,8 @@ import React from 'react';
 import { View, ScrollView, ImageBackground, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import MainHeader from '../../components/header/MainHeader';
-import HeaderView from '../../components/ranking/HeaderView';
-import RankingContentView from '../../components/ranking/RankingContentView';
 import Images from '../../../assets/Images';
+import RankingView from '../../components/ranking/RankingView';
 
 const styles = StyleSheet.create({
   background: { width: '100%', height: '100%' },
@@ -26,10 +25,7 @@ function RankingScreen({ navigation }) {
         style={styles.background}
       >
         <ScrollView>
-          <View style={styles.container}>
-            <HeaderView />
-            <RankingContentView />
-          </View>
+          <RankingView />
         </ScrollView>
       </ImageBackground>
     </View>

@@ -24,9 +24,8 @@ const styles = StyleSheet.create({
 function PhoneAgreementView({ label, setError }) {
   const loginContext = useContext(LoginContext);
   const { user } = loginContext;
-  const [agreement, setAgreement] = useState(
-    user.is_phone_enabled === undefined ? true : user.is_phone_enabled
-  );
+  
+  const [agreement, setAgreement] = useState(true);
 
   async function updateUser() {
     setAgreement(!agreement);
