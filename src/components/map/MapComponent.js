@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { createRef, useContext } from 'react';
 import MapView from 'react-native-map-clustering';
 import { Dimensions, StyleSheet } from 'react-native';
 import { MapContext } from '../../modules/context/MapContext';
@@ -14,20 +14,36 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height,
   },
 });
-
+const MAP_BOUNDARIES = {
+  NORTH_EAST: { latitude: 52, longitude: 0 },
+  SOUTH_WEST: { latitude: 33, longitude: 26 },
+};
 function MapComponent() {
-  const mapContext = useContext(MapContext);
-  const { participants } = mapContext;
+  const { participants, myLocation, setMap } = useContext(MapContext);
 
   const initialRegion = {
-    latitude: mapContext.my_location.coords.latitude,
-    longitude: mapContext.my_location.coords.longitude,
+    latitude: myLocation.coords.latitude,
+    longitude: myLocation.coords.longitude,
     latitudeDelta: INIT_LATITUDE_DELTA,
     longitudeDelta: INIT_LONGITUDE_DELTA,
   };
 
+  let mapRef = createRef();
+  function onMapReady() {
+    mapRef.setMapBoundaries(
+      MAP_BOUNDARIES.NORTH_EAST,
+      MAP_BOUNDARIES.SOUTH_WEST
+    );
+    setMap(mapRef);
+  }
+
   return (
     <MapView
+      mapRef={ref => {
+        mapRef = ref;
+      }}
+      onMapReady={onMapReady}
+      followsUserLocation
       style={styles.mapStyle}
       initialRegion={initialRegion}
       renderCluster={({ id, geometry, properties, onPress }) => (

@@ -3,6 +3,7 @@ import { View, ScrollView, ImageBackground, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import MainHeader from '../../components/header/MainHeader';
 import Images from '../../../assets/Images';
+import CustomizedSearchBarOverlay from '../../components/searchBar';
 import RankingView from '../../components/ranking/RankingView';
 
 const styles = StyleSheet.create({
@@ -19,6 +20,7 @@ function RankingScreen({ navigation }) {
   return (
     <View>
       <MainHeader navigation={navigation} />
+      <CustomizedSearchBarOverlay />
 
       <ImageBackground
         source={Images.backgrounds.ranking}

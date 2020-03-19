@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import MainHeader from '../../components/header/MainHeader';
 import CalendarView from '../../components/calendar/CalendarView';
 import { ksStyle } from '../../styles/basic/ksBasic';
+import CustomizedSearchBarOverlay from '../../components/searchBar';
 
 const styles = StyleSheet.create({
   background: {
@@ -22,6 +23,7 @@ function CalendarScreen({ navigation }) {
   return (
     <View>
       <MainHeader navigation={navigation} />
+      <CustomizedSearchBarOverlay />
 
       <View style={styles.background}>
         <ScrollView>

@@ -5,11 +5,11 @@ function isSearchingByPairNr(search) {
   return !isNaN(search);
 }
 
-function mapPairsToUsersWithRanking(participants) {
+function mapPairsToUsersWithPairInfo(participants) {
   return participants.reduce((r, e) => {
     r.push(
-      { ...e.pair.users[0], ranking: e.ranking },
-      { ...e.pair.users[1], ranking: e.ranking }
+      { ...e.pair.users[0], ranking: e.ranking, lat: e.lat, lng: e.lng },
+      { ...e.pair.users[1], ranking: e.ranking, lat: e.lat, lng: e.lng }
     );
     return r;
   }, []);
@@ -63,7 +63,7 @@ function searchByName(searchPattern, users) {
 }
 
 function searchParticipants(searchPattern, participants) {
-  const users = mapPairsToUsersWithRanking(participants);
+  const users = mapPairsToUsersWithPairInfo(participants);
   if (isSearchingByPairNr(searchPattern) && searchPattern.length > 0) {
     return searchByPairNr(searchPattern, users);
   }

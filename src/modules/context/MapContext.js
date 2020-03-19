@@ -8,19 +8,24 @@ import {
 } from '../communication/CommunicationMenager';
 
 export const MapContext = createContext({
-  my_location: null,
+  myLocation: null,
   participants: null,
 });
 const initialState = {
-  my_location: {
+  myLocation: {
     coords: {
       latitude: 0,
       longitude: 0,
     },
   },
   participants: [],
+  mapRegion: null,
+  map: null,
 };
 
+function setMap(map, dispatch) {
+  dispatch({ type: 'setMap', payload: { map } });
+}
 // eslint-disable-next-line no-unused-vars
 async function updateMyLocation(dispatch, state) {
   const location = await refreshCurrentPosition();
@@ -54,6 +59,7 @@ export const MapContextProvider = ({ children }) => {
           updateMyLocationWithCords(newLocation, dispatch, state),
         updateParticipantsLocation: async () =>
           updateParticipantsLocation(dispatch),
+        setMap: map => setMap(map, dispatch),
       }}
     >
       {children}
