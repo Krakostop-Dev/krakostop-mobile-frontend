@@ -5,6 +5,7 @@ import MainHeader from '../../components/header/MainHeader';
 import HeaderView from '../../components/ranking/HeaderView';
 import RankingContentView from '../../components/ranking/RankingContentView';
 import Images from '../../../assets/Images';
+import CustomizedSearchBarOverlay from '../../components/searchBar';
 
 const styles = StyleSheet.create({
   background: { width: '100%', height: '100%' },
@@ -20,6 +21,7 @@ function RankingScreen({ navigation }) {
   return (
     <View>
       <MainHeader navigation={navigation} />
+      <CustomizedSearchBarOverlay />
 
       <ImageBackground
         source={Images.backgrounds.ranking}

@@ -4,12 +4,17 @@ const reducer = (state, action) => {
     case 'updateMyLocation':
       return {
         ...state,
-        my_location: action.payload.location,
+        myLocation: action.payload.location,
       };
     case 'updateParticipantsLocation':
       return {
         ...state,
         participants: action.payload,
+      };
+    case 'setMap':
+      return {
+        ...state,
+        map: action.payload.map,
       };
     default:
       return state;

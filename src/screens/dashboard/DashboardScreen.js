@@ -23,6 +23,7 @@ const DashboardScreen = () => {
     <View style={styles.stackContainer}>
       <MainHeader />
       <CustomizedSearchBarOverlay />
+
       <MapContainer style={styles} />
     </View>
   );

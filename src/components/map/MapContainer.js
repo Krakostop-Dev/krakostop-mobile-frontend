@@ -34,7 +34,7 @@ const MapContainer = () => {
   return (
     <View>
       {isLocationDataUpdated ? (
-        <MapComponent />
+        <MapComponent participants={mapContext.participants} />
       ) : (
         <View style={ksBasic.stackContainer}>
           <Spinner color="red" />

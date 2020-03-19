@@ -3,7 +3,8 @@ import { View, ScrollView, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import MainHeader from '../../components/header/MainHeader';
 import ChatView from '../../components/chat/ChatView';
-import { ksStyle } from '../../styles/basic/ksBasic';
+import { ksBasic, ksStyle } from '../../styles/basic/ksBasic';
+import CustomizedSearchBarOverlay from '../../components/searchBar';
 
 const styles = StyleSheet.create({
   background: {
@@ -16,12 +17,19 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
   },
+  view: {
+    ...ksBasic.stackContainer,
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+  },
 });
 
 function ChatScreen({ navigation }) {
   return (
     <View>
       <MainHeader navigation={navigation} />
+      <CustomizedSearchBarOverlay />
 
       <View style={styles.background}>
         <ScrollView>
