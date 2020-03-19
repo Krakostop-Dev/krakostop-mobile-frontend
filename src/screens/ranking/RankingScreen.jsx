@@ -2,8 +2,8 @@ import React from 'react';
 import { View, ScrollView, ImageBackground, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import MainHeader from '../../components/header/MainHeader';
-import HeaderView from '../../components/ranking/HeaderView';
-import RankingContentView from '../../components/ranking/RankingContentView';
+import RankingView from '../../components/ranking/RankingView';
+
 import Images from '../../../assets/Images';
 import CustomizedSearchBarOverlay from '../../components/searchBar';
 
@@ -28,10 +28,7 @@ function RankingScreen({ navigation }) {
         style={styles.background}
       >
         <ScrollView>
-          <View style={styles.container}>
-            <HeaderView />
-            <RankingContentView />
-          </View>
+          <RankingView />
         </ScrollView>
       </ImageBackground>
     </View>

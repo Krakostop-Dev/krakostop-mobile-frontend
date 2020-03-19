@@ -33,7 +33,9 @@ function ParticipantAvatarView({ avatar, messenger }) {
   );
 
   useEffect(() => {
-    setLoadedAvatar(convertRelativePathToAbsoluteUri(avatar));
+    if (avatar) {
+      setLoadedAvatar(convertRelativePathToAbsoluteUri(avatar));
+    }
   }, []);
 
   return (
