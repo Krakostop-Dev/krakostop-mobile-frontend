@@ -10,10 +10,10 @@ const styles = StyleSheet.create({
     backgroundColor: ksStyle.colors.primaryColorMedium,
     borderRadius: 3,
     alignItems: 'center',
-    width: '90%',
     paddingTop: 4,
     paddingBottom: 4,
-    marginBottom: 7,
+    marginBottom: 5,
+    height: 85,
   },
   text: {
     fontSize: 16,
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   touchable: { width: '100%' },
 });
 
-function RankingItemView({ participant, index }) {
+function RankingItemView({ participant, index, height, itemSpace }) {
   const [isPairOverlayVisible, setIsPairOverlayVisible] = useState(false);
 
   return (
@@ -39,7 +39,7 @@ function RankingItemView({ participant, index }) {
         style={styles.touchable}
         onPress={() => setIsPairOverlayVisible(true)}
       >
-        <View style={styles.container}>
+        <View style={{ ...styles.container, height, marginBottom: itemSpace }}>
           <View style={styles.place}>
             <Text style={[styles.text, styles.textCenter]}>{index + 1}</Text>
           </View>
@@ -85,4 +85,6 @@ RankingItemView.propTypes = {
     }).isRequired,
   }).isRequired,
   index: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired,
+  itemSpace: PropTypes.number.isRequired,
 };

@@ -4,6 +4,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         isSearchActive: action.payload.isSearchActive,
+        searchType: action.payload.searchType,
         searchPattern: '',
         searchResult: [],
       };
@@ -12,6 +13,11 @@ const reducer = (state, action) => {
         ...state,
         searchPattern: action.payload.search,
         searchResult: action.payload.result,
+      };
+    case 'setRankingListRef':
+      return {
+        ...state,
+        rankingListRef: action.payload.listRef,
       };
     default:
       return state;

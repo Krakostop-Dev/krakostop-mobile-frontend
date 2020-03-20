@@ -21,6 +21,7 @@ export const LoginContext = createContext({
     phone: null,
     is_phone_enabled: null,
     facebook: null,
+    ranking: null,
   },
   token: null,
   isLoggedIn: false,
@@ -38,6 +39,7 @@ const initialState = {
     facebook: 'https://www.facebook.com/zuck',
     is_phone_enabled: true,
     messenger: null,
+    ranking: 12,
   },
 };
 
@@ -76,6 +78,17 @@ async function refreshLogin(dispatch) {
   return false;
 }
 
+function setUserRanking({ pairs, dispatch, state }) {
+  console.log(JSON.stringify(state));
+  const ranking = pairs.findIndex(pair => {
+    return pair.pair_id === state.user.pair_id;
+  });
+  dispatch({
+    type: 'setUserRanking',
+    payload: { ranking: ranking - 10 },
+  });
+}
+
 function LoginContextProvider({ children }) {
   const [state, dispatch] = React.useReducer(reducer, initialState);
   return (
@@ -86,6 +99,7 @@ function LoginContextProvider({ children }) {
         logOut: async () => logOut(dispatch),
         updateUser: async user => updateUser(dispatch, user),
         refreshLogin: async () => refreshLogin(dispatch),
+        setUserRanking: pairs => setUserRanking({ pairs, state, dispatch }),
       }}
     >
       {children}

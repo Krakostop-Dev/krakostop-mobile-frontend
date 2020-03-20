@@ -26,6 +26,11 @@ const reducer = (state, action) => {
         ...state,
         user: { ...state.user, ...action.payload.user },
       };
+    case 'setUserRanking':
+      return {
+        ...state,
+        user: { ...state.user, ranking: action.payload.ranking },
+      };
     default:
       return state;
   }

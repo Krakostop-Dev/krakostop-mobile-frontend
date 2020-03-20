@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+import { NavigationContext } from 'react-navigation';
 import { ksStyle } from '../../styles/basic/ksBasic';
 import { SearchContext } from '../../modules/context/SearchContext';
 
@@ -13,13 +14,15 @@ const styles = StyleSheet.create({
 });
 
 export default () => {
+  const navigation = useContext(NavigationContext);
   const { isSearchActive, setSearchActive } = useContext(SearchContext);
 
   function onPress() {
     if (isSearchActive) {
       setSearchActive(false);
     } else {
-      setSearchActive(true);
+      const searchType = navigation.state.routeName;
+      setSearchActive(true, searchType);
     }
   }
 
