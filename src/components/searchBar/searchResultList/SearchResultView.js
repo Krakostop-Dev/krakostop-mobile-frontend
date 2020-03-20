@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Alert, StyleSheet, TouchableOpacity, View } from 'react-native';
 import PropTypes from 'prop-types';
-import { NavigationContext } from 'react-navigation';
 import SearchResultTextInfo from './SearchResultUserInfo';
 import SearchResultAvatar from './SearchResultAvatar';
 import { ksStyle } from '../../../styles/basic/ksBasic';
@@ -21,9 +20,10 @@ const styles = StyleSheet.create({
 });
 
 function SearchResultView({ result, id }) {
-  const navigation = useContext(NavigationContext);
   const { map } = useContext(MapContext);
-  const { setSearchActive } = useContext(SearchContext);
+  const { setSearchActive, rankingListRef, searchType } = useContext(
+    SearchContext
+  );
   const PAIR_LABEL = `Para #${result.pair_id}`;
   const RANKING_LABEL = `Miejsce ${result.ranking}`;
 
@@ -32,17 +32,26 @@ function SearchResultView({ result, id }) {
   }
 
   async function onResultPressed() {
-    console.log(navigation.state.routeName);
-    if (navigation.state.routeName === 'Map') {
+    if (searchType === 'Map') {
       navigateToLocation(map, {
         latitude: Number(result.lat),
         longitude: Number(result.lng),
       });
     }
-    if (navigation.state.routeName === 'Chat') {
+    if (searchType === 'Chat') {
       await redirectToMessenger(result.messenger);
     }
-
+    if (searchType === 'Calendar') {
+      Alert.alert('Do implementacji');
+    }
+    if (searchType === 'Ranking') {
+      if (rankingListRef) {
+        rankingListRef.scrollToIndex({
+          animated: true,
+          index: result.ranking - 5,
+        });
+      }
+    }
     setSearchActive(false);
   }
 

@@ -12,7 +12,7 @@ const AppBottomTabNavigator = createBottomTabNavigator(
     Map: DashboardScreen,
     Ranking: RankingScreen,
     Chat: ChatScreen,
-    Schedule: CalendarScreen,
+    Calendar: CalendarScreen,
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -31,7 +31,7 @@ const AppBottomTabNavigator = createBottomTabNavigator(
           case 'Chat':
             iconName = `message${focused ? '' : '-outline'}`;
             break;
-          case 'Schedule':
+          case 'Calendar':
             iconName = `timetable`;
             break;
           default:

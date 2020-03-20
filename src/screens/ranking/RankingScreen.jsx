@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView, ImageBackground, StyleSheet } from 'react-native';
+import { View, ImageBackground, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import MainHeader from '../../components/header/MainHeader';
 import RankingView from '../../components/ranking/RankingView';
@@ -27,9 +27,7 @@ function RankingScreen({ navigation }) {
         source={Images.backgrounds.ranking}
         style={styles.background}
       >
-        <ScrollView>
-          <RankingView />
-        </ScrollView>
+        <RankingView />
       </ImageBackground>
     </View>
   );

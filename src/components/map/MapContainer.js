@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { View } from 'react-native';
 import { Spinner } from 'native-base';
+import { NavigationContext } from 'react-navigation';
 import { MapContext } from '../../modules/context/MapContext';
 import { ksBasic } from '../../styles/basic/ksBasic';
 import MapComponent from './MapComponent';
@@ -9,6 +10,7 @@ import refreshCurrentPosition from '../../modules/location/LocationRefresh';
 
 const MapContainer = () => {
   const mapContext = useContext(MapContext);
+  const navigation = useContext(NavigationContext);
   const [isLocationDataUpdated, setUpdateLocationStatus] = useState(false);
 
   useEffect(() => {
@@ -17,7 +19,7 @@ const MapContainer = () => {
     const updateLocation = async () => {
       await mapContext.updateParticipantsLocation();
       locationPromise = await startTrackingLocation(newLocation =>
-        mapContext.updateMyLocationWithCords(newLocation)
+        mapContext.updateMyLocationWithCords(newLocation, navigation)
       );
       await refreshCurrentPosition(false);
       setUpdateLocationStatus(true);

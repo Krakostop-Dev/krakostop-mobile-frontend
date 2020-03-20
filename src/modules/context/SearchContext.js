@@ -8,6 +8,8 @@ export const SearchContext = createContext({
   isSearchActive: false,
   searchResult: [],
   searchPattern: '',
+  rankingListRef: null,
+  searchType: '',
 });
 
 const initialState = {
@@ -16,8 +18,14 @@ const initialState = {
   searchPattern: '',
 };
 
-function setSearchActive(dispatch, isSearchActive) {
-  dispatch({ type: 'setSearchActive', payload: { isSearchActive } });
+function setSearchActive(dispatch, isSearchActive, searchType) {
+  dispatch({
+    type: 'setSearchActive',
+    payload: { isSearchActive, searchType },
+  });
+}
+function setRankingListRef({ dispatch, listRef }) {
+  dispatch({ type: 'setRankingListRef', payload: { listRef } });
 }
 
 function SearchContextProvider({ children }) {
@@ -32,9 +40,10 @@ function SearchContextProvider({ children }) {
     <SearchContext.Provider
       value={{
         ...state,
-        setSearchActive: isSearchActive =>
-          setSearchActive(dispatch, isSearchActive),
+        setSearchActive: (isSearchActive, searchType = '') =>
+          setSearchActive(dispatch, isSearchActive, searchType),
         searchByPattern: searchPattern => searchByPattern(searchPattern),
+        setRankingListRef: listRef => setRankingListRef({ dispatch, listRef }),
       }}
     >
       {children}
