@@ -66,12 +66,14 @@ async function updateUser(dispatch, user) {
 async function refreshLogin(dispatch) {
   const token = await getDataFromStorage('TOKEN');
   const user = await getDataFromStorage('USER');
-
   if (token && user) {
-    dispatch({ type: 'refreshLogin', payload: { user, token } });
-  } else {
-    console.log('There is no token!');
+    dispatch({
+      type: 'refreshLogin',
+      payload: { user: JSON.parse(user), token },
+    });
+    return true;
   }
+  return false;
 }
 
 function LoginContextProvider({ children }) {

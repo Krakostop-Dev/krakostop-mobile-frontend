@@ -5,12 +5,11 @@ import PropTypes from 'prop-types';
 import MapPairOverlay from '../pairOverlay/MapPairOverlay';
 
 import { convertRelativePathToAbsoluteUri } from '../../modules/ImageLoader';
-
-const PARTICIPANT_AVATAR = require('../../../assets/hand.png');
+import Images from '../../../assets/Images';
 
 function ParticipantMarker({ participant, index, coordinate }) {
   const [isPairOverlayVisible, setIsPairOverlayVisible] = useState(false);
-  const [avatar, setAvatar] = useState(PARTICIPANT_AVATAR);
+  const [avatar, setAvatar] = useState(Images.others.avatar_mock);
 
   useEffect(() => {
     // TODO: CHECK WHICH USER SEND LATEST LOCATION

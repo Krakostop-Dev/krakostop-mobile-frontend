@@ -11,6 +11,7 @@ import { LoginContext } from '../../modules/context/LoginContext';
 import SmallInfoText from '../../components/SmallInfoText';
 import Messages from '../../modules/Messages';
 import { updateProfileOnServer } from '../../modules/communication/CommunicationMenager';
+import Images from '../../../assets/Images';
 
 const styles = StyleSheet.create({
   container: {
@@ -30,7 +31,6 @@ const styles = StyleSheet.create({
     height: 25,
   },
 });
-const EDIT_ICON = require('../../../assets/icons/edit.png');
 
 const NUMBER_LENGTH = 9;
 const PHONE_SUCCESSFULLY_UPDATED = 'Zaktualizowano numer telefonu';
@@ -89,7 +89,7 @@ function PhoneInput({ style }) {
           keyboardType="number-pad"
           onSubmitEditing={onSubmit}
         />
-        <Image style={styles.button} source={EDIT_ICON} />
+        <Image style={styles.button} source={Images.icons.edit} />
       </View>
       {hasErrorOccurred.isError ? (
         <SmallInfoText text={hasErrorOccurred.message} color="red" />

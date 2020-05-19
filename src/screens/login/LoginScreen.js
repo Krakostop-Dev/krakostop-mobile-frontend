@@ -3,8 +3,7 @@ import { ImageBackground, StyleSheet, View } from 'react-native';
 import { Spinner } from 'native-base';
 import PropTypes from 'prop-types';
 import LoginForm from '../../components/login/auth/loginForm/LoginForm';
-
-const BACKGROUND_IMAGE = require('../../../assets/login_background.png');
+import Images from '../../../assets/Images';
 
 const styles = StyleSheet.create({
   background: {
@@ -32,7 +31,10 @@ const styles = StyleSheet.create({
 function LoginScreen() {
   const [isLoginButtonPressed, loginButtonPressed] = useState(false);
   return (
-    <ImageBackground source={BACKGROUND_IMAGE} style={styles.background}>
+    <ImageBackground
+      source={Images.backgrounds.login}
+      style={styles.background}
+    >
       {isLoginButtonPressed ? (
         <Spinner color="red" />
       ) : (

@@ -5,6 +5,7 @@ import { NavigationContext } from 'react-navigation';
 import { MaterialIcons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
 import { ksStyle } from '../../styles/basic/ksBasic';
+import Images from '../../../assets/Images';
 
 const IconComponent = MaterialIcons;
 
@@ -53,7 +54,7 @@ function CardHeaderWithBackButton({ title, style }) {
       </View>
       <View style={styles.right}>
         <Image
-          source={ksStyle.logo.source}
+          source={Images.others.krk_logo}
           style={styles.logo}
           resizeMode="contain"
         />

@@ -3,8 +3,7 @@ import { Image, View, StyleSheet } from 'react-native';
 import { Avatar } from 'react-native-elements';
 import PropTypes from 'prop-types';
 import { convertRelativePathToAbsoluteUri } from '../../../modules/ImageLoader';
-
-const PARTICIPANT_AVATAR = require('../../../../assets/hand.png');
+import Images from '../../../../assets/Images';
 
 const styles = StyleSheet.create({
   container: {
@@ -22,7 +21,7 @@ const styles = StyleSheet.create({
 });
 
 function RankingTopPlaceAvatarView({ avatar, placeImage }) {
-  const [loadedAvatar, setLoadedAvatar] = useState(PARTICIPANT_AVATAR);
+  const [loadedAvatar, setLoadedAvatar] = useState(Images.others.avatar_mock);
 
   useEffect(() => {
     if (avatar) {
