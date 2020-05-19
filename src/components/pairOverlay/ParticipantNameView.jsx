@@ -21,7 +21,7 @@ function ParticipantNameView({ user }) {
   return (
     <View style={styles.container}>
       <Text numberOfLines={10} style={styles.text}>
-        {`${user.first_name}\n${user.last_name}`}
+        {`${user.first_name}${user.last_name}`}
       </Text>
     </View>
   );
