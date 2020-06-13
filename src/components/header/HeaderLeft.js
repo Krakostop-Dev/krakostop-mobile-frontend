@@ -1,19 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Avatar } from 'react-native-elements';
-import { NavigationContext } from 'react-navigation';
 import { LoginContext } from '../../modules/context/LoginContext';
+import ProfileOverlay from './profile/ProfileOverlay';
 
 function HeaderLeft() {
   const { user } = useContext(LoginContext);
-  const navigation = useContext(NavigationContext);
+
+  const [isProfileOverlayVisible, setIsProfileOverlayVisible] = useState(false);
 
   return (
-    <Avatar
-      source={user.avatar}
-      rounded
-      size={50}
-      onPress={() => navigation.navigate('Profile')}
-    />
+    <>
+      <Avatar
+        source={user.avatar}
+        rounded
+        size={50}
+        onPress={() => setIsProfileOverlayVisible(true)}
+      />
+      <ProfileOverlay
+        isVisible={isProfileOverlayVisible}
+        setIsVisible={setIsProfileOverlayVisible}
+      />
+    </>
   );
 }
 
