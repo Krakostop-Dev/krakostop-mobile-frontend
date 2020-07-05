@@ -8,7 +8,7 @@ import PhoneAgreementView from '../../components/login/editProfile/PhoneAgreemen
 
 const styles = StyleSheet.create({
   input_form: {
-    marginVertical: 20,
+    marginBottom: 8,
     width: '100%',
   },
   input_label: {
