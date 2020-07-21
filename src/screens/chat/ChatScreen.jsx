@@ -5,6 +5,7 @@ import MainHeader from '../../components/header/MainHeader';
 import ChatView from '../../components/chat/ChatView';
 import { ksBasic, ksStyle } from '../../styles/basic/ksBasic';
 import CustomizedSearchBarOverlay from '../../components/searchBar';
+import SafeArea from '../../styles/SafeArea';
 
 const styles = StyleSheet.create({
   background: {
@@ -27,7 +28,7 @@ const styles = StyleSheet.create({
 
 function ChatScreen({ navigation }) {
   return (
-    <View>
+    <SafeArea>
       <MainHeader navigation={navigation} />
       <CustomizedSearchBarOverlay />
 
@@ -38,7 +39,7 @@ function ChatScreen({ navigation }) {
           </View>
         </ScrollView>
       </View>
-    </View>
+    </SafeArea>
   );
 }
 

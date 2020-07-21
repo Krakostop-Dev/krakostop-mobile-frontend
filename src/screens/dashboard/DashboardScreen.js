@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Platform, StatusBar, StyleSheet } from 'react-native';
 import { ksBasic } from '../../styles/basic/ksBasic';
 import MapContainer from '../../components/map/MapContainer';
 import MainHeader from '../../components/header/MainHeader';
 import CustomizedSearchBarOverlay from '../../components/searchBar';
+import SafeArea from '../../styles/SafeArea';
 
 const styles = StyleSheet.create({
   stackContainer: {
@@ -16,16 +17,20 @@ const styles = StyleSheet.create({
     ...ksBasic.stack,
     flex: 0.7,
   },
+  androidSafeArea: {
+    flex: 1,
+    backgroundColor: 'white',
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+  },
 });
 
 const DashboardScreen = () => {
   return (
-    <View style={styles.stackContainer}>
+    <SafeArea>
       <MainHeader />
       <CustomizedSearchBarOverlay />
-
       <MapContainer style={styles} />
-    </View>
+    </SafeArea>
   );
 };
 

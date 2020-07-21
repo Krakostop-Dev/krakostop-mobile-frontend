@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, ImageBackground, StyleSheet } from 'react-native';
+import { ImageBackground, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import MainHeader from '../../components/header/MainHeader';
 import Images from '../../../assets/Images';
 import CustomizedSearchBarOverlay from '../../components/searchBar';
 import RankingView from '../../components/ranking/RankingView';
+import SafeArea from '../../styles/SafeArea';
 
 const styles = StyleSheet.create({
   background: { width: '100%', height: '100%' },
@@ -18,7 +19,7 @@ const styles = StyleSheet.create({
 
 function RankingScreen({ navigation }) {
   return (
-    <View>
+    <SafeArea>
       <MainHeader navigation={navigation} />
       <CustomizedSearchBarOverlay />
 
@@ -28,7 +29,7 @@ function RankingScreen({ navigation }) {
       >
         <RankingView />
       </ImageBackground>
-    </View>
+    </SafeArea>
   );
 }
 

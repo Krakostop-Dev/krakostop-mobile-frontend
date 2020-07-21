@@ -5,6 +5,7 @@ import MainHeader from '../../components/header/MainHeader';
 import CalendarView from '../../components/calendar/CalendarView';
 import { ksStyle } from '../../styles/basic/ksBasic';
 import CustomizedSearchBarOverlay from '../../components/searchBar';
+import SafeArea from '../../styles/SafeArea';
 
 const styles = StyleSheet.create({
   background: {
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
 
 function CalendarScreen({ navigation }) {
   return (
-    <View>
+    <SafeArea>
       <MainHeader navigation={navigation} />
       <CustomizedSearchBarOverlay />
 
@@ -32,7 +33,7 @@ function CalendarScreen({ navigation }) {
           </View>
         </ScrollView>
       </View>
-    </View>
+    </SafeArea>
   );
 }
 
