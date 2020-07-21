@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
 function PhoneAgreementView({ label, setError }) {
   const loginContext = useContext(LoginContext);
   const { user } = loginContext;
-  // TODO: Change to useState(user.is_phone_enabled) after backend update
+
   const [agreement, setAgreement] = useState(true);
 
   async function updateUser() {

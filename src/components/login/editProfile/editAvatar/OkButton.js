@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
+import Images from '../../../../../assets/Images';
 
 const styles = StyleSheet.create({
   ok_button_container: {
@@ -19,15 +20,17 @@ const styles = StyleSheet.create({
   },
 });
 
-const OK_ICON = require('../../../../../assets/icons/ok.png');
-
 function OkButton({ style, onPress }) {
   return (
     <TouchableOpacity
       style={{ ...styles.ok_button_container, ...style }}
       onPress={onPress}
     >
-      <Image source={OK_ICON} style={styles.ok_button} resizeMode="contain" />
+      <Image
+        source={Images.icons.ok}
+        style={styles.ok_button}
+        resizeMode="contain"
+      />
     </TouchableOpacity>
   );
 }

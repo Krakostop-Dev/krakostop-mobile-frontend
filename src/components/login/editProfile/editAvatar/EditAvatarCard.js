@@ -8,9 +8,9 @@ import { LoginContext } from '../../../../modules/context/LoginContext';
 import ChangeAvatarView from './ChangeAvatarView';
 import SmallInfoText from '../../../SmallInfoText';
 import EditAvatarNavFooter from './EditAvatarNavFooter';
+import Images from '../../../../../assets/Images';
 
 const HEADER_TITLE = 'Konfiguracja Profilu 1/3';
-const BACKGROUND_IMAGE = require('../../../../../assets/login_background_with_logo_dark.png');
 
 const styles = StyleSheet.create({
   background: {
@@ -33,7 +33,10 @@ function EditAvatarCard() {
   });
 
   return (
-    <ImageBackground source={BACKGROUND_IMAGE} style={styles.background}>
+    <ImageBackground
+      source={Images.backgrounds.login_dark}
+      style={styles.background}
+    >
       <Card>
         <CardHeader title={HEADER_TITLE} />
         <CardContent>

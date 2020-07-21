@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
+import Images from '../../../assets/Images';
 
 const styles = StyleSheet.create({
   edit_button_container: {
@@ -19,9 +20,6 @@ const styles = StyleSheet.create({
   },
 });
 
-const EDIT_ICON = require('../../../assets/icons/edit.png');
-const EDIT_ICON_ROUNDED = require('../../../assets/icons/edit_rounded.png');
-
 function EditButton({ style, onPress, rounded }) {
   return (
     <TouchableOpacity
@@ -29,7 +27,7 @@ function EditButton({ style, onPress, rounded }) {
       onPress={onPress}
     >
       <Image
-        source={rounded ? EDIT_ICON_ROUNDED : EDIT_ICON}
+        source={rounded ? Images.icons.edit_rounded : Images.icons.edit}
         style={styles.edit_button}
         resizeMode="contain"
       />
