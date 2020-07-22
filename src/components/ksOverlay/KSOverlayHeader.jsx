@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   titleText: {
     flexWrap: 'wrap',
     fontSize: 23,
-    fontFamily: 'sans-serif',
+    fontFamily: ksStyle.font.base,
     color: 'white',
   },
   subtitleView: {
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   },
   subtitleText: {
     flexWrap: 'wrap',
-    fontFamily: 'sans-serif',
+    fontFamily: ksStyle.font.base,
     color: 'white',
     textAlign: 'right',
   },
