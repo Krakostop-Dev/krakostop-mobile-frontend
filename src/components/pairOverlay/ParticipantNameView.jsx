@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import PropTypes from 'prop-types';
+import { ksStyle } from '../../styles/basic/ksBasic';
 
 const styles = StyleSheet.create({
   container: {
@@ -12,7 +13,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexWrap: 'wrap',
     fontSize: 17,
-    fontFamily: 'sans-serif',
+    fontFamily: ksStyle.font.base,
     flexShrink: 1,
   },
 });

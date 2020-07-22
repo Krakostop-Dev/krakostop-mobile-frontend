@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     flex: 1,
     flexWrap: 'wrap',
-    fontFamily: 'sans-serif',
+    fontFamily: ksStyle.font.base,
     fontSize: 16,
     flexShrink: 1,
     color: 'white',

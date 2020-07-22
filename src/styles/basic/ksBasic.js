@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 
 export const ksStyle = {
   colors: {
@@ -49,6 +49,11 @@ export const ksStyle = {
     fontSize: 16,
     marginBottom: 5,
     borderRadius: 10,
+  },
+  font: {
+    base: Platform.OS === 'ios' ? 'Helvetica Neue' : 'sans-serif',
+    bold: Platform.OS === 'ios' ? 'HelveticaNeue-Bold' : 'sans-serif-condensed',
+    emphasis: Platform.OS === 'ios' ? 'HelveticaNeue-Italic' : 'sans-serif',
   },
 };
 
