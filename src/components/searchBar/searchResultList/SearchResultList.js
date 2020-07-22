@@ -1,27 +1,50 @@
 import React, { useContext } from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import {
+  StyleSheet,
+  FlatList,
+  TouchableOpacity,
+  View,
+  ViewPropTypes,
+} from 'react-native';
 import SearchResultView from './SearchResultView';
 import { SearchContext } from '../../../modules/context/SearchContext';
 
 const styles = StyleSheet.create({
-  container: {
-    width: '100%',
+  searchInterrupter: {
+    height: '100%',
+  },
+  searchList: {
+    height: '20%',
   },
 });
 
-function SearchResultList() {
-  const { searchResult } = useContext(SearchContext);
+function SearchResultList({ style }) {
+  const { searchResult, setSearchActive } = useContext(SearchContext);
 
+  function onPress() {
+    setSearchActive(false);
+  }
   return (
-    <FlatList
-      style={styles.container}
-      data={searchResult}
-      renderItem={({ item, index }) => {
-        return <SearchResultView result={item} id={index} />;
-      }}
-      keyExtractor={(item, index) => index.toString()}
-    />
+    <View style={style}>
+      <TouchableOpacity
+        style={styles.searchInterrupter}
+        onPress={() => onPress()}
+      >
+        <FlatList
+          style={styles.searchList}
+          data={searchResult}
+          renderItem={({ item, index }) => {
+            return <SearchResultView result={item} id={index} />;
+          }}
+          keyExtractor={(item, index) => index.toString()}
+        />
+      </TouchableOpacity>
+    </View>
   );
 }
 
 export default SearchResultList;
+
+SearchResultList.propTypes = {
+  style: ViewPropTypes.style.isRequired,
+};
