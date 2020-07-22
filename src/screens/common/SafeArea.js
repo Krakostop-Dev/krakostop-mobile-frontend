@@ -1,7 +1,7 @@
 import React from 'react';
 import { Platform, SafeAreaView, StatusBar, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import { ksStyle } from './basic/ksBasic';
+import { ksStyle } from '../../styles/basic/ksBasic';
 
 const styles = StyleSheet.create({
   androidSafeArea: {
