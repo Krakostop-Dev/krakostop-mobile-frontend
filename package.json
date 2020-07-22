@@ -46,6 +46,7 @@
     "react-native-safe-area-context": "0.6.0",
     "react-native-safe-area-view": "latest",
     "react-native-screens": "2.0.0-alpha.12",
+    "react-native-status-bar-height": "^2.5.0",
     "react-native-svg": "9.13.3",
     "react-native-webview": "7.4.3",
     "react-navigation": "^4.0.10",
