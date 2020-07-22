@@ -1,3 +1,3 @@
-import CustomizedSearchBarOverlay from './CustomizedSearchBarOverlay';
+import SearchHeader from '../header/SearchHeader';
 
-export default CustomizedSearchBarOverlay;
+export default SearchHeader;

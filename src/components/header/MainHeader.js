@@ -1,27 +1,26 @@
 import React, { useContext } from 'react';
-import { StyleSheet } from 'react-native';
-import { Header } from 'react-native-elements';
-import AvatarButton from './AvatarButton';
-import SearchButton from '../buttons/SearchButton';
+import { StyleSheet, View } from 'react-native';
 import { ksStyle } from '../../styles/basic/ksBasic';
-import KsLogoView from './KsLogoView';
 import { SearchContext } from '../../modules/context/SearchContext';
+import SearchHeader from '../searchBar';
+import DefaultHeader from './DefaultHeader';
 
 const styles = StyleSheet.create({
   containerStyle: {
     backgroundColor: ksStyle.colors.primaryColorDark,
+    width: '100%',
+    paddingVertical: 10,
+    paddingHorizontal: 10,
   },
 });
 
 const MainHeader = () => {
   const { isSearchActive } = useContext(SearchContext);
+
   return (
-    <Header
-      leftComponent={AvatarButton}
-      centerComponent={!isSearchActive && KsLogoView}
-      rightComponent={SearchButton}
-      containerStyle={styles.containerStyle}
-    />
+    <View style={styles.containerStyle}>
+      {isSearchActive ? <SearchHeader /> : <DefaultHeader />}
+    </View>
   );
 };
 export default MainHeader;

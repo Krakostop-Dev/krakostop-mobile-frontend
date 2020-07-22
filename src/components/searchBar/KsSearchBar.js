@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0,
     borderTopWidth: 0,
     paddingBottom: 0,
-    ...ksStyle.shadow,
   },
   inputContainerStyle: {
     flexDirection: 'row',
@@ -27,7 +26,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function CustomizedSearchBar() {
+function KsSearchBar() {
   const { searchPattern, searchByPattern } = useContext(SearchContext);
   const [search, setSearch] = useState(searchPattern);
 
@@ -54,4 +53,4 @@ function CustomizedSearchBar() {
   );
 }
 
-export default CustomizedSearchBar;
+export default KsSearchBar;
