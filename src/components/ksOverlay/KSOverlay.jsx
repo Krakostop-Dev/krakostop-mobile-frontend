@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { Overlay } from 'react-native-elements';
+import {StyleSheet} from 'react-native';
+import {Overlay} from 'react-native-elements';
 import PropTypes from 'prop-types';
-import { ksStyle } from '../../styles/basic/ksBasic';
+import {ksStyle} from '../../styles/basic/ksBasic';
 
 const styles = StyleSheet.create({
   overlay: {
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function KSOverlay({ isVisible, setIsVisible, children }) {
+function KSOverlay({isVisible, setIsVisible, children}) {
   return (
     <Overlay
       isVisible={isVisible}
@@ -31,5 +31,4 @@ export default KSOverlay;
 KSOverlay.propTypes = {
   isVisible: PropTypes.bool.isRequired,
   setIsVisible: PropTypes.func.isRequired,
-  children: PropTypes.node.isRequired,
 };

@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16,
-    fontFamily: 'sans-serif',
+    fontFamily: ksStyle.font.base,
     color: 'white',
   },
   textCenter: {
